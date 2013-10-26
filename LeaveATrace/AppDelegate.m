@@ -6,12 +6,22 @@
 //  Copyright (c) 2013 15and50. All rights reserved.
 //
 
+#import <Parse/Parse.h>
 #import "AppDelegate.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [Parse setApplicationId:@"cK6TMBbNDsdNFsE1vSckhEQDrCQjztAxURMKPHXL"
+                  clientKey:@"8n0WuaSXapCrRAH1HRNL7bbSxIOBQxbjZHWLIrHr"];
+    
+    //    PFObject *player = [PFObject objectWithClassName:@"Player"];//1
+    //    [player setObject:@"Dan" forKey:@"Name"];
+    //    [player setObject:[NSNumber numberWithInt:1230] forKey:@"Score"];//2
+    //    [player save];//3
+
     // Override point for customization after application launch.
     return YES;
 }
