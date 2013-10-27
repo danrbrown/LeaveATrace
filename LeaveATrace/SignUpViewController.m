@@ -42,6 +42,9 @@
             
             [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
             
+            [[PFInstallation currentInstallation] setObject:[PFUser currentUser] forKey:@"user"];
+            [[PFInstallation currentInstallation] saveEventually];
+            
         } else if (error){
             
            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Nope!" message:@"Username already taken" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];

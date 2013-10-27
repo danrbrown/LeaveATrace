@@ -39,6 +39,8 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:newDeviceToken];
     [currentInstallation saveInBackground];
+    
+    NSLog(@"In didRegisterForRemoteNotificationsWithDeviceToken");
 }
 
 - (void)application:(UIApplication *)application

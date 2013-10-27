@@ -35,11 +35,6 @@
     DrawAnything.hidden = YES;
         
     SendToAnyone.hidden = YES;
-    
-//    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-//    [currentInstallation addUniqueObject:@"LeaveATrace" forKey:@"channels"];
-//    [currentInstallation saveInBackground];
-    
 }
 
 -(IBAction)clear:(id)sender {
@@ -191,6 +186,32 @@
 }
 
 -(IBAction)send:(id)sender {
+    
+    // ----Start DRB ---------------------------------------
+    // Get the user we want to push the notification to
+    
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:@"danrbrown"];
+    PFUser *user = (PFUser *)[query getFirstObject];
+    
+    // Define a text message
+    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"some text..", @"alert", nil];
+    
+    // Prepare to send the push notification
+    
+    PFQuery *pushQuery = [PFInstallation query];
+    [pushQuery whereKey:@"user" equalTo:user];
+    
+    // Send push notification to query
+    PFPush *push = [[PFPush alloc] init];
+    [push setQuery:pushQuery]; // Set our installation query
+    [push setData:data];
+    [push sendPushInBackground];
+    
+    NSLog(@"Just saved the installation");
+    // End of the push sequence. Need to clean up later.
+    // ----End DRB ---------------------------------------
     
     UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
     [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
