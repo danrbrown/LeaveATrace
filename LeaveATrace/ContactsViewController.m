@@ -23,7 +23,7 @@
     
     [super viewDidLoad];
     
-    items = [[NSMutableArray alloc] initWithCapacity:20];
+    items = [[NSMutableArray alloc] initWithCapacity:1000];
     
 }
 

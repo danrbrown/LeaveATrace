@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
-        <!--Checklists View Controller - Contacts-->
+        <!--Contacts View Controller - Contacts-->
         <scene sceneID="cGu-Vm-VBk">
             <objects>
-                <tableViewController id="45d-8g-mdk" customClass="ChecklistsViewController" sceneMemberID="viewController">
+                <tableViewController id="45d-8g-mdk" customClass="ContactsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="22" sectionFooterHeight="22" id="Q9g-y1-B53">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,7 +167,7 @@
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="9jb-Lx-YCx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.4206461541" blue="0.95223335600000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="33"/>
                             <color key="textColor" red="0.95367935979999996" green="1" blue="0.20564326029999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -219,7 +219,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HhA-B4-PEV" kind="modal" id="n8K-tO-JJP"/>
+                                    <segue destination="HhA-B4-PEV" kind="modal" identifier="SendTo" id="n8K-tO-JJP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIF-o3-zbA">
@@ -474,7 +474,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Friend Requests" id="9SH-85-zqG">
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="mjp-b5-ktd">
-                            <color key="tintColor" red="1" green="0.94174692209999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="logOut:" destination="dkT-yk-hJO" id="1rm-XD-x06"/>
                                 <segue destination="q66-0j-MX0" kind="modal" identifier="LogOutSuccesful" modalTransitionStyle="flipHorizontal" id="KAd-lg-khP"/>
@@ -495,7 +495,7 @@
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="8p9-IX-KoU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.4206461541" blue="0.95223335600000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="33"/>
                             <color key="textColor" red="0.95367935979999996" green="1" blue="0.20564326029999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -523,7 +523,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVs-LC-W3O">
-                                <rect key="frame" x="125" y="239" width="70" height="54"/>
+                                <rect key="frame" x="125" y="252" width="70" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="27"/>
                                 <state key="normal" title="Login">
@@ -535,7 +535,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFE-jg-6NN">
-                                <rect key="frame" x="123" y="296" width="74" height="42"/>
+                                <rect key="frame" x="125" y="309" width="70" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="22"/>
                                 <state key="normal" title="Sign up">
@@ -546,27 +546,24 @@
                                     <segue destination="5hk-4q-zO9" kind="modal" identifier="" modalTransitionStyle="flipHorizontal" id="2HR-vG-8MM"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8vj-fC-XQX">
-                                <rect key="frame" x="48" y="134" width="224" height="39"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8vj-fC-XQX">
+                                <rect key="frame" x="11" y="149" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n27-2M-8tn">
-                                <rect key="frame" x="48" y="192" width="224" height="39"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n27-2M-8tn">
+                                <rect key="frame" x="11" y="204" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Log  in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymY-0c-SX2">
-                                <rect key="frame" x="107" y="5" width="107" height="72"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LeaveATraceLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZWH-rp-Mtr">
+                                <rect key="frame" x="35" y="20" width="250" height="127"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="38"/>
-                                <color key="textColor" red="1" green="0.94174692209999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -594,7 +591,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byo-Xi-fL6">
-                                <rect key="frame" x="113" y="226" width="95" height="45"/>
+                                <rect key="frame" x="113" y="258" width="95" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="27"/>
                                 <state key="normal" title="Sign up">
@@ -605,20 +602,15 @@
                                     <action selector="signUpUserPressed:" destination="5hk-4q-zO9" eventType="touchUpInside" id="R0N-SV-gIN"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Frh-1i-He8">
-                                <rect key="frame" x="53" y="131" width="214" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Psp-YW-9rG">
+                                <rect key="frame" x="11" y="210" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Psp-YW-9rG">
-                                <rect key="frame" x="53" y="188" width="214" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="14"/>
+                                <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0m-4a-3nd">
-                                <rect key="frame" x="137" y="297" width="46" height="23"/>
+                                <rect key="frame" x="137" y="322" width="46" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="22"/>
                                 <state key="normal" title="Back">
@@ -629,13 +621,17 @@
                                     <segue destination="q66-0j-MX0" kind="modal" modalTransitionStyle="flipHorizontal" id="oCT-TG-mxM"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4A-Qq-niV">
-                                <rect key="frame" x="107" y="5" width="107" height="72"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Frh-1i-He8">
+                                <rect key="frame" x="11" y="155" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="38"/>
-                                <color key="textColor" red="1" green="0.94174692209999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="LeaveATraceLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="vJd-Vc-ejf">
+                                <rect key="frame" x="35" y="20" width="250" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -683,7 +679,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YoB-Z7-pLf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.4206461541" blue="0.95223335600000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="33"/>
                             <color key="textColor" red="0.95367935979999996" green="1" blue="0.20564326029999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -707,9 +703,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="k14-F4-Wzh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="33"/>
+                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                             <color key="textColor" red="0.95367935979999996" green="1" blue="0.20564326029999999" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
@@ -731,6 +727,7 @@
         <image name="CCRed.png" width="97" height="91"/>
         <image name="CCYellow.png" width="97" height="91"/>
         <image name="FrameColors.png" width="147" height="130"/>
+        <image name="LeaveATraceLogo.png" width="545" height="256"/>
         <image name="SaveB.png" width="131" height="114"/>
         <image name="TrashITB.png" width="187" height="184"/>
         <image name="colorsB.png" width="208" height="145"/>
@@ -746,6 +743,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="vm4-Ru-Iag"/>
-        <segue reference="oCT-TG-mxM"/>
+        <segue reference="KAd-lg-khP"/>
     </inferredMetricsTieBreakers>
 </document>

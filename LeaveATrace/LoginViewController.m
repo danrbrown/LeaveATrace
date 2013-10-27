@@ -19,8 +19,13 @@
 - (void)viewDidLoad
 {
     
+    userNameTextField.layer.cornerRadius = 7;
     
+    userNameTextField.tintColor = [UIColor redColor];
     
+    passWordTextField.layer.cornerRadius = 7;
+    
+    passWordTextField.tintColor = [UIColor redColor];
     
 }
 
@@ -28,12 +33,15 @@
 {
     [PFUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passWordTextField.text block:^(PFUser *user, NSError *error) {
         if (user) {
-            //Open the wall
+            
             [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
+            
+            
+            
         } else {
             //Something bad has ocurred
             
-            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Try again" message:@"Either you password or your username was wrong, rookie mistake!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Try again" message:@"Either your password or your username was wrong, rookie mistake!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [errorAlertView show];
         }
     }];

@@ -8,6 +8,8 @@
 
 #import "CanvasViewController.h"
 
+#import "LoginViewController.h"
+
 #import <Twitter/Twitter.h>
 
 #import <Parse/Parse.h>
@@ -34,6 +36,10 @@
         
     SendToAnyone.hidden = YES;
     
+//    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+//    [currentInstallation addUniqueObject:@"LeaveATrace" forKey:@"channels"];
+//    [currentInstallation saveInBackground];
+    
 }
 
 -(IBAction)clear:(id)sender {
@@ -47,8 +53,7 @@
     
         self.mainImage.image = nil;
         
-        //[DrawAnything setHidden:YES];
-        //[SendToAnyone setHidden:YES];
+        
         
     }
     
@@ -156,52 +161,14 @@
                                                              delegate:self
                                                     cancelButtonTitle:nil
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Save to Camera Roll", @"Tweet it!", @"Cancel", nil];
+                                                    otherButtonTitles:@"Save to Camera Roll", @"Cancel", nil];
     [actionSheet showInView:self.view];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	if (buttonIndex == 1)
-	{
-        Class tweeterClass = NSClassFromString(@"TWTweetComposeViewController");
         
-        if(tweeterClass != nil) {   // check for Twitter integration
-            
-            // check Twitter accessibility and at least one account is setup
-            if([TWTweetComposeViewController canSendTweet]) {
-                
-                UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO,0.0);
-                [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
-                UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-                
-                TWTweetComposeViewController *tweetViewController = [[TWTweetComposeViewController alloc] init];
-                // set initial text
-                [tweetViewController setInitialText:@"Check out this drawing I made from a tutorial on raywenderlich.com:"];
-                
-                // add image
-                [tweetViewController addImage:SaveImage];
-                tweetViewController.completionHandler = ^(TWTweetComposeViewControllerResult result) {
-                    if(result == TWTweetComposeViewControllerResultDone) {
-                        // the user finished composing a tweet
-                    } else if(result == TWTweetComposeViewControllerResultCancelled) {
-                        // the user cancelled composing a tweet
-                    }
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                };
-                
-                [self presentViewController:tweetViewController animated:YES completion:nil];
-            } else {
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"You can't send a tweet right now, make sure you have at least one Twitter account setup and your device is using iOS5" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alertView show];
-            }
-        } else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"You must upgrade to iOS5.0 in order to send tweets from this application" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alertView show];
-        }
-        
-    } else if(buttonIndex == 0) {
+    if(buttonIndex == 0) {
         
         UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
         [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
@@ -229,42 +196,41 @@
     [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
     UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
     NSData *pictureData = UIImageJPEGRepresentation(SaveImage, 1.0);
+    
     UIGraphicsEndImageContext();
     
     PFFile *file = [PFFile fileWithName:@"img" data:pictureData];
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         if (succeeded){
-            //2
-            //Add the image to the object, and add the comment and the user
+
             PFObject *imageObject = [PFObject objectWithClassName:@"WallImageObject"];
             [imageObject setObject:file forKey:@"image"];
             [imageObject setObject:[PFUser currentUser].username forKey:@"user"];
-            //3
             
-            NSLog(@"u did it");
             [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                //4
+              
                 if (succeeded){
-                    //Go back to the wall
+                    
                     [self.navigationController popViewControllerAnimated:YES];
-                    NSLog(@"u did it");
-                }
-                else{
+                    
+                } else {
+                    
                     NSString *errorString = [[error userInfo] objectForKey:@"error"];
                     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                     [errorAlertView show];
-                    NSLog(@"u suck");
+                    
+                    
                 }
             }];
-        }
-        else{
-            //5
+        } else {
+            
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [errorAlertView show];
-            NSLog(@"u suck");
+            
         }
+        
     } progressBlock:^(int percentDone) {
         NSLog(@"Uploaded: %d %%", percentDone);
     }];
