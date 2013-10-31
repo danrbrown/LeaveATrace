@@ -14,7 +14,7 @@
 @end
 
 @implementation SignUpViewController
-@synthesize userSignUpTextField, passwordSignUpTextField;
+@synthesize userSignUpTextField, passwordSignUpTextField, varifyPasswordSignUpTextField;
 
 - (void)viewDidLoad
 {
@@ -27,6 +27,10 @@
     
     passwordSignUpTextField.tintColor = [UIColor redColor];
     
+    varifyPasswordSignUpTextField.layer.cornerRadius = 7;
+    
+    varifyPasswordSignUpTextField.tintColor = [UIColor redColor];
+    
 }
 
 -(IBAction)signUpUserPressed:(id)sender
@@ -38,6 +42,7 @@
     user.password = self.passwordSignUpTextField.text;
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
         if (!error) {
             
             [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
@@ -49,6 +54,8 @@
             
            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Nope!" message:@"Username already taken" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
           [errorAlertView show];
+            
+            userSignUpTextField.text = nil;
             
         }
     }];

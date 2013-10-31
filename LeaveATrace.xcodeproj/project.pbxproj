@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9C167513181CA3600024EE93 /* textField.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C167512181CA3600024EE93 /* textField.png */; };
 		9C167517181CB3920024EE93 /* LeaveATraceLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C167516181CB3920024EE93 /* LeaveATraceLogo.png */; };
+		9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16751C181DA1B50024EE93 /* tracesViewController.m */; };
+		9C16753418209C460024EE93 /* UserImgPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C16753318209C460024EE93 /* UserImgPlaceholder.png */; };
 		9C27680B181C75B10073453E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680A181C75B10073453E /* Foundation.framework */; };
 		9C27680D181C75B10073453E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680C181C75B10073453E /* CoreGraphics.framework */; };
 		9C27680F181C75B10073453E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680E181C75B10073453E /* UIKit.framework */; };
@@ -78,6 +80,9 @@
 /* Begin PBXFileReference section */
 		9C167512181CA3600024EE93 /* textField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textField.png; sourceTree = "<group>"; };
 		9C167516181CB3920024EE93 /* LeaveATraceLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeaveATraceLogo.png; sourceTree = "<group>"; };
+		9C16751B181DA1B50024EE93 /* tracesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tracesViewController.h; sourceTree = "<group>"; };
+		9C16751C181DA1B50024EE93 /* tracesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tracesViewController.m; sourceTree = "<group>"; };
+		9C16753318209C460024EE93 /* UserImgPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UserImgPlaceholder.png; sourceTree = "<group>"; };
 		9C276807181C75B10073453E /* LeaveATrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeaveATrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C27680A181C75B10073453E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9C27680C181C75B10073453E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -261,6 +266,8 @@
 				9C276879181C77E70073453E /* ContactsViewController.m */,
 				9C27687B181C78F90073453E /* Contact.h */,
 				9C27687C181C78F90073453E /* Contact.m */,
+				9C16751B181DA1B50024EE93 /* tracesViewController.h */,
+				9C16751C181DA1B50024EE93 /* tracesViewController.m */,
 				9C276822181C75B10073453E /* Images.xcassets */,
 				9C276811181C75B10073453E /* Supporting Files */,
 			);
@@ -333,6 +340,7 @@
 		9C27685E181C771D0073453E /* other */ = {
 			isa = PBXGroup;
 			children = (
+				9C16753318209C460024EE93 /* UserImgPlaceholder.png */,
 				9C27685F181C771D0073453E /* Default-568h@2x.png */,
 				9C276860181C771D0073453E /* FrameColors.png */,
 				9C276861181C771D0073453E /* iconsberlin@2x.png */,
@@ -423,6 +431,7 @@
 			files = (
 				9C276874181C771D0073453E /* undo2.png in Resources */,
 				9C276866181C771D0073453E /* SaveB.png in Resources */,
+				9C16753418209C460024EE93 /* UserImgPlaceholder.png in Resources */,
 				9C276869181C771D0073453E /* CCBlack.png in Resources */,
 				9C27686A181C771D0073453E /* CCBlue.png in Resources */,
 				9C276870181C771D0073453E /* FrameColors.png in Resources */,
@@ -468,6 +477,7 @@
 				9C27684D181C76B10073453E /* SettingsViewController.m in Sources */,
 				9C276877181C774F0073453E /* LeaveATraceItem.m in Sources */,
 				9C27684E181C76B10073453E /* LoginViewController.m in Sources */,
+				9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */,
 				9C27681B181C75B10073453E /* AppDelegate.m in Sources */,
 				9C27684F181C76B10073453E /* SignUpViewController.m in Sources */,
 				9C276850181C76B10073453E /* RequestsAndLogOutViewController.m in Sources */,

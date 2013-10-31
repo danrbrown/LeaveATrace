@@ -23,29 +23,31 @@
      UIRemoteNotificationTypeAlert |
      UIRemoteNotificationTypeSound];
 
-    
-    //    PFObject *player = [PFObject objectWithClassName:@"Player"];//1 another comment
-    //    [player setObject:@"Dan" forKey:@"Name"];
-    //    [player setObject:[NSNumber numberWithInt:1230] forKey:@"Score"];//2
-    //    [player save];//3
-
-    // Override point for customization after application launch.
     return YES;
 }
 
-- (void)application:(UIApplication *)application
-didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
+    
     // Store the deviceToken in the current installation and save it to Parse.
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:newDeviceToken];
     [currentInstallation saveInBackground];
     
     NSLog(@"In didRegisterForRemoteNotificationsWithDeviceToken");
+
 }
 
 - (void)application:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    NSLog(@"I just got a push notification!");
+
     [PFPush handlePush:userInfo];
+    
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    
+    tabBarController.selectedIndex = 1;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *userSignUpTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordSignUpTextField;
+@property (strong, nonatomic) IBOutlet UITextField *varifyPasswordSignUpTextField;
 
 -(IBAction)signUpUserPressed:(id)sender;
 

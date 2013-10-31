@@ -22,7 +22,7 @@
 
 @synthesize mainImage;
 
-- (void)viewDidLoad
+- (void)viewDidAppear:(BOOL)animated
 {
     
     red = 0.0/255.0;
@@ -41,9 +41,11 @@
     
     if (self.mainImage.image != nil) {
 
+        mouseSwiped = YES;
+        
         [UIView beginAnimations:@"suck" context:NULL];
-        [UIView setAnimationTransition:103 forView:mainImage cache:NO];
-        [UIView setAnimationDuration:1.5f];
+        [UIView setAnimationTransition:108 forView:mainImage cache:NO];
+        [UIView setAnimationDuration:0.9f];
         [UIView commitAnimations];
     
         self.mainImage.image = nil;
@@ -89,9 +91,7 @@
     UIGraphicsEndImageContext();
     
     lastPoint = currentPoint;
-    
-    //[SendToAnyone setHidden:YES];
-    //[DrawAnything setHidden:YES];
+
 }
 
 
@@ -117,8 +117,6 @@
     [self.mainImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) blendMode:kCGBlendModeNormal alpha:opacity];
     self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    //[SendToAnyone setHidden:NO];
 
 }
 
@@ -187,7 +185,7 @@
 
 -(IBAction)send:(id)sender {
     
-    // ----Start DRB ---------------------------------------
+    /* ----Start DRB ---------------------------------------
     // Get the user we want to push the notification to
     
     PFQuery *query = [PFUser query];
@@ -211,7 +209,7 @@
     
     NSLog(@"Just saved the installation");
     // End of the push sequence. Need to clean up later.
-    // ----End DRB ---------------------------------------
+    ----End DRB ---------------------------------------*/
     
     UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
     [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
@@ -255,6 +253,60 @@
     } progressBlock:^(int percentDone) {
         NSLog(@"Uploaded: %d %%", percentDone);
     }];
+    
+}
+
+-(IBAction)getImage:(id)sender {
+    
+//    UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
+//    [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
+//    UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
+//    NSData *pictureData = UIImageJPEGRepresentation(SaveImage, 1.0);
+//    
+//    UIImage *userimage = [UIImage imageNamed:@"FrameColors.png"];
+//    NSData *pictureData2 = UIImageJPEGRepresentation(userimage, 1.0);
+//    
+//    PFQuery *query = [PFQuery queryWithClassName:@"WallImageObject"];
+//    
+//    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+//        
+//        if (!object) {
+//            return NSLog(@"%@", error);
+//        }
+//        
+//        PFFile *imageFile = object[@"imageFile"];
+//        
+//        [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+//            if (!data) {
+//                return NSLog(@"%@", error);
+//            }
+//            
+//            // Do something with the image
+//            return NSLog(@"Doing something with the image");
+//            UIImage *getImage = [UIImage imageWithData:pictureData];
+//            mainImage.image = getImage;
+//            
+//        }];
+//    }];
+//    
+//    return NSLog(@"Doing something with the image");
+    
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"WallImageObject"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSLog(@"The find succeeded. The first 100 objects are available in objects");
+            
+            // The find succeeded. The first 100 objects are available in objects
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+    
+    UIImage *someImg = [UIImage imageNamed:@"UserImgPlaceholder.png"];
+    mainImage.image = someImg;
     
 }
 

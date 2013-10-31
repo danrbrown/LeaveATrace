@@ -37,12 +37,15 @@
             [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
             
             
-            
         } else {
             //Something bad has ocurred
             
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Try again" message:@"Either your password or your username was wrong, rookie mistake!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [errorAlertView show];
+            
+            userNameTextField.text = nil;
+            passWordTextField.text = nil;
+            
         }
     }];
 }
