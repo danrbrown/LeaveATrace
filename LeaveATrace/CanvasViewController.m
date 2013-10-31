@@ -296,7 +296,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"WallImageObject"];
     
     [query whereKey:@"user" equalTo:@"danrbrown"];
-    [query whereKey:@"deliveredToUser" equalTo:@"N"];
+    [query whereKey:@"deliveredToUser" equalTo:@"No"];
     [query orderByDescending:@"createdAt"];   // or sort by orderByAscending
     [query setLimit:1];
     
@@ -311,7 +311,7 @@
                          mainImage.image = image;
                         
                         // Now update the database that this image was delivered to the user
-                        [myImages setObject:@"Y"forKey:@"deliveredToUser"];
+                        [myImages setObject:@"Yes"forKey:@"deliveredToUser"];
                         [myImages saveInBackground];
                     }
                 }];
