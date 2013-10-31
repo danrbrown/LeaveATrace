@@ -226,6 +226,7 @@
             PFObject *imageObject = [PFObject objectWithClassName:@"WallImageObject"];
             [imageObject setObject:file forKey:@"image"];
             [imageObject setObject:[PFUser currentUser].username forKey:@"user"];
+            [imageObject setObject:@"N"forKey:@"deliveredToUser"];
             
             [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
               
@@ -293,18 +294,28 @@
     
     
     PFQuery *query = [PFQuery queryWithClassName:@"WallImageObject"];
+    
+    [query whereKey:@"user" equalTo:@"danrbrown"];
+    [query whereKey:@"deliveredToUser" equalTo:@"N"];
+    [query orderByDescending:@"createdAt"];   // or sort by orderByAscending
+    [query setLimit:1];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            NSLog(@"The find succeeded. The first 100 objects are available in objects");
-            for (PFObject *object2 in objects) {
-                PFFile *imageFile = [object2 objectForKey:@"image"];
+            NSLog(@"The find succeeded!");
+            for (PFObject *myImages in objects) {
+                PFFile *imageFile = [myImages objectForKey:@"image"];
                 [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                     if (!error) {
                         UIImage *image = [UIImage imageWithData:data];
                          mainImage.image = image;
+                        
+                        // Now update the database that this image was delivered to the user
+                        [myImages setObject:@"Y"forKey:@"deliveredToUser"];
+                        [myImages saveInBackground];
                     }
                 }];
-                NSLog(@"%@",object2.objectId);
+                NSLog(@"%@",myImages.objectId);
             }
             
         } else {
