@@ -296,17 +296,22 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSLog(@"The find succeeded. The first 100 objects are available in objects");
+            for (PFObject *object2 in objects) {
+                PFFile *imageFile = [object2 objectForKey:@"image"];
+                [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                    if (!error) {
+                        UIImage *image = [UIImage imageWithData:data];
+                         mainImage.image = image;
+                    }
+                }];
+                NSLog(@"%@",object2.objectId);
+            }
             
-            // The find succeeded. The first 100 objects are available in objects
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-    
-    
-    UIImage *someImg = [UIImage imageNamed:@"UserImgPlaceholder.png"];
-    mainImage.image = someImg;
     
 }
 
