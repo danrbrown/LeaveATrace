@@ -47,6 +47,7 @@
 
 @property IBOutlet UIImageView *bigB;
 
+
 -(IBAction)justRed:(id)sender;
 
 -(IBAction)justBlue:(id)sender;

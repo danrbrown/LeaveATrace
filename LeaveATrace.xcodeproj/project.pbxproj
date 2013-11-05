@@ -65,6 +65,7 @@
 		9C276899181C7C1A0073453E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C276898181C7C1A0073453E /* Accounts.framework */; };
 		9C27689B181C7C660073453E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27689A181C7C660073453E /* SystemConfiguration.framework */; };
 		9C27689D181C7CDE0073453E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27689C181C7CDE0073453E /* AudioToolbox.framework */; };
+		9C782E05182885ED00077FC8 /* eraserB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C782E04182885ED00077FC8 /* eraserB.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		9C276898181C7C1A0073453E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		9C27689A181C7C660073453E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9C27689C181C7CDE0073453E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9C782E04182885ED00077FC8 /* eraserB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraserB.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +318,7 @@
 		9C276852181C771D0073453E /* buttons */ = {
 			isa = PBXGroup;
 			children = (
+				9C782E04182885ED00077FC8 /* eraserB.png */,
 				9C276853181C771D0073453E /* colorsB.png */,
 				9C276854181C771D0073453E /* SaveB.png */,
 				9C276855181C771D0073453E /* sendingB.png */,
@@ -444,6 +447,7 @@
 				9C276815181C75B10073453E /* InfoPlist.strings in Resources */,
 				9C167517181CB3920024EE93 /* LeaveATraceLogo.png in Resources */,
 				9C276865181C771D0073453E /* colorsB.png in Resources */,
+				9C782E05182885ED00077FC8 /* eraserB.png in Resources */,
 				9C27686C181C771D0073453E /* CCOrange.png in Resources */,
 				9C276873181C771D0073453E /* settingsBar.png in Resources */,
 				9C27686E181C771D0073453E /* CCYellow.png in Resources */,

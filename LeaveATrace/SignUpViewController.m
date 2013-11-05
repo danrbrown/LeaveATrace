@@ -14,23 +14,23 @@
 @end
 
 @implementation SignUpViewController
-@synthesize userSignUpTextField, passwordSignUpTextField, varifyPasswordSignUpTextField;
+@synthesize scrollie, emailTextField ,userSignUpTextField, passwordSignUpTextField, varifyPasswordSignUpTextField;
 
 - (void)viewDidLoad
 {
     
-    userSignUpTextField.layer.cornerRadius = 7;
+    [scrollie setScrollEnabled:YES];
+    [scrollie setContentSize:CGSizeMake(0, 2000)];
     
-    userSignUpTextField.tintColor = [UIColor redColor];
+    
+    emailTextField.layer.cornerRadius = 7;
+    
+    userSignUpTextField.layer.cornerRadius = 7;
     
     passwordSignUpTextField.layer.cornerRadius = 7;
     
-    passwordSignUpTextField.tintColor = [UIColor redColor];
-    
     varifyPasswordSignUpTextField.layer.cornerRadius = 7;
-    
-    varifyPasswordSignUpTextField.tintColor = [UIColor redColor];
-    
+
 }
 
 -(IBAction)signUpUserPressed:(id)sender
@@ -38,6 +38,7 @@
     
     PFUser *user = [PFUser user];
     
+    user.email = self.emailTextField.text;
     user.username = self.userSignUpTextField.text;
     user.password = self.passwordSignUpTextField.text;
     
@@ -52,10 +53,11 @@
             
         } else if (error){
             
-           UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Nope!" message:@"Username already taken" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+           UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Username already taken or not valid email" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
           [errorAlertView show];
             
             userSignUpTextField.text = nil;
+            emailTextField.text = nil;
             
         }
     }];

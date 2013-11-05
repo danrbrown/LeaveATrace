@@ -19,7 +19,10 @@
 {
     
     
-    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
+                                        init];
+    refreshControl.tintColor = [UIColor blueColor];
+    self.refreshControl = refreshControl;
     
     
 }

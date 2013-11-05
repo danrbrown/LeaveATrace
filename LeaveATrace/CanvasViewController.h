@@ -32,6 +32,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 
 -(IBAction)send:(id)sender;
+-(void)viewDidLoad;
 
+-(IBAction)eraser:(id)sender;
 
 @end

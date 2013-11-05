@@ -19,8 +19,24 @@
 @synthesize redLabel, blueLabel, greenLabel, currentColorLabel;
 @synthesize brush, brushSize;
 
-- (void)viewDidLoad
-{
+-(void)viewWillAppear:(BOOL)animated {
+    
+    // ensure the values displayed are the current values
+    
+    int redIntValue = self.red * 255.0;
+    self.redControl.value = redIntValue;
+    [self sliderChanged:self.redControl];
+    
+    int greenIntValue = self.green * 255.0;
+    self.greenControl.value = greenIntValue;
+    [self sliderChanged:self.greenControl];
+    
+    int blueIntValue = self.blue * 255.0;
+    self.blueControl.value = blueIntValue;
+    [self sliderChanged:self.blueControl];
+    
+    self.brushSize.value = self.brush;
+    [self sliderChanged:self.brushSize];
     
     UIGraphicsBeginImageContext(self.smallB.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -41,34 +57,6 @@
     CGContextStrokePath(UIGraphicsGetCurrentContext());
     self.bigB.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    [redFrame setHidden:YES];
-    [greenFrame setHidden:YES];
-    [blueFrame setHidden:YES];
-    [orangeFrame setHidden:YES];
-    [yellowFrame setHidden:YES];
-    [blackFrame setHidden:YES];
-    
-}
-
--(void)viewWillAppear:(BOOL)animated {
-    
-    // ensure the values displayed are the current values
-    
-    int redIntValue = self.red * 255.0;
-    self.redControl.value = redIntValue;
-    [self sliderChanged:self.redControl];
-    
-    int greenIntValue = self.green * 255.0;
-    self.greenControl.value = greenIntValue;
-    [self sliderChanged:self.greenControl];
-    
-    int blueIntValue = self.blue * 255.0;
-    self.blueControl.value = blueIntValue;
-    [self sliderChanged:self.blueControl];
-    
-    self.brushSize.value = self.brush;
-    [self sliderChanged:self.brushSize];
     
 }
 
@@ -216,22 +204,7 @@
     self.blue = self.blueControl.value = 0.0;
     self.green = self.greenControl.value = 255.0;
     
-    UIGraphicsBeginImageContext(self.currentColorLabel.frame.size);
-    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), self.brush);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
-    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextStrokePath(UIGraphicsGetCurrentContext());
-    self.currentColorLabel.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    [redFrame setHidden:YES];
-    [greenFrame setHidden:NO];
-    [blueFrame setHidden:YES];
-    [orangeFrame setHidden:YES];
-    [yellowFrame setHidden:YES];
-    [blackFrame setHidden:YES];
+    [self callColorChange];
     
 }
 
@@ -241,22 +214,7 @@
     self.blue = self.blueControl.value = 0.0;
     self.green = self.greenControl.value = 0.0;
     
-    UIGraphicsBeginImageContext(self.currentColorLabel.frame.size);
-    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), self.brush);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
-    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextStrokePath(UIGraphicsGetCurrentContext());
-    self.currentColorLabel.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    [redFrame setHidden:YES];
-    [greenFrame setHidden:YES];
-    [blueFrame setHidden:YES];
-    [orangeFrame setHidden:YES];
-    [yellowFrame setHidden:YES];
-    [blackFrame setHidden:NO];
+    [self callColorChange];
     
 }
 
@@ -266,22 +224,7 @@
     self.blue = self.blueControl.value = 0.0;
     self.green = self.greenControl.value = 100.0;
     
-    UIGraphicsBeginImageContext(self.currentColorLabel.frame.size);
-    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), self.brush);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
-    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextStrokePath(UIGraphicsGetCurrentContext());
-    self.currentColorLabel.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    [redFrame setHidden:YES];
-    [greenFrame setHidden:YES];
-    [blueFrame setHidden:YES];
-    [orangeFrame setHidden:NO];
-    [yellowFrame setHidden:YES];
-    [blackFrame setHidden:YES];
+    [self callColorChange];
     
 }
 
@@ -291,6 +234,12 @@
     self.blue = self.blueControl.value = 0.0;
     self.green = self.greenControl.value = 201.0;
     
+    [self callColorChange];
+    
+}
+
+-(void)callColorChange {
+    
     UIGraphicsBeginImageContext(self.currentColorLabel.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
     CGContextSetLineWidth(UIGraphicsGetCurrentContext(), self.brush);
@@ -300,13 +249,6 @@
     CGContextStrokePath(UIGraphicsGetCurrentContext());
     self.currentColorLabel.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    [redFrame setHidden:YES];
-    [greenFrame setHidden:YES];
-    [blueFrame setHidden:YES];
-    [orangeFrame setHidden:YES];
-    [yellowFrame setHidden:NO];
-    [blackFrame setHidden:YES];
     
 }
 

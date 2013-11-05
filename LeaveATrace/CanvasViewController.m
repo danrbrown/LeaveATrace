@@ -22,7 +22,7 @@
 
 @synthesize mainImage;
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewDidLoad
 {
     
     red = 0.0/255.0;
@@ -31,10 +31,12 @@
      
     brush = 11.0;
     opacity = 1.0;
-        
+    
     DrawAnything.hidden = YES;
         
     SendToAnyone.hidden = YES;
+    
+    [super viewDidLoad];
 }
 
 -(IBAction)clear:(id)sender {
@@ -93,8 +95,6 @@
     lastPoint = currentPoint;
 
 }
-
-
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     
@@ -209,7 +209,7 @@
     
     NSLog(@"Just saved the installation");
     // End of the push sequence. Need to clean up later.
-    ----End DRB ---------------------------------------*/
+    //----End DRB ---------------------------------------*/
     
     UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
     [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
@@ -326,7 +326,26 @@
     
 }
 
+-(IBAction)eraser:(id)sender {
+    
+    red = 255.0/255.0;
+    green = 255.0/255.0;
+    blue = 255.0/255.0;
+    
+    brush = 28.0;
+    opacity = 1.0;
+    
+}
+
 @end
+
+
+
+
+
+
+
+
 
 
 

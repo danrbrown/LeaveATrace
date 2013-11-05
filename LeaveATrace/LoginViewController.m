@@ -27,6 +27,8 @@
     
     passWordTextField.tintColor = [UIColor redColor];
     
+    self.passWordTextField.delegate = self;
+    
 }
 
 - (IBAction)userLogInPressed:(id)sender
@@ -34,7 +36,11 @@
     [PFUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passWordTextField.text block:^(PFUser *user, NSError *error) {
         if (user) {
             
+            
+            
             [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
+            
+            [self textFieldShouldReturn:passWordTextField];
             
             
         } else {
@@ -48,6 +54,32 @@
             
         }
     }];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    [PFUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passWordTextField.text block:^(PFUser *user, NSError *error) {
+        if (user) {
+            
+            [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
+            
+            [self textFieldShouldReturn:passWordTextField];
+            
+            
+        } else {
+            //Something bad has ocurred
+            
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Try again" message:@"Either your password or your username was wrong, rookie mistake!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [errorAlertView show];
+            
+            userNameTextField.text = nil;
+            passWordTextField.text = nil;
+            
+        }
+    }];
+    
+    return NO;
 }
 
 @end

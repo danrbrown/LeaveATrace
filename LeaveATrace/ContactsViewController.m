@@ -25,8 +25,6 @@
     
     items = [[NSMutableArray alloc] initWithCapacity:1000];
     
-    
-    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
