@@ -18,12 +18,23 @@
 
 @end
 
-@implementation CanvasViewController
+@implementation CanvasViewController {
+    
+    int menuInt;
+    NSArray *imagesArray;
+    
+    NSMutableArray *pathArray;
+    NSMutableArray *bufferArray;
+    UIBezierPath *myPath;
+    
+}
 
 @synthesize mainImage;
 
 - (void)viewDidLoad
 {
+    
+    imagesArray = [[NSArray alloc]initWithObjects:@"menuB.png",@"closeMenuB.png", nil];
     
     red = 0.0/255.0;
     green = 0.0/255.0;
@@ -31,6 +42,14 @@
      
     brush = 11.0;
     opacity = 1.0;
+    
+    getB.hidden = YES;
+    
+    trashB.center = CGPointMake(35, -100);
+    undoB.center = CGPointMake(111, -100);
+    eraseB.center = CGPointMake(189, -100);
+    colorsB.center = CGPointMake(275, -100);
+    menuB.center = CGPointMake(285, 46);
     
     DrawAnything.hidden = YES;
         
@@ -43,7 +62,9 @@
     
     if (self.mainImage.image != nil) {
 
-        mouseSwiped = YES;
+        [self dropUp];
+        
+        menuInt = 0;
         
         [UIView beginAnimations:@"suck" context:NULL];
         [UIView setAnimationTransition:108 forView:mainImage cache:NO];
@@ -51,8 +72,6 @@
         [UIView commitAnimations];
     
         self.mainImage.image = nil;
-        
-        
         
     }
     
@@ -122,7 +141,6 @@
 
 -(IBAction)undo:(id)sender {
     
-
     
 }
 
@@ -135,6 +153,8 @@
     settingsVC.blue = blue;
     settingsVC.brush = brush;
     
+    [self dropUp];
+    
 }
 
 #pragma mark - SettingsViewControllerDelegate methods
@@ -146,6 +166,8 @@
     blue = ((SettingsViewController*)sender).blue;
     brush = ((SettingsViewController*)sender).brush;
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    menuInt = 0;
 }
 
 - (IBAction)save:(id)sender {
@@ -160,7 +182,6 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-        
     if(buttonIndex == 0) {
         
         UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
@@ -334,6 +355,75 @@
     
     brush = 28.0;
     opacity = 1.0;
+    
+    [self dropUp];
+    
+    menuInt = 0;
+    
+}
+
+-(IBAction)dropDownMenu:(id)sender {
+    
+    if (menuInt == 0){
+    
+        [self dropDown];
+        
+    }
+    else if (menuInt == 1){
+        
+        [self dropUp];
+        
+        menuInt = 0;
+        
+    }
+    
+}
+
+-(void)dropDown {
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        trashB.center = CGPointMake(35, 46);
+        undoB.center = CGPointMake(111, 48);
+        eraseB.center = CGPointMake(189, 46);
+        colorsB.center = CGPointMake(275, 48);
+        menuB.center = CGPointMake(285, 110);
+        sendB.center = CGPointMake(267, 480);
+        saveB.center = CGPointMake(40, 483);
+        
+        UIImage *buttonImage = [UIImage imageNamed:@"closeMenuB.png"];
+        [menuB setImage:buttonImage forState:UIControlStateNormal];
+    }];
+    
+    menuInt = 1;
+    
+    [menuB setAlpha:0.0];
+    [UIView beginAnimations:@"animateTableView" context:nil];
+    [UIView setAnimationDuration:0.6];
+    [menuB setAlpha:1.0];
+    [UIView commitAnimations];
+    
+}
+
+-(void)dropUp {
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        trashB.center = CGPointMake(35, -100);
+        undoB.center = CGPointMake(111, -100);
+        eraseB.center = CGPointMake(189, -100);
+        colorsB.center = CGPointMake(275, -100);
+        menuB.center = CGPointMake(285, 46);
+        sendB.center = CGPointMake(267, 600);
+        saveB.center = CGPointMake(40, 600);
+
+        UIImage *buttonImage = [UIImage imageNamed:@"menuB.png"];
+        [menuB setImage:buttonImage forState:UIControlStateNormal];
+    }];
+    
+    [menuB setAlpha:0.0];
+    [UIView beginAnimations:@"animateTableView" context:nil];
+    [UIView setAnimationDuration:0.6];
+    [menuB setAlpha:1.0];
+    [UIView commitAnimations];
     
 }
 

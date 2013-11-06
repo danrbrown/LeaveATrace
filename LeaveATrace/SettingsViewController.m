@@ -16,12 +16,14 @@
 
 @synthesize delegate, red, blue, green;
 @synthesize redControl,blueControl, greenControl;
-@synthesize redLabel, blueLabel, greenLabel, currentColorLabel;
+@synthesize redLabel, blueLabel, greenLabel, currentColorLabel, allControll, allColor;
 @synthesize brush, brushSize;
 
 -(void)viewWillAppear:(BOOL)animated {
     
     // ensure the values displayed are the current values
+    
+    allColor = red * blue * green;
     
     int redIntValue = self.red * 255.0;
     self.redControl.value = redIntValue;
@@ -34,6 +36,10 @@
     int blueIntValue = self.blue * 255.0;
     self.blueControl.value = blueIntValue;
     [self sliderChanged:self.blueControl];
+    
+    int allIntValue = self.blue * self.red * self.green;
+    self.allControll.value = allIntValue;
+    [self sliderChanged:self.allControll];
     
     self.brushSize.value = self.brush;
     [self sliderChanged:self.brushSize];
@@ -114,8 +120,8 @@
         CGContextStrokePath(UIGraphicsGetCurrentContext());
         self.currentColorLabel.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        
-    } else if(changedSlider == self.brushSize) {
+    
+    }else if(changedSlider == self.brushSize) {
         
         self.brush = self.brushSize.value;
         

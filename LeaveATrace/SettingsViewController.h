@@ -28,6 +28,7 @@
 @property IBOutlet UISlider *redControl;
 @property IBOutlet UISlider *blueControl;
 @property IBOutlet UISlider *greenControl;
+@property IBOutlet UISlider *allControll;
 
 @property IBOutlet UISlider *brushSize;
 
@@ -36,6 +37,8 @@
 @property CGFloat red;
 @property CGFloat green;
 @property CGFloat blue;
+@property CGFloat allColor;
+
 
 @property IBOutlet UILabel *redLabel;
 @property IBOutlet UILabel *greenLabel;

@@ -36,8 +36,6 @@
     [PFUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passWordTextField.text block:^(PFUser *user, NSError *error) {
         if (user) {
             
-            
-            
             [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
             
             [self textFieldShouldReturn:passWordTextField];

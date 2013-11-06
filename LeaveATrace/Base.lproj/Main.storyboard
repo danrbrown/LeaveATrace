@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="q66-0j-MX0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Qsb-vs-PUu">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
@@ -188,9 +188,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIM-3Z-gXc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="tintColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O1Q-lZ-m3k">
-                                <rect key="frame" x="0.0" y="20" width="56" height="59"/>
+                                <rect key="frame" x="10" y="-100" width="56" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="TrashITB.png">
@@ -202,7 +203,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rz3-th-qPY">
-                                <rect key="frame" x="231" y="24" width="89" height="62"/>
+                                <rect key="frame" x="231" y="-100" width="89" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="colorsB.png">
@@ -213,20 +214,8 @@
                                     <segue destination="HhA-B4-PEV" kind="modal" identifier="SendTo" id="n8K-tO-JJP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIF-o3-zbA">
-                                <rect key="frame" x="10" y="463" width="63" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
-                                <state key="normal" image="SaveB.png">
-                                    <color key="titleColor" red="0.0" green="0.4206461541" blue="0.95223335600000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="save:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="mB4-LD-7PC"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhl-67-LS2">
-                                <rect key="frame" x="222" y="460" width="92" height="53"/>
+                                <rect key="frame" x="222" y="600" width="92" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" image="sendingB.png">
@@ -237,7 +226,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5k-Kc-eez">
-                                <rect key="frame" x="7" y="425" width="68" height="30"/>
+                                <rect key="frame" x="81" y="483" width="68" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="get image">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -247,7 +236,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rns-hs-jRr">
-                                <rect key="frame" x="169" y="15" width="64" height="64"/>
+                                <rect key="frame" x="159" y="-100" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="eraserB.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -256,17 +245,59 @@
                                     <action selector="eraser:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="gjV-ib-ynM"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8OC-gi-fZk">
+                                <rect key="frame" x="80" y="-100" width="69" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="backB.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="undo:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="SH9-Q3-pgk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPF-1G-J6q">
+                                <rect key="frame" x="251" y="20" width="67" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="21"/>
+                                <state key="normal" image="menuB.png">
+                                    <color key="titleColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dropDownMenu:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="XdT-ty-6zj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIF-o3-zbA">
+                                <rect key="frame" x="0.0" y="600" width="63" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
+                                <state key="normal" image="SaveB.png">
+                                    <color key="titleColor" red="0.0" green="0.4206461541" blue="0.95223335600000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="save:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="mB4-LD-7PC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Trace" image="iconsberlin.png" id="pDS-ST-dHk"/>
                     <connections>
+                        <outlet property="colorsB" destination="Rz3-th-qPY" id="pEt-oP-e90"/>
+                        <outlet property="eraseB" destination="Rns-hs-jRr" id="6Og-Pf-Tva"/>
+                        <outlet property="getB" destination="A5k-Kc-eez" id="SIR-Oe-KS2"/>
                         <outlet property="mainImage" destination="bIM-3Z-gXc" id="uRg-og-Nli"/>
+                        <outlet property="menuB" destination="kPF-1G-J6q" id="arS-9l-lO6"/>
+                        <outlet property="saveB" destination="yIF-o3-zbA" id="B6g-Er-EpM"/>
+                        <outlet property="sendB" destination="nhl-67-LS2" id="FdI-aU-ltA"/>
+                        <outlet property="trashB" destination="O1Q-lZ-m3k" id="OqW-F7-9Vn"/>
+                        <outlet property="undoB" destination="8OC-gi-fZk" id="lfR-Wk-qLD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ut3-sB-QOw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1872" y="455"/>
+            <point key="canvasLocation" x="1872" y="463"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="MqD-iU-6T9">
@@ -428,7 +459,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELg-13-Pt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252" y="455"/>
+            <point key="canvasLocation" x="2252" y="463"/>
         </scene>
         <!--Requests And Log Out View Controller - Requests-->
         <scene sceneID="Nqm-8T-fF4">
@@ -738,10 +769,12 @@
         <image name="CCYellow.png" width="97" height="91"/>
         <image name="SaveB.png" width="131" height="114"/>
         <image name="TrashITB.png" width="187" height="184"/>
+        <image name="backB.png" width="204" height="204"/>
         <image name="colorsB.png" width="208" height="145"/>
         <image name="eraserB.png" width="225" height="225"/>
         <image name="iconsberlin.png" width="30" height="30"/>
         <image name="iconsberlin@2x3.png" width="60" height="60"/>
+        <image name="menuB.png" width="154" height="164"/>
         <image name="sendingB.png" width="253" height="118"/>
         <image name="settingsBar.png" width="417" height="122"/>
     </resources>

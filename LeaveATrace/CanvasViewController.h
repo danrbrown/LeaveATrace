@@ -27,13 +27,24 @@
     
     IBOutlet UILabel *SendToAnyone;
     
+    IBOutlet UIButton *undoB;
+    IBOutlet UIButton *trashB;
+    IBOutlet UIButton *eraseB;
+    IBOutlet UIButton *colorsB;
+    IBOutlet UIButton *menuB;
+    IBOutlet UIButton *saveB;
+    IBOutlet UIButton *sendB;
+    IBOutlet UIButton *getB;
+    
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 
--(IBAction)send:(id)sender;
 -(void)viewDidLoad;
 
 -(IBAction)eraser:(id)sender;
+-(IBAction)undo:(id)sender;
+-(IBAction)dropDownMenu:(id)sender;
+-(IBAction)send:(id)sender;
 
 @end
