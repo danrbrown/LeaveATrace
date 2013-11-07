@@ -178,8 +178,8 @@
             <objects>
                 <viewController id="GrZ-6C-8aQ" customClass="CanvasViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ivf-I5-VQ1"/>
-                        <viewControllerLayoutGuide type="bottom" id="Iti-SW-cAk"/>
+                        <viewControllerLayoutGuide type="top" id="Osq-pf-PY5"/>
+                        <viewControllerLayoutGuide type="bottom" id="N4B-wg-HiH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Qh-8P-k0Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -226,7 +226,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5k-Kc-eez">
-                                <rect key="frame" x="81" y="483" width="68" height="30"/>
+                                <rect key="frame" x="126" y="332" width="68" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="get image">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -279,12 +279,17 @@
                                     <action selector="save:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="mB4-LD-7PC"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iaV-8y-Nps">
+                                <rect key="frame" x="-17" y="445" width="69" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Trace" image="iconsberlin.png" id="pDS-ST-dHk"/>
                     <connections>
                         <outlet property="colorsB" destination="Rz3-th-qPY" id="pEt-oP-e90"/>
+                        <outlet property="currentColorImage" destination="iaV-8y-Nps" id="2BH-aa-VEJ"/>
                         <outlet property="eraseB" destination="Rns-hs-jRr" id="6Og-Pf-Tva"/>
                         <outlet property="getB" destination="A5k-Kc-eez" id="SIR-Oe-KS2"/>
                         <outlet property="mainImage" destination="bIM-3Z-gXc" id="uRg-og-Nli"/>
@@ -304,8 +309,8 @@
             <objects>
                 <viewController id="HhA-B4-PEV" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="KVA-28-LDK"/>
-                        <viewControllerLayoutGuide type="bottom" id="VQv-PW-l5I"/>
+                        <viewControllerLayoutGuide type="top" id="3ab-dQ-5Ha"/>
+                        <viewControllerLayoutGuide type="bottom" id="G91-f3-HhM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Woo-vA-1LY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -530,8 +535,8 @@
             <objects>
                 <viewController id="q66-0j-MX0" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3Yr-NW-G5R"/>
-                        <viewControllerLayoutGuide type="bottom" id="Wwm-Bj-08b"/>
+                        <viewControllerLayoutGuide type="top" id="5V0-XD-mqJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="H1s-vA-46b"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Yn7-qI-NvZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -601,8 +606,8 @@
             <objects>
                 <viewController id="5hk-4q-zO9" customClass="SignUpViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="AWG-1V-7UF"/>
-                        <viewControllerLayoutGuide type="bottom" id="84o-uP-Y6T"/>
+                        <viewControllerLayoutGuide type="top" id="v9S-5t-FO7"/>
+                        <viewControllerLayoutGuide type="bottom" id="CbJ-Uf-Aok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Gv0-yE-s9N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>

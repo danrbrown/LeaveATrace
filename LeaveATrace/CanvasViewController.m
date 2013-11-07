@@ -8,6 +8,8 @@
 
 #import "CanvasViewController.h"
 
+#import "SettingsViewController.h"
+
 #import "LoginViewController.h"
 
 #import <Twitter/Twitter.h>
@@ -29,12 +31,14 @@
     
 }
 
-@synthesize mainImage;
+//----------------------------------------------------------------------
+
+@synthesize mainImage, currentColorImage, red, green, blue;
+
+//----------------------------------------------------------------------
 
 - (void)viewDidLoad
 {
-    
-    imagesArray = [[NSArray alloc]initWithObjects:@"menuB.png",@"closeMenuB.png", nil];
     
     red = 0.0/255.0;
     green = 0.0/255.0;
@@ -50,21 +54,63 @@
     eraseB.center = CGPointMake(189, -100);
     colorsB.center = CGPointMake(275, -100);
     menuB.center = CGPointMake(285, 46);
+    currentColorImage.center = CGPointMake(20, 483);
     
     DrawAnything.hidden = YES;
         
     SendToAnyone.hidden = YES;
     
+    UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 35);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
     [super viewDidLoad];
 }
 
--(IBAction)clear:(id)sender {
+//----------------------------------------------------------------------
+
+- (UIImage*)convertToMask: (UIImage *) image
+{
+    
+    if (image != nil) {
+        
+        UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+        CGRect imageRect = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
+        
+        CGContextRef ctx = UIGraphicsGetCurrentContext();
+        
+        // Draw a white background (for white mask)
+        CGContextSetRGBFillColor(ctx, 1.0f, 1.0f, 1.0f, 0.9f);
+        CGContextFillRect(ctx, imageRect);
+        
+        // Apply the source image's alpha
+        [image drawInRect:imageRect blendMode:kCGBlendModeDestinationIn alpha:1.0f];
+        
+        UIImage* outImage = UIGraphicsGetImageFromCurrentImageContext();
+        
+        UIGraphicsEndImageContext();
+        
+        return outImage;
+        
+    }else{
+        
+        return image;
+        
+    }
+}
+
+//----------------------------------------------------------------------
+
+-(IBAction)clear:(id)sender
+{
     
     if (self.mainImage.image != nil) {
-
-        [self dropUp];
-        
-        menuInt = 0;
         
         [UIView beginAnimations:@"suck" context:NULL];
         [UIView setAnimationTransition:108 forView:mainImage cache:NO];
@@ -79,8 +125,10 @@
     
 }
 
+//----------------------------------------------------------------------
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
     
     mouseSwiped = NO;
     
@@ -90,7 +138,10 @@
     
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+//----------------------------------------------------------------------
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
     
     mouseSwiped = YES;
     
@@ -106,6 +157,8 @@
     CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), red, green, blue, 1.0);
     CGContextSetBlendMode(UIGraphicsGetCurrentContext(),kCGBlendModeNormal);
     
+    
+    
     CGContextStrokePath(UIGraphicsGetCurrentContext());
     self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
     [self.mainImage setAlpha:opacity];
@@ -115,7 +168,10 @@
 
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+//----------------------------------------------------------------------
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
     
     if(!mouseSwiped) {
         UIGraphicsBeginImageContext(self.view.frame.size);
@@ -139,12 +195,18 @@
 
 }
 
--(IBAction)undo:(id)sender {
+//----------------------------------------------------------------------
+
+-(IBAction)undo:(id)sender
+{
     
     
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//----------------------------------------------------------------------
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     
     SettingsViewController * settingsVC = (SettingsViewController *)segue.destinationViewController;
     settingsVC.delegate = self;
@@ -153,13 +215,14 @@
     settingsVC.blue = blue;
     settingsVC.brush = brush;
     
-    [self dropUp];
-    
 }
+
+//----------------------------------------------------------------------
 
 #pragma mark - SettingsViewControllerDelegate methods
 
-- (void)closeSettings:(id)sender {
+- (void)closeSettings:(id)sender
+{
     
     red = ((SettingsViewController*)sender).red;
     green = ((SettingsViewController*)sender).green;
@@ -167,10 +230,26 @@
     brush = ((SettingsViewController*)sender).brush;
     [self dismissViewControllerAnimated:YES completion:nil];
     
+    UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 35);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIImage *buttonImage = [UIImage imageNamed:@"menuB.png"];
+    [menuB setImage:buttonImage forState:UIControlStateNormal];
+    
     menuInt = 0;
 }
 
-- (IBAction)save:(id)sender {
+//----------------------------------------------------------------------
+
+- (IBAction)save:(id)sender
+{
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@""
                                                              delegate:self
@@ -178,7 +257,13 @@
                                                destructiveButtonTitle:nil
                                                     otherButtonTitles:@"Save to Camera Roll", @"Cancel", nil];
     [actionSheet showInView:self.view];
+    
+    [self dropUp];
+    
+    menuInt = 0;
 }
+
+//----------------------------------------------------------------------
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -192,6 +277,8 @@
     }
 }
 
+//----------------------------------------------------------------------
+
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
     if (error != NULL)
@@ -204,7 +291,10 @@
     }
 }
 
--(IBAction)send:(id)sender {
+//----------------------------------------------------------------------
+
+-(IBAction)send:(id)sender
+{
     
     /* ----Start DRB ---------------------------------------
     // Get the user we want to push the notification to
@@ -278,7 +368,10 @@
     
 }
 
--(IBAction)getImage:(id)sender {
+//----------------------------------------------------------------------
+
+-(IBAction)getImage:(id)sender
+{
     
 //    UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
 //    [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
@@ -347,7 +440,10 @@
     
 }
 
--(IBAction)eraser:(id)sender {
+//----------------------------------------------------------------------
+
+-(IBAction)eraser:(id)sender
+{
     
     red = 255.0/255.0;
     green = 255.0/255.0;
@@ -356,13 +452,22 @@
     brush = 28.0;
     opacity = 1.0;
     
-    [self dropUp];
-    
-    menuInt = 0;
+    UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 35);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     
 }
 
--(IBAction)dropDownMenu:(id)sender {
+//----------------------------------------------------------------------
+
+-(IBAction)dropDownMenu:(id)sender
+{
     
     if (menuInt == 0){
     
@@ -379,7 +484,10 @@
     
 }
 
--(void)dropDown {
+//----------------------------------------------------------------------
+
+-(void)dropDown
+{
     
     [UIView animateWithDuration:0.5 animations:^{
         trashB.center = CGPointMake(35, 46);
@@ -389,22 +497,29 @@
         menuB.center = CGPointMake(285, 110);
         sendB.center = CGPointMake(267, 480);
         saveB.center = CGPointMake(40, 483);
+        currentColorImage.center = CGPointMake(20, 600);
         
         UIImage *buttonImage = [UIImage imageNamed:@"closeMenuB.png"];
         [menuB setImage:buttonImage forState:UIControlStateNormal];
+        
     }];
     
     menuInt = 1;
     
-    [menuB setAlpha:0.0];
-    [UIView beginAnimations:@"animateTableView" context:nil];
-    [UIView setAnimationDuration:0.6];
-    [menuB setAlpha:1.0];
-    [UIView commitAnimations];
+//    [menuB setAlpha:0.0];
+//    [UIView beginAnimations:@"animateTableView" context:nil];
+//    [UIView setAnimationDuration:0.6];
+//    [menuB setAlpha:1.0];
+//    [UIView commitAnimations];
+    
+    
     
 }
 
--(void)dropUp {
+//----------------------------------------------------------------------
+
+-(void)dropUp
+{
     
     [UIView animateWithDuration:0.5 animations:^{
         trashB.center = CGPointMake(35, -100);
@@ -414,16 +529,17 @@
         menuB.center = CGPointMake(285, 46);
         sendB.center = CGPointMake(267, 600);
         saveB.center = CGPointMake(40, 600);
+        currentColorImage.center = CGPointMake(20, 483);
 
         UIImage *buttonImage = [UIImage imageNamed:@"menuB.png"];
         [menuB setImage:buttonImage forState:UIControlStateNormal];
     }];
     
-    [menuB setAlpha:0.0];
-    [UIView beginAnimations:@"animateTableView" context:nil];
-    [UIView setAnimationDuration:0.6];
-    [menuB setAlpha:1.0];
-    [UIView commitAnimations];
+//    [menuB setAlpha:0.0];
+//    [UIView beginAnimations:@"animateTableView" context:nil];
+//    [UIView setAnimationDuration:0.6];
+//    [menuB setAlpha:1.0];
+//    [UIView commitAnimations];
     
 }
 

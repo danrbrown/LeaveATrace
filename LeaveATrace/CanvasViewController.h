@@ -39,6 +39,11 @@
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
+@property (weak, nonatomic) IBOutlet UIImageView *currentColorImage;
+
+@property CGFloat red;
+@property CGFloat green;
+@property CGFloat blue;
 
 -(void)viewDidLoad;
 
