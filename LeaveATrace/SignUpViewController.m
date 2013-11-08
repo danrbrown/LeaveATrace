@@ -64,4 +64,31 @@
     
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    PFUser *user = [PFUser user];
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if (!error) {
+            
+            [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
+            
+            [[PFInstallation currentInstallation] setObject:[PFUser currentUser] forKey:@"user"];
+            [[PFInstallation currentInstallation] saveEventually];
+            
+        } else if (error){
+            
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Username already taken or not valid email" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [errorAlertView show];
+            
+            userSignUpTextField.text = nil;
+            emailTextField.text = nil;
+            
+        }
+    }];
+    
+    return NO;
+}
+
 @end

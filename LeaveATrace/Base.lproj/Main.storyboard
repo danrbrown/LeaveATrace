@@ -280,7 +280,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iaV-8y-Nps">
-                                <rect key="frame" x="-17" y="445" width="69" height="72"/>
+                                <rect key="frame" x="0.0" y="445" width="69" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -492,13 +492,6 @@
                     <navigationItem key="navigationItem" title="Requests" id="9SH-85-zqG">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="C9f-Vy-16b">
                             <color key="tintColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="mjp-b5-ktd">
-                            <color key="tintColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="logOut:" destination="dkT-yk-hJO" id="1rm-XD-x06"/>
-                                <segue destination="q66-0j-MX0" kind="modal" identifier="LogOutSuccesful" modalTransitionStyle="flipHorizontal" id="KAd-lg-khP"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -789,7 +782,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="spu-jz-L3F"/>
-        <segue reference="oCT-TG-mxM"/>
+        <segue reference="vm4-Ru-Iag"/>
     </inferredMetricsTieBreakers>
 </document>

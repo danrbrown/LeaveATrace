@@ -19,8 +19,10 @@
 {
     
     
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc]
-                                        init];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    
+    [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
+    
     refreshControl.tintColor = [UIColor blueColor];
     self.refreshControl = refreshControl;
     
@@ -32,6 +34,12 @@
     [PFUser logOut];
     [self performSegueWithIdentifier:@"LogOutSuccesful" sender:self];
     
+}
+
+- (void)refreshView:(UIRefreshControl *)sender {
+
+    
+    [sender endRefreshing];
 }
 
 @end

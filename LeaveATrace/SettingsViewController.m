@@ -226,9 +226,9 @@
 
 -(IBAction)justOrange:(id)sender {
     
+    self.green = self.greenControl.value = 100.0;
     self.red = self.redControl.value = 255.0;
     self.blue = self.blueControl.value = 0.0;
-    self.green = self.greenControl.value = 100.0;
     
     [self callColorChange];
     
