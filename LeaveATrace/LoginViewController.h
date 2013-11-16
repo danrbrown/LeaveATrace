@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <UITextFieldDelegate>{
+    
+    IBOutlet UIView *logInView;
+    
+}
 
 @property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passWordTextField;
 
 - (IBAction)userLogInPressed:(id)sender;
+-(IBAction)SignUp:(id)sender;
 
 @end

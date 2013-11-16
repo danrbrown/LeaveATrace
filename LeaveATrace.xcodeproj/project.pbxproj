@@ -69,6 +69,7 @@
 		9C69AA9C1829A98D0032EF24 /* closeMenuB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C69AA9A1829A98D0032EF24 /* closeMenuB.png */; };
 		9C69AA9D1829A98D0032EF24 /* menuB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C69AA9B1829A98D0032EF24 /* menuB.png */; };
 		9C782E05182885ED00077FC8 /* eraserB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C782E04182885ED00077FC8 /* eraserB.png */; };
+		9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +161,8 @@
 		9C69AA9A1829A98D0032EF24 /* closeMenuB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeMenuB.png; sourceTree = "<group>"; };
 		9C69AA9B1829A98D0032EF24 /* menuB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuB.png; sourceTree = "<group>"; };
 		9C782E04182885ED00077FC8 /* eraserB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraserB.png; sourceTree = "<group>"; };
+		9CA1B48C1832CDC700CAFA8E /* FirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstPageViewController.h; sourceTree = "<group>"; };
+		9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstPageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +254,8 @@
 		9C276810181C75B10073453E /* LeaveATrace */ = {
 			isa = PBXGroup;
 			children = (
+				9CA1B48C1832CDC700CAFA8E /* FirstPageViewController.h */,
+				9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */,
 				9C276842181C76B00073453E /* CanvasViewController.h */,
 				9C276843181C76B00073453E /* CanvasViewController.m */,
 				9C276844181C76B00073453E /* SettingsViewController.h */,
@@ -489,6 +494,7 @@
 				9C276821181C75B10073453E /* ViewController.m in Sources */,
 				9C276841181C76720073453E /* AddItemViewController.m in Sources */,
 				9C27684C181C76B10073453E /* CanvasViewController.m in Sources */,
+				9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */,
 				9C27687D181C78F90073453E /* Contact.m in Sources */,
 				9C27684D181C76B10073453E /* SettingsViewController.m in Sources */,
 				9C276877181C774F0073453E /* LeaveATraceItem.m in Sources */,

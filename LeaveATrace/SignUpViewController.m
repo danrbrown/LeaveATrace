@@ -30,6 +30,8 @@
     passwordSignUpTextField.layer.cornerRadius = 7;
     
     varifyPasswordSignUpTextField.layer.cornerRadius = 7;
+    
+    self.varifyPasswordSignUpTextField.delegate = self;
 
 }
 
@@ -48,8 +50,18 @@
             
             [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
             
+            [self textFieldShouldReturn:varifyPasswordSignUpTextField];
+            
             [[PFInstallation currentInstallation] setObject:[PFUser currentUser] forKey:@"user"];
             [[PFInstallation currentInstallation] saveEventually];
+            
+            
+            
+            
+            
+            
+            
+            
             
         } else if (error){
             
@@ -65,28 +77,6 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
-    PFUser *user = [PFUser user];
-    
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        
-        if (!error) {
-            
-            [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
-            
-            [[PFInstallation currentInstallation] setObject:[PFUser currentUser] forKey:@"user"];
-            [[PFInstallation currentInstallation] saveEventually];
-            
-        } else if (error){
-            
-            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Username already taken or not valid email" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            [errorAlertView show];
-            
-            userSignUpTextField.text = nil;
-            emailTextField.text = nil;
-            
-        }
-    }];
     
     return NO;
 }

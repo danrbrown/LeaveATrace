@@ -49,17 +49,10 @@
     
     getB.hidden = YES;
     
-    trashB.center = CGPointMake(35, -100);
-    undoB.center = CGPointMake(111, -100);
-    eraseB.center = CGPointMake(189, -100);
-    colorsB.center = CGPointMake(275, -100);
-    menuB.center = CGPointMake(285, 46);
-    currentColorImage.center = CGPointMake(20, 483);
-    
     DrawAnything.hidden = YES;
         
     SendToAnyone.hidden = YES;
-    
+   
     UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
     CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 35);
@@ -69,7 +62,7 @@
     CGContextStrokePath(UIGraphicsGetCurrentContext());
     self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
+   
     [super viewDidLoad];
 }
 
