@@ -42,8 +42,13 @@
             for (PFObject *myContacts in objects) {
                 
                 NSString *userContact = [myContacts objectForKey:@"contact"];
+                NSString *userAccepted = [myContacts objectForKey:@"userAccepted"];
+                
                 item.text = userContact;
-       
+                
+                if ([userAccepted isEqualToString:@"NO"])
+                    item.text = [item.text stringByAppendingString:@"    (Pending)"];
+                
                 [self addItemViewControllerNoDismiss:nil didFinishAddingItem:item];
                 
                 NSLog(@"%@",userContact);
@@ -56,6 +61,20 @@
         }
     }];
     
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    
+    [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
+    
+    refreshControl.tintColor = [UIColor blueColor];
+    self.refreshControl = refreshControl;
+    
+}
+
+- (void)refreshView:(UIRefreshControl *)sender {
+    
+    NSLog(@"Jackass Pulled down");
+    
+    [sender endRefreshing];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
