@@ -32,6 +32,8 @@
     varifyPasswordSignUpTextField.layer.cornerRadius = 7;
     
     self.varifyPasswordSignUpTextField.delegate = self;
+    
+    [self.userSignUpTextField becomeFirstResponder];
 
 }
 

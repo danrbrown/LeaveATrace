@@ -28,6 +28,8 @@
     
     self.passWordTextField.delegate = self;
     
+    [self.userNameTextField becomeFirstResponder];
+    
 }
 
 - (IBAction)userLogInPressed:(id)sender {

@@ -52,17 +52,25 @@
     DrawAnything.hidden = YES;
         
     SendToAnyone.hidden = YES;
+    
+    if ([currentColorImage isEqual:@"eraserB.png"]){
+        
+        currentColorImage.frame = CGRectMake(60, 400, 69, 72);
+        
+    } else {
    
-    UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
-    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 35);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
-    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextStrokePath(UIGraphicsGetCurrentContext());
-    self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+        UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
+        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 35);
+        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
+        CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
+        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
+        CGContextStrokePath(UIGraphicsGetCurrentContext());
+        self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
    
+    }
+    
     [super viewDidLoad];
 }
 

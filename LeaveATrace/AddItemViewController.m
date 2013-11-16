@@ -8,6 +8,7 @@
 
 #import "AddItemViewController.h"
 #import "LeaveATraceItem.h"
+#import <Parse/Parse.h>
 
 @interface AddItemViewController ()
 
@@ -18,6 +19,7 @@
 @synthesize textField;
 @synthesize doneBarButton;
 @synthesize delegate;
+@synthesize userNotFoundL;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,13 +32,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    userNotFoundL.text = @"";
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -58,11 +54,28 @@
  
 - (IBAction)done
 {
+    
     LeaveATraceItem *item = [[LeaveATraceItem alloc] init];
     item.text = self.textField.text;
     item.checked = NO;
- 
-    [self.delegate addItemViewController:self didFinishAddingItem:item];
+    
+    PFQuery *query= [PFUser query];
+    [query whereKey:@"username" equalTo:item.text];
+    
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!error) {
+            
+            [self.delegate addItemViewController:self didFinishAddingItem:item];
+        
+            
+    
+        } else {
+            
+            userNotFoundL.text = [NSString stringWithFormat:@"Could not find user"];
+            
+        }
+    }];
+    
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath

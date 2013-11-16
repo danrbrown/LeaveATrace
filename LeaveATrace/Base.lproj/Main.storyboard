@@ -85,6 +85,13 @@
                                                         <outlet property="delegate" destination="Kh5-VG-XGC" id="dxl-6P-yDn"/>
                                                     </connections>
                                                 </textField>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhm-34-Kqt">
+                                                    <rect key="frame" x="139" y="11" width="179" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -113,6 +120,7 @@
                     <connections>
                         <outlet property="doneBarButton" destination="xms-GF-83r" id="5sZ-g8-Qag"/>
                         <outlet property="textField" destination="mCP-3F-x14" id="dMA-np-lgR"/>
+                        <outlet property="userNotFoundL" destination="lhm-34-Kqt" id="zFc-S0-pSi"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DrX-EW-Nw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
