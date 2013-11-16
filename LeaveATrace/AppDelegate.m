@@ -7,6 +7,8 @@
 //
 
 #import <Parse/Parse.h>
+#import "LoginViewController.h"
+#import "CanvasViewController.h"
 #import "AppDelegate.h"
 
 @implementation AppDelegate
@@ -43,11 +45,13 @@
 
     [PFPush handlePush:userInfo];
     
-    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    //q`UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     
-    tabBarController.selectedIndex = 1;
+    //tabBarController.selectedIndex = 1;
     
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

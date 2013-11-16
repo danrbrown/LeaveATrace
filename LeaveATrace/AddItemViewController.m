@@ -33,6 +33,7 @@
 - (void)viewDidLoad
 {
     userNotFoundL.text = @"";
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -65,10 +66,28 @@
     [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!error) {
             
-            [self.delegate addItemViewController:self didFinishAddingItem:item];
-        
+            //Add users contact
             
-    
+            PFObject *userContact = [PFObject objectWithClassName:@"UserContact"];
+            [userContact setObject:[PFUser currentUser].username forKey:@"username"];
+            [userContact setObject:item.text forKey:@"contact"];
+            
+            [userContact saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                
+                if (succeeded){
+                    
+                    [self.delegate addItemViewController:self didFinishAddingItem:item];
+                    
+                } else {
+                    
+                    NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    [errorAlertView show];
+                    
+                    
+                }
+            }];
+
         } else {
             
             userNotFoundL.text = [NSString stringWithFormat:@"Could not find user"];

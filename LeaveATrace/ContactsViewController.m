@@ -9,6 +9,7 @@
 #import "ContactsViewController.h"
 #import "LeaveATraceItem.h"
 #import "Contact.h"
+#import <Parse/Parse.h>
 
 @interface ContactsViewController ()
 
@@ -24,6 +25,34 @@
     [super viewDidLoad];
     
     items = [[NSMutableArray alloc] initWithCapacity:1000];
+    
+    //Load users contacts
+    
+    LeaveATraceItem *item = [[LeaveATraceItem alloc] init];
+    item.checked = NO;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"UserContact"];
+    [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
+    [query orderByAscending:@"contact"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSLog(@"The find succeeded!");
+            for (PFObject *myContacts in objects) {
+                
+                NSString *userContact = [myContacts objectForKey:@"contact"];
+                NSLog(@"%@",userContact);
+                
+               // indexPath.row = 0;
+                
+
+            }
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
     
 }
 

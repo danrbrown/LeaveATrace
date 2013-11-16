@@ -57,14 +57,6 @@
             [[PFInstallation currentInstallation] setObject:[PFUser currentUser] forKey:@"user"];
             [[PFInstallation currentInstallation] saveEventually];
             
-            
-            
-            
-            
-            
-            
-            
-            
         } else if (error){
             
            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Username already taken or not valid email" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
@@ -79,6 +71,34 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    PFUser *user = [PFUser user];
+    
+    user.email = self.emailTextField.text;
+    user.username = self.userSignUpTextField.text;
+    user.password = self.passwordSignUpTextField.text;
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if (!error) {
+            
+            [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
+            
+            [self textFieldShouldReturn:varifyPasswordSignUpTextField];
+            
+            [[PFInstallation currentInstallation] setObject:[PFUser currentUser] forKey:@"user"];
+            [[PFInstallation currentInstallation] saveEventually];
+            
+        } else if (error){
+            
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [errorAlertView show];
+            
+            userSignUpTextField.text = nil;
+            emailTextField.text = nil;
+            
+        }
+    }];
     
     return NO;
 }

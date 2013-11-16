@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "CanvasViewController.h"
 #import <Parse/Parse.h>
 
 @interface LoginViewController ()
@@ -65,6 +66,7 @@
     }];
 }
 
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     [textField resignFirstResponder];
@@ -73,20 +75,19 @@
         if (user) {
             
             if (![[user objectForKey:@"emailVerified"] boolValue]) {
-                
+            
                 [user refresh];
-                
                 if (![[user objectForKey:@"emailVerified"] boolValue]) {
                     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must verify your email before logging in." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                     [errorAlertView show];
                     
                     passWordTextField.text = nil;
-                    
-                    return;
                 }
-            
-                [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
-            
+                
+            } else {
+                
+                //[self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
+                
                 [self textFieldShouldReturn:passWordTextField];
                 
             }
@@ -105,9 +106,6 @@
     return NO;
 }
 
--(IBAction)SignUp:(id)sender {
-    
-}
 
 @end
 
