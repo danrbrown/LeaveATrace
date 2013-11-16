@@ -24,6 +24,8 @@
      UIRemoteNotificationTypeBadge |
      UIRemoteNotificationTypeAlert |
      UIRemoteNotificationTypeSound];
+    
+    
 
     return YES;
 }
@@ -45,7 +47,7 @@
 
     [PFPush handlePush:userInfo];
     
-    //q`UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    //UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     
     //tabBarController.selectedIndex = 1;
     

@@ -7,6 +7,7 @@
 //
 
 #import "ContactsViewController.h"
+#import "AddItemViewController.h"
 #import "LeaveATraceItem.h"
 #import "Contact.h"
 #import <Parse/Parse.h>
@@ -24,12 +25,11 @@
     
     [super viewDidLoad];
     
+    LeaveATraceItem *item = [[LeaveATraceItem alloc] init];
+    
     items = [[NSMutableArray alloc] initWithCapacity:1000];
     
     //Load users contacts
-    
-    LeaveATraceItem *item = [[LeaveATraceItem alloc] init];
-    item.checked = NO;
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserContact"];
     [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
@@ -38,14 +38,16 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSLog(@"The find succeeded!");
+            
             for (PFObject *myContacts in objects) {
                 
                 NSString *userContact = [myContacts objectForKey:@"contact"];
+                item.text = userContact;
+       
+                [self addItemViewControllerNoDismiss:nil didFinishAddingItem:item];
+                
                 NSLog(@"%@",userContact);
-                
-               // indexPath.row = 0;
-                
-
+     
             }
             
         } else {
@@ -120,7 +122,7 @@
 
 - (void)addItemViewController:(AddItemViewController *)controller didFinishAddingItem:(LeaveATraceItem *)item
 {
-    int newRowIndex = [items count];
+    NSUInteger newRowIndex = [items count];
     [items addObject:item];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0];
@@ -128,6 +130,16 @@
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)addItemViewControllerNoDismiss:(AddItemViewController *)controller didFinishAddingItem:(LeaveATraceItem *)item
+{
+    NSUInteger newRowIndex = [items count];
+    [items addObject:item];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0];
+    NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

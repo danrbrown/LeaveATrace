@@ -13,6 +13,6 @@
 
 @property (strong,nonatomic) NSMutableArray *filteredArray;
 @property IBOutlet UISearchBar *SearchBar;
-
+@property (nonatomic, weak) id <AddItemViewControllerDelegate> delegate;
 
 @end
