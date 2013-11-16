@@ -490,14 +490,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Requests" id="9SH-85-zqG">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="C9f-Vy-16b">
+                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="C9f-Vy-16b">
                             <color key="tintColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="logOut:" destination="dkT-yk-hJO" id="NRX-Bq-L0F"/>
+                                <segue destination="RuF-KD-iC2" kind="modal" identifier="LogOutSuccesful" modalTransitionStyle="flipHorizontal" id="r4Y-3E-9Ey"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m63-xT-YIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252" y="1157"/>
+            <point key="canvasLocation" x="2300" y="1157"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wTw-dt-yce">
@@ -830,6 +834,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="spu-jz-L3F"/>
-        <segue reference="M9D-NX-IN9"/>
+        <segue reference="r4Y-3E-9Ey"/>
     </inferredMetricsTieBreakers>
 </document>

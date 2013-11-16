@@ -16,8 +16,7 @@
 @implementation LoginViewController
 @synthesize userNameTextField, passWordTextField;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     
     userNameTextField.layer.cornerRadius = 7;
     
@@ -31,18 +30,28 @@
     
 }
 
-- (IBAction)userLogInPressed:(id)sender
-{
+- (IBAction)userLogInPressed:(id)sender {
     [PFUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passWordTextField.text block:^(PFUser *user, NSError *error) {
         if (user) {
             
-            [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
-            
-            [self textFieldShouldReturn:passWordTextField];
-            
+            if (![[user objectForKey:@"emailVerified"] boolValue]) {
+                // Refresh to make sure the user did not recently verify
+                [user refresh];
+                if (![[user objectForKey:@"emailVerified"] boolValue]) {
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must verify your email before logging in." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    [errorAlertView show];
+                    
+                    passWordTextField.text = nil;
+                }
+            }
+            else {
+                
+                [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
+                
+                [self textFieldShouldReturn:passWordTextField];
+            }
             
         } else {
-            //Something bad has ocurred
             
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Try again" message:@"Either your password or your username was wrong, rookie mistake!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [errorAlertView show];
@@ -55,18 +64,32 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
     [textField resignFirstResponder];
     
     [PFUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passWordTextField.text block:^(PFUser *user, NSError *error) {
         if (user) {
             
-            [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
+            if (![[user objectForKey:@"emailVerified"] boolValue]) {
+                
+                [user refresh];
+                
+                if (![[user objectForKey:@"emailVerified"] boolValue]) {
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must verify your email before logging in." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    [errorAlertView show];
+                    
+                    passWordTextField.text = nil;
+                    
+                    return;
+                }
             
-            [self textFieldShouldReturn:passWordTextField];
+                [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
             
+                [self textFieldShouldReturn:passWordTextField];
+                
+            }
             
         } else {
-            //Something bad has ocurred
             
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Try again" message:@"Either your password or your username was wrong, rookie mistake!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [errorAlertView show];
