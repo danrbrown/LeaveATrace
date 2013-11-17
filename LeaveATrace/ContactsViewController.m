@@ -18,48 +18,21 @@
 
 @implementation ContactsViewController {
     NSMutableArray *items;
+    NSString *userAccepted;
+    NSString *userContact;
+    PFQuery *query;
 }
 
 - (void)viewDidLoad
 {
     
-    [super viewDidLoad];
-    
-    LeaveATraceItem *item = [[LeaveATraceItem alloc] init];
-    
     items = [[NSMutableArray alloc] initWithCapacity:1000];
     
-    //Load users contacts
     
-    PFQuery *query = [PFQuery queryWithClassName:@"UserContact"];
-    [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
-    [query orderByAscending:@"contact"];
+
+    [super viewDidLoad];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            NSLog(@"The find succeeded!");
-            
-            for (PFObject *myContacts in objects) {
-                
-                NSString *userContact = [myContacts objectForKey:@"contact"];
-                NSString *userAccepted = [myContacts objectForKey:@"userAccepted"];
-                
-                item.text = userContact;
-                
-                if ([userAccepted isEqualToString:@"NO"])
-                    item.text = [item.text stringByAppendingString:@"    (Pending)"];
-                
-                [self addItemViewControllerNoDismiss:nil didFinishAddingItem:item];
-                
-                NSLog(@"%@",userContact);
-     
-            }
-            
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
+    [self displayContacts];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     
@@ -70,10 +43,65 @@
     
 }
 
+-(void) displayContacts {
+    
+    LeaveATraceItem *item = [[LeaveATraceItem alloc] init];
+    
+    //items = [[NSMutableArray alloc] initWithCapacity:1000];
+    
+    //Load users contacts
+    
+    query = [PFQuery queryWithClassName:@"UserContact"];
+    [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
+    [query orderByAscending:@"contact"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
+            NSLog(@"The find succeeded!");
+            
+            for (PFObject *myContacts in objects) {
+                
+                userContact = [myContacts objectForKey:@"contact"];
+                userAccepted = [myContacts objectForKey:@"userAccepted"];
+                
+                item.text = userContact;
+    
+                
+                if ([userAccepted isEqualToString:@"NO"]) {
+                    
+                    item.text = [item.text stringByAppendingString:@"    (Pending)"];
+                    
+                }
+                    
+                [self addItemViewControllerNoDismiss:nil didFinishAddingItem:item];
+                
+                NSLog(@"%@",userContact);
+                
+            }
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+}
+
 - (void)refreshView:(UIRefreshControl *)sender {
     
-    NSLog(@"Jackass Pulled down");
+    NSLog(@"Pulled down");
     
+    NSUInteger x = [items count];
+    NSLog(@"before removeAllObjects --> %lu",(unsigned long)x);
+    
+    [items removeAllObjects];
+
+    x = [items count];
+    NSLog(@"after removeAllObjects --> %lu",(unsigned long)x);
+
+    [self displayContacts];
+
     [sender endRefreshing];
 }
 
@@ -84,23 +112,26 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSUInteger x = [items count];
+    NSLog(@"here it is --> %lu",(unsigned long)x);
+    
     return [items count];
 }
 
+//----
+
+
 - (void)configureCheckmarkForCell:(UITableViewCell *)cell withChecklistItem:(LeaveATraceItem *)item
 {
-    if (item.checked) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
+    cell.textLabel.enabled = YES;
 }
 
 - (void)configureTextForCell:(UITableViewCell *)cell withChecklistItem:(LeaveATraceItem *)item
 {
-    UILabel *label = (UILabel *)[cell viewWithTag:1000];
-    label.text = item.text;
+    cell.textLabel.text = item.text;
 }
+
+//----
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

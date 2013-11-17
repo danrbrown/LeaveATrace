@@ -29,8 +29,23 @@
     
     self.passWordTextField.delegate = self;
     
-    [self.userNameTextField becomeFirstResponder];
+    [self performSelector:@selector(showKeyBoard) withObject:nil afterDelay:0.4];
     
+    userNameTextField.autocorrectionType = FALSE;
+    userNameTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    
+    passWordTextField.autocorrectionType = FALSE;
+    passWordTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    
+}
+
+- (IBAction)closeKeyBoard:(UITapGestureRecognizer *)sender {
+    [self.userNameTextField resignFirstResponder];
+    [self.passWordTextField resignFirstResponder];
+}
+
+-(void) showKeyBoard {
+    [self.userNameTextField becomeFirstResponder];
 }
 
 - (IBAction)userLogInPressed:(id)sender {

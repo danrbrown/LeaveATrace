@@ -16,8 +16,7 @@
 @implementation SignUpViewController
 @synthesize scrollie, emailTextField ,userSignUpTextField, passwordSignUpTextField, varifyPasswordSignUpTextField;
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     
     [scrollie setScrollEnabled:YES];
     [scrollie setContentSize:CGSizeMake(0, 2000)];
@@ -33,8 +32,30 @@
     
     self.varifyPasswordSignUpTextField.delegate = self;
     
-    [self.userSignUpTextField becomeFirstResponder];
+    [self performSelector:@selector(showKeyBoard) withObject:nil afterDelay:0.4];
+    
+    emailTextField.autocorrectionType = FALSE;
+    emailTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    
+    userSignUpTextField.autocorrectionType = FALSE;
+    userSignUpTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    
+    passwordSignUpTextField.autocorrectionType = FALSE;
+    passwordSignUpTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    
+    varifyPasswordSignUpTextField.autocorrectionType = FALSE;
+    varifyPasswordSignUpTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+}
 
+- (IBAction)closeKeyBoard:(UITapGestureRecognizer *)sender {
+    [self.emailTextField resignFirstResponder];
+    [self.passwordSignUpTextField resignFirstResponder];
+    [self.userSignUpTextField resignFirstResponder];
+    [self.varifyPasswordSignUpTextField resignFirstResponder];
+}
+
+-(void)showKeyBoard {
+    [self.userSignUpTextField becomeFirstResponder];
 }
 
 -(IBAction)signUpUserPressed:(id)sender

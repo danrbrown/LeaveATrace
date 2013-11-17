@@ -19,7 +19,6 @@
 @synthesize textField;
 @synthesize doneBarButton;
 @synthesize delegate;
-@synthesize userNotFoundL;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,8 +31,8 @@
 
 - (void)viewDidLoad
 {
-    userNotFoundL.text = @"";
-    
+    textField.autocorrectionType = FALSE;
+    textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -71,10 +70,13 @@
             PFObject *userContact = [PFObject objectWithClassName:@"UserContact"];
             [userContact setObject:[PFUser currentUser].username forKey:@"username"];
             [userContact setObject:item.text forKey:@"contact"];
+            [userContact setObject:@"NO" forKey:@"userAccepted"];
             
             [userContact saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
                 if (succeeded){
+                    
+                    item.text = [item.text stringByAppendingString:@"(Pending)"];
                     
                     [self.delegate addItemViewController:self didFinishAddingItem:item];
                     
@@ -90,7 +92,9 @@
 
         } else {
             
-            userNotFoundL.text = [NSString stringWithFormat:@"Could not find user"];
+            NSString *errorString = [[error userInfo] objectForKey:@"The user u typed in could not be found..."];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Could not find user" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [errorAlertView show];
             
         }
     }];

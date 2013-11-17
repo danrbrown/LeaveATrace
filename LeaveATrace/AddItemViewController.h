@@ -22,7 +22,6 @@
 @interface AddItemViewController : UITableViewController <UITextFieldDelegate> {
     
 }
-@property (strong, nonatomic) IBOutlet UILabel *userNotFoundL;
 
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
