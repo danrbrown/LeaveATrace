@@ -8,13 +8,17 @@
 
 #import "AddItemViewController.h"
 #import "LeaveATraceItem.h"
+#import "ContactsViewController.h"
+#import "CanvasViewController.h"
 #import <Parse/Parse.h>
 
 @interface AddItemViewController ()
 
 @end
 
-@implementation AddItemViewController
+@implementation AddItemViewController {
+    
+}
 
 @synthesize textField;
 @synthesize doneBarButton;
@@ -54,10 +58,35 @@
  
 - (IBAction)done
 {
+    /* Does it already exist in our object - THIS NEEDS TO BE DONE BETTER - DON'T GO TO PARSE TO GET ANSWER
+    
+    //NSString *dupItem;
+    //dupItem = self.textField.text;
+    
+//    LeaveATraceItem *dupItem = [[LeaveATraceItem alloc] init];
+//    dupItem.text = self.textField.text;
+//    
+//    PFQuery *dupQuery = [PFQuery queryWithClassName:@"UserContact"];
+//    
+//    [dupQuery whereKey:@"username" equalTo:[[PFUser currentUser]username]];
+//    [dupQuery whereKey:@"contact" equalTo:dupItem.text];
+//    
+//    [dupQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            if (objects.count > 0) {
+//                NSLog(@"The contact already exists for this user");
+//                return;
+//            }
+//        } else NSLog(@"Error: %@ %@", error, [error userInfo]);
+//
+//    }];
+    
+    End of duplicate check */
     
     LeaveATraceItem *item = [[LeaveATraceItem alloc] init];
     item.text = self.textField.text;
     item.checked = NO;
+    item.userAccepted = @"NO";
     
     PFQuery *query= [PFUser query];
     [query whereKey:@"username" equalTo:item.text];
@@ -76,9 +105,8 @@
                 
                 if (succeeded){
                     
-                    item.text = [item.text stringByAppendingString:@"(Pending)"];
-                    
                     [self.delegate addItemViewController:self didFinishAddingItem:item];
+                    
                     
                 } else {
                     
@@ -103,6 +131,7 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     return nil;
 }
 

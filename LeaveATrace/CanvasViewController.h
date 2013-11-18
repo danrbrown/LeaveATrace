@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
 
+extern NSString *badgeString;
+extern int badgeInt;
+
 @interface CanvasViewController : UIViewController <SettingsViewControllerDelegate, UIActionSheetDelegate> {
     
     CGPoint lastPoint;

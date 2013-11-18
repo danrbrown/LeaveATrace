@@ -16,6 +16,9 @@
 
 #import <Parse/Parse.h>
 
+NSString *badgeString;
+int badgeInt;
+
 @interface CanvasViewController ()
 
 @end
@@ -39,6 +42,11 @@
 
 - (void)viewDidLoad
 {
+    
+    badgeString = [NSString stringWithFormat:@"%i", badgeInt];
+    
+    [[[[[self tabBarController] tabBar] items]
+      objectAtIndex:3] setBadgeValue:badgeString];
     
     red = 0.0/255.0;
     green = 0.0/255.0;

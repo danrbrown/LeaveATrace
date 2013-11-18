@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "AddItemViewController.h"
 
-@interface ContactsViewController : UITableViewController <AddItemViewControllerDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
+@interface ContactsViewController : UITableViewController <AddItemViewControllerDelegate, UISearchBarDelegate, UISearchDisplayDelegate> {
+    
+    NSMutableArray *items;
+    
+}
 
 @property (strong,nonatomic) NSMutableArray *filteredArray;
 @property IBOutlet UISearchBar *SearchBar;

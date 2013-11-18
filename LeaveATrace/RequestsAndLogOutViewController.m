@@ -18,6 +18,8 @@
 - (void)viewDidLoad
 {
     
+    [[[[[self tabBarController] tabBar] items]
+      objectAtIndex:3] setBadgeValue:nil];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     
@@ -25,7 +27,6 @@
     
     refreshControl.tintColor = [UIColor blueColor];
     self.refreshControl = refreshControl;
-    
     
 }
 

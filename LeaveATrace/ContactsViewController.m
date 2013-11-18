@@ -7,6 +7,7 @@
 //
 
 #import "ContactsViewController.h"
+#import "CanvasViewController.h"
 #import "AddItemViewController.h"
 #import "LeaveATraceItem.h"
 #import "Contact.h"
@@ -17,7 +18,6 @@
 @end
 
 @implementation ContactsViewController {
-    NSMutableArray *items;
     NSString *userAccepted;
     NSString *userContact;
     PFQuery *query;
@@ -66,11 +66,11 @@
                 userAccepted = [myContacts objectForKey:@"userAccepted"];
                 
                 item.text = userContact;
-    
+                item.userAccepted = userAccepted;
                 
                 if ([userAccepted isEqualToString:@"NO"]) {
                     
-                    item.text = [item.text stringByAppendingString:@"    (Pending)"];
+                    //item.text = [item.text stringByAppendingString:@"    (Pending)"];
                     
                 }
                     
@@ -100,7 +100,7 @@
     x = [items count];
     NSLog(@"after removeAllObjects --> %lu",(unsigned long)x);
 
-    [self displayContacts];
+    //[self displayContacts];
 
     [sender endRefreshing];
 }
@@ -124,6 +124,28 @@
 - (void)configureCheckmarkForCell:(UITableViewCell *)cell withChecklistItem:(LeaveATraceItem *)item
 {
     cell.textLabel.enabled = YES;
+    if ([item.userAccepted isEqualToString:@"NO"]) {
+        
+        cell.detailTextLabel.text = @"Pending";
+        cell.textLabel.enabled = NO;
+        cell.userInteractionEnabled = NO;
+        badgeInt++;
+        badgeString = [NSString stringWithFormat:@"%i", badgeInt];
+        [[[[[self tabBarController] tabBar] items]
+          objectAtIndex:3] setBadgeValue:badgeString];
+        
+    } else {
+        
+        cell.detailTextLabel.text = @"Friend";
+        cell.textLabel.enabled = YES;
+        cell.detailTextLabel.textColor = [UIColor redColor];
+        cell.userInteractionEnabled = YES;
+        badgeInt--;
+        badgeString = [NSString stringWithFormat:@"%i", badgeInt];
+        [[[[[self tabBarController] tabBar] items]
+          objectAtIndex:3] setBadgeValue:badgeString];
+        
+    }
 }
 
 - (void)configureTextForCell:(UITableViewCell *)cell withChecklistItem:(LeaveATraceItem *)item
@@ -145,16 +167,9 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    LeaveATraceItem *item = [items objectAtIndex:indexPath.row];
-    [item toggleChecked];
-    
-    [self configureCheckmarkForCell:cell withChecklistItem:item];
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
