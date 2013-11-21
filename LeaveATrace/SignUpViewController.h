@@ -10,7 +10,7 @@
 
 @interface SignUpViewController : UIViewController <UITextFieldDelegate>
 
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollie;
+@property (strong, nonatomic) IBOutlet UIButton *signUpButton;
 
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UITextField *userSignUpTextField;

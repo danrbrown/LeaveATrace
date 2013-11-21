@@ -129,10 +129,6 @@
         cell.detailTextLabel.text = @"Pending";
         cell.textLabel.enabled = NO;
         cell.userInteractionEnabled = NO;
-        badgeInt++;
-        badgeString = [NSString stringWithFormat:@"%i", badgeInt];
-        [[[[[self tabBarController] tabBar] items]
-          objectAtIndex:3] setBadgeValue:badgeString];
         
     } else {
         
@@ -140,10 +136,6 @@
         cell.textLabel.enabled = YES;
         cell.detailTextLabel.textColor = [UIColor redColor];
         cell.userInteractionEnabled = YES;
-        badgeInt--;
-        badgeString = [NSString stringWithFormat:@"%i", badgeInt];
-        [[[[[self tabBarController] tabBar] items]
-          objectAtIndex:3] setBadgeValue:badgeString];
         
     }
 }

@@ -14,13 +14,9 @@
 @end
 
 @implementation SignUpViewController
-@synthesize scrollie, emailTextField ,userSignUpTextField, passwordSignUpTextField, varifyPasswordSignUpTextField;
+@synthesize emailTextField ,userSignUpTextField, passwordSignUpTextField, varifyPasswordSignUpTextField;
 
 - (void)viewDidLoad {
-    
-    [scrollie setScrollEnabled:YES];
-    [scrollie setContentSize:CGSizeMake(0, 2000)];
-    
     
     emailTextField.layer.cornerRadius = 7;
     
@@ -78,12 +74,15 @@
             [[PFInstallation currentInstallation] setObject:[PFUser currentUser] forKey:@"user"];
             [[PFInstallation currentInstallation] saveEventually];
             
-        } else if (error){
-            
+        }
+        else if (error){
+         
            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Username already taken or not valid email" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
           [errorAlertView show];
             
+            
             userSignUpTextField.text = nil;
+            
             emailTextField.text = nil;
             
         }

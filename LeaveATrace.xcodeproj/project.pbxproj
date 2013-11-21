@@ -85,8 +85,8 @@
 /* Begin PBXFileReference section */
 		9C167512181CA3600024EE93 /* textField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textField.png; sourceTree = "<group>"; };
 		9C167516181CB3920024EE93 /* LeaveATraceLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeaveATraceLogo.png; sourceTree = "<group>"; };
-		9C16751B181DA1B50024EE93 /* tracesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tracesViewController.h; sourceTree = "<group>"; };
-		9C16751C181DA1B50024EE93 /* tracesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tracesViewController.m; sourceTree = "<group>"; };
+		9C16751B181DA1B50024EE93 /* tracesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tracesViewController.h; path = LeaveATrace/tracesViewController.h; sourceTree = "<group>"; };
+		9C16751C181DA1B50024EE93 /* tracesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = tracesViewController.m; path = LeaveATrace/tracesViewController.m; sourceTree = "<group>"; };
 		9C16753318209C460024EE93 /* UserImgPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UserImgPlaceholder.png; sourceTree = "<group>"; };
 		9C276807181C75B10073453E /* LeaveATrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeaveATrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C27680A181C75B10073453E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -107,18 +107,18 @@
 		9C276831181C75B10073453E /* LeaveATraceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LeaveATraceTests-Info.plist"; sourceTree = "<group>"; };
 		9C276833181C75B10073453E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9C276835181C75B10073453E /* LeaveATraceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeaveATraceTests.m; sourceTree = "<group>"; };
-		9C27683F181C76720073453E /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
-		9C276840181C76720073453E /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
-		9C276842181C76B00073453E /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
-		9C276843181C76B00073453E /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
-		9C276844181C76B00073453E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		9C276845181C76B00073453E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		9C276846181C76B00073453E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		9C276847181C76B00073453E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		9C276848181C76B00073453E /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
-		9C276849181C76B00073453E /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		9C27684A181C76B00073453E /* RequestsAndLogOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestsAndLogOutViewController.h; sourceTree = "<group>"; };
-		9C27684B181C76B00073453E /* RequestsAndLogOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestsAndLogOutViewController.m; sourceTree = "<group>"; };
+		9C27683F181C76720073453E /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddItemViewController.h; path = LeaveATrace/AddItemViewController.h; sourceTree = "<group>"; };
+		9C276840181C76720073453E /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddItemViewController.m; path = LeaveATrace/AddItemViewController.m; sourceTree = "<group>"; };
+		9C276842181C76B00073453E /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CanvasViewController.h; path = LeaveATrace/CanvasViewController.h; sourceTree = "<group>"; };
+		9C276843181C76B00073453E /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CanvasViewController.m; path = LeaveATrace/CanvasViewController.m; sourceTree = "<group>"; };
+		9C276844181C76B00073453E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = LeaveATrace/SettingsViewController.h; sourceTree = "<group>"; };
+		9C276845181C76B00073453E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = LeaveATrace/SettingsViewController.m; sourceTree = "<group>"; };
+		9C276846181C76B00073453E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = LeaveATrace/LoginViewController.h; sourceTree = "<group>"; };
+		9C276847181C76B00073453E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = LeaveATrace/LoginViewController.m; sourceTree = "<group>"; };
+		9C276848181C76B00073453E /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = LeaveATrace/SignUpViewController.h; sourceTree = "<group>"; };
+		9C276849181C76B00073453E /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = LeaveATrace/SignUpViewController.m; sourceTree = "<group>"; };
+		9C27684A181C76B00073453E /* RequestsAndLogOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestsAndLogOutViewController.h; path = LeaveATrace/RequestsAndLogOutViewController.h; sourceTree = "<group>"; };
+		9C27684B181C76B00073453E /* RequestsAndLogOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestsAndLogOutViewController.m; path = LeaveATrace/RequestsAndLogOutViewController.m; sourceTree = "<group>"; };
 		9C276853181C771D0073453E /* colorsB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorsB.png; sourceTree = "<group>"; };
 		9C276854181C771D0073453E /* SaveB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SaveB.png; sourceTree = "<group>"; };
 		9C276855181C771D0073453E /* sendingB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sendingB.png; sourceTree = "<group>"; };
@@ -135,12 +135,12 @@
 		9C276862181C771D0073453E /* iconsberlin@2x3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x3.png"; sourceTree = "<group>"; };
 		9C276863181C771D0073453E /* settingsBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsBar.png; sourceTree = "<group>"; };
 		9C276864181C771D0073453E /* undo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = undo2.png; sourceTree = "<group>"; };
-		9C276875181C774F0073453E /* LeaveATraceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaveATraceItem.h; sourceTree = "<group>"; };
-		9C276876181C774F0073453E /* LeaveATraceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaveATraceItem.m; sourceTree = "<group>"; };
-		9C276878181C77E70073453E /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
-		9C276879181C77E70073453E /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
-		9C27687B181C78F90073453E /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
-		9C27687C181C78F90073453E /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		9C276875181C774F0073453E /* LeaveATraceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaveATraceItem.h; path = LeaveATrace/LeaveATraceItem.h; sourceTree = "<group>"; };
+		9C276876181C774F0073453E /* LeaveATraceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaveATraceItem.m; path = LeaveATrace/LeaveATraceItem.m; sourceTree = "<group>"; };
+		9C276878181C77E70073453E /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsViewController.h; path = LeaveATrace/ContactsViewController.h; sourceTree = "<group>"; };
+		9C276879181C77E70073453E /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactsViewController.m; path = LeaveATrace/ContactsViewController.m; sourceTree = "<group>"; };
+		9C27687B181C78F90073453E /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contact.h; path = LeaveATrace/Contact.h; sourceTree = "<group>"; };
+		9C27687C181C78F90073453E /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contact.m; path = LeaveATrace/Contact.m; sourceTree = "<group>"; };
 		9C27687E181C7BAB0073453E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		9C27687F181C7BAB0073453E /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		9C276880181C7BAB0073453E /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -161,8 +161,8 @@
 		9C69AA9A1829A98D0032EF24 /* closeMenuB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeMenuB.png; sourceTree = "<group>"; };
 		9C69AA9B1829A98D0032EF24 /* menuB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuB.png; sourceTree = "<group>"; };
 		9C782E04182885ED00077FC8 /* eraserB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraserB.png; sourceTree = "<group>"; };
-		9CA1B48C1832CDC700CAFA8E /* FirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstPageViewController.h; sourceTree = "<group>"; };
-		9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstPageViewController.m; sourceTree = "<group>"; };
+		9CA1B48C1832CDC700CAFA8E /* FirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstPageViewController.h; path = LeaveATrace/FirstPageViewController.h; sourceTree = "<group>"; };
+		9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstPageViewController.m; path = LeaveATrace/FirstPageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +207,10 @@
 		9C2767FE181C75B10073453E = {
 			isa = PBXGroup;
 			children = (
+				9CA1B492183D90AE00CAFA8E /* Requests Views */,
+				9CA1B491183D909E00CAFA8E /* Drawing Views */,
+				9CA1B490183D907C00CAFA8E /* Login and Sign Up Views */,
+				9CA1B48F183D906300CAFA8E /* Contacts Views */,
 				9C276810181C75B10073453E /* LeaveATrace */,
 				9C276851181C771D0073453E /* images */,
 				9C27682F181C75B10073453E /* LeaveATraceTests */,
@@ -254,33 +258,11 @@
 		9C276810181C75B10073453E /* LeaveATrace */ = {
 			isa = PBXGroup;
 			children = (
-				9CA1B48C1832CDC700CAFA8E /* FirstPageViewController.h */,
-				9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */,
-				9C276842181C76B00073453E /* CanvasViewController.h */,
-				9C276843181C76B00073453E /* CanvasViewController.m */,
-				9C276844181C76B00073453E /* SettingsViewController.h */,
-				9C276845181C76B00073453E /* SettingsViewController.m */,
-				9C276846181C76B00073453E /* LoginViewController.h */,
-				9C276847181C76B00073453E /* LoginViewController.m */,
-				9C276848181C76B00073453E /* SignUpViewController.h */,
-				9C276849181C76B00073453E /* SignUpViewController.m */,
-				9C27684A181C76B00073453E /* RequestsAndLogOutViewController.h */,
-				9C27684B181C76B00073453E /* RequestsAndLogOutViewController.m */,
-				9C27683F181C76720073453E /* AddItemViewController.h */,
-				9C276840181C76720073453E /* AddItemViewController.m */,
 				9C276819181C75B10073453E /* AppDelegate.h */,
 				9C27681A181C75B10073453E /* AppDelegate.m */,
 				9C27681C181C75B10073453E /* Main.storyboard */,
 				9C27681F181C75B10073453E /* ViewController.h */,
 				9C276820181C75B10073453E /* ViewController.m */,
-				9C276875181C774F0073453E /* LeaveATraceItem.h */,
-				9C276876181C774F0073453E /* LeaveATraceItem.m */,
-				9C276878181C77E70073453E /* ContactsViewController.h */,
-				9C276879181C77E70073453E /* ContactsViewController.m */,
-				9C27687B181C78F90073453E /* Contact.h */,
-				9C27687C181C78F90073453E /* Contact.m */,
-				9C16751B181DA1B50024EE93 /* tracesViewController.h */,
-				9C16751C181DA1B50024EE93 /* tracesViewController.m */,
 				9C276822181C75B10073453E /* Images.xcassets */,
 				9C276811181C75B10073453E /* Supporting Files */,
 			);
@@ -368,6 +350,56 @@
 				9C167512181CA3600024EE93 /* textField.png */,
 			);
 			path = other;
+			sourceTree = "<group>";
+		};
+		9CA1B48F183D906300CAFA8E /* Contacts Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C27683F181C76720073453E /* AddItemViewController.h */,
+				9C276840181C76720073453E /* AddItemViewController.m */,
+				9C276875181C774F0073453E /* LeaveATraceItem.h */,
+				9C276876181C774F0073453E /* LeaveATraceItem.m */,
+				9C276878181C77E70073453E /* ContactsViewController.h */,
+				9C276879181C77E70073453E /* ContactsViewController.m */,
+				9C27687B181C78F90073453E /* Contact.h */,
+				9C27687C181C78F90073453E /* Contact.m */,
+				9C16751B181DA1B50024EE93 /* tracesViewController.h */,
+				9C16751C181DA1B50024EE93 /* tracesViewController.m */,
+			);
+			name = "Contacts Views";
+			sourceTree = "<group>";
+		};
+		9CA1B490183D907C00CAFA8E /* Login and Sign Up Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CA1B48C1832CDC700CAFA8E /* FirstPageViewController.h */,
+				9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */,
+				9C276846181C76B00073453E /* LoginViewController.h */,
+				9C276847181C76B00073453E /* LoginViewController.m */,
+				9C276848181C76B00073453E /* SignUpViewController.h */,
+				9C276849181C76B00073453E /* SignUpViewController.m */,
+			);
+			name = "Login and Sign Up Views";
+			sourceTree = "<group>";
+		};
+		9CA1B491183D909E00CAFA8E /* Drawing Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C276842181C76B00073453E /* CanvasViewController.h */,
+				9C276843181C76B00073453E /* CanvasViewController.m */,
+				9C276844181C76B00073453E /* SettingsViewController.h */,
+				9C276845181C76B00073453E /* SettingsViewController.m */,
+			);
+			name = "Drawing Views";
+			sourceTree = "<group>";
+		};
+		9CA1B492183D90AE00CAFA8E /* Requests Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C27684A181C76B00073453E /* RequestsAndLogOutViewController.h */,
+				9C27684B181C76B00073453E /* RequestsAndLogOutViewController.m */,
+			);
+			name = "Requests Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

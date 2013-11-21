@@ -43,7 +43,8 @@ int badgeInt;
 - (void)viewDidLoad
 {
     
-    badgeString = [NSString stringWithFormat:@"%i", badgeInt];
+    
+    badgeString = [NSString stringWithFormat:@"1"];
     
     [[[[[self tabBarController] tabBar] items]
       objectAtIndex:3] setBadgeValue:badgeString];
