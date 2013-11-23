@@ -41,6 +41,8 @@
     refreshControl.tintColor = [UIColor blueColor];
     self.refreshControl = refreshControl;
     
+    
+    
 }
 
 -(void) displayContacts {

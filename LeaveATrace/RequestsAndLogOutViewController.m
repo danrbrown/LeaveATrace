@@ -8,19 +8,26 @@
 
 #import "RequestsAndLogOutViewController.h"
 #import "LeaveATraceRequest.h"
+#import "RequestCell.h"
 #import <Parse/Parse.h>
 
 @interface RequestsAndLogOutViewController ()
 
 @end
 
-@implementation RequestsAndLogOutViewController 
+@implementation RequestsAndLogOutViewController {
+    
+    NSMutableArray *requests;
+    
+}
+
+@synthesize requestsTable;
 
 - (void)viewDidLoad
 {
     
     requests = [[NSMutableArray alloc] initWithCapacity:1000];
-    [self displayRequests];
+    [self performSelector:@selector(displayRequests)];
 
     
     [[[[[self tabBarController] tabBar] items]
@@ -34,7 +41,7 @@
 }
 -(void) displayRequests {
     
-    //LeaveATraceRequest *request = [[LeaveATraceRequest alloc] init];
+    //PFQuery *retrieveColors = [PFQuery queryWithClassName:@"tableViewData"];
     
     query = [PFQuery queryWithClassName:@"UserContact"];
     [query whereKey:@"contact" equalTo:[[PFUser currentUser]username]];
@@ -43,26 +50,9 @@
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            
-            NSLog(@"The find for requests succeeded!");
-            
-            for (PFObject *myRequests in objects) {
-
-                LeaveATraceRequest *request = [[LeaveATraceRequest alloc] init];
-                
-                userContact = [myRequests objectForKey:@"username"];
-                
-                request.text = userContact;
-                NSLog(@"%@",userContact);
-               
-                //[self addRequestViewControllerNoDismiss:nil didFinishAddingItem:request];
-                
-            }
-            
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            requests = [[NSMutableArray alloc] initWithArray:objects];
         }
+        [requestsTable reloadData];
     }];
     
 }
@@ -81,37 +71,37 @@
     [sender endRefreshing];
 }
 
-- (void)configureCheckmarkForCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    LeaveATraceRequest *request = [requests objectAtIndex:indexPath.row];
-    if (request.checked) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
+//*********************Setup table of folder names ************************
+
+//get number of sections in tableview
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChecklistItem"];
-    
-    LeaveATraceRequest *request = [requests objectAtIndex:indexPath.row];
-    
-    UILabel *label = (UILabel *)[cell viewWithTag:1000]; label.text = request.text;
-    
-    [self configureCheckmarkForCell:cell atIndexPath:indexPath]; return cell;
-    
+//get number of rows by counting number of folders
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return requests.count;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//setup cells in tableView
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    LeaveATraceRequest *request = [requests objectAtIndex:indexPath.row];
-    request.checked = !request.checked;
+    //setup cell
+    static NSString *CellIdentifier = @"RequestCell";
+    RequestCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    [self configureCheckmarkForCell:cell atIndexPath:indexPath];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    PFObject *tempObject = [requests objectAtIndex:indexPath.row];
+    
+    cell.cellTitle.text = [tempObject objectForKey:@"username"];
+    
+    return cell;
+}
+
+
+//user selects folder to add tag to
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"cell tapped");
 }
 
 

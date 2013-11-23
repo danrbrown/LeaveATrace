@@ -10,20 +10,15 @@
 #import <Parse/Parse.h>
 
 @interface RequestsAndLogOutViewController : UITableViewController {
-    
-    NSMutableArray *requests;
+
     NSString *userAccepted;
     NSString *userContact;
     PFQuery *query;
-
     
 }
 
 -(IBAction)logOut:(id)sender;
 
-
-
-
-@property (nonatomic, strong) NSMutableArray *usersRequsts;
+@property (weak, nonatomic) IBOutlet UITableView *requestsTable;
 
 @end

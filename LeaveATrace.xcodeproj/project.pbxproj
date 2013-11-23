@@ -11,7 +11,6 @@
 		9C167517181CB3920024EE93 /* LeaveATraceLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C167516181CB3920024EE93 /* LeaveATraceLogo.png */; };
 		9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16751C181DA1B50024EE93 /* tracesViewController.m */; };
 		9C16753418209C460024EE93 /* UserImgPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C16753318209C460024EE93 /* UserImgPlaceholder.png */; };
-		9C197E49183EFEA500D0D258 /* LeaveATraceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C197E48183EFEA500D0D258 /* LeaveATraceRequest.m */; };
 		9C27680B181C75B10073453E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680A181C75B10073453E /* Foundation.framework */; };
 		9C27680D181C75B10073453E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680C181C75B10073453E /* CoreGraphics.framework */; };
 		9C27680F181C75B10073453E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680E181C75B10073453E /* UIKit.framework */; };
@@ -71,6 +70,8 @@
 		9C69AA9D1829A98D0032EF24 /* menuB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C69AA9B1829A98D0032EF24 /* menuB.png */; };
 		9C782E05182885ED00077FC8 /* eraserB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C782E04182885ED00077FC8 /* eraserB.png */; };
 		9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */; };
+		9CAC90E518413D45007CC2CD /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E418413D45007CC2CD /* RequestCell.m */; };
+		9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,8 +90,6 @@
 		9C16751B181DA1B50024EE93 /* tracesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tracesViewController.h; path = LeaveATrace/tracesViewController.h; sourceTree = "<group>"; };
 		9C16751C181DA1B50024EE93 /* tracesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = tracesViewController.m; path = LeaveATrace/tracesViewController.m; sourceTree = "<group>"; };
 		9C16753318209C460024EE93 /* UserImgPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UserImgPlaceholder.png; sourceTree = "<group>"; };
-		9C197E47183EFEA500D0D258 /* LeaveATraceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaveATraceRequest.h; sourceTree = "<group>"; };
-		9C197E48183EFEA500D0D258 /* LeaveATraceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaveATraceRequest.m; sourceTree = "<group>"; };
 		9C276807181C75B10073453E /* LeaveATrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeaveATrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C27680A181C75B10073453E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9C27680C181C75B10073453E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -166,6 +165,10 @@
 		9C782E04182885ED00077FC8 /* eraserB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraserB.png; sourceTree = "<group>"; };
 		9CA1B48C1832CDC700CAFA8E /* FirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstPageViewController.h; path = LeaveATrace/FirstPageViewController.h; sourceTree = "<group>"; };
 		9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstPageViewController.m; path = LeaveATrace/FirstPageViewController.m; sourceTree = "<group>"; };
+		9CAC90E318413D45007CC2CD /* RequestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestCell.h; path = LeaveATrace/RequestCell.h; sourceTree = "<group>"; };
+		9CAC90E418413D45007CC2CD /* RequestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestCell.m; path = LeaveATrace/RequestCell.m; sourceTree = "<group>"; };
+		9CAC90E618413DF5007CC2CD /* LeaveATraceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaveATraceRequest.h; path = LeaveATrace/LeaveATraceRequest.h; sourceTree = "<group>"; };
+		9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaveATraceRequest.m; path = LeaveATrace/LeaveATraceRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,8 +404,10 @@
 			children = (
 				9C27684A181C76B00073453E /* RequestsAndLogOutViewController.h */,
 				9C27684B181C76B00073453E /* RequestsAndLogOutViewController.m */,
-				9C197E47183EFEA500D0D258 /* LeaveATraceRequest.h */,
-				9C197E48183EFEA500D0D258 /* LeaveATraceRequest.m */,
+				9CAC90E318413D45007CC2CD /* RequestCell.h */,
+				9CAC90E418413D45007CC2CD /* RequestCell.m */,
+				9CAC90E618413DF5007CC2CD /* LeaveATraceRequest.h */,
+				9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */,
 			);
 			name = "Requests Views";
 			sourceTree = "<group>";
@@ -532,12 +537,13 @@
 				9C276841181C76720073453E /* AddItemViewController.m in Sources */,
 				9C27684C181C76B10073453E /* CanvasViewController.m in Sources */,
 				9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */,
+				9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */,
 				9C27687D181C78F90073453E /* Contact.m in Sources */,
 				9C27684D181C76B10073453E /* SettingsViewController.m in Sources */,
-				9C197E49183EFEA500D0D258 /* LeaveATraceRequest.m in Sources */,
 				9C276877181C774F0073453E /* LeaveATraceItem.m in Sources */,
 				9C27684E181C76B10073453E /* LoginViewController.m in Sources */,
 				9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */,
+				9CAC90E518413D45007CC2CD /* RequestCell.m in Sources */,
 				9C27681B181C75B10073453E /* AppDelegate.m in Sources */,
 				9C27684F181C76B10073453E /* SignUpViewController.m in Sources */,
 				9C276850181C76B10073453E /* RequestsAndLogOutViewController.m in Sources */,
