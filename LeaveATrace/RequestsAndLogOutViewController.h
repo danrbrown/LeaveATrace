@@ -7,9 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface RequestsAndLogOutViewController : UITableViewController
+@interface RequestsAndLogOutViewController : UITableViewController {
+    
+    NSMutableArray *requests;
+    NSString *userAccepted;
+    NSString *userContact;
+    PFQuery *query;
+
+    
+}
 
 -(IBAction)logOut:(id)sender;
+
+
+
+
+@property (nonatomic, strong) NSMutableArray *usersRequsts;
 
 @end

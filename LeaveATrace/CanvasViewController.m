@@ -10,8 +10,6 @@
 
 #import "SettingsViewController.h"
 
-//#import "LoginViewController.h"
-
 #import <Twitter/Twitter.h>
 
 #import <Parse/Parse.h>
@@ -42,7 +40,6 @@ int badgeInt;
 
 - (void)viewDidLoad
 {
-    
     
     badgeString = [NSString stringWithFormat:@"1"];
     
@@ -81,6 +78,11 @@ int badgeInt;
     }
     
     [super viewDidLoad];
+}
+
+-(void)viewDidUnload
+{
+    NSLog(@"exited the screen");
 }
 
 //----------------------------------------------------------------------
