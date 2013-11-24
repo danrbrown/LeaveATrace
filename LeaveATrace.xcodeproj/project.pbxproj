@@ -65,6 +65,7 @@
 		9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */; };
 		9CAC90E518413D45007CC2CD /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E418413D45007CC2CD /* RequestCell.m */; };
 		9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */; };
+		9CAC90F018428C34007CC2CD /* traceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90EF18428C34007CC2CD /* traceCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,8 @@
 		9CAC90E418413D45007CC2CD /* RequestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestCell.m; path = LeaveATrace/RequestCell.m; sourceTree = "<group>"; };
 		9CAC90E618413DF5007CC2CD /* LeaveATraceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaveATraceRequest.h; path = LeaveATrace/LeaveATraceRequest.h; sourceTree = "<group>"; };
 		9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaveATraceRequest.m; path = LeaveATrace/LeaveATraceRequest.m; sourceTree = "<group>"; };
+		9CAC90EE18428C34007CC2CD /* traceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = traceCell.h; sourceTree = "<group>"; };
+		9CAC90EF18428C34007CC2CD /* traceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = traceCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +202,7 @@
 		9C2767FE181C75B10073453E = {
 			isa = PBXGroup;
 			children = (
+				9CAC90ED184281A6007CC2CD /* Traces Views */,
 				9CA1B492183D90AE00CAFA8E /* Requests Views */,
 				9CA1B48F183D906300CAFA8E /* Contacts Views */,
 				9CA1B491183D909E00CAFA8E /* Drawing Views */,
@@ -348,8 +352,6 @@
 				9C276879181C77E70073453E /* ContactsViewController.m */,
 				9C27687B181C78F90073453E /* Contact.h */,
 				9C27687C181C78F90073453E /* Contact.m */,
-				9C16751B181DA1B50024EE93 /* tracesViewController.h */,
-				9C16751C181DA1B50024EE93 /* tracesViewController.m */,
 			);
 			name = "Contacts Views";
 			sourceTree = "<group>";
@@ -389,6 +391,17 @@
 				9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */,
 			);
 			name = "Requests Views";
+			sourceTree = "<group>";
+		};
+		9CAC90ED184281A6007CC2CD /* Traces Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C16751B181DA1B50024EE93 /* tracesViewController.h */,
+				9C16751C181DA1B50024EE93 /* tracesViewController.m */,
+				9CAC90EE18428C34007CC2CD /* traceCell.h */,
+				9CAC90EF18428C34007CC2CD /* traceCell.m */,
+			);
+			name = "Traces Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -517,6 +530,7 @@
 				9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */,
 				9CAC90E518413D45007CC2CD /* RequestCell.m in Sources */,
 				9C27681B181C75B10073453E /* AppDelegate.m in Sources */,
+				9CAC90F018428C34007CC2CD /* traceCell.m in Sources */,
 				9C27684F181C76B10073453E /* SignUpViewController.m in Sources */,
 				9C276850181C76B10073453E /* RequestsAndLogOutViewController.m in Sources */,
 				9C276817181C75B10073453E /* main.m in Sources */,

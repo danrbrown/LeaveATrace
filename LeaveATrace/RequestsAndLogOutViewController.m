@@ -21,7 +21,7 @@
     
 }
 
-@synthesize requestsTable;
+@synthesize requestsTable; 
 
 - (void)viewDidLoad
 {
@@ -39,6 +39,12 @@
     
 }
 
+- (void)refreshView:(UIRefreshControl *)sender {
+    
+    [self displayRequests];
+    [sender endRefreshing];
+}
+
 -(void) displayRequests {
     
     query = [PFQuery queryWithClassName:@"UserContact"];
@@ -52,7 +58,6 @@
         }
         [requestsTable reloadData];
     }];
-    
 }
 
 -(IBAction)Accept:(id)sender {
@@ -111,6 +116,11 @@
     [requests removeObjectAtIndex:indexPath.row];
     [requestsTable reloadData];
     
+    NSString *acceptedMessage = [NSString stringWithFormat:@"You are now friends with %@!", name];
+    
+    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Congrats!" message:acceptedMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [errorAlertView show];
+    
 }
 
 -(IBAction)Decline:(id)sender {
@@ -124,11 +134,6 @@
     [PFUser logOut];
     [self performSegueWithIdentifier:@"LogOutSuccesful" sender:self];
     
-}
-
-- (void)refreshView:(UIRefreshControl *)sender {
-
-    [sender endRefreshing];
 }
 
 

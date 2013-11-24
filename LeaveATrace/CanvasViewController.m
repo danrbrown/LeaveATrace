@@ -15,7 +15,8 @@
 #import <Parse/Parse.h>
 
 NSString *badgeString;
-int badgeInt;
+
+NSInteger badgeInt;
 
 @interface CanvasViewController ()
 
@@ -41,10 +42,7 @@ int badgeInt;
 - (void)viewDidLoad
 {
     
-    badgeString = [NSString stringWithFormat:@"1"];
-    
-    [[[[[self tabBarController] tabBar] items]
-      objectAtIndex:3] setBadgeValue:badgeString];
+    [self countRequests];
     
     red = 0.0/255.0;
     green = 0.0/255.0;
@@ -58,12 +56,7 @@ int badgeInt;
     DrawAnything.hidden = YES;
         
     SendToAnyone.hidden = YES;
-    
-    if ([currentColorImage isEqual:@"eraserB.png"]){
-        
-        currentColorImage.frame = CGRectMake(60, 400, 69, 72);
-        
-    } else {
+
    
         UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
         CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -74,8 +67,7 @@ int badgeInt;
         CGContextStrokePath(UIGraphicsGetCurrentContext());
         self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-   
-    }
+    
     
     [super viewDidLoad];
 }
@@ -87,8 +79,40 @@ int badgeInt;
 
 //----------------------------------------------------------------------
 
-- (UIImage*)convertToMask: (UIImage *) image
-{
+-(void) countRequests {
+    
+    PFQuery *query;
+
+    query = [PFQuery queryWithClassName:@"UserContact"];
+    [query whereKey:@"contact" equalTo:[[PFUser currentUser]username]];
+    [query whereKey:@"userAccepted" equalTo:@"NO"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
+            NSLog(@"number of requests %lu",(unsigned long)objects.count);
+            
+            if (objects.count == 0) {
+                
+                [[[[[self tabBarController] tabBar] items]
+                  objectAtIndex:3] setBadgeValue:nil];
+                
+            } else {
+            
+                badgeString = [NSString stringWithFormat:@"%lu",(unsigned long)objects.count];
+            
+                [[[[[self tabBarController] tabBar] items]
+                  objectAtIndex:3] setBadgeValue:badgeString];
+            
+            }
+                
+        }
+    }];
+}
+
+//----------------------------------------------------------------------
+
+- (UIImage*)convertToMask: (UIImage *) image {
     
     if (image != nil) {
         
@@ -252,8 +276,7 @@ int badgeInt;
     self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    UIImage *buttonImage = [UIImage imageNamed:@"menuB.png"];
-    [menuB setImage:buttonImage forState:UIControlStateNormal];
+    [self dropUp];
     
     menuInt = 0;
 }
@@ -346,10 +369,11 @@ int badgeInt;
         
         if (succeeded){
 
-            PFObject *imageObject = [PFObject objectWithClassName:@"WallImageObject"];
+            PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
             [imageObject setObject:file forKey:@"image"];
-            [imageObject setObject:[PFUser currentUser].username forKey:@"user"];
-            [imageObject setObject:@"N"forKey:@"deliveredToUser"];
+            [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
+            [imageObject setObject:@"danrbrown" forKey:@"toUser"];
+            [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
             
             [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
               
@@ -463,6 +487,17 @@ int badgeInt;
     brush = 28.0;
     opacity = 1.0;
     
+    UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 35);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    
 }
 
 //----------------------------------------------------------------------
@@ -489,6 +524,8 @@ int badgeInt;
 
 -(void)dropDown
 {
+    
+    [menuB setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     
     [UIView animateWithDuration:0.5 animations:^{
         trashB.center = CGPointMake(35, 46);
@@ -517,6 +554,8 @@ int badgeInt;
 
 -(void)dropUp
 {
+    
+    [menuB setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     [UIView animateWithDuration:0.5 animations:^{
         trashB.center = CGPointMake(35, -100);

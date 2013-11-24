@@ -53,8 +53,9 @@
         if (user) {
             
             if (![[user objectForKey:@"emailVerified"] boolValue]) {
-                // Refresh to make sure the user did not recently verify
+                
                 [user refresh];
+                
                 if (![[user objectForKey:@"emailVerified"] boolValue]) {
                     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must verify your email before logging in." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                     [errorAlertView show];
@@ -71,10 +72,9 @@
             
         } else {
             
-            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Try again" message:@"Either your password or your username was wrong, rookie mistake!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Try again" message:@"There was a error loging in" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [errorAlertView show];
-            
-            userNameTextField.text = nil;
+        
             passWordTextField.text = nil;
             
         }

@@ -10,7 +10,8 @@
 #import "SettingsViewController.h"
 
 extern NSString *badgeString;
-extern int badgeInt;
+
+extern NSInteger badgeInt;
 
 @interface CanvasViewController : UIViewController <SettingsViewControllerDelegate, UIActionSheetDelegate> {
     

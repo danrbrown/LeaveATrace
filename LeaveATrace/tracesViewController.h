@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface tracesViewController : UITableViewController
+@interface tracesViewController : UITableViewController {
+    
+    PFQuery *query;
+    
+}
+
+@property (weak, nonatomic) IBOutlet UITableView *tracesTable;
+
 
 @end
