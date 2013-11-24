@@ -26,16 +26,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e22-J9-8zx">
-                                            <rect key="frame" x="15" y="12" width="42" height="24"/>
+                                            <rect key="frame" x="15" y="10" width="55" height="27"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
+                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="22"/>
                                             <color key="textColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bIH-Ak-6Gz">
-                                            <rect key="frame" x="265" y="15" width="40" height="21"/>
+                                            <rect key="frame" x="255" y="17" width="50" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="GillSans-Italic" family="Gill Sans" pointSize="18"/>
+                                            <fontDescription key="fontDescription" name="Verdana-BoldItalic" family="Verdana" pointSize="15"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -71,7 +71,7 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="FYA-4M-a6S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.94234975509007113" green="1" blue="0.50198888667526997" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="spu-ft-oBs">
                                 <cells>
@@ -83,9 +83,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username..." adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mCP-3F-x14">
-                                                    <rect key="frame" x="20" y="6" width="280" height="31"/>
+                                                    <rect key="frame" x="20" y="10" width="280" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="19"/>
+                                                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="done" destination="Kh5-VG-XGC" eventType="editingDidEndOnExit" id="biZ-4z-JT6"/>
@@ -167,7 +167,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="33"/>
+                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="30"/>
                             <color key="textColor" red="0.95367935979999996" green="1" blue="0.20564326029999999" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
@@ -233,7 +233,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5k-Kc-eez">
-                                <rect key="frame" x="126" y="332" width="68" height="30"/>
+                                <rect key="frame" x="126" y="289" width="68" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="get image">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -262,18 +262,6 @@
                                     <action selector="undo:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="SH9-Q3-pgk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPF-1G-J6q">
-                                <rect key="frame" x="251" y="20" width="67" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="21"/>
-                                <state key="normal" image="menuB.png">
-                                    <color key="titleColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="dropDownMenu:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="XdT-ty-6zj"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIF-o3-zbA">
                                 <rect key="frame" x="0.0" y="600" width="63" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -290,6 +278,17 @@
                                 <rect key="frame" x="-15" y="445" width="69" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WwN-sH-eGE">
+                                <rect key="frame" x="126" y="20" width="69" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="21"/>
+                                <state key="normal" title="Menu">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dropDownMenu:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="LXf-QH-8gZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -300,7 +299,7 @@
                         <outlet property="eraseB" destination="Rns-hs-jRr" id="6Og-Pf-Tva"/>
                         <outlet property="getB" destination="A5k-Kc-eez" id="SIR-Oe-KS2"/>
                         <outlet property="mainImage" destination="bIM-3Z-gXc" id="uRg-og-Nli"/>
-                        <outlet property="menuB" destination="kPF-1G-J6q" id="arS-9l-lO6"/>
+                        <outlet property="menuB" destination="WwN-sH-eGE" id="MhP-ha-dpA"/>
                         <outlet property="saveB" destination="yIF-o3-zbA" id="B6g-Er-EpM"/>
                         <outlet property="sendB" destination="nhl-67-LS2" id="FdI-aU-ltA"/>
                         <outlet property="trashB" destination="O1Q-lZ-m3k" id="OqW-F7-9Vn"/>
@@ -323,7 +322,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="W2l-Nd-rwm">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="10" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="W2l-Nd-rwm">
                                 <rect key="frame" x="41" y="259" width="239" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -332,7 +331,7 @@
                                     <action selector="sliderChanged:" destination="HhA-B4-PEV" eventType="valueChanged" id="d0k-12-Zu4"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="gou-C9-wOn">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="10" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="gou-C9-wOn">
                                 <rect key="frame" x="41" y="305" width="239" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -341,7 +340,7 @@
                                     <action selector="sliderChanged:" destination="HhA-B4-PEV" eventType="valueChanged" id="yie-qm-npP"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="i96-fK-3Zw">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="10" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="i96-fK-3Zw">
                                 <rect key="frame" x="41" y="351" width="239" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="0.0" green="0.66358996979999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -425,7 +424,7 @@
                                     <action selector="justOrange:" destination="HhA-B4-PEV" eventType="touchUpInside" id="Caw-b6-h1Y"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="0.0" maxValue="65" translatesAutoresizingMaskIntoConstraints="NO" id="900-30-s41">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="5" maxValue="65" translatesAutoresizingMaskIntoConstraints="NO" id="900-30-s41">
                                 <rect key="frame" x="66" y="105" width="185" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -438,9 +437,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqd-HX-zZq">
-                                <rect key="frame" x="257" y="35" width="51" height="23"/>
+                                <rect key="frame" x="241" y="34" width="67" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="21"/>
                                 <state key="normal" title="Done">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -473,29 +472,53 @@
             </objects>
             <point key="canvasLocation" x="2252" y="463"/>
         </scene>
-        <!--Requests And Log Out View Controller - Requests-->
+        <!--Requests And Log Out View Controller - Friend Requests-->
         <scene sceneID="Nqm-8T-fF4">
             <objects>
                 <tableViewController id="dkT-yk-hJO" customClass="RequestsAndLogOutViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LI9-LV-x7W">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="LI9-LV-x7W">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RequestCell" rowHeight="48" id="SZe-l4-eto" customClass="RequestCell">
-                                <rect key="frame" x="0.0" y="86" width="320" height="48"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RequestCell" rowHeight="54" id="SZe-l4-eto" customClass="RequestCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="54"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SZe-l4-eto" id="bo1-fN-xZg">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmY-bC-Q9Q">
-                                            <rect key="frame" x="20" y="13" width="280" height="21"/>
+                                            <rect key="frame" x="20" y="14" width="280" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="22"/>
+                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="22"/>
                                             <color key="textColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUq-OB-kpd">
+                                            <rect key="frame" x="222" y="12" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="15"/>
+                                            <state key="normal" title="No">
+                                                <color key="titleColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="Decline:" destination="dkT-yk-hJO" eventType="touchUpInside" id="vY0-ER-Lzj"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sal-1V-tym">
+                                            <rect key="frame" x="270" y="12" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="15"/>
+                                            <state key="normal" title="Yes">
+                                                <color key="titleColor" red="0.056758893202106891" green="0.87213400135869568" blue="0.0010526673685699905" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" red="0.0567588932" green="0.87213400139999997" blue="0.001052667369" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="Accept:" destination="dkT-yk-hJO" eventType="touchUpInside" id="AO9-w7-9sh"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -508,7 +531,7 @@
                             <outlet property="delegate" destination="dkT-yk-hJO" id="bvq-0G-ICr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Requests" id="9SH-85-zqG">
+                    <navigationItem key="navigationItem" title="Friend Requests" id="9SH-85-zqG">
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="C9f-Vy-16b">
                             <color key="tintColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -523,7 +546,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m63-xT-YIa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2300" y="1157"/>
+            <point key="canvasLocation" x="2252" y="1157"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wTw-dt-yce">
@@ -536,7 +559,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="33"/>
+                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="30"/>
                             <color key="textColor" red="0.95367935979999996" green="1" blue="0.20564326029999999" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
@@ -561,39 +584,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kab-Z4-7fm">
-                                <rect key="frame" x="14" y="42" width="293" height="177"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEd-N7-7dC">
-                                <rect key="frame" x="64" y="79" width="193" height="104"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="90"/>
-                                <color key="textColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vn2-Gn-JMH">
-                                <rect key="frame" x="112" y="419" width="97" height="46"/>
+                                <rect key="frame" x="101" y="217" width="118" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="28"/>
-                                <state key="normal" title="Log In">
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="28"/>
+                                <state key="normal" title="Login">
                                     <color key="titleColor" red="1" green="0.94174692209999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="1" green="0.94174692209999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="q66-0j-MX0" kind="modal" modalTransitionStyle="flipHorizontal" id="aqm-j9-75I"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cca-D8-5Zu">
-                                <rect key="frame" x="112" y="473" width="97" height="46"/>
+                                <rect key="frame" x="93" y="261" width="134" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="28"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="28"/>
                                 <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="5hk-4q-zO9" kind="modal" modalTransitionStyle="flipHorizontal" id="b0h-1B-5xq"/>
@@ -602,9 +611,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <connections>
-                        <outlet property="placeholederLogoPlacement" destination="kab-Z4-7fm" id="fxU-Ln-LxG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zP-E3-cCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -623,9 +629,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVs-LC-W3O">
-                                <rect key="frame" x="125" y="132" width="70" height="54"/>
+                                <rect key="frame" x="114" y="229" width="92" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="27"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="1" green="0.94174692209999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -635,35 +641,35 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eX-bY-JXj">
-                                <rect key="frame" x="20" y="494" width="70" height="54"/>
+                                <rect key="frame" x="20" y="494" width="75" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="27"/>
                                 <state key="normal" title="Back">
-                                    <color key="titleColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="RuF-KD-iC2" kind="modal" animates="NO" id="M9D-NX-IN9"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8vj-fC-XQX">
-                                <rect key="frame" x="11" y="27" width="298" height="47"/>
+                                <rect key="frame" x="11" y="124" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n27-2M-8tn">
-                                <rect key="frame" x="11" y="82" width="298" height="47"/>
+                                <rect key="frame" x="11" y="179" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2b-6E-02x">
-                                <rect key="frame" x="83" y="194" width="155" height="30"/>
+                                <rect key="frame" x="66" y="291" width="189" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Verdana-BoldItalic" family="Verdana" pointSize="18"/>
                                 <state key="normal" title="Forgot Password?">
                                     <color key="titleColor" red="0.0" green="0.96464839339999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.0" green="0.96464839338897601" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -705,9 +711,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byo-Xi-fL6">
-                                <rect key="frame" x="113" y="255" width="95" height="45"/>
+                                <rect key="frame" x="100" y="285" width="120" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="27"/>
                                 <state key="normal" title="Sign up">
                                     <color key="titleColor" red="1" green="0.94174692209999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -717,44 +723,44 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Psp-YW-9rG">
-                                <rect key="frame" x="11" y="143" width="298" height="47"/>
+                                <rect key="frame" x="11" y="175" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Frh-1i-He8">
-                                <rect key="frame" x="11" y="88" width="298" height="47"/>
+                                <rect key="frame" x="11" y="120" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Varify password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Yw-P0-dC1">
-                                <rect key="frame" x="11" y="198" width="298" height="47"/>
+                                <rect key="frame" x="11" y="230" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email@domain.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d49-lF-19C">
-                                <rect key="frame" x="11" y="33" width="298" height="47"/>
+                                <rect key="frame" x="11" y="65" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIX-q8-gkd">
-                                <rect key="frame" x="20" y="494" width="70" height="54"/>
+                                <rect key="frame" x="20" y="494" width="77" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="27"/>
                                 <state key="normal" title="Back">
-                                    <color key="titleColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="RuF-KD-iC2" kind="modal" animates="NO" id="vZm-Ey-PdG"/>
@@ -821,7 +827,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="33"/>
+                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="30"/>
                             <color key="textColor" red="0.95367935979999996" green="1" blue="0.20564326029999999" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
@@ -845,7 +851,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="33"/>
+                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="23"/>
                             <color key="textColor" red="0.95367935979999996" green="1" blue="0.20564326029999999" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
@@ -873,7 +879,6 @@
         <image name="eraserB.png" width="225" height="225"/>
         <image name="iconsberlin.png" width="30" height="30"/>
         <image name="iconsberlin@2x3.png" width="60" height="60"/>
-        <image name="menuB.png" width="154" height="164"/>
         <image name="sendingB.png" width="253" height="118"/>
         <image name="settingsBar.png" width="417" height="122"/>
     </resources>
@@ -883,7 +888,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="r4Y-3E-9Ey"/>
         <segue reference="vm4-Ru-Iag"/>
+        <segue reference="r4Y-3E-9Ey"/>
     </inferredMetricsTieBreakers>
 </document>

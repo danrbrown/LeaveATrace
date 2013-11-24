@@ -460,15 +460,8 @@ int badgeInt;
     red = 255.0/255.0;
     green = 255.0/255.0;
     blue = 255.0/255.0;
-    
     brush = 28.0;
     opacity = 1.0;
-    
-    currentColorImage.image = [UIImage imageNamed:@"eraserB.png"];
-    
-    [self eraserDropUp];
-    
-    menuInt = 0;
     
 }
 
@@ -478,7 +471,7 @@ int badgeInt;
 {
     
     if (menuInt == 0){
-    
+        
         [self dropDown];
         
     }
@@ -502,14 +495,12 @@ int badgeInt;
         undoB.center = CGPointMake(111, 48);
         eraseB.center = CGPointMake(189, 46);
         colorsB.center = CGPointMake(275, 48);
-        menuB.center = CGPointMake(285, 110);
+        
+        menuB.center = CGPointMake(160, 100);
+        
         sendB.center = CGPointMake(267, 480);
         saveB.center = CGPointMake(40, 483);
         currentColorImage.center = CGPointMake(20, 600);
-        
-        UIImage *buttonImage = [UIImage imageNamed:@"closeMenuB.png"];
-        [menuB setImage:buttonImage forState:UIControlStateNormal];
-        
     }];
     
     menuInt = 1;
@@ -519,8 +510,6 @@ int badgeInt;
     [UIView setAnimationDuration:0.6];
     [menuB setAlpha:1.0];
     [UIView commitAnimations];
-    
-    
     
 }
 
@@ -534,13 +523,12 @@ int badgeInt;
         undoB.center = CGPointMake(111, -100);
         eraseB.center = CGPointMake(189, -100);
         colorsB.center = CGPointMake(275, -100);
-        menuB.center = CGPointMake(285, 46);
+        
+        menuB.center = CGPointMake(160, 40);
+        
         sendB.center = CGPointMake(267, 600);
         saveB.center = CGPointMake(40, 600);
         currentColorImage.center = CGPointMake(20, 473);
-
-        UIImage *buttonImage = [UIImage imageNamed:@"menuB.png"];
-        [menuB setImage:buttonImage forState:UIControlStateNormal];
     }];
     
     [menuB setAlpha:0.0];
@@ -548,31 +536,6 @@ int badgeInt;
     [UIView setAnimationDuration:0.6];
     [menuB setAlpha:1.0];
     [UIView commitAnimations];
-    
-}
-
--(void) eraserDropUp {
-    
-    [UIView animateWithDuration:0.5 animations:^{
-        trashB.center = CGPointMake(35, -100);
-        undoB.center = CGPointMake(111, -100);
-        eraseB.center = CGPointMake(189, -100);
-        colorsB.center = CGPointMake(275, -100);
-        menuB.center = CGPointMake(285, 46);
-        sendB.center = CGPointMake(267, 600);
-        saveB.center = CGPointMake(40, 600);
-        currentColorImage.center = CGPointMake(37, 473);
-        
-        UIImage *buttonImage = [UIImage imageNamed:@"menuB.png"];
-        [menuB setImage:buttonImage forState:UIControlStateNormal];
-    }];
-    
-    [menuB setAlpha:0.0];
-    [UIView beginAnimations:@"animateTableView" context:nil];
-    [UIView setAnimationDuration:0.6];
-    [menuB setAlpha:1.0];
-    [UIView commitAnimations];
-
     
 }
 

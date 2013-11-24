@@ -18,6 +18,8 @@
 }
 
 -(IBAction)logOut:(id)sender;
+-(IBAction)Accept:(id)sender;
+-(IBAction)Decline:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *requestsTable;
 

@@ -26,12 +26,11 @@
 - (void)viewDidLoad
 {
     
-    requests = [[NSMutableArray alloc] initWithCapacity:1000];
-    [self performSelector:@selector(displayRequests)];
-
-    
     [[[[[self tabBarController] tabBar] items]
       objectAtIndex:3] setBadgeValue:nil];
+    
+    requests = [[NSMutableArray alloc] initWithCapacity:1000];
+    [self performSelector:@selector(displayRequests)];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
@@ -39,9 +38,8 @@
     self.refreshControl = refreshControl;
     
 }
+
 -(void) displayRequests {
-    
-    //PFQuery *retrieveColors = [PFQuery queryWithClassName:@"tableViewData"];
     
     query = [PFQuery queryWithClassName:@"UserContact"];
     [query whereKey:@"contact" equalTo:[[PFUser currentUser]username]];
@@ -57,7 +55,47 @@
     
 }
 
+-(IBAction)Accept:(id)sender {
+    
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    NSLog(@"cell tapped on %li ", (long)indexPath.row);
+    
+    PFObject *tempObject = [requests objectAtIndex:indexPath.row];
+    NSString *name;
+    
+    name = [tempObject objectForKey:@"username"];
+    NSLog(@"Name on row --> %@", name);
+    
+    PFObject *newContact = [PFObject objectWithClassName:@"UserContact"];
+    [newContact setObject:[PFUser currentUser].username forKey:@"username"];
+    [newContact setObject:name forKey:@"contact"];
+    [newContact setObject:@"YES" forKey:@"userAccepted"];
+    
+    [newContact saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)  {
+        
+        if (!succeeded){
+            
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [errorAlertView show];
+        }
+    }];
+    
+    // Now delete the row out of the array and off the screen
+    [requests removeObjectAtIndex:indexPath.row];
+    //NSArray *indexPaths = [NSArray arrayWithObjects:[indexPath];
+                           
+    //[self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation UITableViewRowAnimationAutomatic];
+    
+}
 
+-(IBAction)Decline:(id)sender {
+    
+    NSLog(@"User Declined");
+    
+}
 
 -(IBAction)logOut:(id)sender {
     
@@ -71,37 +109,36 @@
     [sender endRefreshing];
 }
 
-//*********************Setup table of folder names ************************
 
-//get number of sections in tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
+    
     return 1;
+    
 }
 
-//get number of rows by counting number of folders
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
     return requests.count;
+    
 }
 
-//setup cells in tableView
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    //setup cell
     static NSString *CellIdentifier = @"RequestCell";
+    
     RequestCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     PFObject *tempObject = [requests objectAtIndex:indexPath.row];
     
     cell.cellTitle.text = [tempObject objectForKey:@"username"];
+    NSLog(@"%@",cell.cellTitle.text);
     
     return cell;
 }
 
-
-//user selects folder to add tag to
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"cell tapped");
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
 }
 
 
