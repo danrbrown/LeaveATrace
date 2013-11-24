@@ -85,9 +85,7 @@
     
     // Now delete the row out of the array and off the screen
     [requests removeObjectAtIndex:indexPath.row];
-    //NSArray *indexPaths = [NSArray arrayWithObjects:[indexPath];
-                           
-    //[self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation UITableViewRowAnimationAutomatic];
+    [requestsTable reloadData];
     
 }
 
