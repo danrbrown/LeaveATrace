@@ -44,7 +44,7 @@
     query = [PFQuery queryWithClassName:@"UserContact"];
     [query whereKey:@"contact" equalTo:[[PFUser currentUser]username]];
     [query whereKey:@"userAccepted" equalTo:@"NO"];
-    [query orderByAscending:@"username"];
+    [query orderByAscending:@"contact"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -68,6 +68,8 @@
     name = [tempObject objectForKey:@"username"];
     NSLog(@"Name on row --> %@", name);
     
+    // Insert the new row for the new friend relationship
+    
     PFObject *newContact = [PFObject objectWithClassName:@"UserContact"];
     [newContact setObject:[PFUser currentUser].username forKey:@"username"];
     [newContact setObject:name forKey:@"contact"];
@@ -82,8 +84,30 @@
             [errorAlertView show];
         }
     }];
+
+    // Now update the existing row and set the boolean flat to YES
+
+    query = [PFQuery queryWithClassName:@"UserContact"];
+    [query whereKey:@"contact" equalTo:[[PFUser currentUser]username]];
+    [query whereKey:@"username" equalTo:name];
+    [query whereKey:@"userAccepted" equalTo:@"NO"];
+    
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject * objects, NSError *error) {
+        if (!error) {
+            
+            NSLog(@"The Other Row succeeded!");
+            [objects setObject:@"YES" forKey:@"userAccepted"];
+            [objects saveInBackground];
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
     
     // Now delete the row out of the array and off the screen
+    
     [requests removeObjectAtIndex:indexPath.row];
     [requestsTable reloadData];
     
