@@ -60,6 +60,7 @@
 		9C276899181C7C1A0073453E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C276898181C7C1A0073453E /* Accounts.framework */; };
 		9C27689B181C7C660073453E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27689A181C7C660073453E /* SystemConfiguration.framework */; };
 		9C27689D181C7CDE0073453E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27689C181C7CDE0073453E /* AudioToolbox.framework */; };
+		9C33CF781842B85900FB794D /* SentToContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C33CF771842B85900FB794D /* SentToContactList.m */; };
 		9C69AA9918299DD00032EF24 /* backB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C69AA9818299DD00032EF24 /* backB.png */; };
 		9C782E05182885ED00077FC8 /* eraserB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C782E04182885ED00077FC8 /* eraserB.png */; };
 		9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */; };
@@ -148,6 +149,8 @@
 		9C276898181C7C1A0073453E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		9C27689A181C7C660073453E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9C27689C181C7CDE0073453E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9C33CF761842B85900FB794D /* SentToContactList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SentToContactList.h; path = LeaveATrace/SentToContactList.h; sourceTree = "<group>"; };
+		9C33CF771842B85900FB794D /* SentToContactList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SentToContactList.m; path = LeaveATrace/SentToContactList.m; sourceTree = "<group>"; };
 		9C69AA9818299DD00032EF24 /* backB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backB.png; sourceTree = "<group>"; };
 		9C782E04182885ED00077FC8 /* eraserB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraserB.png; sourceTree = "<group>"; };
 		9CA1B48C1832CDC700CAFA8E /* FirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstPageViewController.h; path = LeaveATrace/FirstPageViewController.h; sourceTree = "<group>"; };
@@ -202,6 +205,7 @@
 		9C2767FE181C75B10073453E = {
 			isa = PBXGroup;
 			children = (
+				9C33CF791842B87900FB794D /* SendTo Views */,
 				9CAC90ED184281A6007CC2CD /* Traces Views */,
 				9CA1B492183D90AE00CAFA8E /* Requests Views */,
 				9CA1B48F183D906300CAFA8E /* Contacts Views */,
@@ -339,6 +343,15 @@
 				9C276863181C771D0073453E /* settingsBar.png */,
 			);
 			path = other;
+			sourceTree = "<group>";
+		};
+		9C33CF791842B87900FB794D /* SendTo Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C33CF761842B85900FB794D /* SentToContactList.h */,
+				9C33CF771842B85900FB794D /* SentToContactList.m */,
+			);
+			name = "SendTo Views";
 			sourceTree = "<group>";
 		};
 		9CA1B48F183D906300CAFA8E /* Contacts Views */ = {
@@ -526,6 +539,7 @@
 				9C27687D181C78F90073453E /* Contact.m in Sources */,
 				9C27684D181C76B10073453E /* SettingsViewController.m in Sources */,
 				9C276877181C774F0073453E /* LeaveATraceItem.m in Sources */,
+				9C33CF781842B85900FB794D /* SentToContactList.m in Sources */,
 				9C27684E181C76B10073453E /* LoginViewController.m in Sources */,
 				9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */,
 				9CAC90E518413D45007CC2CD /* RequestCell.m in Sources */,

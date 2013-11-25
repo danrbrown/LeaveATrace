@@ -244,7 +244,7 @@ NSInteger badgeInt;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
-    SettingsViewController * settingsVC = (SettingsViewController *)segue.destinationViewController;
+    SettingsViewController *settingsVC = (SettingsViewController *)segue.destinationViewController;
     settingsVC.delegate = self;
     settingsVC.red = red;
     settingsVC.green = green;
@@ -254,8 +254,6 @@ NSInteger badgeInt;
 }
 
 //----------------------------------------------------------------------
-
-#pragma mark - SettingsViewControllerDelegate methods
 
 - (void)closeSettings:(id)sender
 {
