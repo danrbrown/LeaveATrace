@@ -28,8 +28,6 @@
     
     items = [[NSMutableArray alloc] initWithCapacity:1000];
     
-    
-
     [super viewDidLoad];
     
     [self displayContacts];
@@ -40,8 +38,6 @@
     
     refreshControl.tintColor = [UIColor blueColor];
     self.refreshControl = refreshControl;
-    
-    
     
 }
 
@@ -120,9 +116,6 @@
     return [items count];
 }
 
-//----
-
-
 - (void)configureCheckmarkForCell:(UITableViewCell *)cell withChecklistItem:(LeaveATraceItem *)item
 {
     cell.textLabel.enabled = YES;
@@ -135,6 +128,7 @@
     } else {
         
         cell.detailTextLabel.text = @"Friend";
+        cell.detailTextLabel.font = [UIFont fontWithName:@"Verdana Bold Italic" size:15.0f];
         cell.textLabel.enabled = YES;
         cell.detailTextLabel.textColor = [UIColor redColor];
         cell.userInteractionEnabled = YES;
@@ -146,8 +140,6 @@
 {
     cell.textLabel.text = item.text;
 }
-
-//----
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

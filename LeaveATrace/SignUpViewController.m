@@ -44,14 +44,21 @@
 }
 
 - (IBAction)closeKeyBoard:(UITapGestureRecognizer *)sender {
+    
     [self.emailTextField resignFirstResponder];
+    
     [self.passwordSignUpTextField resignFirstResponder];
+    
     [self.userSignUpTextField resignFirstResponder];
+    
     [self.varifyPasswordSignUpTextField resignFirstResponder];
+    
 }
 
 -(void)showKeyBoard {
+    
     [self.userSignUpTextField becomeFirstResponder];
+    
 }
 
 -(IBAction)signUpUserPressed:(id)sender
@@ -92,33 +99,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    PFUser *user = [PFUser user];
-    
-    user.email = self.emailTextField.text;
-    user.username = self.userSignUpTextField.text;
-    user.password = self.passwordSignUpTextField.text;
-    
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        
-        if (!error) {
-            
-            [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
-            
-            [self textFieldShouldReturn:varifyPasswordSignUpTextField];
-            
-            [[PFInstallation currentInstallation] setObject:[PFUser currentUser] forKey:@"user"];
-            [[PFInstallation currentInstallation] saveEventually];
-            
-        } else if (error){
-            
-            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            [errorAlertView show];
-            
-            userSignUpTextField.text = nil;
-            emailTextField.text = nil;
-            
-        }
-    }];
+    [textField resignFirstResponder];
     
     return NO;
 }

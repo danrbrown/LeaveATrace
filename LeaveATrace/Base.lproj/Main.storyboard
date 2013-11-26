@@ -68,24 +68,26 @@
         <scene sceneID="omQ-tG-tC7">
             <objects>
                 <tableViewController id="Kh5-VG-XGC" customClass="AddItemViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="FYA-4M-a6S">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="FYA-4M-a6S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.94234975509007113" green="1" blue="0.50198888667526997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.95367935979999996" green="1" blue="0.20564326029999999" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="spu-ft-oBs">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fKH-ls-LHN">
-                                        <rect key="frame" x="0.0" y="99" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="46" id="fKH-ls-LHN">
+                                        <rect key="frame" x="0.0" y="99" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fKH-ls-LHN" id="aPy-6v-u70">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username..." adjustsFontSizeToFit="NO" minimumFontSize="17" id="mCP-3F-x14">
-                                                    <rect key="frame" x="20" y="10" width="280" height="24"/>
+                                                    <rect key="frame" x="20" y="10" width="280" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="18"/>
+                                                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="done" destination="Kh5-VG-XGC" eventType="editingDidEndOnExit" id="biZ-4z-JT6"/>
@@ -94,6 +96,7 @@
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="tintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -151,7 +154,7 @@
             </objects>
             <point key="canvasLocation" x="1872" y="-213"/>
         </scene>
-        <!--Canvas View Controller - Trace-->
+        <!--Canvas View Controller - New Trace-->
         <scene sceneID="iFU-Qo-h2R">
             <objects>
                 <viewController id="GrZ-6C-8aQ" customClass="CanvasViewController" sceneMemberID="viewController">
@@ -250,7 +253,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Trace" image="iconsberlin.png" id="pDS-ST-dHk"/>
+                    <tabBarItem key="tabBarItem" title="New Trace" image="iconsberlin.png" id="pDS-ST-dHk"/>
                     <connections>
                         <outlet property="colorsB" destination="Rz3-th-qPY" id="pEt-oP-e90"/>
                         <outlet property="currentColorImage" destination="iaV-8y-Nps" id="2BH-aa-VEJ"/>
@@ -265,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ut3-sB-QOw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1872" y="463"/>
+            <point key="canvasLocation" x="2252" y="463"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="MqD-iU-6T9">
@@ -423,7 +426,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELg-13-Pt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252" y="463"/>
+            <point key="canvasLocation" x="2647" y="463"/>
         </scene>
         <!--Requests And Log Out View Controller - Friend Requests-->
         <scene sceneID="Nqm-8T-fF4">
@@ -512,7 +515,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="30"/>
+                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="25"/>
                             <color key="textColor" red="0.95367935979999996" green="1" blue="0.20564326029999999" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
@@ -534,7 +537,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Vn2-Gn-JMH">
-                                <rect key="frame" x="101" y="217" width="118" height="46"/>
+                                <rect key="frame" x="101" y="216" width="118" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="28"/>
                                 <state key="normal" title="Login">
@@ -546,7 +549,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cca-D8-5Zu">
-                                <rect key="frame" x="93" y="261" width="134" height="46"/>
+                                <rect key="frame" x="93" y="270" width="134" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="28"/>
                                 <state key="normal" title="Sign Up">
@@ -601,6 +604,8 @@
                                 <rect key="frame" x="11" y="124" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
@@ -608,6 +613,8 @@
                                 <rect key="frame" x="11" y="179" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
@@ -667,7 +674,8 @@
                                 <rect key="frame" x="11" y="175" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
@@ -675,7 +683,8 @@
                                 <rect key="frame" x="11" y="120" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
@@ -683,7 +692,8 @@
                                 <rect key="frame" x="11" y="230" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
@@ -691,7 +701,8 @@
                                 <rect key="frame" x="11" y="65" width="298" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -816,7 +827,6 @@
                                 <connections>
                                     <outlet property="dateAndTimeLabel" destination="lAv-qM-d2N" id="iIt-PB-11W"/>
                                     <outlet property="usernameTitle" destination="b4l-zZ-67E" id="FaF-lq-7HD"/>
-                                    <segue destination="3Tf-g7-Pkn" kind="push" id="Bc2-MU-Yyp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -833,30 +843,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUF-Wc-MHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2252" y="-884"/>
-        </scene>
-        <!--View Controller - Username-->
-        <scene sceneID="Tuq-Ij-U7P">
-            <objects>
-                <viewController id="3Tf-g7-Pkn" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dqP-UR-S9c">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is where you draw..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TEB-hF-0TD">
-                                <rect key="frame" x="23" y="98" width="274" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Username" id="C4H-9r-YUB"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nYa-Du-MS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2647" y="-884"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="naY-BO-Efe">
@@ -907,6 +893,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="vm4-Ru-Iag"/>
-        <segue reference="r4Y-3E-9Ey"/>
+        <segue reference="vZm-Ey-PdG"/>
     </inferredMetricsTieBreakers>
 </document>

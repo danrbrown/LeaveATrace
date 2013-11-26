@@ -524,6 +524,7 @@ NSInteger badgeInt;
 {
     
     [menuB setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [menuB setTitleShadowColor:[UIColor redColor] forState:UIControlStateNormal];
     
     [UIView animateWithDuration:0.5 animations:^{
         trashB.center = CGPointMake(35, 46);
@@ -554,6 +555,7 @@ NSInteger badgeInt;
 {
     
     [menuB setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [menuB setTitleShadowColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     [UIView animateWithDuration:0.5 animations:^{
         trashB.center = CGPointMake(35, -100);
