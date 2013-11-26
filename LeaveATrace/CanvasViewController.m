@@ -10,6 +10,8 @@
 
 #import "SettingsViewController.h"
 
+#import "SelectAContactViewController.h"
+
 #import <Twitter/Twitter.h>
 
 #import <Parse/Parse.h>
@@ -245,12 +247,34 @@ NSInteger badgeInt;
 {
     
     SettingsViewController *settingsVC = (SettingsViewController *)segue.destinationViewController;
-    settingsVC.delegate = self;
-    settingsVC.red = red;
-    settingsVC.green = green;
-    settingsVC.blue = blue;
-    settingsVC.brush = brush;
     
+    if ([[segue identifier] isEqualToString:@"SendTo"])
+    {
+        NSLog(@"SendTo segue");
+        settingsVC.delegate = self;
+        settingsVC.red = red;
+        settingsVC.green = green;
+        settingsVC.blue = blue;
+        settingsVC.brush = brush;
+
+    }
+    if ([[segue identifier] isEqualToString:@"selectAContact"])
+    {
+        NSLog(@"selectAContact segue");
+        
+        //SelectAContactViewController *vc = [segue destinationViewController];
+        
+        // Get destination view
+        //SelectAContactViewController *vc = [segue destinationViewController];
+        
+        // Get button tag
+        //NSInteger tagIndex = [(UIButton *)sender tag];
+        
+        // Set the selected button in the new view
+        //[vc setSelectedButton:1];
+     
+        
+    }
 }
 
 //----------------------------------------------------------------------
@@ -354,6 +378,16 @@ NSInteger badgeInt;
     NSLog(@"Just saved the installation");
     // End of the push sequence. Need to clean up later.
     //----End DRB ---------------------------------------*/
+    
+    // experimenting with seque
+    
+    NSLog(@"about to segue");
+    //[self performSegueWithIdentifier:@"selectAContact" sender:sender];
+    [self performSegueWithIdentifier:@"selectAContact" sender:self];
+    NSLog(@"back from segue");
+    
+    
+    // end experimenting
     
     UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
     [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
