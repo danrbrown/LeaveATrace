@@ -96,21 +96,12 @@
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"I pressed a cell");
+    
+    PFObject *tempObject = [validContacts objectAtIndex:indexPath.row];
+    NSString *tempContact = [tempObject objectForKey:@"contact"];
+
+    
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-//    CanvasViewController *canvasViewController = (CanvasViewController *)[self.view.superview nextResponder];
-//    
-//    [self dismissViewControllerAnimated:YES completion:^{
-//        [canvasViewController uploadTrace];
-//    }];
-    
-//    UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
-//    [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
-//    SaveImage = UIGraphicsGetImageFromCurrentImageContext();
-//    pictureData = UIImageJPEGRepresentation(SaveImage, 1.0);
-//    UIGraphicsEndImageContext();
-//    
-//    file = [PFFile fileWithName:@"img" data:pictureData];
     
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
@@ -119,7 +110,7 @@
             PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
             [imageObject setObject:file forKey:@"image"];
             [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
-            [imageObject setObject:@"danrbrown" forKey:@"toUser"];
+            [imageObject setObject:tempContact forKey:@"toUser"];
             [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
             
             [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

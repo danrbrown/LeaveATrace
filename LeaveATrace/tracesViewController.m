@@ -46,7 +46,7 @@
 -(void) displayTraces {
     
     query = [PFQuery queryWithClassName:@"TracesObject"];
-    [query whereKey:@"fromUser" equalTo:[[PFUser currentUser]username]];
+    [query whereKey:@"toUser" equalTo:[[PFUser currentUser]username]];
     [query orderByDescending:@"createdAt"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
