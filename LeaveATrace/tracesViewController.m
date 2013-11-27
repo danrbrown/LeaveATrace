@@ -82,12 +82,14 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"EEE, MMM d, h:mm a"];
     cell.dateAndTimeLabel.text = [NSString stringWithFormat:@"%@", [dateFormat stringFromDate:updated]];
-
-    
-    
     
     return cell;
     
 }
 
 @end
+
+
+
+
+
