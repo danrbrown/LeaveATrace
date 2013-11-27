@@ -68,6 +68,7 @@
 		9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */; };
 		9CAC90F018428C34007CC2CD /* traceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90EF18428C34007CC2CD /* traceCell.m */; };
 		9CB59BB11844F94C006AB105 /* SelectAContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB59BB01844F94C006AB105 /* SelectAContactViewController.m */; };
+		9CB59BB418454A16006AB105 /* sendToCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB59BB318454A16006AB105 /* sendToCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +165,8 @@
 		9CAC90EF18428C34007CC2CD /* traceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = traceCell.m; sourceTree = "<group>"; };
 		9CB59BAF1844F94C006AB105 /* SelectAContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectAContactViewController.h; path = LeaveATrace/SelectAContactViewController.h; sourceTree = "<group>"; };
 		9CB59BB01844F94C006AB105 /* SelectAContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectAContactViewController.m; path = LeaveATrace/SelectAContactViewController.m; sourceTree = "<group>"; };
+		9CB59BB218454A16006AB105 /* sendToCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sendToCell.h; path = LeaveATrace/sendToCell.h; sourceTree = "<group>"; };
+		9CB59BB318454A16006AB105 /* sendToCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sendToCell.m; path = LeaveATrace/sendToCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +373,8 @@
 				9C27687C181C78F90073453E /* Contact.m */,
 				9CB59BAF1844F94C006AB105 /* SelectAContactViewController.h */,
 				9CB59BB01844F94C006AB105 /* SelectAContactViewController.m */,
+				9CB59BB218454A16006AB105 /* sendToCell.h */,
+				9CB59BB318454A16006AB105 /* sendToCell.m */,
 			);
 			name = "Contacts Views";
 			sourceTree = "<group>";
@@ -539,6 +544,7 @@
 				9C276821181C75B10073453E /* ViewController.m in Sources */,
 				9C276841181C76720073453E /* AddItemViewController.m in Sources */,
 				9C27684C181C76B10073453E /* CanvasViewController.m in Sources */,
+				9CB59BB418454A16006AB105 /* sendToCell.m in Sources */,
 				9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */,
 				9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */,
 				9C27687D181C78F90073453E /* Contact.m in Sources */,

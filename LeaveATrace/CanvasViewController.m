@@ -16,6 +16,11 @@
 
 #import <Parse/Parse.h>
 
+UIImageView *mainImage;
+UIImage *SaveImage;
+NSData *pictureData;
+PFFile *file;
+
 NSString *badgeString;
 
 NSInteger badgeInt;
@@ -25,8 +30,7 @@ NSInteger badgeInt;
 @end
 
 @implementation CanvasViewController {
-    
-    int menuInt;
+
     NSArray *imagesArray;
     
     NSMutableArray *pathArray;
@@ -72,11 +76,6 @@ NSInteger badgeInt;
     
     
     [super viewDidLoad];
-}
-
--(void)viewDidUnload
-{
-    NSLog(@"exited the screen");
 }
 
 //----------------------------------------------------------------------
@@ -261,18 +260,16 @@ NSInteger badgeInt;
     if ([[segue identifier] isEqualToString:@"selectAContact"])
     {
         NSLog(@"selectAContact segue");
-        
-        //SelectAContactViewController *vc = [segue destinationViewController];
-        
-        // Get destination view
-        //SelectAContactViewController *vc = [segue destinationViewController];
-        
-        // Get button tag
-        //NSInteger tagIndex = [(UIButton *)sender tag];
-        
-        // Set the selected button in the new view
-        //[vc setSelectedButton:1];
      
+        
+        UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
+        [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
+        SaveImage = UIGraphicsGetImageFromCurrentImageContext();
+        pictureData = UIImageJPEGRepresentation(SaveImage, 1.0);
+        UIGraphicsEndImageContext();
+        
+        file = [PFFile fileWithName:@"img" data:pictureData];
+
         
     }
 }
@@ -297,10 +294,7 @@ NSInteger badgeInt;
     CGContextStrokePath(UIGraphicsGetCurrentContext());
     self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    [self dropUp];
-    
-    menuInt = 0;
+
 }
 
 //----------------------------------------------------------------------
@@ -315,9 +309,6 @@ NSInteger badgeInt;
                                                     otherButtonTitles:@"Save to Camera Roll", @"Cancel", nil];
     [actionSheet showInView:self.view];
     
-    [self dropUp];
-    
-    menuInt = 0;
 }
 
 //----------------------------------------------------------------------
@@ -350,6 +341,59 @@ NSInteger badgeInt;
 
 //----------------------------------------------------------------------
 
+- (void) uploadTrace {
+    
+    NSLog(@"in uploadTrace");
+    
+    UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
+    [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
+    SaveImage = UIGraphicsGetImageFromCurrentImageContext();
+    pictureData = UIImageJPEGRepresentation(SaveImage, 1.0);
+    
+    UIGraphicsEndImageContext();
+    
+    file = [PFFile fileWithName:@"img" data:pictureData];
+    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if (succeeded){
+            
+            PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
+            [imageObject setObject:file forKey:@"image"];
+            [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
+            [imageObject setObject:@"danrbrown" forKey:@"toUser"];
+            [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
+            
+            [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                
+                if (succeeded){
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                } else {
+                    
+                    NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    [errorAlertView show];
+                    
+                    
+                }
+            }];
+        } else {
+            
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [errorAlertView show];
+            
+        }
+        
+    } progressBlock:^(int percentDone) {
+        NSLog(@"Uploaded: %d %%", percentDone);
+    }];
+}
+
+//----------------------------------------------------------------------
+
+
 -(IBAction)send:(id)sender
 {
     
@@ -377,62 +421,15 @@ NSInteger badgeInt;
     
     NSLog(@"Just saved the installation");
     // End of the push sequence. Need to clean up later.
-    //----End DRB ---------------------------------------*/
+    ----End DRB ---------------------------------------*/
     
-    // experimenting with seque
+//    [self uploadTrace]; //THis needs to be moved once we figure this out
     
     NSLog(@"about to segue");
     //[self performSegueWithIdentifier:@"selectAContact" sender:sender];
     [self performSegueWithIdentifier:@"selectAContact" sender:self];
     NSLog(@"back from segue");
     
-    
-    // end experimenting
-    
-    UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
-    [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
-    UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
-    NSData *pictureData = UIImageJPEGRepresentation(SaveImage, 1.0);
-    
-    UIGraphicsEndImageContext();
-    
-    PFFile *file = [PFFile fileWithName:@"img" data:pictureData];
-    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        
-        if (succeeded){
-
-            PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
-            [imageObject setObject:file forKey:@"image"];
-            [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
-            [imageObject setObject:@"danrbrown" forKey:@"toUser"];
-            [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
-            
-            [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-              
-                if (succeeded){
-                    
-                    [self.navigationController popViewControllerAnimated:YES];
-                    
-                } else {
-                    
-                    NSString *errorString = [[error userInfo] objectForKey:@"error"];
-                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                    [errorAlertView show];
-                    
-                    
-                }
-            }];
-        } else {
-            
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            [errorAlertView show];
-            
-        }
-        
-    } progressBlock:^(int percentDone) {
-        NSLog(@"Uploaded: %d %%", percentDone);
-    }];
     
 }
 
@@ -508,8 +505,6 @@ NSInteger badgeInt;
     
 }
 
-//----------------------------------------------------------------------
-
 -(IBAction)eraser:(id)sender
 {
     
@@ -529,86 +524,6 @@ NSInteger badgeInt;
     self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    
-}
-
-//----------------------------------------------------------------------
-
--(IBAction)dropDownMenu:(id)sender
-{
-    
-    if (menuInt == 0){
-        
-        [self dropDown];
-        
-    }
-    else if (menuInt == 1){
-        
-        [self dropUp];
-        
-        menuInt = 0;
-        
-    }
-    
-}
-
-//----------------------------------------------------------------------
-
--(void)dropDown
-{
-    
-    [menuB setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [menuB setTitleShadowColor:[UIColor redColor] forState:UIControlStateNormal];
-    
-    [UIView animateWithDuration:0.5 animations:^{
-        trashB.center = CGPointMake(35, 46);
-        undoB.center = CGPointMake(111, 48);
-        eraseB.center = CGPointMake(189, 46);
-        colorsB.center = CGPointMake(275, 48);
-        
-        menuB.center = CGPointMake(160, 100);
-        
-        sendB.center = CGPointMake(267, 480);
-        saveB.center = CGPointMake(40, 483);
-        currentColorImage.center = CGPointMake(20, 600);
-    }];
-    
-    menuInt = 1;
-    
-    [menuB setAlpha:0.0];
-    [UIView beginAnimations:@"animateTableView" context:nil];
-    [UIView setAnimationDuration:0.6];
-    [menuB setAlpha:1.0];
-    [UIView commitAnimations];
-    
-}
-
-//----------------------------------------------------------------------
-
--(void)dropUp
-{
-    
-    [menuB setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [menuB setTitleShadowColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
-    [UIView animateWithDuration:0.5 animations:^{
-        trashB.center = CGPointMake(35, -100);
-        undoB.center = CGPointMake(111, -100);
-        eraseB.center = CGPointMake(189, -100);
-        colorsB.center = CGPointMake(275, -100);
-        
-        menuB.center = CGPointMake(160, 40);
-        
-        sendB.center = CGPointMake(267, 600);
-        saveB.center = CGPointMake(40, 600);
-        currentColorImage.center = CGPointMake(20, 473);
-    }];
-    
-    [menuB setAlpha:0.0];
-    [UIView beginAnimations:@"animateTableView" context:nil];
-    [UIView setAnimationDuration:0.6];
-    [menuB setAlpha:1.0];
-    [UIView commitAnimations];
     
 }
 

@@ -7,8 +7,10 @@
 //
 
 #import "SelectAContactViewController.h"
+#import "CanvasViewController.h"
+#import "CanvasViewController.h"
 #import "LeaveATraceItem.h"
-#import "RequestCell.h"
+#import "sendToCell.h"
 #import <Parse/Parse.h>
 
 
@@ -23,8 +25,6 @@
 }
 
 @synthesize validContactsTable;
-@synthesize selectedButton, outputlabel;
-
 
 - (void) viewDidLoad
 {
@@ -33,14 +33,10 @@
     validContacts = [[NSMutableArray alloc] initWithCapacity:1000];
     
     [self performSelector:@selector(displayValidContacts)];
-    
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
-    refreshControl.tintColor = [UIColor blueColor];
-    self.refreshControl = refreshControl;
+}
 
-
-
+-(void) viewWillAppear:(BOOL)animated {
+        NSLog(@"in viewWillAppear");
 }
 
 -(void) displayValidContacts {
@@ -60,10 +56,10 @@
     
 }
 
-- (void)refreshView:(UIRefreshControl *)sender {
-    
-    [self displayValidContacts];
-    [sender endRefreshing];
+- (IBAction)cancel
+{
+    NSLog(@"closed this view... kinda");
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -87,29 +83,79 @@
     
     static NSString *CellIdentifier = @"ValidContactCell";
     
-    RequestCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    sendToCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     PFObject *tempObject = [validContacts objectAtIndex:indexPath.row];
     
-    cell.cellTitle.text = [tempObject objectForKey:@"username"];
-    NSLog(@"%@",cell.cellTitle.text);
+    cell.sendToTitle.text = [tempObject objectForKey:@"contact"];
+    NSLog(@"contact is: %@",cell.sendToTitle.text);
     
     return cell;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"I pressed a cell");
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+//    CanvasViewController *canvasViewController = (CanvasViewController *)[self.view.superview nextResponder];
+//    
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        [canvasViewController uploadTrace];
+//    }];
+    
+//    UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
+//    [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
+//    SaveImage = UIGraphicsGetImageFromCurrentImageContext();
+//    pictureData = UIImageJPEGRepresentation(SaveImage, 1.0);
+//    UIGraphicsEndImageContext();
+//    
+//    file = [PFFile fileWithName:@"img" data:pictureData];
+    
+    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if (succeeded){
+            
+            PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
+            [imageObject setObject:file forKey:@"image"];
+            [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
+            [imageObject setObject:@"danrbrown" forKey:@"toUser"];
+            [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
+            
+            [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                
+                if (succeeded){
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                } else {
+                    
+                    NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    [errorAlertView show];
+                    
+                    
+                }
+            }];
+        } else {
+            
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [errorAlertView show];
+            
+        }
+        
+    } progressBlock:^(int percentDone) {
+        NSLog(@"Uploaded: %d %%", percentDone);
+    }];
+
+    
+    
+
     return nil;
 }
 
-
-
-//****BELOW WAS HERE BY DEFAULT
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 @end
+
+
+

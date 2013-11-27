@@ -8,10 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "SettingsViewController.h"
+#import <Parse/Parse.h>
 
 extern NSString *badgeString;
 
 extern NSInteger badgeInt;
+
+extern UIImageView *mainImage;
+
+extern NSData *pictureData;
+
+extern UIImage *SaveImage;
+
+extern PFFile *file;
 
 @interface CanvasViewController : UIViewController <SettingsViewControllerDelegate, UIActionSheetDelegate> {
     
@@ -49,11 +58,10 @@ extern NSInteger badgeInt;
 @property CGFloat green;
 @property CGFloat blue;
 
--(void)viewDidLoad;
+-(void)uploadTrace;
 
 -(IBAction)eraser:(id)sender;
 -(IBAction)undo:(id)sender;
--(IBAction)dropDownMenu:(id)sender;
 -(IBAction)send:(id)sender;
 
 @end
