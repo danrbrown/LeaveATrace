@@ -20,7 +20,7 @@
     CGFloat opacity;
     BOOL mouseSwiped;
     
-    //Variable so if the screen is blank it wont trash.
+    //Variables
     BOOL dontTrash;
     
     //Buttons on the screen.
@@ -49,6 +49,7 @@
 -(IBAction)undo:(id)sender;
 -(IBAction)clear:(id)sender;
 -(IBAction)save:(id)sender;
+-(IBAction)send:(id)sender;
 
 @end
 

@@ -69,6 +69,7 @@
 		9CB59BB11844F94C006AB105 /* SelectAContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB59BB01844F94C006AB105 /* SelectAContactViewController.m */; };
 		9CB59BB418454A16006AB105 /* sendToCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB59BB318454A16006AB105 /* sendToCell.m */; };
 		A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555C8D91846D53B00C012ED /* ThreadViewController.m */; };
+		A5EAEE011847DE0300A96E3B /* didNotSeeTraceImage.png in Resources */ = {isa = PBXBuildFile; fileRef = A5EAEE001847DE0300A96E3B /* didNotSeeTraceImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +168,7 @@
 		9CB59BB318454A16006AB105 /* sendToCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sendToCell.m; path = LeaveATrace/sendToCell.m; sourceTree = "<group>"; };
 		A555C8D81846D53B00C012ED /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreadViewController.h; path = LeaveATrace/ThreadViewController.h; sourceTree = "<group>"; };
 		A555C8D91846D53B00C012ED /* ThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreadViewController.m; path = LeaveATrace/ThreadViewController.m; sourceTree = "<group>"; };
+		A5EAEE001847DE0300A96E3B /* didNotSeeTraceImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = didNotSeeTraceImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				9C27685F181C771D0073453E /* Default-568h@2x.png */,
+				A5EAEE001847DE0300A96E3B /* didNotSeeTraceImage.png */,
 				9C276861181C771D0073453E /* iconsberlin@2x.png */,
 				9C276862181C771D0073453E /* iconsberlin@2x3.png */,
 				9C276863181C771D0073453E /* settingsBar.png */,
@@ -518,6 +521,7 @@
 				9C27686C181C771D0073453E /* CCOrange.png in Resources */,
 				9C276873181C771D0073453E /* settingsBar.png in Resources */,
 				9C27686E181C771D0073453E /* CCYellow.png in Resources */,
+				A5EAEE011847DE0300A96E3B /* didNotSeeTraceImage.png in Resources */,
 				9C27686B181C771D0073453E /* CCGreen.png in Resources */,
 				9C27686D181C771D0073453E /* CCRed.png in Resources */,
 				9C27681E181C75B10073453E /* Main.storyboard in Resources */,

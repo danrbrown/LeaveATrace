@@ -17,6 +17,7 @@
 UIImage *Threadimage;
 NSData *data;
 PFObject *traceObject;
+NSString *traceObjectId;
 
 @interface tracesViewController ()
 
@@ -63,6 +64,7 @@ PFObject *traceObject;
         }
         [tracesTable reloadData];
     }];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -83,10 +85,25 @@ PFObject *traceObject;
     
     cell.usernameTitle.text = [traceObject objectForKey:@"fromUser"];
     
+    NSString *deliveredToUser = [traceObject objectForKey:@"deliveredToUser"];
+    
+    if ([deliveredToUser isEqualToString:@"YES"]) {
+        
+        cell.didNotOpenImage.hidden = YES;
+        
+    } else {
+        
+        cell.didNotOpenImage.hidden = NO;
+        
+    }
+
+    
     NSDate *updated = [traceObject createdAt];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"h:mm a"];
     cell.dateAndTimeLabel.text = [NSString stringWithFormat:@"%@", [dateFormat stringFromDate:updated]];
+    
+    
     
     return cell;
     
@@ -97,24 +114,11 @@ PFObject *traceObject;
     
     NSLog(@"i just clicked the trace");
     
-    [self getTrace:indexPath];
+    traceObject = [traces objectAtIndex:indexPath.row];
+    traceObjectId = [traceObject objectId];
     [self performSegueWithIdentifier:@"TraceThread" sender:self];
     return nil;
 }
-
--(void) getTrace:(NSIndexPath *)indexPath {
-    
-//    NSString *userWhoSentTrace;
-    traceObject = [traces objectAtIndex:indexPath.row];
-//    userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
-//    NSLog(@"User who sent trace --> %@",userWhoSentTrace);
-    
-    
-
-
-    
-}
-
 
 @end
 

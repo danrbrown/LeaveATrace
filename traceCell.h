@@ -14,4 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *dateAndTimeLabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *didNotOpenImage;
+
 @end

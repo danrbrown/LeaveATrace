@@ -8,10 +8,11 @@
         <scene sceneID="cGu-Vm-VBk">
             <objects>
                 <tableViewController id="45d-8g-mdk" customClass="ContactsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="22" sectionFooterHeight="22" id="Q9g-y1-B53">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="48" sectionHeaderHeight="22" sectionFooterHeight="22" id="Q9g-y1-B53">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.30152911999999998" green="0.74419076780000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" id="mSF-3q-fHd">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -72,7 +73,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.82718610196372244" green="0.95929313749269196" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="separatorColor" red="0.64387779421214131" green="0.80158953104721264" blue="0.83111837635869568" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.30152911999999998" green="0.74419076780000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="spu-ft-oBs">
                                 <cells>
@@ -468,10 +469,11 @@
         <scene sceneID="Nqm-8T-fF4">
             <objects>
                 <tableViewController id="dkT-yk-hJO" customClass="RequestsAndLogOutViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="LI9-LV-x7W">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="LI9-LV-x7W">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.30152911999999998" green="0.74419076780000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RequestCell" rowHeight="54" id="SZe-l4-eto" customClass="RequestCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="54"/>
@@ -833,10 +835,11 @@
         <scene sceneID="CtP-qU-0pw">
             <objects>
                 <tableViewController id="8JU-eN-LMV" customClass="tracesViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" id="6qg-OO-yOW">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="64" sectionHeaderHeight="22" sectionFooterHeight="22" id="6qg-OO-yOW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.30152911999999998" green="0.74419076780000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="traceItem" rowHeight="64" id="OU5-B9-8xT" customClass="traceCell">
                                 <rect key="frame" x="0.0" y="86" width="320" height="64"/>
@@ -846,23 +849,28 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b4l-zZ-67E">
-                                            <rect key="frame" x="20" y="12" width="247" height="17"/>
+                                            <rect key="frame" x="32" y="15" width="247" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="19"/>
                                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time, Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lAv-qM-d2N">
-                                            <rect key="frame" x="20" y="33" width="247" height="19"/>
+                                            <rect key="frame" x="33" y="35" width="247" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                             <color key="textColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="didNotSeeTraceImage.png" id="JqZ-hd-ENH">
+                                            <rect key="frame" x="12" y="26" width="13" height="12"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateAndTimeLabel" destination="lAv-qM-d2N" id="iIt-PB-11W"/>
+                                    <outlet property="didNotOpenImage" destination="JqZ-hd-ENH" id="olB-V2-Obr"/>
                                     <outlet property="usernameTitle" destination="b4l-zZ-67E" id="FaF-lq-7HD"/>
                                     <segue destination="tKm-6e-p5w" kind="push" identifier="TraceThread" id="tbS-A5-ZAF"/>
                                 </connections>
@@ -902,6 +910,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="send:" destination="tKm-6e-p5w" eventType="touchUpInside" id="0dW-wY-E4h"/>
                                     <action selector="send:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="bqb-uJ-2E8"/>
                                 </connections>
                             </button>
@@ -1039,6 +1048,7 @@
         <image name="TrashITB.png" width="187" height="184"/>
         <image name="backB.png" width="204" height="204"/>
         <image name="colorsB.png" width="208" height="145"/>
+        <image name="didNotSeeTraceImage.png" width="24" height="23"/>
         <image name="eraserB.png" width="225" height="225"/>
         <image name="iconsberlin.png" width="30" height="30"/>
         <image name="iconsberlin@2x3.png" width="60" height="60"/>
@@ -1052,6 +1062,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="spu-jz-L3F"/>
-        <segue reference="M9D-NX-IN9"/>
+        <segue reference="r4Y-3E-9Ey"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 
 extern PFObject *traceObject;
+extern NSString *traceObjectId;
 
 @interface tracesViewController : UITableViewController {
     

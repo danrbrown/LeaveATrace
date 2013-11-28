@@ -19,13 +19,12 @@
 
 @synthesize mainThreadImage, currentColorImage, red, green, blue;
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewDidLoad
 {
-    NSString *userWhoSentTrace;
-    userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
-    NSLog(@"User who sent trace --> %@",userWhoSentTrace);
-    [self getThreadTrace:userWhoSentTrace];
     
+    NSString *userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
+    NSLog(@"User who sent trace --> %@, objectId --> %@",userWhoSentTrace,traceObjectId);
+    [self getThreadTrace:userWhoSentTrace];
     
     self.title = userWhoSentTrace;
     
@@ -57,10 +56,12 @@
     
     PFQuery *traceQuery = [PFQuery queryWithClassName:@"TracesObject"];
     
-    [traceQuery whereKey:@"fromUser" equalTo:userWhoSentTrace];
+//    [traceQuery whereKey:@"fromUser" equalTo:userWhoSentTrace];
 //    [traceQuery whereKey:@"deliveredToUser" equalTo:@"NO"];
-    [traceQuery orderByDescending:@"createdAt"];   // or sort by orderByAscending
-    [traceQuery setLimit:1];
+//    [traceQuery orderByDescending:@"createdAt"];   // or sort by orderByAscending
+//    [traceQuery setLimit:1];
+
+    [traceQuery whereKey:@"objectId" equalTo:traceObjectId];
     
     [traceQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -178,6 +179,69 @@
         return image;
         
     }
+}
+
+-(void) uploadThreadTrace {
+    
+    NSLog(@"in uploadThreadTrace");
+    NSString *userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
+    NSLog(@"user who sent trace in upload --> %@",userWhoSentTrace);
+    
+    UIGraphicsBeginImageContextWithOptions(mainThreadImage.bounds.size, NO, 0.0);
+    [mainThreadImage.image drawInRect:CGRectMake(0, 0, mainThreadImage.frame.size.width, mainThreadImage.frame.size.height)];
+    UIImage *saveThreadImage = UIGraphicsGetImageFromCurrentImageContext();
+    NSData *threadPictureData = UIImageJPEGRepresentation(saveThreadImage, 1.0);
+    UIGraphicsEndImageContext();
+    
+    PFFile *imageFile  = [PFFile fileWithName:@"img" data:threadPictureData];
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if (succeeded){
+            
+            PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
+            [imageObject setObject:imageFile forKey:@"image"];
+            [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
+            [imageObject setObject:userWhoSentTrace forKey:@"toUser"];
+            [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
+            
+            [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                
+                if (succeeded){
+                    
+                    NSString *userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
+                    
+                    NSString *sentMessage = [NSString stringWithFormat:@"Trace was sent to %@", userWhoSentTrace];
+                    
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Nice drawing..." message:sentMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    [errorAlertView show];
+                    
+                    
+                } else {
+                    
+                    NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    [errorAlertView show];
+                    
+                    
+                }
+            }];
+        } else {
+            
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [errorAlertView show];
+            
+        }
+        
+    } progressBlock:^(int percentDone) {
+        NSLog(@"Uploaded return trace: %d %%", percentDone);
+    }];
+
+}
+
+-(IBAction)send:(id)sender {
+    
+    [self uploadThreadTrace];
 }
 
 -(IBAction)eraser:(id)sender {
