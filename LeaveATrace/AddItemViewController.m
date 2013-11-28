@@ -58,33 +58,44 @@
  
 - (IBAction)done
 {          
-    /* Does it already exist in our object - THIS NEEDS TO BE DONE BETTER - DON'T GO TO PARSE TO GET ANSWER
-    
-    End of duplicate check */
-    
     LeaveATraceItem *item = [[LeaveATraceItem alloc] init];
     item.text = self.textField.text;
     item.checked = NO;
     item.userAccepted = @"NO";
     
-    PFObject *userContact = [PFObject objectWithClassName:@"UserContact"];
-    [userContact setObject:[PFUser currentUser].username forKey:@"username"];
-    [userContact setObject:item.text forKey:@"contact"];
-    [userContact setObject:@"NO" forKey:@"userAccepted"];
+    PFQuery *query= [PFUser query];
+    [query whereKey:@"username" equalTo:item.text];
     
-    [userContact saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!error) {
+
+            PFObject *userContact = [PFObject objectWithClassName:@"UserContact"];
+            [userContact setObject:[PFUser currentUser].username forKey:@"username"];
+            [userContact setObject:item.text forKey:@"contact"];
+            [userContact setObject:@"NO" forKey:@"userAccepted"];
+    
+            [userContact saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
-        if (succeeded){
+                if (succeeded){
             
-            [self.delegate addItemViewController:self didFinishAddingItem:item];
+                    [self.delegate addItemViewController:self didFinishAddingItem:item];
             
+            
+                } else {
+            
+                    NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:  errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    [errorAlertView show];
+            
+            
+                }
+            }];
             
         } else {
             
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            NSString *errorString = @"User not found";
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:errorString message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [errorAlertView show];
-            
             
         }
     }];
