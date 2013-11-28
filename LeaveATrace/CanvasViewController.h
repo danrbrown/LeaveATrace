@@ -14,8 +14,6 @@ extern NSString *badgeString;
 
 extern NSInteger badgeInt;
 
-extern UIImageView *mainImage;
-
 extern NSData *pictureData;
 
 extern UIImage *SaveImage;

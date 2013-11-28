@@ -16,7 +16,6 @@
 
 #import <Parse/Parse.h>
 
-UIImageView *mainImage;
 UIImage *SaveImage;
 NSData *pictureData;
 PFFile *file;
@@ -64,15 +63,15 @@ NSInteger badgeInt;
     SendToAnyone.hidden = YES;
 
    
-        UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
-        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 35);
-        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
-        CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
-        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
-        CGContextStrokePath(UIGraphicsGetCurrentContext());
-        self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+    UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 29);
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     
     
     [super viewDidLoad];
@@ -472,10 +471,10 @@ NSInteger badgeInt;
 //    return NSLog(@"Doing something with the image");
     
     
-    PFQuery *query = [PFQuery queryWithClassName:@"WallImageObject"];
+    PFQuery *query = [PFQuery queryWithClassName:@"TracesObject"];
     
-    [query whereKey:@"user" equalTo:@"danrbrown"];
-    [query whereKey:@"deliveredToUser" equalTo:@"No"];
+    [query whereKey:@"toUser" equalTo:@"Founder15"];
+    [query whereKey:@"deliveredToUser" equalTo:@"NO"];
     [query orderByDescending:@"createdAt"];   // or sort by orderByAscending
     [query setLimit:1];
     
@@ -490,10 +489,11 @@ NSInteger badgeInt;
                          mainImage.image = image;
                         
                         // Now update the database that this image was delivered to the user
-                        [myImages setObject:@"Yes"forKey:@"deliveredToUser"];
+                        [myImages setObject:@"YES"forKey:@"deliveredToUser"];
                         [myImages saveInBackground];
                     }
                 }];
+                
                 NSLog(@"%@",myImages.objectId);
             }
             

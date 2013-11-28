@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
+extern PFObject *traceObject;
+
 @interface tracesViewController : UITableViewController {
     
     PFQuery *query;

@@ -1,0 +1,58 @@
+//
+//  ThreadViewController.h
+//  LeaveATrace
+//
+//  Created by RICKY BROWN on 11/27/13.
+//  Copyright (c) 2013 15and50. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+
+@interface ThreadViewController : UIViewController <UIActionSheetDelegate> {
+    
+    //Variables for drawing.
+    CGPoint lastPoint;
+    CGFloat red;
+    CGFloat green;
+    CGFloat blue;
+    CGFloat brush;
+    CGFloat opacity;
+    BOOL mouseSwiped;
+    
+    //Variable so if the screen is blank it wont trash.
+    BOOL dontTrash;
+    
+    //Buttons on the screen.
+    IBOutlet UIButton *undoB;
+    IBOutlet UIButton *trashB;
+    IBOutlet UIButton *eraseB;
+    IBOutlet UIButton *colorsB;
+    IBOutlet UIButton *saveB;
+    IBOutlet UIButton *sendB;
+    
+}
+
+//Property type UIImageView for the image that you draw on.
+@property (weak, nonatomic) IBOutlet UIImageView *mainThreadImage;
+
+//Property type UIImageView for the current color you are drawing.
+@property (weak, nonatomic) IBOutlet UIImageView *currentColorImage;
+
+//Varibles for colors.
+@property CGFloat red;
+@property CGFloat green;
+@property CGFloat blue;
+
+//Actions for the View.
+-(IBAction)eraser:(id)sender;
+-(IBAction)undo:(id)sender;
+-(IBAction)clear:(id)sender;
+-(IBAction)save:(id)sender;
+
+@end
+
+
+
+
+

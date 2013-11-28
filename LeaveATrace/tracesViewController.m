@@ -10,7 +10,13 @@
 
 #import "traceCell.h"
 
+#import "CanvasViewController.h"
+
 #import <Parse/Parse.h>
+
+UIImage *Threadimage;
+NSData *data;
+PFObject *traceObject;
 
 @interface tracesViewController ()
 
@@ -47,6 +53,7 @@
     
     query = [PFQuery queryWithClassName:@"TracesObject"];
     [query whereKey:@"toUser" equalTo:[[PFUser currentUser]username]];
+  //  [query whereKey:@"deliveredToUser" equalTo:@"NO"];
     [query orderByDescending:@"createdAt"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -76,16 +83,38 @@
     
     cell.usernameTitle.text = [traceObject objectForKey:@"fromUser"];
     
-    //cell.dateAndTimeLabel.text = [traceObject objectForKey:@"createdAt"];
-    
     NSDate *updated = [traceObject createdAt];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"EEE, MMM d, h:mm a"];
+    [dateFormat setDateFormat:@"h:mm a"];
     cell.dateAndTimeLabel.text = [NSString stringWithFormat:@"%@", [dateFormat stringFromDate:updated]];
     
     return cell;
     
 }
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    NSLog(@"i just clicked the trace");
+    
+    [self getTrace:indexPath];
+    [self performSegueWithIdentifier:@"TraceThread" sender:self];
+    return nil;
+}
+
+-(void) getTrace:(NSIndexPath *)indexPath {
+    
+//    NSString *userWhoSentTrace;
+    traceObject = [traces objectAtIndex:indexPath.row];
+//    userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
+//    NSLog(@"User who sent trace --> %@",userWhoSentTrace);
+    
+    
+
+
+    
+}
+
 
 @end
 
