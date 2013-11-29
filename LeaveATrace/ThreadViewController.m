@@ -198,15 +198,14 @@
         
         if (succeeded){
             
-            PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
-            [imageObject setObject:imageFile forKey:@"image"];
-            [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
-            [imageObject setObject:userWhoSentTrace forKey:@"toUser"];
-            [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
+            [traceObject setObject:imageFile forKey:@"image"];
+            [traceObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
+            [traceObject setObject:userWhoSentTrace forKey:@"toUser"];
+            [traceObject setObject:@"NO"forKey:@"deliveredToUser"];
             
-            [imageObject saveInBackground];
-            
-            [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [traceObject saveInBackground];
+                        
+            [traceObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
                 if (succeeded){
                     
