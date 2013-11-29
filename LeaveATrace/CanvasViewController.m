@@ -19,10 +19,10 @@
 UIImage *SaveImage;
 NSData *pictureData;
 PFFile *file;
-
+NSString *userLoggedIn;
 NSString *badgeString;
-
 NSInteger badgeInt;
+NSUserDefaults *defaults;
 
 @interface CanvasViewController ()
 
@@ -47,21 +47,24 @@ NSInteger badgeInt;
 - (void)viewDidLoad
 {
     
+    userLoggedIn = @"LoggedIn";
+    
+    defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:userLoggedIn forKey:@"theUser"];
+    [defaults synchronize];
+    
     [self countRequests];
     
     red = 0.0/255.0;
     green = 0.0/255.0;
     blue = 0.0/255.0;
-     
     brush = 11.0;
     opacity = 1.0;
     
     getB.hidden = YES;
-    
     DrawAnything.hidden = YES;
         
     SendToAnyone.hidden = YES;
-
    
     UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -73,8 +76,6 @@ NSInteger badgeInt;
     self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    
-    [super viewDidLoad];
 }
 
 //----------------------------------------------------------------------

@@ -8,6 +8,8 @@
 
 #import "FirstPageViewController.h"
 
+#import "CanvasViewController.h"
+
 @interface FirstPageViewController ()
 
 @end
@@ -17,7 +19,16 @@
 - (void)viewDidLoad
 {
     
-    placeholederLogoPlacement.layer.cornerRadius = 35;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    userLoggedIn = [defaults objectForKey:@"theUser"];
+    
+    if ([userLoggedIn isEqual:@"LoggedIn"]) {
+        
+        
+        
+        
+        
+    }
     
 }
 

@@ -583,7 +583,7 @@
                                     <color key="titleShadowColor" red="1" green="0.94174692209999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="q66-0j-MX0" kind="modal" modalTransitionStyle="flipHorizontal" id="aqm-j9-75I"/>
+                                    <segue destination="q66-0j-MX0" kind="modal" identifier="testingSegue" modalTransitionStyle="flipHorizontal" id="aqm-j9-75I"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cca-D8-5Zu">
@@ -804,7 +804,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhr-Af-3aD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1197" y="463"/>
+            <point key="canvasLocation" x="1266" y="463"/>
         </scene>
         <!--Navigation Controller - Traces-->
         <scene sceneID="Bz5-Tt-ViE">
@@ -881,8 +881,16 @@
                             <outlet property="delegate" destination="8JU-eN-LMV" id="gfh-OI-dZ2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Traces" id="gPm-FI-W3k"/>
+                    <navigationItem key="navigationItem" title="Traces" id="gPm-FI-W3k">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="kJZ-W3-ofU">
+                            <color key="tintColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                            <connections>
+                                <action selector="Edit" destination="8JU-eN-LMV" id="Igk-L4-f5L"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="editButton" destination="kJZ-W3-ofU" id="8lc-9L-UeJ"/>
                         <outlet property="tracesTable" destination="6qg-OO-yOW" id="Gsf-wl-sOD"/>
                     </connections>
                 </tableViewController>
@@ -1061,7 +1069,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="spu-jz-L3F"/>
         <segue reference="r4Y-3E-9Ey"/>
+        <segue reference="spu-jz-L3F"/>
     </inferredMetricsTieBreakers>
 </document>

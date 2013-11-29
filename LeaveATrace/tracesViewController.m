@@ -118,11 +118,32 @@ NSString *traceObjectId;
     traceObjectId = [traceObject objectId];
     [self performSegueWithIdentifier:@"TraceThread" sender:self];
     return nil;
+    
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [traces removeObjectAtIndex:indexPath.row];
+    
+    NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+
+}
+
+-(IBAction)Edit {
+    
+    if (self.editing) {
+        editButton.title = @"Edit";
+        editButton.tintColor = [UIColor whiteColor];
+        [super setEditing:NO animated:YES];
+    } else {
+        editButton.title = @"Done";
+        editButton.tintColor = [UIColor redColor];
+        [super setEditing:YES animated:YES];
+    }
 }
 
 @end
-
-
 
 
 

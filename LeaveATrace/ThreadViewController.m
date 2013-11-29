@@ -204,16 +204,19 @@
             [imageObject setObject:userWhoSentTrace forKey:@"toUser"];
             [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
             
+            [imageObject saveInBackground];
+            
             [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
                 if (succeeded){
                     
                     NSString *userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
-                    
+        
                     NSString *sentMessage = [NSString stringWithFormat:@"Trace was sent to %@", userWhoSentTrace];
                     
                     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Nice drawing..." message:sentMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                     [errorAlertView show];
+                    
                     
                     
                 } else {
@@ -234,7 +237,9 @@
         }
         
     } progressBlock:^(int percentDone) {
+        
         NSLog(@"Uploaded return trace: %d %%", percentDone);
+        
     }];
 
 }

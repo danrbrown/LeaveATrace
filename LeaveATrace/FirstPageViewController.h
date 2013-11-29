@@ -10,7 +10,7 @@
 
 @interface FirstPageViewController : UIViewController {
     
-    IBOutlet UITextView *placeholederLogoPlacement;
+    
     
 }
 

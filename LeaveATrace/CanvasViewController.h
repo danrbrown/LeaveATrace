@@ -20,6 +20,10 @@ extern UIImage *SaveImage;
 
 extern PFFile *file;
 
+extern NSString *userLoggedIn;
+
+extern NSUserDefaults *defaults;
+
 @interface CanvasViewController : UIViewController <SettingsViewControllerDelegate, UIActionSheetDelegate> {
     
     CGPoint lastPoint;

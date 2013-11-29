@@ -16,9 +16,12 @@ extern NSString *traceObjectId;
     
     PFQuery *query;
     
+    IBOutlet UIBarButtonItem *editButton;
+    
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tracesTable;
 
+-(IBAction)Edit;
 
 @end

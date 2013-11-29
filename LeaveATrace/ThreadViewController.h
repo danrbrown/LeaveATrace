@@ -23,7 +23,7 @@
     //Variables
     BOOL dontTrash;
     
-    //Buttons on the screen.
+    //Buttons on the screen
     IBOutlet UIButton *undoB;
     IBOutlet UIButton *trashB;
     IBOutlet UIButton *eraseB;
@@ -33,18 +33,18 @@
     
 }
 
-//Property type UIImageView for the image that you draw on.
+//Property type UIImageView for the image that you draw on
 @property (weak, nonatomic) IBOutlet UIImageView *mainThreadImage;
 
-//Property type UIImageView for the current color you are drawing.
+//Property type UIImageView for the current color you are drawing
 @property (weak, nonatomic) IBOutlet UIImageView *currentColorImage;
 
-//Varibles for colors.
+//Varibles for colors
 @property CGFloat red;
 @property CGFloat green;
 @property CGFloat blue;
 
-//Actions for the View.
+//Actions for the View
 -(IBAction)eraser:(id)sender;
 -(IBAction)undo:(id)sender;
 -(IBAction)clear:(id)sender;

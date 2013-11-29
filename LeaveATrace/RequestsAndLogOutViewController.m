@@ -8,6 +8,7 @@
 
 #import "RequestsAndLogOutViewController.h"
 #import "LeaveATraceRequest.h"
+#import "CanvasViewController.h"
 #import "RequestCell.h"
 #import <Parse/Parse.h>
 
@@ -130,6 +131,8 @@
 }
 
 -(IBAction)logOut:(id)sender {
+    
+    userLoggedIn = nil;
     
     [PFUser logOut];
     [self performSegueWithIdentifier:@"LogOutSuccesful" sender:self];
