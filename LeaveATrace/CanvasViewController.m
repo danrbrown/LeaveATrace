@@ -12,6 +12,8 @@
 
 #import "SelectAContactViewController.h"
 
+#import "tracesViewController.h"
+
 #import <Twitter/Twitter.h>
 
 #import <Parse/Parse.h>
@@ -21,7 +23,7 @@ NSData *pictureData;
 PFFile *file;
 NSString *userLoggedIn;
 NSString *badgeString;
-NSInteger badgeInt;
+NSString *tracesBadgeString;
 NSUserDefaults *defaults;
 
 @interface CanvasViewController ()
@@ -33,7 +35,9 @@ NSUserDefaults *defaults;
     NSArray *imagesArray;
     
     NSMutableArray *pathArray;
+    
     NSMutableArray *bufferArray;
+    
     UIBezierPath *myPath;
     
 }
@@ -54,6 +58,7 @@ NSUserDefaults *defaults;
     [defaults synchronize];
     
     [self countRequests];
+    [self countTraces];
     
     red = 0.0/255.0;
     green = 0.0/255.0;
@@ -91,14 +96,13 @@ NSUserDefaults *defaults;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             
-            NSLog(@"number of requests %lu",(unsigned long)objects.count);
-            
             if (objects.count == 0) {
                 
                 [[[[[self tabBarController] tabBar] items]
                   objectAtIndex:3] setBadgeValue:nil];
                 
-            } else {
+            }
+            else if (objects.count >= 1 && [deliveredToUser isEqualToString:@"NO"]) {
             
                 badgeString = [NSString stringWithFormat:@"%lu",(unsigned long)objects.count];
             
@@ -109,6 +113,43 @@ NSUserDefaults *defaults;
                 
         }
     }];
+}
+
+
+//----------------------------------------------------------------------
+
+-(void)countTraces {
+    
+    PFQuery *toUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
+    [toUserQuery whereKey:@"toUser" equalTo:[[PFUser currentUser]username]];
+    
+    PFQuery *fromUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
+    [fromUserQuery whereKey:@"fromUser" equalTo:[[PFUser currentUser]username]];
+    
+    query = [PFQuery orQueryWithSubqueries:@[toUserQuery,fromUserQuery]];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
+            if (objects.count == 0) {
+                
+                [[[[[self tabBarController] tabBar] items]
+                  objectAtIndex:1] setBadgeValue:nil];
+                
+            } else {
+                
+                tracesBadgeString = [NSString stringWithFormat:@"%lu",(unsigned long)objects.count];
+                
+                [[[[[self tabBarController] tabBar] items]
+                  objectAtIndex:1] setBadgeValue:tracesBadgeString];
+                
+            }
+            
+            
+        }
+        
+    }];
+    
 }
 
 //----------------------------------------------------------------------

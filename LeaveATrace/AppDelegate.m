@@ -26,6 +26,9 @@
      UIRemoteNotificationTypeSound];
     
     
+    //UITabBar *tabBar = [UITabBar appearance];
+    //[tabBar setBackgroundImage:[UIImage imageNamed:@"tabBar.png"]];
+    //[tabBar setTintColor:[UIColor whiteColor]];
 
     return YES;
 }

@@ -18,6 +18,8 @@ UIImage *Threadimage;
 NSData *data;
 PFObject *traceObject;
 NSString *traceObjectId;
+PFQuery *query;
+NSString *deliveredToUser;
 
 @interface tracesViewController ()
 
@@ -39,8 +41,11 @@ NSString *traceObjectId;
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
-    refreshControl.tintColor = [UIColor blueColor];
+    refreshControl.tintColor = [UIColor redColor];
     self.refreshControl = refreshControl;
+    
+    [[[[[self tabBarController] tabBar] items]
+      objectAtIndex:1] setBadgeValue:nil];
     
 }
 
@@ -52,10 +57,13 @@ NSString *traceObjectId;
 
 -(void) displayTraces {
     
-    query = [PFQuery queryWithClassName:@"TracesObject"];
-    [query whereKey:@"toUser" equalTo:[[PFUser currentUser]username]];
-  //  [query whereKey:@"deliveredToUser" equalTo:@"NO"];
-    [query orderByDescending:@"createdAt"];
+    PFQuery *toUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
+    [toUserQuery whereKey:@"toUser" equalTo:[[PFUser currentUser]username]];
+
+    PFQuery *fromUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
+    [fromUserQuery whereKey:@"fromUser" equalTo:[[PFUser currentUser]username]];
+
+    query = [PFQuery orQueryWithSubqueries:@[toUserQuery,fromUserQuery]];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -82,10 +90,23 @@ NSString *traceObjectId;
     traceCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     PFObject *traceObject = [traces objectAtIndex:indexPath.row];
+
+    NSString *tmpCurrentUser = [[PFUser currentUser]username];
+    NSString *tmpFromUser = [traceObject objectForKey:@"fromUser"];
     
-    cell.usernameTitle.text = [traceObject objectForKey:@"fromUser"];
+    if ([tmpCurrentUser isEqualToString:tmpFromUser]) {
+        
+        cell.usernameTitle.text = [traceObject objectForKey:@"toUser"];
+        
+    } else {
+        
+        cell.usernameTitle.text = tmpFromUser;
+        
+    }
     
-    NSString *deliveredToUser = [traceObject objectForKey:@"deliveredToUser"];
+   // cell.usernameTitle.text = [traceObject objectForKey:@"fromUser"];
+    
+    deliveredToUser = [traceObject objectForKey:@"deliveredToUser"];
     
     if ([deliveredToUser isEqualToString:@"YES"]) {
         

@@ -21,6 +21,7 @@
     NSString *userAccepted;
     NSString *userContact;
     PFQuery *query;
+    NSArray *indices;
 }
 
 - (void)viewDidLoad
@@ -28,15 +29,13 @@
     
     items = [[NSMutableArray alloc] initWithCapacity:1000];
     
-    [super viewDidLoad];
-    
     [self displayContacts];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     
     [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
     
-    refreshControl.tintColor = [UIColor blueColor];
+    refreshControl.tintColor = [UIColor redColor];
     self.refreshControl = refreshControl;
     
 }

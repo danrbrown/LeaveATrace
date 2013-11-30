@@ -199,8 +199,8 @@
         if (succeeded){
             
             [traceObject setObject:imageFile forKey:@"image"];
-            [traceObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
-            [traceObject setObject:userWhoSentTrace forKey:@"toUser"];
+          //  [traceObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
+          //  [traceObject setObject:userWhoSentTrace forKey:@"toUser"];
             [traceObject setObject:@"NO"forKey:@"deliveredToUser"];
             
             [traceObject saveInBackground];

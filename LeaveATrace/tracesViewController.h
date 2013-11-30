@@ -11,6 +11,8 @@
 
 extern PFObject *traceObject;
 extern NSString *traceObjectId;
+extern PFQuery *query;
+extern NSString *deliveredToUser;
 
 @interface tracesViewController : UITableViewController {
     

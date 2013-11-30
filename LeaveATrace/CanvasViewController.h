@@ -14,6 +14,10 @@ extern NSString *badgeString;
 
 extern NSInteger badgeInt;
 
+extern NSString *tracesBadgeString;
+
+extern NSInteger tracesBadgeInt;
+
 extern NSData *pictureData;
 
 extern UIImage *SaveImage;
