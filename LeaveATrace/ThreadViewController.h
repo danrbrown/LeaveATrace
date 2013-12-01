@@ -51,6 +51,16 @@
 -(IBAction) save:(id)sender;
 -(IBAction) send:(id)sender;
 
+//Methods for view
+-(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
+-(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
+-(void) uploadThreadTrace;
+-(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
+-(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
+-(void) getThreadTrace:(NSString *)userWhoSentTrace;
+-(UIImage *) convertToMask:(UIImage *)image;
+
 @end
 
 

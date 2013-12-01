@@ -8,11 +8,11 @@
 
 #import "SelectAContactViewController.h"
 #import "CanvasViewController.h"
-#import "CanvasViewController.h"
 #import "LeaveATraceItem.h"
 #import "sendToCell.h"
 #import <Parse/Parse.h>
 
+BOOL clearImage;
 
 @interface SelectAContactViewController ()
 
@@ -95,17 +95,20 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     NSLog(@"I pressed a cell");
+    
+    clearImage = YES;
     
     PFObject *tempObject = [validContacts objectAtIndex:indexPath.row];
     NSString *tempContact = [tempObject objectForKey:@"contact"];
 
-    
     [self dismissViewControllerAnimated:YES completion:nil];
     
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
-        if (succeeded){
+        if (succeeded)
+        {
             
             PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
             [imageObject setObject:file forKey:@"image"];
@@ -115,20 +118,26 @@
             
             [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
-                if (succeeded){
+                if (succeeded)
+                {
                     
                     [self.navigationController popViewControllerAnimated:YES];
                     
-                } else {
+                }
+                else
+                {
                     
                     NSString *errorString = [[error userInfo] objectForKey:@"error"];
                     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                     [errorAlertView show];
                     
-                    
                 }
+                
             }];
-        } else {
+            
+        }
+        else
+        {
             
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
@@ -136,12 +145,13 @@
             
         }
         
-    } progressBlock:^(int percentDone) {
+    }
+    progressBlock:^(int percentDone)
+    {
+        
         NSLog(@"Uploaded: %d %%", percentDone);
+        
     }];
-
-    
-    
 
     return nil;
 }

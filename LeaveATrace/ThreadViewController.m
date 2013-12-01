@@ -80,21 +80,25 @@
     
     [traceQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
-        if (!error) {
+        if (!error)
+        {
             
             NSLog(@"The find in getThreadTrace succeeded %lu", (unsigned long)objects.count);
             
-            for (PFObject *myImages in objects) {
+            for (PFObject *myImages in objects)
+            {
             
                 PFFile *imageFile = [myImages objectForKey:@"image"];
                 imageFile = [myImages objectForKey:@"image"];
                 
                 [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                     
-                    if (!error) {
+                    if (!error)
+                    {
 
                         UIImage *image = [UIImage imageWithData:data];
                         mainThreadImage.image = image;
+                        
                         [myImages setObject:@"YES"forKey:@"deliveredToUser"];
                         [myImages saveInBackground];
                         
@@ -106,9 +110,12 @@
                 
             }
             
-        } else
+        }
+        else
+        {
             
             NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
         
     }];
     
@@ -142,7 +149,7 @@
 //
 //----------------------------------------------------------------------------------
 
-- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+-(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
     mouseSwiped = YES;
@@ -177,7 +184,7 @@
 //
 //----------------------------------------------------------------------------------
 
-- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+-(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
     if (!mouseSwiped) {
@@ -210,7 +217,7 @@
 //
 //----------------------------------------------------------------------------------
 
-- (UIImage*) convertToMask:(UIImage *)image
+-(UIImage*) convertToMask:(UIImage *)image
 {
     
     if (image != nil)

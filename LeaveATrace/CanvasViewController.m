@@ -25,6 +25,7 @@ NSString *userLoggedIn;
 NSString *badgeString;
 NSString *tracesBadgeString;
 NSUserDefaults *defaults;
+UIImageView *mainImage;
 
 @interface CanvasViewController ()
 
@@ -47,6 +48,18 @@ NSUserDefaults *defaults;
 @synthesize mainImage, currentColorImage, red, green, blue;
 
 //----------------------------------------------------------------------
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+    if (clearImage)
+    {
+        
+        mainImage.image = nil;
+        
+    }
+
+}
 
 - (void)viewDidLoad
 {

@@ -28,6 +28,8 @@ extern NSString *userLoggedIn;
 
 extern NSUserDefaults *defaults;
 
+extern UIImageView *mainImage;
+
 @interface CanvasViewController : UIViewController <SettingsViewControllerDelegate, UIActionSheetDelegate> {
     
     CGPoint lastPoint;
