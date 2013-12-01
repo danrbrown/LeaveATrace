@@ -237,11 +237,19 @@
                                     <action selector="send:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="fcX-Fy-9HV"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="0.0" maxValue="65" id="tKh-pz-iLy">
+                                <rect key="frame" x="36" y="78" width="139" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="GrZ-6C-8aQ" eventType="valueChanged" id="H0L-R5-O0z"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="New Trace" image="iconsberlin.png" id="pDS-ST-dHk"/>
                     <connections>
+                        <outlet property="brushSize" destination="tKh-pz-iLy" id="PSO-Fc-qfq"/>
                         <outlet property="colorsB" destination="Rz3-th-qPY" id="pEt-oP-e90"/>
                         <outlet property="eraseB" destination="Rns-hs-jRr" id="6Og-Pf-Tva"/>
                         <outlet property="mainImage" destination="bIM-3Z-gXc" id="uRg-og-Nli"/>
@@ -641,7 +649,7 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="RuF-KD-iC2" kind="modal" animates="NO" id="M9D-NX-IN9"/>
+                                    <segue destination="RuF-KD-iC2" kind="modal" identifier="loginBack" animates="NO" id="M9D-NX-IN9"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" id="8vj-fC-XQX">
@@ -759,7 +767,7 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="RuF-KD-iC2" kind="modal" animates="NO" id="vZm-Ey-PdG"/>
+                                    <segue destination="RuF-KD-iC2" kind="modal" identifier="signUpBack" animates="NO" id="vZm-Ey-PdG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1081,7 +1089,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="M9D-NX-IN9"/>
         <segue reference="vm4-Ru-Iag"/>
-        <segue reference="r4Y-3E-9Ey"/>
     </inferredMetricsTieBreakers>
 </document>

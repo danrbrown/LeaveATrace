@@ -10,6 +10,7 @@
 
 @interface sendToCell : UITableViewCell
 
+//Label in the cell of the send to contacts cell
 @property (weak, nonatomic) IBOutlet UILabel *sendToTitle;
 
 @end

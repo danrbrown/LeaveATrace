@@ -1,3 +1,4 @@
+//----------------------------------------------------------------------------------
 //
 //  ContactsViewController.m
 //  LeaveATrace
@@ -5,26 +6,33 @@
 //  Created by Ricky Brown on 10/26/13.
 //  Copyright (c) 2013 15and50. All rights reserved.
 //
+//  Purpose: This file of class tableView displays each
+//  contact associated with this user.
+//
+//----------------------------------------------------------------------------------
 
 #import "ContactsViewController.h"
 #import "CanvasViewController.h"
 #import "AddItemViewController.h"
 #import "LeaveATraceItem.h"
-#import "Contact.h"
 #import <Parse/Parse.h>
 
 @interface ContactsViewController ()
 
 @end
 
-@implementation ContactsViewController {
-    NSString *userAccepted;
-    NSString *userContact;
-    PFQuery *query;
-    NSArray *indices;
-}
+@implementation ContactsViewController
 
-- (void)viewDidLoad
+//----------------------------------------------------------------------------------
+//
+// Name: viewDidLoad
+//
+// Purpose: Openining method for this screen, where we allocate the traces array.
+// We also call the method to display the traces for this user.
+//
+//----------------------------------------------------------------------------------
+
+-(void) viewDidLoad
 {
     
     items = [[NSMutableArray alloc] initWithCapacity:1000];
@@ -32,44 +40,48 @@
     [self displayContacts];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    
     [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
-    
     refreshControl.tintColor = [UIColor redColor];
     self.refreshControl = refreshControl;
     
 }
 
--(void) displayContacts {
+//----------------------------------------------------------------------------------
+//
+// Name: displayContacts
+//
+// Purpose: This method retrieves the list of contacts for this user from Parse and
+// displays them on the screen. It also loads up our array of contacts.
+// DB - redo this method more efficiently by following the example in
+// ThreadViewController.m
+//
+//----------------------------------------------------------------------------------
+
+-(void) displayContacts
+{
     
     LeaveATraceItem *item = [[LeaveATraceItem alloc] init];
     
-    //items = [[NSMutableArray alloc] initWithCapacity:1000];
-    
-    //Load users contacts
-    
     query = [PFQuery queryWithClassName:@"UserContact"];
+    
     [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
     [query orderByAscending:@"contact"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
+        
+        if (!error)
+        {
             
             NSLog(@"The find succeeded!");
             
-            for (PFObject *myContacts in objects) {
+            for (PFObject *myContacts in objects)
+            {
                 
                 userContact = [myContacts objectForKey:@"contact"];
                 userAccepted = [myContacts objectForKey:@"userAccepted"];
                 
                 item.text = userContact;
                 item.userAccepted = userAccepted;
-                
-                if ([userAccepted isEqualToString:@"NO"]) {
-                    
-                    //item.text = [item.text stringByAppendingString:@"    (Pending)"];
-                    
-                }
                     
                 [self addItemViewControllerNoDismiss:nil didFinishAddingItem:item];
                 
@@ -77,128 +89,258 @@
                 
             }
             
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
+        else
+        {
+    
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            
+        }
+        
     }];
     
 }
 
-- (void)refreshView:(UIRefreshControl *)sender {
-    
-    NSLog(@"Pulled down");
+//----------------------------------------------------------------------------------
+//
+// Name: refreshView
+//
+// Purpose: This is called when the user "pulls down" to refresh the view.
+// However this current version (12/1/2013) is not working.
+//
+//----------------------------------------------------------------------------------
+
+-(void) refreshView:(UIRefreshControl *)sender
+{
     
     NSUInteger x = [items count];
-    NSLog(@"before removeAllObjects --> %lu",(unsigned long)x);
+    
+    x = [items count];
     
     [items removeAllObjects];
 
-    x = [items count];
-    NSLog(@"after removeAllObjects --> %lu",(unsigned long)x);
-
-    //[self displayContacts];
-
     [sender endRefreshing];
+    
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
+//----------------------------------------------------------------------------------
+//
+// Name: tableView numberOfRowsInSection
+//
+// Purpose: Method is one of the many called for navigating around the tableview.
+// It runs the number of items in the array.
+//
+//----------------------------------------------------------------------------------
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSUInteger x = [items count];
-    NSLog(@"here it is --> %lu",(unsigned long)x);
     
     return [items count];
+    
 }
 
-- (void)configureCheckmarkForCell:(UITableViewCell *)cell withChecklistItem:(LeaveATraceItem *)item
+//----------------------------------------------------------------------------------
+//
+// Name: configureCheckmarkForCell
+//
+// Purpose: Determines if the user is a 'friend' or if the request is still
+// 'pending' and appends the appropriate text next to the contact name.
+//
+//----------------------------------------------------------------------------------
+
+-(void) configureCheckmarkForCell:(UITableViewCell *)cell withChecklistItem:(LeaveATraceItem *)item
 {
+    
     cell.textLabel.enabled = YES;
-    if ([item.userAccepted isEqualToString:@"NO"]) {
+    
+    if ([item.userAccepted isEqualToString:@"NO"])
+    {
         
         cell.detailTextLabel.text = @"Pending";
         cell.textLabel.enabled = NO;
         cell.userInteractionEnabled = NO;
         
-    } else {
+    }
+    else
+    {
         
         cell.detailTextLabel.text = @"Friend";
         cell.detailTextLabel.font = [UIFont fontWithName:@"Verdana Bold Italic" size:15.0f];
-        cell.textLabel.enabled = YES;
         cell.detailTextLabel.textColor = [UIColor redColor];
+        cell.textLabel.enabled = YES;
         cell.userInteractionEnabled = YES;
         
     }
+    
 }
 
-- (void)configureTextForCell:(UITableViewCell *)cell withChecklistItem:(LeaveATraceItem *)item
+//----------------------------------------------------------------------------------
+//
+// Name: configureTextForCell withChecklistItem
+//
+// Purpose: Method is one of the many called for navigating around the tableview.
+// This method updates a cell with a contact name.
+//
+//----------------------------------------------------------------------------------
+
+-(void) configureTextForCell:(UITableViewCell *)cell withChecklistItem:(LeaveATraceItem *)item
 {
+    
     cell.textLabel.text = item.text;
+    
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//----------------------------------------------------------------------------------
+//
+// Name: tableView cellForRowAtIndexPath
+//
+// Purpose: Method is one of the many called for navigating around the tableview.
+// This method updates a given cell on the table view.
+//
+//----------------------------------------------------------------------------------
+
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChecklistItem"];
     
     LeaveATraceItem *item = [items objectAtIndex:indexPath.row];
     
     [self configureTextForCell:cell withChecklistItem:item];
+    
     [self configureCheckmarkForCell:cell withChecklistItem:item];
     
     return cell;
+    
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//----------------------------------------------------------------------------------
+//
+// Name: tableView willSelectRowAtIndexPath
+//
+// Purpose: Method is one of the many called for navigating around the tableview.
+// We don't want any action to take place when the user touches a row, so we
+// simply return nil.
+//
+//----------------------------------------------------------------------------------
+
+-(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     return nil;
+    
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+//----------------------------------------------------------------------------------
+//
+// Name: tableView commitEditingStyle
+//
+// Purpose: Method for deleting a contact from the array and the database.
+//
+//----------------------------------------------------------------------------------
+
+-(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     [items removeObjectAtIndex:indexPath.row];
     
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+    
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    // DB. Need code to delete from the contact from Parse.
+    
 }
 
-- (void)addItemViewControllerDidCancel:(AddItemViewController *)controller
+//----------------------------------------------------------------------------------
+//
+// Name: addItemViewControllerDidCancel
+//
+// Purpose: This is called if a user goes to add a new contact, but then hits
+// cancel.
+//
+//----------------------------------------------------------------------------------
+
+-(void) addItemViewControllerDidCancel:(AddItemViewController *)controller
 {
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
-- (void)addItemViewController:(AddItemViewController *)controller didFinishAddingItem:(LeaveATraceItem *)item
+//----------------------------------------------------------------------------------
+//
+// Name: addItemViewController
+//
+// Purpose: This method is used when a user is adding a new contact. It will take
+// the content from the pop-up screen and add it to our array. It also closes
+// the pop-up screen and leaves the user on the tableview screen.
+//
+//----------------------------------------------------------------------------------
+
+-(void) addItemViewController:(AddItemViewController *)controller didFinishAddingItem:(LeaveATraceItem *)item
 {
+    
     NSUInteger newRowIndex = [items count];
+    
     [items addObject:item];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0];
+    
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+    
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
-- (void)addItemViewControllerNoDismiss:(AddItemViewController *)controller didFinishAddingItem:(LeaveATraceItem *)item
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose: Method is one of the many called for navigating around the tableview.
+// This is used to display contacts from the database on the tableview. We called
+// it 'noDismiss' because it's the same as the method above, but we're not
+// dismissing a screen.
+//
+//----------------------------------------------------------------------------------
+
+-(void) addItemViewControllerNoDismiss:(AddItemViewController *)controller didFinishAddingItem:(LeaveATraceItem *)item
 {
+    
     NSUInteger newRowIndex = [items count];
+    
     [items addObject:item];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0];
+    
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+    
     [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//----------------------------------------------------------------------------------
+//
+// Name: prepareForSegue
+//
+// Purpose: Method to segue to the screen to add a new contact.
+//
+//----------------------------------------------------------------------------------
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"AddItem"]) {
+    
+    if ([segue.identifier isEqualToString:@"AddItem"])
+    {
+        
         UINavigationController *navigationController = segue.destinationViewController;
         AddItemViewController *controller = (AddItemViewController *)navigationController.topViewController;
         controller.delegate = self;
+        
     }
+    
 }
 
 

@@ -1,3 +1,4 @@
+//----------------------------------------------------------------------------------
 //
 //  CanvasViewController.m
 //  Checklists
@@ -5,19 +6,18 @@
 //  Created by Ricky Brown on 10/19/13.
 //  Copyright (c) 2013 Hollance. All rights reserved.
 //
+//  Purpose:
+//
+//----------------------------------------------------------------------------------
 
 #import "CanvasViewController.h"
-
 #import "SettingsViewController.h"
-
 #import "SelectAContactViewController.h"
-
 #import "tracesViewController.h"
-
 #import <Twitter/Twitter.h>
-
 #import <Parse/Parse.h>
 
+//Global variables
 UIImage *SaveImage;
 NSData *pictureData;
 PFFile *file;
@@ -31,37 +31,19 @@ UIImageView *mainImage;
 
 @end
 
-@implementation CanvasViewController {
+@implementation CanvasViewController
 
-    NSArray *imagesArray;
-    
-    NSMutableArray *pathArray;
-    
-    NSMutableArray *bufferArray;
-    
-    UIBezierPath *myPath;
-    
-}
+@synthesize mainImage,currentColorImage,red,green,blue,brush;
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name: viewDidLoad
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
-@synthesize mainImage, currentColorImage, red, green, blue;
-
-//----------------------------------------------------------------------
-
--(void)viewWillAppear:(BOOL)animated
-{
-    
-    if (clearImage)
-    {
-        
-        mainImage.image = nil;
-        
-    }
-
-}
-
-- (void)viewDidLoad
+-(void) viewDidLoad
 {
     
     userLoggedIn = @"LoggedIn";
@@ -78,11 +60,6 @@ UIImageView *mainImage;
     blue = 0.0/255.0;
     brush = 11.0;
     opacity = 1.0;
-    
-    getB.hidden = YES;
-    DrawAnything.hidden = YES;
-        
-    SendToAnyone.hidden = YES;
    
     UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -96,68 +73,108 @@ UIImageView *mainImage;
     
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name: viewWillAppear
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
--(void) countRequests {
+-(void) viewWillAppear:(BOOL)animated
+{
     
-    PFQuery *query;
+    if (clearImage)
+    {
+        
+        mainImage.image = nil;
+        
+    }
+    
+}
 
-    query = [PFQuery queryWithClassName:@"UserContact"];
+//----------------------------------------------------------------------------------
+//
+// Name: countRequests
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) countRequests
+{
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"UserContact"];
+    
     [query whereKey:@"contact" equalTo:[[PFUser currentUser]username]];
     [query whereKey:@"userAccepted" equalTo:@"NO"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
+        
+        if (!error)
+        {
             
-            if (objects.count == 0) {
+            if (objects.count == 0)
+            {
                 
-                [[[[[self tabBarController] tabBar] items]
-                  objectAtIndex:3] setBadgeValue:nil];
+                [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
                 
             }
-            else if (objects.count >= 1 && [deliveredToUser isEqualToString:@"NO"]) {
+            else if (objects.count >= 1 && [deliveredToUser isEqualToString:@"NO"])
+            {
             
                 badgeString = [NSString stringWithFormat:@"%lu",(unsigned long)objects.count];
             
-                [[[[[self tabBarController] tabBar] items]
-                  objectAtIndex:3] setBadgeValue:badgeString];
+                [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:badgeString];
             
             }
                 
         }
+        
     }];
+    
 }
 
+//----------------------------------------------------------------------------------
+//
+// Name: countTraces
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
-//----------------------------------------------------------------------
-
--(void)countTraces {
+-(void) countTraces
+{
     
     PFQuery *toUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
+    
     [toUserQuery whereKey:@"toUser" equalTo:[[PFUser currentUser]username]];
     
     PFQuery *fromUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
+    
     [fromUserQuery whereKey:@"fromUser" equalTo:[[PFUser currentUser]username]];
     
     query = [PFQuery orQueryWithSubqueries:@[toUserQuery,fromUserQuery]];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
+        
+        if (!error)
+        {
             
-            if (objects.count == 0) {
+            if (objects.count == 0)
+            {
                 
-                [[[[[self tabBarController] tabBar] items]
-                  objectAtIndex:1] setBadgeValue:nil];
+                [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:nil];
                 
-            } else {
+            }
+            else
+            {
                 
                 tracesBadgeString = [NSString stringWithFormat:@"%lu",(unsigned long)objects.count];
                 
-                [[[[[self tabBarController] tabBar] items]
-                  objectAtIndex:1] setBadgeValue:tracesBadgeString];
+                [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:tracesBadgeString];
                 
             }
-            
             
         }
         
@@ -165,22 +182,30 @@ UIImageView *mainImage;
     
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name: convertToMask
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
-- (UIImage*)convertToMask: (UIImage *) image {
+-(UIImage*) convertToMask:(UIImage *)image
+{
     
-    if (image != nil) {
+    if (image != nil)
+    {
         
         UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+        
         CGRect imageRect = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
         
         CGContextRef ctx = UIGraphicsGetCurrentContext();
         
-        // Draw a white background (for white mask)
         CGContextSetRGBFillColor(ctx, 1.0f, 1.0f, 1.0f, 0.9f);
-        CGContextFillRect(ctx, imageRect);
         
-        // Apply the source image's alpha
+        CGContextFillRect(ctx, imageRect);
+    
         [image drawInRect:imageRect blendMode:kCGBlendModeDestinationIn alpha:1.0f];
         
         UIImage* outImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -189,19 +214,29 @@ UIImageView *mainImage;
         
         return outImage;
         
-    }else{
+    }
+    else
+    {
         
         return image;
         
     }
+    
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name: clear
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
--(IBAction)clear:(id)sender
+-(IBAction) clear:(id)sender
 {
     
-    if (self.mainImage.image != nil) {
+    if (self.mainImage.image != nil)
+    {
         
         [UIView beginAnimations:@"suck" context:NULL];
         [UIView setAnimationTransition:108 forView:mainImage cache:NO];
@@ -216,9 +251,15 @@ UIImageView *mainImage;
     
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name: touchesBegan
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
     mouseSwiped = NO;
@@ -229,9 +270,15 @@ UIImageView *mainImage;
     
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name: touchesMoved
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+-(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
     mouseSwiped = YES;
@@ -248,8 +295,6 @@ UIImageView *mainImage;
     CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), red, green, blue, 1.0);
     CGContextSetBlendMode(UIGraphicsGetCurrentContext(),kCGBlendModeNormal);
     
-    
-    
     CGContextStrokePath(UIGraphicsGetCurrentContext());
     self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
     [self.mainImage setAlpha:opacity];
@@ -259,12 +304,20 @@ UIImageView *mainImage;
 
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name: touchesEnded
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+-(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
-    if(!mouseSwiped) {
+    if(!mouseSwiped)
+    {
+    
         UIGraphicsBeginImageContext(self.view.frame.size);
         [self.mainImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -276,6 +329,7 @@ UIImageView *mainImage;
         CGContextFlush(UIGraphicsGetCurrentContext());
         self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
+    
     }
     
     UIGraphicsBeginImageContext(self.mainImage.frame.size);
@@ -286,24 +340,39 @@ UIImageView *mainImage;
 
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name: undo
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
--(IBAction)undo:(id)sender
+-(IBAction) undo:(id)sender
 {
     
+    //DTRB
     
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name: prepareForSegue
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
     SettingsViewController *settingsVC = (SettingsViewController *)segue.destinationViewController;
     
     if ([[segue identifier] isEqualToString:@"SendTo"])
     {
+        
         NSLog(@"SendTo segue");
+        
         settingsVC.delegate = self;
         settingsVC.red = red;
         settingsVC.green = green;
@@ -311,11 +380,12 @@ UIImageView *mainImage;
         settingsVC.brush = brush;
 
     }
+    
     if ([[segue identifier] isEqualToString:@"selectAContact"])
     {
+        
         NSLog(@"selectAContact segue");
      
-        
         UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
         [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
         SaveImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -323,20 +393,49 @@ UIImageView *mainImage;
         UIGraphicsEndImageContext();
         
         file = [PFFile fileWithName:@"img" data:pictureData];
-
         
     }
+    
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name: sliderChanged
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
-- (void)closeSettings:(id)sender
+-(IBAction) sliderChanged:(id)sender
+{
+    
+    UISlider * changedSlider = (UISlider*)sender;
+    
+    if(changedSlider == self.brushSize)
+    {
+        
+        brush = self.brushSize.value;
+        
+    }
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: closeSettings
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) closeSettings:(id)sender
 {
     
     red = ((SettingsViewController*)sender).red;
     green = ((SettingsViewController*)sender).green;
     blue = ((SettingsViewController*)sender).blue;
     brush = ((SettingsViewController*)sender).brush;
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
     UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
@@ -351,51 +450,87 @@ UIImageView *mainImage;
 
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name: save
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
-- (IBAction)save:(id)sender
+-(IBAction) save:(id)sender
 {
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@""
-                                                             delegate:self
-                                                    cancelButtonTitle:nil
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Save to Camera Roll", @"Cancel", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Save to Camera Roll", @"Cancel", nil];
+    
     [actionSheet showInView:self.view];
     
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name: actionSheet
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+-(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(buttonIndex == 0) {
+    
+    if(buttonIndex == 0)
+    {
         
         UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
         [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
         UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         UIImageWriteToSavedPhotosAlbum(SaveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
+        
     }
+    
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name: image
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+-(void) image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
+    
     if (error != NULL)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Image could not be saved.Please try again"  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Image could not be saved. Please try again"  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
+        
         [alert show];
-    } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Image was successfully saved in photoalbum"  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
-        [alert show];
+        
     }
+    else
+    {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Image was successfully saved in photoalbum"  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
+        
+        [alert show];
+        
+    }
+    
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
-- (void) uploadTrace {
+-(void) uploadTrace
+{
     
     NSLog(@"in uploadTrace");
     
@@ -403,13 +538,14 @@ UIImageView *mainImage;
     [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
     SaveImage = UIGraphicsGetImageFromCurrentImageContext();
     pictureData = UIImageJPEGRepresentation(SaveImage, 1.0);
-    
     UIGraphicsEndImageContext();
     
     file = [PFFile fileWithName:@"img" data:pictureData];
+    
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
-        if (succeeded){
+        if (succeeded)
+        {
             
             PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
             [imageObject setObject:file forKey:@"image"];
@@ -419,36 +555,53 @@ UIImageView *mainImage;
             
             [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
-                if (succeeded){
+                if (succeeded)
+                {
                     
                     [self.navigationController popViewControllerAnimated:YES];
                     
-                } else {
+                }
+                else
+                {
                     
                     NSString *errorString = [[error userInfo] objectForKey:@"error"];
                     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    
                     [errorAlertView show];
                     
-                    
                 }
+                
             }];
-        } else {
+            
+        }
+        else
+        {
             
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            
             [errorAlertView show];
             
         }
         
-    } progressBlock:^(int percentDone) {
+    }
+     progressBlock:^(int percentDone) {
+         
         NSLog(@"Uploaded: %d %%", percentDone);
+         
     }];
+    
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
-
--(IBAction)send:(id)sender
+-(IBAction) send:(id)sender
 {
     
     /* ----Start DRB ---------------------------------------
@@ -477,90 +630,19 @@ UIImageView *mainImage;
     // End of the push sequence. Need to clean up later.
     ----End DRB ---------------------------------------*/
     
-//    [self uploadTrace]; //THis needs to be moved once we figure this out
-    
-    NSLog(@"about to segue");
-    //[self performSegueWithIdentifier:@"selectAContact" sender:sender];
     [self performSegueWithIdentifier:@"selectAContact" sender:self];
-    NSLog(@"back from segue");
-    
     
 }
 
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
--(IBAction)getImage:(id)sender
-{
-    
-//    UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
-//    [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
-//    UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
-//    NSData *pictureData = UIImageJPEGRepresentation(SaveImage, 1.0);
-//    
-//    UIImage *userimage = [UIImage imageNamed:@"FrameColors.png"];
-//    NSData *pictureData2 = UIImageJPEGRepresentation(userimage, 1.0);
-//    
-//    PFQuery *query = [PFQuery queryWithClassName:@"WallImageObject"];
-//    
-//    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-//        
-//        if (!object) {
-//            return NSLog(@"%@", error);
-//        }
-//        
-//        PFFile *imageFile = object[@"imageFile"];
-//        
-//        [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-//            if (!data) {
-//                return NSLog(@"%@", error);
-//            }
-//            
-//            // Do something with the image
-//            return NSLog(@"Doing something with the image");
-//            UIImage *getImage = [UIImage imageWithData:pictureData];
-//            mainImage.image = getImage;
-//            
-//        }];
-//    }];
-//    
-//    return NSLog(@"Doing something with the image");
-    
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"TracesObject"];
-    
-    [query whereKey:@"toUser" equalTo:@"Founder15"];
-    [query whereKey:@"deliveredToUser" equalTo:@"NO"];
-    [query orderByDescending:@"createdAt"];   // or sort by orderByAscending
-    [query setLimit:1];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            NSLog(@"The find succeeded!");
-            for (PFObject *myImages in objects) {
-                PFFile *imageFile = [myImages objectForKey:@"image"];
-                [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                    if (!error) {
-                        UIImage *image = [UIImage imageWithData:data];
-                         mainImage.image = image;
-                        
-                        // Now update the database that this image was delivered to the user
-                        [myImages setObject:@"YES"forKey:@"deliveredToUser"];
-                        [myImages saveInBackground];
-                    }
-                }];
-                
-                NSLog(@"%@",myImages.objectId);
-            }
-            
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
-    
-}
-
--(IBAction)eraser:(id)sender
+-(IBAction) eraser:(id)sender
 {
     
     red = 255.0/255.0;
@@ -578,7 +660,6 @@ UIImageView *mainImage;
     CGContextStrokePath(UIGraphicsGetCurrentContext());
     self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
     
 }
 

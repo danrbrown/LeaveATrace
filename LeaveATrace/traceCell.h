@@ -1,4 +1,3 @@
-//------------------------------------------------------------
 //
 //  traceCell.h
 //  LeaveATrace
@@ -6,11 +5,7 @@
 //  Created by Ricky Brown on 11/24/13.
 //  Copyright (c) 2013 15and50. All rights reserved.
 //
-//  Purpose: these are the labels and the images on the
-//  cells and we decide what they are in the tableView class
-//  called tracesViewController.
-//
-//------------------------------------------------------------
+
 
 #import <UIKit/UIKit.h>
 

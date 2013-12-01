@@ -13,6 +13,7 @@
 
 #import "LoginViewController.h"
 #import "CanvasViewController.h"
+#import "FirstPageViewController.h"
 #import <Parse/Parse.h>
 
 @interface LoginViewController ()
@@ -123,11 +124,13 @@
 //
 // Name: logingIn
 //
-// Purpose: logs the user, if he varified his/her email and
+// Purpose: logs in the user, if he verified their email and
 // the pasword is correct the user logs into the app, other-
-// wise it will alert them that whats wrong, and clear the
-// password textfield. if somtthing else not defined went
-// wrong it will alert it of it.
+// wise it will alert them whats wrong, and clear the
+// password textfield. if something else not defined went
+// wrong it will alert it of it. Also we refresh the user
+// twice in case they verified their email during the
+// login process.
 //
 //-----------------------------------------------------------
 
@@ -141,7 +144,7 @@
             if (![[user objectForKey:@"emailVerified"] boolValue])
             {
                 
-                [user refresh]; //DB
+                [user refresh];
                 
                 if (![[user objectForKey:@"emailVerified"] boolValue])
                 {

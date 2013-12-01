@@ -10,6 +10,7 @@
 
 @interface RequestCell : UITableViewCell
 
+//The label in the requests cell
 @property (weak, nonatomic) IBOutlet UILabel *cellTitle;
 
 @end

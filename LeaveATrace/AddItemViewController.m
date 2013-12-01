@@ -16,9 +16,7 @@
 
 @end
 
-@implementation AddItemViewController {
-    
-}
+@implementation AddItemViewController 
 
 @synthesize textField;
 @synthesize doneBarButton;

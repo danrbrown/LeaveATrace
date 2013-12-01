@@ -99,7 +99,9 @@
 //
 // Name: signUpUserPressed
 //
-// Purpose: DB
+// Purpose: When the user presses the sign-up button , this
+// method creates the User record in Parse. Upon completion
+// the user will be taken to the canvas screen.
 //
 //---------------------------------------------------------
 
