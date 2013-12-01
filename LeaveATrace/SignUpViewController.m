@@ -1,3 +1,4 @@
+//-------------------------------------------------------
 //
 //  SignUpViewController.m
 //  Checklists
@@ -5,6 +6,10 @@
 //  Created by Ricky Brown on 10/26/13.
 //  Copyright (c) 2013 Hollance. All rights reserved.
 //
+//  Purpose: this file of class ViewController is for
+//  the user to sign up.
+//
+//-------------------------------------------------------
 
 #import "SignUpViewController.h"
 #import <Parse/Parse.h>
@@ -14,9 +19,21 @@
 @end
 
 @implementation SignUpViewController
+
 @synthesize emailTextField ,userSignUpTextField, passwordSignUpTextField, varifyPasswordSignUpTextField;
 
-- (void)viewDidLoad {
+//-----------------------------------------------------------
+//
+// Name: viewDidLoad
+//
+// Purpose: when the sceen comes up the text fields rounded,
+// there is no autocorrect, and the keyboard comes up after
+// 0.4 seconds.
+//
+//-----------------------------------------------------------
+
+- (void)viewDidLoad
+{
     
     emailTextField.layer.cornerRadius = 7;
     
@@ -28,22 +45,30 @@
     
     self.varifyPasswordSignUpTextField.delegate = self;
     
-    [self performSelector:@selector(showKeyBoard) withObject:nil afterDelay:0.4];
-    
     emailTextField.autocorrectionType = FALSE;
     emailTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    
     userSignUpTextField.autocorrectionType = FALSE;
     userSignUpTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    
     passwordSignUpTextField.autocorrectionType = FALSE;
     passwordSignUpTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    
     varifyPasswordSignUpTextField.autocorrectionType = FALSE;
     varifyPasswordSignUpTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+
+    [self performSelector:@selector(showKeyBoard) withObject:nil afterDelay:0.4];
+    
 }
 
-- (IBAction)closeKeyBoard:(UITapGestureRecognizer *)sender {
+//----------------------------------------------------------
+//
+// Name: closeKeyBoard
+//
+// Purpose: closes the keyboard if you touch any free space
+// in the view.
+//
+//----------------------------------------------------------
+
+- (IBAction) closeKeyBoard:(UITapGestureRecognizer *)sender
+{
     
     [self.emailTextField resignFirstResponder];
     
@@ -55,13 +80,30 @@
     
 }
 
--(void)showKeyBoard {
+//---------------------------------------------------------
+//
+// Name: showKeyBoard
+//
+// Purpose: Method to show keyboard.
+//
+//---------------------------------------------------------
+
+-(void) showKeyBoard
+{
     
     [self.userSignUpTextField becomeFirstResponder];
     
 }
 
--(IBAction)signUpUserPressed:(id)sender
+//---------------------------------------------------------
+//
+// Name: signUpUserPressed
+//
+// Purpose: DB
+//
+//---------------------------------------------------------
+
+-(IBAction) signUpUserPressed:(id)sender
 {
     
     PFUser *user = [PFUser user];
@@ -70,34 +112,48 @@
     user.username = self.userSignUpTextField.text;
     user.password = self.passwordSignUpTextField.text;
     
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+    {
         
-        if (!error) {
+        if (!error)
+        {
             
             [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
             
             [self textFieldShouldReturn:varifyPasswordSignUpTextField];
             
             [[PFInstallation currentInstallation] setObject:[PFUser currentUser] forKey:@"user"];
+            
             [[PFInstallation currentInstallation] saveEventually];
             
         }
-        else if (error){
+        else if (error)
+        {
          
-           UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Username already taken or not valid email" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-          [errorAlertView show];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Username already taken or not valid email" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             
+            [errorAlertView show];
             
             userSignUpTextField.text = nil;
             
             emailTextField.text = nil;
             
         }
+        
     }];
     
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+//---------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//---------------------------------------------------------
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField
+{
     
     [textField resignFirstResponder];
     

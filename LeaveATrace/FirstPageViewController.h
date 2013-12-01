@@ -10,7 +10,9 @@
 
 @interface FirstPageViewController : UIViewController {
     
-    
+    //Buttons on the screen
+    IBOutlet UIButton *logInButton;
+    IBOutlet UIButton *signUpButton;
     
 }
 

@@ -11,7 +11,7 @@
 
 @interface ThreadViewController : UIViewController <UIActionSheetDelegate> {
     
-    //Variables for drawing.
+    //Variables for drawing
     CGPoint lastPoint;
     CGFloat red;
     CGFloat green;
@@ -45,11 +45,11 @@
 @property CGFloat blue;
 
 //Actions for the View
--(IBAction)eraser:(id)sender;
--(IBAction)undo:(id)sender;
--(IBAction)clear:(id)sender;
--(IBAction)save:(id)sender;
--(IBAction)send:(id)sender;
+-(IBAction) eraser:(id)sender;
+-(IBAction) undo:(id)sender;
+-(IBAction) clear:(id)sender;
+-(IBAction) save:(id)sender;
+-(IBAction) send:(id)sender;
 
 @end
 

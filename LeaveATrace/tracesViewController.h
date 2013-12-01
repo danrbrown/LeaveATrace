@@ -24,6 +24,4 @@ extern NSString *deliveredToUser;
 
 @property (weak, nonatomic) IBOutlet UITableView *tracesTable;
 
--(IBAction)Edit;
-
 @end

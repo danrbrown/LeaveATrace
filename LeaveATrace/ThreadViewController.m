@@ -1,3 +1,4 @@
+//----------------------------------------------------------------------------------
 //
 //  ThreadViewController.m
 //  LeaveATrace
@@ -5,9 +6,12 @@
 //  Created by RICKY BROWN on 11/27/13.
 //  Copyright (c) 2013 15and50. All rights reserved.
 //
+//  Purpose: This class file of ViewController is for drawing back to a user that sent
+//  you a drawing, in a thread convo.
+//
+//----------------------------------------------------------------------------------
 
 #import "ThreadViewController.h"
-
 #import "CanvasViewController.h"
 #import "tracesViewController.h"
 
@@ -19,19 +23,28 @@
 
 @synthesize mainThreadImage, currentColorImage, red, green, blue;
 
-- (void)viewDidLoad
+//----------------------------------------------------------------------------------
+//
+// Name: viewDidLoad
+// 
+// Purpose: First screen where the user will update a trace that was sent to them
+// This first gets from our global object the name of the user that sent the trace.
+// Then we do generate graphics including a dot that shows the current color.
+//
+//----------------------------------------------------------------------------------
+
+-(void) viewDidLoad
 {
     
     NSString *userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
-    NSLog(@"User who sent trace --> %@, objectId --> %@",userWhoSentTrace,traceObjectId);
-    [self getThreadTrace:userWhoSentTrace];
     
     self.title = userWhoSentTrace;
+    
+    [self getThreadTrace:userWhoSentTrace];
     
     red = 0.0/255.0;
     green = 0.0/255.0;
     blue = 0.0/255.0;
-    
     brush = 11.0;
     opacity = 1.0;
     
@@ -45,54 +58,71 @@
     self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    NSLog(@"about to load trace");
+    NSLog(@"About to load trace in ThreadViewController");
+    NSLog(@"User who sent trace --> %@, objectId --> %@",userWhoSentTrace,traceObjectId);
 
-    
 }
 
--(void) getThreadTrace:(NSString *)userWhoSentTrace {
-    
-    // REVIEW HOW THIS IS BEING DONE
+//----------------------------------------------------------------------------------
+//
+// Name: getThreadTrace
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) getThreadTrace:(NSString *)userWhoSentTrace
+{
     
     PFQuery *traceQuery = [PFQuery queryWithClassName:@"TracesObject"];
-    
-//    [traceQuery whereKey:@"fromUser" equalTo:userWhoSentTrace];
-//    [traceQuery whereKey:@"deliveredToUser" equalTo:@"NO"];
-//    [traceQuery orderByDescending:@"createdAt"];   // or sort by orderByAscending
-//    [traceQuery setLimit:1];
 
     [traceQuery whereKey:@"objectId" equalTo:traceObjectId];
     
     [traceQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
         if (!error) {
+            
             NSLog(@"The find in getThreadTrace succeeded %lu", (unsigned long)objects.count);
+            
             for (PFObject *myImages in objects) {
+            
                 PFFile *imageFile = [myImages objectForKey:@"image"];
                 imageFile = [myImages objectForKey:@"image"];
+                
                 [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                    
                     if (!error) {
 
-                        NSLog(@"Hope this works!");
                         UIImage *image = [UIImage imageWithData:data];
                         mainThreadImage.image = image;
-                        
-                        // Now update the database that this image was delivered to the user
                         [myImages setObject:@"YES"forKey:@"deliveredToUser"];
                         [myImages saveInBackground];
+                        
                     }
+                    
                 }];
+                
                 NSLog(@"%@",myImages.objectId);
+                
             }
             
-        } else {
-            // Log details of the failure
+        } else
+            
             NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
+        
     }];
     
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//----------------------------------------------------------------------------------
+//
+// Name: touchesBegan
+//
+// Purpose: when the user touches the screen but does not drag.
+//
+//----------------------------------------------------------------------------------
+
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
     mouseSwiped = NO;
@@ -103,7 +133,16 @@
     
 }
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+//----------------------------------------------------------------------------------
+//
+// Name: touchesMoved
+//
+// Purpose: when the user drags his finger around the screen. Sets the color and the
+// size.
+//
+//----------------------------------------------------------------------------------
+
+- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
     mouseSwiped = YES;
@@ -129,10 +168,19 @@
     
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+//----------------------------------------------------------------------------------
+//
+// Name: touchesEnded
+//
+// Purpose: when the user picks up his finger from the screen. Keeps the graphics
+// that he drew on the image that he draws on.
+//
+//----------------------------------------------------------------------------------
+
+- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
-    if(!mouseSwiped) {
+    if (!mouseSwiped) {
         UIGraphicsBeginImageContext(self.view.frame.size);
         [self.mainThreadImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -154,9 +202,19 @@
     
 }
 
-- (UIImage*)convertToMask:(UIImage *)image {
+//----------------------------------------------------------------------------------
+//
+// Name: convertToMask
+//
+// Purpose: this method doesent give us a warning when the user draws.
+//
+//----------------------------------------------------------------------------------
+
+- (UIImage*) convertToMask:(UIImage *)image
+{
     
-    if (image != nil) {
+    if (image != nil)
+    {
         
         UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
         CGRect imageRect = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
@@ -168,74 +226,116 @@
         
         [image drawInRect:imageRect blendMode:kCGBlendModeDestinationIn alpha:1.0f];
         
-        UIImage* outImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIImage *outImage = UIGraphicsGetImageFromCurrentImageContext();
         
         UIGraphicsEndImageContext();
         
         return outImage;
         
-    } else {
+    }
+    else
+    {
         
         return image;
         
     }
+    
 }
 
--(void) uploadThreadTrace {
+
+//----------------------------------------------------------------------------------
+//
+// Name: send
+//
+// Purpose: calls a method uploadThreadTrace.
+//
+//----------------------------------------------------------------------------------
+
+-(IBAction) send:(id)sender
+{
+    
+    [self uploadThreadTrace];
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: uploadThreadTrace
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) uploadThreadTrace
+{
     
     NSLog(@"in uploadThreadTrace");
+    
     NSString *userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
+    
     NSLog(@"user who sent trace in upload --> %@",userWhoSentTrace);
     
     UIGraphicsBeginImageContextWithOptions(mainThreadImage.bounds.size, NO, 0.0);
     [mainThreadImage.image drawInRect:CGRectMake(0, 0, mainThreadImage.frame.size.width, mainThreadImage.frame.size.height)];
+    
     UIImage *saveThreadImage = UIGraphicsGetImageFromCurrentImageContext();
     NSData *threadPictureData = UIImageJPEGRepresentation(saveThreadImage, 1.0);
     UIGraphicsEndImageContext();
     
     PFFile *imageFile  = [PFFile fileWithName:@"img" data:threadPictureData];
+    
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
-        if (succeeded){
+        if (succeeded)
+        {
             
             [traceObject setObject:imageFile forKey:@"image"];
-          //  [traceObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
-          //  [traceObject setObject:userWhoSentTrace forKey:@"toUser"];
+
             [traceObject setObject:@"NO"forKey:@"deliveredToUser"];
             
             [traceObject saveInBackground];
                         
             [traceObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
-                if (succeeded){
+                if (succeeded)
+                {
                     
                     NSString *userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
         
                     NSString *sentMessage = [NSString stringWithFormat:@"Trace was sent to %@", userWhoSentTrace];
                     
                     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Nice drawing..." message:sentMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    
                     [errorAlertView show];
-                    
-                    
-                    
-                } else {
-                    
-                    NSString *errorString = [[error userInfo] objectForKey:@"error"];
-                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                    [errorAlertView show];
-                    
                     
                 }
+                else
+                {
+                    
+                    NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                    
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    
+                    [errorAlertView show];
+                    
+                }
+                
             }];
-        } else {
+            
+        }
+        else
+        {
             
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            
             [errorAlertView show];
             
         }
         
-    } progressBlock:^(int percentDone) {
+    }
+    progressBlock:^(int percentDone)
+    {
         
         NSLog(@"Uploaded return trace: %d %%", percentDone);
         
@@ -243,12 +343,19 @@
 
 }
 
--(IBAction)send:(id)sender {
-    
-    [self uploadThreadTrace];
-}
+//----------------------------------------------------------------------------------
+//
+// Name: eraser
+//
+// Purpose: sets the color of what the user is drawing to white.
+//
+// NOTE: I might get rid of this and replace it with a undo button, either way I
+// will implement a undo button.
+//
+//----------------------------------------------------------------------------------
 
--(IBAction)eraser:(id)sender {
+-(IBAction) eraser:(id)sender
+{
     
     red = 255.0/255.0;
     green = 255.0/255.0;
@@ -268,61 +375,110 @@
     
 }
 
--(IBAction)undo:(id)sender {
+//----------------------------------------------------------------------------------
+//
+// Name: undo
+//
+// Purpose: It will undo the last line the user drew.
+//
+//----------------------------------------------------------------------------------
+
+-(IBAction) undo:(id)sender {
     
-    
+    //DTRB
     
 }
 
--(IBAction)clear:(id)sender {
+//----------------------------------------------------------------------------------
+//
+// Name: clear
+//
+// Purpose: clears the whole drawing that the user drew.
+//
+//----------------------------------------------------------------------------------
+
+-(IBAction) clear:(id)sender
+{
     
-    if (self.mainThreadImage.image != nil) {
+    [UIView beginAnimations:@"suckIt" context:NULL];
+    [UIView setAnimationTransition:108 forView:mainThreadImage cache:NO];
+    [UIView setAnimationDuration:0.9f];
+    [UIView commitAnimations];
         
-        [UIView beginAnimations:@"suckIt" context:NULL];
-        [UIView setAnimationTransition:108 forView:mainThreadImage cache:NO];
-        [UIView setAnimationDuration:0.9f];
-        [UIView commitAnimations];
-        
-        self.mainThreadImage.image = nil;
-        
-    }
-    
     self.mainThreadImage.image = nil;
     
 }
 
-- (IBAction)save:(id)sender {
+//----------------------------------------------------------------------------------
+//
+// Name: save
+//
+// Purpose: brings up a action sheet with a option to save to the camra roll.
+//
+//----------------------------------------------------------------------------------
+
+-(IBAction) save:(id)sender
+{
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@""
-                                                             delegate:self
-                                                    cancelButtonTitle:nil
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Save to Camera Roll", @"Cancel", nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Save to Camera Roll", @"Close", nil];
+    
     [actionSheet showInView:self.view];
     
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+//----------------------------------------------------------------------------------
+//
+// Name: actionSheet
+//
+// Purpose: if the user picks the option to "save to camra roll", it will call a method
+// to save to the the drawing to the users camra roll.
+//
+//----------------------------------------------------------------------------------
+
+-(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if(buttonIndex == 0) {
+    
+    if(buttonIndex == 0)
+    {
         
         UIGraphicsBeginImageContextWithOptions(mainThreadImage.bounds.size, NO, 0.0);
         [mainThreadImage.image drawInRect:CGRectMake(0, 0, mainThreadImage.frame.size.width, mainThreadImage.frame.size.height)];
         UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
+        
         UIImageWriteToSavedPhotosAlbum(SaveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
+        
     }
+    
 }
 
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+//----------------------------------------------------------------------------------
+//
+// Name: image
+//
+// Purpose: saves the drawing to the users camra roll. If it saved with no problem,
+// it will alert you that it saved successfully. If there was a error, it will
+// alert you about it.
+//
+//----------------------------------------------------------------------------------
+
+-(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
     if (error != NULL)
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Image could not be saved.Please try again"  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Image could not be saved. Please try again"  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
+        
         [alert show];
-    } else {
+        
+    }
+    else
+    {
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Image was successfully saved in photoalbum"  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
+        
         [alert show];
+        
     }
 }
 
