@@ -9,11 +9,7 @@
 #import "LeaveATraceItem.h"
 
 @implementation LeaveATraceItem
-@synthesize text, checked;
 
-- (void)toggleChecked
-{
-    self.checked = !self.checked;
-}
+@synthesize text;
 
 @end

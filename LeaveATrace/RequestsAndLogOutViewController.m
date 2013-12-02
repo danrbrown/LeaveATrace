@@ -1,3 +1,4 @@
+//----------------------------------------------------------------------------------
 //
 //  RequestsAndLogOutViewController.m
 //  Checklists
@@ -5,6 +6,9 @@
 //  Created by Ricky Brown on 10/26/13.
 //  Copyright (c) 2013 Hollance. All rights reserved.
 //
+//  Purpose:
+//
+//----------------------------------------------------------------------------------
 
 #import "RequestsAndLogOutViewController.h"
 #import "LeaveATraceRequest.h"
@@ -16,19 +20,22 @@
 
 @end
 
-@implementation RequestsAndLogOutViewController {
-    
-    NSMutableArray *requests;
-    
-}
+@implementation RequestsAndLogOutViewController
 
 @synthesize requestsTable; 
 
-- (void)viewDidLoad
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) viewDidLoad
 {
     
-    [[[[[self tabBarController] tabBar] items]
-      objectAtIndex:3] setBadgeValue:nil];
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
     
     requests = [[NSMutableArray alloc] initWithCapacity:1000];
     [self performSelector:@selector(displayRequests)];
@@ -40,119 +47,215 @@
     
 }
 
-- (void)refreshView:(UIRefreshControl *)sender {
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) refreshView:(UIRefreshControl *)sender
+{
     
     [self displayRequests];
+    
     [sender endRefreshing];
+    
 }
 
--(void) displayRequests {
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) displayRequests
+{
     
     query = [PFQuery queryWithClassName:@"UserContact"];
+    
     [query whereKey:@"contact" equalTo:[[PFUser currentUser]username]];
     [query whereKey:@"userAccepted" equalTo:@"NO"];
     [query orderByAscending:@"contact"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
+        
+        if (!error)
+        {
+            
             requests = [[NSMutableArray alloc] initWithArray:objects];
+            
         }
+        
         [requestsTable reloadData];
+        
     }];
+    
 }
 
--(IBAction)Accept:(id)sender {
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(IBAction) Accept:(id)sender
+{
     
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
     
     NSLog(@"cell tapped on %li ", (long)indexPath.row);
     
     PFObject *tempObject = [requests objectAtIndex:indexPath.row];
-    NSString *name;
     
-    name = [tempObject objectForKey:@"username"];
+    NSString *name = [tempObject objectForKey:@"username"];
+    
     NSLog(@"Name on row --> %@", name);
     
     // Insert the new row for the new friend relationship
     
     PFObject *newContact = [PFObject objectWithClassName:@"UserContact"];
+    
     [newContact setObject:[PFUser currentUser].username forKey:@"username"];
     [newContact setObject:name forKey:@"contact"];
     [newContact setObject:@"YES" forKey:@"userAccepted"];
     
-    [newContact saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)  {
+    [newContact saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
-        if (!succeeded){
+        if (!succeeded)
+        {
             
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            
             [errorAlertView show];
+            
         }
+        
     }];
 
     // Now update the existing row and set the boolean flat to YES
 
     query = [PFQuery queryWithClassName:@"UserContact"];
+    
     [query whereKey:@"contact" equalTo:[[PFUser currentUser]username]];
     [query whereKey:@"username" equalTo:name];
     [query whereKey:@"userAccepted" equalTo:@"NO"];
     
     [query getFirstObjectInBackgroundWithBlock:^(PFObject * objects, NSError *error) {
-        if (!error) {
+        
+        if (!error)
+        {
             
             NSLog(@"The Other Row succeeded!");
             [objects setObject:@"YES" forKey:@"userAccepted"];
             [objects saveInBackground];
             
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
+        else
+        {
+           
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            
+        }
+        
     }];
 
-    
     // Now delete the row out of the array and off the screen
     
     [requests removeObjectAtIndex:indexPath.row];
+    
     [requestsTable reloadData];
     
     NSString *acceptedMessage = [NSString stringWithFormat:@"You are now friends with %@!", name];
     
     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Congrats!" message:acceptedMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    
     [errorAlertView show];
     
 }
 
--(IBAction)Decline:(id)sender {
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(IBAction) Decline:(id)sender
+{
     
-    NSLog(@"User Declined");
+    NSLog(@"User Declined"); //DB
     
 }
 
--(IBAction)logOut:(id)sender {
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(IBAction) logOut:(id)sender
+{
     
     userLoggedIn = nil;
     
     [PFUser logOut];
+    
     [self performSegueWithIdentifier:@"LogOutSuccesful" sender:self];
     
 }
 
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
     
     return 1;
     
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     
     return requests.count;
     
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     static NSString *CellIdentifier = @"RequestCell";
     
@@ -161,16 +264,26 @@
     PFObject *tempObject = [requests objectAtIndex:indexPath.row];
     
     cell.cellTitle.text = [tempObject objectForKey:@"username"];
+    
     NSLog(@"%@",cell.cellTitle.text);
     
     return cell;
+    
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     return nil;
+    
 }
-
-
 
 @end

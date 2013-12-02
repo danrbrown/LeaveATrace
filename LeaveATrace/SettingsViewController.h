@@ -43,6 +43,7 @@
 @property IBOutlet UILabel *redLabel;
 @property IBOutlet UILabel *greenLabel;
 @property IBOutlet UILabel *blueLabel;
+@property IBOutlet UILabel *allLabel;
 
 @property IBOutlet UIImageView *currentColorLabel;
 

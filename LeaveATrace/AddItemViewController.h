@@ -19,15 +19,19 @@
  
 @end
 
-@interface AddItemViewController : UITableViewController <UITextFieldDelegate> {
-    
-}
+@interface AddItemViewController : UITableViewController <UITextFieldDelegate>
 
+//Propertys
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
 @property (nonatomic, weak) id <AddItemViewControllerDelegate> delegate;
 
-- (IBAction)cancel;
-- (IBAction)done;
+//Actions
+-(IBAction) cancel;
+-(IBAction) done;
+
+//Methods
+-(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+-(BOOL) textField:(UITextField *)theTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
 
 @end

@@ -10,6 +10,7 @@
 
 @interface LeaveATraceRequest : NSObject
 
+//Text in request cell
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) NSString *userAccepted;
 

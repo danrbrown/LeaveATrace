@@ -11,16 +11,26 @@
 
 @interface RequestsAndLogOutViewController : UITableViewController {
 
+    NSMutableArray *requests;
     NSString *userAccepted;
     NSString *userContact;
     PFQuery *query;
     
 }
 
+@property (weak, nonatomic) IBOutlet UITableView *requestsTable;
+
+//Actions
 -(IBAction)logOut:(id)sender;
 -(IBAction)Accept:(id)sender;
 -(IBAction)Decline:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UITableView *requestsTable;
+//Methods
+-(void) refreshView:(UIRefreshControl *)sender;
+-(void) displayRequests;
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView;
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+-(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

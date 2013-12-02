@@ -37,10 +37,6 @@
     self.blueControl.value = blueIntValue;
     [self sliderChanged:self.blueControl];
     
-    int allIntValue = self.blue * self.red * self.green;
-    self.allControll.value = allIntValue;
-    [self sliderChanged:self.allControll];
-    
     self.brushSize.value = self.brush;
     [self sliderChanged:self.brushSize];
     
@@ -78,6 +74,7 @@
         
         self.red = self.redControl.value/255.0;
         self.redLabel.text = [NSString stringWithFormat:@"Red: %d", (int)self.redControl.value];
+        self.allLabel.text = [NSString stringWithFormat:@"all: %d", (int)self.redControl.value * (int)self.blueControl.value * (int)self.greenControl.value];
         
         UIGraphicsBeginImageContext(self.currentColorLabel.frame.size);
         CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -94,6 +91,7 @@
         
         self.green = self.greenControl.value/255.0;
         self.greenLabel.text = [NSString stringWithFormat:@"Green: %d", (int)self.greenControl.value];
+         self.allLabel.text = [NSString stringWithFormat:@"all: %d", (int)self.redControl.value * (int)self.blueControl.value * (int)self.greenControl.value];
         
         UIGraphicsBeginImageContext(self.currentColorLabel.frame.size);
         CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -110,6 +108,7 @@
         
         self.blue = self.blueControl.value/255.0;
         self.blueLabel.text = [NSString stringWithFormat:@"Blue: %d", (int)self.blueControl.value];
+         self.allLabel.text = [NSString stringWithFormat:@"all: %d", (int)self.redControl.value * (int)self.blueControl.value * (int)self.greenControl.value];
         
         UIGraphicsBeginImageContext(self.currentColorLabel.frame.size);
         CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);

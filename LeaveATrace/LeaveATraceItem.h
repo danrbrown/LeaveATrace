@@ -10,10 +10,8 @@
 
 @interface LeaveATraceItem : NSObject
 
+//Text in the contacts cell
 @property (nonatomic, copy) NSString *text;
-@property (nonatomic, assign) BOOL checked;
 @property (nonatomic, copy) NSString *userAccepted;
-
--(void) toggleChecked;
 
 @end

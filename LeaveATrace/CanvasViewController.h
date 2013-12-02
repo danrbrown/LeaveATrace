@@ -63,6 +63,7 @@ extern UIImageView *mainImage;
 @property CGFloat blue;
 @property CGFloat brush;
 @property IBOutlet UISlider *brushSize;
+@property IBOutlet UISlider *colorValue;
 
 //Actions for view
 -(IBAction) eraser:(id)sender;

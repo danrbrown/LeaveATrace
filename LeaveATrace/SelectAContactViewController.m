@@ -1,3 +1,4 @@
+//----------------------------------------------------------------------------------
 //
 //  SelectAContactViewController.m
 //  LeaveATrace
@@ -5,6 +6,9 @@
 //  Created by Ricky Brown on 11/26/13.
 //  Copyright (c) 2013 15and50. All rights reserved.
 //
+//  Purpose:
+//
+//----------------------------------------------------------------------------------
 
 #import "SelectAContactViewController.h"
 #import "CanvasViewController.h"
@@ -18,68 +22,118 @@ BOOL clearImage;
 
 @end
 
-@implementation SelectAContactViewController{
-    NSString *userAccepted;
-    NSString *userContact;
-    PFQuery *query;
-}
+@implementation SelectAContactViewController
 
 @synthesize validContactsTable;
 
-- (void) viewDidLoad
+//----------------------------------------------------------------------------------
+//
+// Name: viewDidLoad
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) viewDidLoad
 {
+    
     NSLog(@"in my new table view");
     
     validContacts = [[NSMutableArray alloc] initWithCapacity:1000];
     
     [self performSelector:@selector(displayValidContacts)];
+    
 }
 
--(void) viewWillAppear:(BOOL)animated {
-        NSLog(@"in viewWillAppear");
-}
+//----------------------------------------------------------------------------------
+//
+// Name: displayValidContacts
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
--(void) displayValidContacts {
+-(void) displayValidContacts
+{
     
     query = [PFQuery queryWithClassName:@"UserContact"];
+    
     [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
     [query whereKey:@"userAccepted" equalTo:@"YES"];
     [query orderByAscending:@"contact"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
+        
+        if (!error)
+        {
+            
             validContacts = [[NSMutableArray alloc] initWithArray:objects];
+            
         }
+        
         NSLog(@"Valid contacts %@",validContacts);
+        
         [validContactsTable reloadData];
+        
     }];
     
 }
 
-- (IBAction)cancel
+//----------------------------------------------------------------------------------
+//
+// Name: cancel
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(IBAction) cancel
 {
-    NSLog(@"closed this view... kinda");
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+//----------------------------------------------------------------------------------
+//
+// Name: numberOfSectionsInTableView
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     return 1;
     
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//----------------------------------------------------------------------------------
+//
+// Name: tableView
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     
     return validContacts.count;
     
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//----------------------------------------------------------------------------------
+//
+// Name: tableView
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     static NSString *CellIdentifier = @"ValidContactCell";
     
@@ -88,15 +142,23 @@ BOOL clearImage;
     PFObject *tempObject = [validContacts objectAtIndex:indexPath.row];
     
     cell.sendToTitle.text = [tempObject objectForKey:@"contact"];
+    
     NSLog(@"contact is: %@",cell.sendToTitle.text);
     
     return cell;
+    
 }
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//----------------------------------------------------------------------------------
+//
+// Name: tableView
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    NSLog(@"I pressed a cell");
     
     clearImage = YES;
     
@@ -111,6 +173,7 @@ BOOL clearImage;
         {
             
             PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
+            
             [imageObject setObject:file forKey:@"image"];
             [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
             [imageObject setObject:tempContact forKey:@"toUser"];
@@ -129,6 +192,7 @@ BOOL clearImage;
                     
                     NSString *errorString = [[error userInfo] objectForKey:@"error"];
                     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    
                     [errorAlertView show];
                     
                 }
@@ -140,6 +204,7 @@ BOOL clearImage;
         {
             
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [errorAlertView show];
             
@@ -154,6 +219,7 @@ BOOL clearImage;
     }];
 
     return nil;
+    
 }
 
 @end

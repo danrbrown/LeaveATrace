@@ -140,7 +140,7 @@ UIImageView *mainImage;
 // Name: countTraces
 //
 // Purpose:
-//
+// [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
 //----------------------------------------------------------------------------------
 
 -(void) countTraces
@@ -149,10 +149,12 @@ UIImageView *mainImage;
     PFQuery *toUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
     
     [toUserQuery whereKey:@"toUser" equalTo:[[PFUser currentUser]username]];
+    [toUserQuery whereKey:@"deliveredToUser" equalTo:@"NO"];
     
     PFQuery *fromUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
     
     [fromUserQuery whereKey:@"fromUser" equalTo:[[PFUser currentUser]username]];
+    [fromUserQuery whereKey:@"deliveredToUser" equalTo:@"NO"];
     
     query = [PFQuery orQueryWithSubqueries:@[toUserQuery,fromUserQuery]];
     
@@ -416,6 +418,13 @@ UIImageView *mainImage;
         
         brush = self.brushSize.value;
         
+    }
+    
+    if(changedSlider == self.colorValue)
+    {
+    
+        
+       
     }
     
 }

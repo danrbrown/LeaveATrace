@@ -237,19 +237,11 @@
                                     <action selector="send:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="fcX-Fy-9HV"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="0.0" maxValue="65" id="tKh-pz-iLy">
-                                <rect key="frame" x="36" y="78" width="139" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="sliderChanged:" destination="GrZ-6C-8aQ" eventType="valueChanged" id="H0L-R5-O0z"/>
-                                </connections>
-                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="New Trace" image="iconsberlin.png" id="pDS-ST-dHk"/>
                     <connections>
-                        <outlet property="brushSize" destination="tKh-pz-iLy" id="PSO-Fc-qfq"/>
                         <outlet property="colorsB" destination="Rz3-th-qPY" id="pEt-oP-e90"/>
                         <outlet property="eraseB" destination="Rns-hs-jRr" id="6Og-Pf-Tva"/>
                         <outlet property="mainImage" destination="bIM-3Z-gXc" id="uRg-og-Nli"/>
@@ -304,7 +296,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MHX-cw-0sN">
-                                <rect key="frame" x="216" y="480" width="50" height="50"/>
+                                <rect key="frame" x="216" y="498" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
                                 <state key="normal" image="CCRed.png">
@@ -316,7 +308,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fPW-gm-nrV">
-                                <rect key="frame" x="136" y="480" width="50" height="50"/>
+                                <rect key="frame" x="136" y="498" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
                                 <state key="normal" image="CCBlue.png">
@@ -328,7 +320,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZkH-K5-LQC">
-                                <rect key="frame" x="54" y="480" width="50" height="50"/>
+                                <rect key="frame" x="54" y="498" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
                                 <state key="normal" image="CCGreen.png">
@@ -340,7 +332,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="13c-Sd-0le">
-                                <rect key="frame" x="54" y="408" width="50" height="50"/>
+                                <rect key="frame" x="54" y="426" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
                                 <state key="normal" image="CCYellow.png">
@@ -352,7 +344,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H0q-tX-3nc">
-                                <rect key="frame" x="136" y="408" width="50" height="50"/>
+                                <rect key="frame" x="136" y="426" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
                                 <state key="normal" image="CCBlack.png">
@@ -363,7 +355,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gcz-Xy-qj4">
-                                <rect key="frame" x="216" y="408" width="50" height="50"/>
+                                <rect key="frame" x="216" y="426" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
                                 <state key="normal" image="CCOrange.png">
