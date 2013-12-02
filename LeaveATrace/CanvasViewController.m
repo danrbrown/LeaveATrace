@@ -622,7 +622,7 @@ UIImageView *mainImage;
     
     // Define a text message
     NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
-                          @"some text..", @"alert", nil];
+                          @"Someone sent you a trace!", @"alert", nil];
     
     // Prepare to send the push notification
     
