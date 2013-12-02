@@ -21,6 +21,8 @@
 
 @implementation FirstPageViewController
 
+@synthesize red,blue,green,brush,mainImage;
+
 //---------------------------------------------------------
 //
 // Name: viewDidLoad
@@ -40,9 +42,171 @@
     if ([userLoggedIn isEqual:@"LoggedIn"])
     {
         
-        //DTRB / DB
+        //DTRB
         
     }
+    
+    red = rand() % 255;
+    green = rand() % 100;
+    blue = 0;
+    brush = rand() % 10;
+    opacity = 1.0;
+
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: convertToMask
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(UIImage*) convertToMask:(UIImage *)image
+{
+    
+    if (image != nil)
+    {
+        
+        UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+        
+        CGRect imageRect = CGRectMake(0.0f, 0.0f, image.size.width, image.size.height);
+        
+        CGContextRef ctx = UIGraphicsGetCurrentContext();
+        
+        CGContextSetRGBFillColor(ctx, 1.0f, 1.0f, 1.0f, 0.9f);
+        
+        CGContextFillRect(ctx, imageRect);
+        
+        [image drawInRect:imageRect blendMode:kCGBlendModeDestinationIn alpha:1.0f];
+        
+        UIImage* outImage = UIGraphicsGetImageFromCurrentImageContext();
+        
+        UIGraphicsEndImageContext();
+        
+        return outImage;
+        
+    }
+    else
+    {
+        
+        return image;
+        
+    }
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: touchesBegan
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+    mouseSwiped = NO;
+    
+    UITouch *touch = [touches anyObject];
+    
+    lastPoint = [touch locationInView:self.view];
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: touchesMoved
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+
+-(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+    mouseSwiped = YES;
+    
+    UITouch *touch = [touches anyObject];
+    CGPoint currentPoint = [touch locationInView:self.view];
+    
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [self.mainImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
+    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), currentPoint.x, currentPoint.y);
+    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), brush );
+    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), red, green, blue, 1.0);
+    CGContextSetBlendMode(UIGraphicsGetCurrentContext(),kCGBlendModeNormal);
+    
+    CGContextStrokePath(UIGraphicsGetCurrentContext());
+    self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
+    [self.mainImage setAlpha:opacity];
+    UIGraphicsEndImageContext();
+    
+    lastPoint = currentPoint;
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: touchesEnded
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+    if(!mouseSwiped)
+    {
+        
+        UIGraphicsBeginImageContext(self.view.frame.size);
+        [self.mainImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), brush);
+        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), red, green, blue, opacity);
+        CGContextMoveToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
+        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(), lastPoint.x, lastPoint.y);
+        CGContextStrokePath(UIGraphicsGetCurrentContext());
+        CGContextFlush(UIGraphicsGetCurrentContext());
+        self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+    }
+    
+    UIGraphicsBeginImageContext(self.mainImage.frame.size);
+    [self.mainImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) blendMode:kCGBlendModeNormal alpha:1.0];
+    [self.mainImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) blendMode:kCGBlendModeNormal alpha:opacity];
+    self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [self performSelector:@selector(fade) withObject:nil afterDelay:2.0];
+    
+    brush = rand() % 20;
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: fade
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) fade
+{
+    
+    [UIView beginAnimations:@"suck" context:NULL];
+    [UIView setAnimationTransition:108 forView:mainImage cache:NO];
+    [UIView setAnimationDuration:1.0f];
+    [UIView commitAnimations];
+    
+    mainImage.image = nil;
     
 }
 

@@ -14,6 +14,22 @@
     IBOutlet UIButton *logInButton;
     IBOutlet UIButton *signUpButton;
     
+    //Variables for drawing
+    CGPoint lastPoint;
+    CGFloat red;
+    CGFloat green;
+    CGFloat blue;
+    CGFloat brush;
+    CGFloat opacity;
+    BOOL mouseSwiped;
+    
 }
+
+//Propertys for drawing
+@property CGFloat red;
+@property CGFloat green;
+@property CGFloat blue;
+@property CGFloat brush;
+@property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 
 @end

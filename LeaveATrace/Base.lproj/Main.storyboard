@@ -600,11 +600,16 @@
                                     <segue destination="5hk-4q-zO9" kind="modal" modalTransitionStyle="flipHorizontal" id="b0h-1B-5xq"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="T99-hH-w9z">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="logInButton" destination="Vn2-Gn-JMH" id="XAI-A7-SYp"/>
+                        <outlet property="mainImage" destination="T99-hH-w9z" id="hJ6-U8-yT0"/>
                         <outlet property="signUpButton" destination="cca-D8-5Zu" id="77T-cB-LEs"/>
                     </connections>
                 </viewController>
