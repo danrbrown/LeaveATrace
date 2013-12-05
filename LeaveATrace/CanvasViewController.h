@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SettingsViewController.h"
 #import <Parse/Parse.h>
 
 //Global variables
@@ -22,7 +21,7 @@ extern NSString *userLoggedIn;
 extern NSUserDefaults *defaults;
 extern UIImageView *mainImage;
 
-@interface CanvasViewController : UIViewController <SettingsViewControllerDelegate, UIActionSheetDelegate> {
+@interface CanvasViewController : UIViewController <UIActionSheetDelegate> {
     
     //Variables for drawing
     CGPoint lastPoint;
@@ -56,7 +55,6 @@ extern UIImageView *mainImage;
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 @property (weak, nonatomic) IBOutlet UIImageView *currentColorImage;
 
-
 //Color property vaiables for view
 @property CGFloat red;
 @property CGFloat green;
@@ -81,7 +79,6 @@ extern UIImageView *mainImage;
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
--(void) closeSettings:(id)sender;
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
 -(UIImage*) convertToMask: (UIImage *) image;
 

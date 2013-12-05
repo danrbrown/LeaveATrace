@@ -102,6 +102,9 @@ NSString *deliveredToUser;
             
             traces = [[NSMutableArray alloc] initWithArray:objects];
             
+//            NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+//            [traces sortUsingDescriptors:[NSArray arrayWithObject:sort]];
+            
             NSLog(@"traces %@",traces);
             
         }

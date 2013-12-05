@@ -46,10 +46,10 @@
         
     }
     
-    red = rand() % 255;
-    green = rand() % 100;
-    blue = 0;
-    brush = rand() % 10;
+    red = (CGFloat)random()/(CGFloat)RAND_MAX;
+    green = (CGFloat)random()/(CGFloat)RAND_MAX;
+    blue = (CGFloat)random()/(CGFloat)RAND_MAX;
+    brush = 13;
     opacity = 1.0;
 
 }
@@ -127,6 +127,10 @@
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
+//    red = (CGFloat)random()/(CGFloat)RAND_MAX;
+//    green = (CGFloat)random()/(CGFloat)RAND_MAX;
+//    blue = (CGFloat)random()/(CGFloat)RAND_MAX;
+    
     mouseSwiped = YES;
     
     UITouch *touch = [touches anyObject];
@@ -184,9 +188,11 @@
     self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    [self performSelector:@selector(fade) withObject:nil afterDelay:2.0];
+    red = (CGFloat)random()/(CGFloat)RAND_MAX;
+    green = (CGFloat)random()/(CGFloat)RAND_MAX;
+    blue = (CGFloat)random()/(CGFloat)RAND_MAX;
     
-    brush = rand() % 20;
+    [self performSelector:@selector(fade) withObject:nil afterDelay:4.0];
     
 }
 

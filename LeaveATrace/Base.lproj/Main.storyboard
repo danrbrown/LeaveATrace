@@ -165,13 +165,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="bIM-3Z-gXc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="X7s-Uc-4iM">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <color key="tintColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="O1Q-lZ-m3k">
-                                <rect key="frame" x="20" y="30" width="39" height="40"/>
+                                <rect key="frame" x="6" y="20" width="39" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="TrashITB.png">
@@ -182,20 +181,8 @@
                                     <action selector="clear:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="KN4-kF-JBg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rz3-th-qPY">
-                                <rect key="frame" x="249" y="30" width="57" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
-                                <state key="normal" image="colorsB.png">
-                                    <color key="titleColor" red="0.0" green="0.4206461541" blue="0.95223335600000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="HhA-B4-PEV" kind="modal" identifier="SendTo" id="n8K-tO-JJP"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rns-hs-jRr">
-                                <rect key="frame" x="178" y="33" width="38" height="35"/>
+                                <rect key="frame" x="133" y="473" width="38" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <state key="normal" image="eraserB.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -205,7 +192,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8OC-gi-fZk">
-                                <rect key="frame" x="97" y="31" width="40" height="39"/>
+                                <rect key="frame" x="76" y="473" width="40" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <state key="normal" image="backB.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -237,14 +224,39 @@
                                     <action selector="send:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="fcX-Fy-9HV"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.80000000000000004" id="yHo-Fg-5qT">
+                                <rect key="frame" x="183" y="23" width="119" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="GrZ-6C-8aQ" eventType="valueChanged" id="tM0-H5-xfy"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="7" maxValue="65" id="7n7-wn-SDY">
+                                <rect key="frame" x="56" y="23" width="118" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="GrZ-6C-8aQ" eventType="valueChanged" id="PeI-Pk-Hsv"/>
+                                </connections>
+                            </slider>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="vdm-CA-HB1">
+                                <rect key="frame" x="242" y="28" width="98" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="New Trace" image="iconsberlin.png" id="pDS-ST-dHk"/>
                     <connections>
-                        <outlet property="colorsB" destination="Rz3-th-qPY" id="pEt-oP-e90"/>
+                        <outlet property="brushSize" destination="7n7-wn-SDY" id="vL7-Ll-j3D"/>
+                        <outlet property="colorValue" destination="yHo-Fg-5qT" id="8aQ-Rv-XhC"/>
+                        <outlet property="currentColorImage" destination="vdm-CA-HB1" id="jK3-Mu-VHt"/>
                         <outlet property="eraseB" destination="Rns-hs-jRr" id="6Og-Pf-Tva"/>
-                        <outlet property="mainImage" destination="bIM-3Z-gXc" id="uRg-og-Nli"/>
+                        <outlet property="mainImage" destination="X7s-Uc-4iM" id="Vyw-xD-5aB"/>
                         <outlet property="saveB" destination="yIF-o3-zbA" id="B6g-Er-EpM"/>
                         <outlet property="sendB" destination="nhl-67-LS2" id="FdI-aU-ltA"/>
                         <outlet property="trashB" destination="O1Q-lZ-m3k" id="OqW-F7-9Vn"/>
@@ -255,165 +267,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ut3-sB-QOw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2252" y="463"/>
-        </scene>
-        <!--Settings View Controller-->
-        <scene sceneID="MqD-iU-6T9">
-            <objects>
-                <viewController id="HhA-B4-PEV" customClass="SettingsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Woo-vA-1LY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="10" maxValue="255" id="W2l-Nd-rwm">
-                                <rect key="frame" x="41" y="259" width="239" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <color key="minimumTrackTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="sliderChanged:" destination="HhA-B4-PEV" eventType="valueChanged" id="d0k-12-Zu4"/>
-                                </connections>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="200" minValue="10" maxValue="255" id="gou-C9-wOn">
-                                <rect key="frame" x="41" y="305" width="239" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="sliderChanged:" destination="HhA-B4-PEV" eventType="valueChanged" id="yie-qm-npP"/>
-                                </connections>
-                            </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="10" maxValue="255" id="i96-fK-3Zw">
-                                <rect key="frame" x="41" y="351" width="239" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <color key="minimumTrackTintColor" red="0.0" green="0.66358996979999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="sliderChanged:" destination="HhA-B4-PEV" eventType="valueChanged" id="bci-Wk-a9a"/>
-                                </connections>
-                            </slider>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="BY7-G6-zy9">
-                                <rect key="frame" x="115" y="148" width="126" height="109"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MHX-cw-0sN">
-                                <rect key="frame" x="216" y="498" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
-                                <state key="normal" image="CCRed.png">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="justRed:" destination="HhA-B4-PEV" eventType="touchUpInside" id="G8i-h1-VZm"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fPW-gm-nrV">
-                                <rect key="frame" x="136" y="498" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
-                                <state key="normal" image="CCBlue.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="justBlue:" destination="HhA-B4-PEV" eventType="touchUpInside" id="g4F-ZT-eQa"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZkH-K5-LQC">
-                                <rect key="frame" x="54" y="498" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
-                                <state key="normal" image="CCGreen.png">
-                                    <color key="titleColor" red="0.0" green="0.66358996979999996" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="justGreen:" destination="HhA-B4-PEV" eventType="touchUpInside" id="TJa-Ed-hDr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="13c-Sd-0le">
-                                <rect key="frame" x="54" y="426" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
-                                <state key="normal" image="CCYellow.png">
-                                    <color key="titleColor" red="1" green="0.9052734375" blue="0.20564326029999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="1" green="0.9052734375" blue="0.20564326029999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="justYellow:" destination="HhA-B4-PEV" eventType="touchUpInside" id="uyy-PC-3Ge"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H0q-tX-3nc">
-                                <rect key="frame" x="136" y="426" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
-                                <state key="normal" image="CCBlack.png">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="justBlack:" destination="HhA-B4-PEV" eventType="touchUpInside" id="pe3-ei-iqZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gcz-Xy-qj4">
-                                <rect key="frame" x="216" y="426" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="21"/>
-                                <state key="normal" image="CCOrange.png">
-                                    <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="justOrange:" destination="HhA-B4-PEV" eventType="touchUpInside" id="Caw-b6-h1Y"/>
-                                </connections>
-                            </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="5" maxValue="65" id="900-30-s41">
-                                <rect key="frame" x="66" y="105" width="185" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="sliderChanged:" destination="HhA-B4-PEV" eventType="valueChanged" id="53Z-r8-j4U"/>
-                                </connections>
-                            </slider>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settingsBar.png" id="Bki-cn-tgf">
-                                <rect key="frame" x="-15" y="4" width="353" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Jqd-HX-zZq">
-                                <rect key="frame" x="242" y="29" width="67" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="21"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="closeSettings:" destination="HhA-B4-PEV" eventType="touchUpInside" id="ayH-09-Juh"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="IMy-gb-QZk">
-                                <rect key="frame" x="-2" y="79" width="83" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QJs-o1-mvw">
-                                <rect key="frame" x="242" y="78" width="79" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <connections>
-                        <outlet property="bigB" destination="QJs-o1-mvw" id="1wd-UG-5f1"/>
-                        <outlet property="blueControl" destination="gou-C9-wOn" id="L0Z-yn-xYk"/>
-                        <outlet property="brushSize" destination="900-30-s41" id="WGq-d3-Ykt"/>
-                        <outlet property="currentColorLabel" destination="BY7-G6-zy9" id="Hs2-wU-Vau"/>
-                        <outlet property="greenControl" destination="i96-fK-3Zw" id="HJb-hJ-WPb"/>
-                        <outlet property="redControl" destination="W2l-Nd-rwm" id="CPq-xJ-lzQ"/>
-                        <outlet property="smallB" destination="IMy-gb-QZk" id="e86-cz-ZYU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ELg-13-Pt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2797" y="790"/>
         </scene>
         <!--SelectA Contact View Controller - Send To...-->
         <scene sceneID="sXB-Ks-utV">
@@ -464,7 +317,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tqJ-tB-QUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3615" y="463"/>
+            <point key="canvasLocation" x="3066" y="463"/>
         </scene>
         <!--Requests And Log Out View Controller - Friend Requests-->
         <scene sceneID="Nqm-8T-fF4">
@@ -962,17 +815,8 @@
                                     <action selector="clear:" destination="tKm-6e-p5w" eventType="touchUpInside" id="ZCq-YD-346"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OG5-cu-LAs">
-                                <rect key="frame" x="259" y="68" width="55" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
-                                <state key="normal" image="colorsB.png">
-                                    <color key="titleColor" red="0.0" green="0.4206461541" blue="0.95223335600000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BL5-p0-jgB">
-                                <rect key="frame" x="182" y="67" width="40" height="37"/>
+                                <rect key="frame" x="124" y="473" width="40" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="eraserB.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -983,7 +827,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sie-Wv-3v0">
-                                <rect key="frame" x="92" y="69" width="41" height="40"/>
+                                <rect key="frame" x="69" y="471" width="41" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="backB.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -993,6 +837,29 @@
                                     <action selector="undo:" destination="tKm-6e-p5w" eventType="touchUpInside" id="wp0-bz-v0s"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.80000001192092896" id="KdT-TH-d3c">
+                                <rect key="frame" x="192" y="71" width="119" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="tKm-6e-p5w" eventType="valueChanged" id="kyZ-MG-xlf"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="7" maxValue="65" id="uXR-2n-oOM">
+                                <rect key="frame" x="65" y="71" width="118" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="tKm-6e-p5w" eventType="valueChanged" id="dr8-1z-s4k"/>
+                                </connections>
+                            </slider>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="m7n-Qh-ojE">
+                                <rect key="frame" x="242" y="74" width="98" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1000,7 +867,9 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="wnp-zM-cAV"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="colorsB" destination="OG5-cu-LAs" id="nED-Xj-Lo9"/>
+                        <outlet property="brushSize" destination="uXR-2n-oOM" id="eWs-bv-kEt"/>
+                        <outlet property="colorValue" destination="KdT-TH-d3c" id="350-gE-6Lj"/>
+                        <outlet property="currentColorImage" destination="m7n-Qh-ojE" id="zHn-Y5-3ac"/>
                         <outlet property="eraseB" destination="BL5-p0-jgB" id="KeA-fR-Ija"/>
                         <outlet property="mainThreadImage" destination="Fms-ao-vy8" id="AxB-4v-XBG"/>
                         <outlet property="saveB" destination="2Li-M4-Xbc" id="NEm-pl-edv"/>
@@ -1059,26 +928,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7S-Ph-oc7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3188" y="463"/>
+            <point key="canvasLocation" x="2647" y="463"/>
         </scene>
     </scenes>
     <resources>
-        <image name="CCBlack.png" width="97" height="91"/>
-        <image name="CCBlue.png" width="97" height="90"/>
-        <image name="CCGreen.png" width="95" height="92"/>
-        <image name="CCOrange.png" width="96" height="91"/>
-        <image name="CCRed.png" width="97" height="91"/>
-        <image name="CCYellow.png" width="97" height="91"/>
         <image name="SaveB.png" width="131" height="114"/>
         <image name="TrashITB.png" width="187" height="184"/>
         <image name="backB.png" width="204" height="204"/>
-        <image name="colorsB.png" width="208" height="145"/>
         <image name="didNotSeeTraceImage.png" width="24" height="23"/>
         <image name="eraserB.png" width="225" height="225"/>
         <image name="iconsberlin.png" width="30" height="30"/>
         <image name="iconsberlin@2x copy.png" width="60" height="60"/>
         <image name="sendingB.png" width="253" height="118"/>
-        <image name="settingsBar.png" width="417" height="122"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

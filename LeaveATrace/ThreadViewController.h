@@ -43,6 +43,8 @@
 @property CGFloat red;
 @property CGFloat green;
 @property CGFloat blue;
+@property IBOutlet UISlider *brushSize;
+@property IBOutlet UISlider *colorValue;
 
 //Actions for the View
 -(IBAction) eraser:(id)sender;
@@ -50,6 +52,7 @@
 -(IBAction) clear:(id)sender;
 -(IBAction) save:(id)sender;
 -(IBAction) send:(id)sender;
+-(IBAction) sliderChanged:(id)sender;
 
 //Methods for view
 -(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;

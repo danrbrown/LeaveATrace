@@ -42,9 +42,9 @@
     
     [self getThreadTrace:userWhoSentTrace];
     
-    red = 0.0/255.0;
-    green = 0.0/255.0;
-    blue = 0.0/255.0;
+    red = 255.0;
+    green = 0.0;
+    blue = 0.0;
     brush = 11.0;
     opacity = 1.0;
     
@@ -267,6 +267,52 @@
 
 //----------------------------------------------------------------------------------
 //
+// Name: sliderChanged
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(IBAction) sliderChanged:(id)sender
+{
+    
+    UISlider * changedSlider = (UISlider*)sender;
+    
+    if(changedSlider == self.brushSize)
+    {
+        
+        brush = self.brushSize.value;
+        
+    }
+    
+    if(changedSlider == self.colorValue)
+    {
+        
+        UIColor *theColor = [UIColor colorWithHue:changedSlider.value saturation:1.0 brightness:1.0 alpha:1.0];
+        
+        CGColorRef colorRef = [theColor CGColor];
+        
+        const CGFloat *_components = CGColorGetComponents(colorRef);
+        red     = _components[0];
+        green = _components[1];
+        blue   = _components[2];
+        
+        UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
+        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 25);
+        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
+        CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
+        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
+        CGContextStrokePath(UIGraphicsGetCurrentContext());
+        self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+    }
+    
+}
+
+//----------------------------------------------------------------------------------
+//
 // Name: uploadThreadTrace
 //
 // Purpose:
@@ -372,7 +418,7 @@
     
     UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 35);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 29);
     CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
     CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
     CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);

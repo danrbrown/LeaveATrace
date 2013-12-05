@@ -24,7 +24,6 @@
 		9C276836181C75B10073453E /* LeaveATraceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C276835181C75B10073453E /* LeaveATraceTests.m */; };
 		9C276841181C76720073453E /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C276840181C76720073453E /* AddItemViewController.m */; };
 		9C27684C181C76B10073453E /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C276843181C76B00073453E /* CanvasViewController.m */; };
-		9C27684D181C76B10073453E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C276845181C76B00073453E /* SettingsViewController.m */; };
 		9C27684E181C76B10073453E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C276847181C76B00073453E /* LoginViewController.m */; };
 		9C27684F181C76B10073453E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C276849181C76B00073453E /* SignUpViewController.m */; };
 		9C276850181C76B10073453E /* RequestsAndLogOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C27684B181C76B00073453E /* RequestsAndLogOutViewController.m */; };
@@ -67,6 +66,7 @@
 		9CB59BB11844F94C006AB105 /* SelectAContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB59BB01844F94C006AB105 /* SelectAContactViewController.m */; };
 		9CB59BB418454A16006AB105 /* sendToCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB59BB318454A16006AB105 /* sendToCell.m */; };
 		9CF1F932184BE89F00AE3EAC /* traceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F931184BE89F00AE3EAC /* traceCell.m */; };
+		9CF1F934184D3BF700AE3EAC /* colorSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F933184D3BF700AE3EAC /* colorSlider.png */; };
 		A508D48F184A2EFC004005AD /* iconsberlin@2x copy.png in Resources */ = {isa = PBXBuildFile; fileRef = A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */; };
 		A508D491184A3386004005AD /* tabBar.png in Resources */ = {isa = PBXBuildFile; fileRef = A508D490184A3386004005AD /* tabBar.png */; };
 		A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555C8D91846D53B00C012ED /* ThreadViewController.m */; };
@@ -109,8 +109,6 @@
 		9C276840181C76720073453E /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddItemViewController.m; path = LeaveATrace/AddItemViewController.m; sourceTree = "<group>"; };
 		9C276842181C76B00073453E /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CanvasViewController.h; path = LeaveATrace/CanvasViewController.h; sourceTree = "<group>"; };
 		9C276843181C76B00073453E /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CanvasViewController.m; path = LeaveATrace/CanvasViewController.m; sourceTree = "<group>"; };
-		9C276844181C76B00073453E /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = LeaveATrace/SettingsViewController.h; sourceTree = "<group>"; };
-		9C276845181C76B00073453E /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = LeaveATrace/SettingsViewController.m; sourceTree = "<group>"; };
 		9C276846181C76B00073453E /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = LeaveATrace/LoginViewController.h; sourceTree = "<group>"; };
 		9C276847181C76B00073453E /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = LeaveATrace/LoginViewController.m; sourceTree = "<group>"; };
 		9C276848181C76B00073453E /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = LeaveATrace/SignUpViewController.h; sourceTree = "<group>"; };
@@ -165,6 +163,7 @@
 		9CB59BB318454A16006AB105 /* sendToCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sendToCell.m; path = LeaveATrace/sendToCell.m; sourceTree = "<group>"; };
 		9CF1F930184BE89F00AE3EAC /* traceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = traceCell.h; path = LeaveATrace/traceCell.h; sourceTree = "<group>"; };
 		9CF1F931184BE89F00AE3EAC /* traceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = traceCell.m; path = LeaveATrace/traceCell.m; sourceTree = "<group>"; };
+		9CF1F933184D3BF700AE3EAC /* colorSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorSlider.png; sourceTree = "<group>"; };
 		A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x copy.png"; sourceTree = "<group>"; };
 		A508D490184A3386004005AD /* tabBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBar.png; sourceTree = "<group>"; };
 		A555C8D81846D53B00C012ED /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreadViewController.h; path = LeaveATrace/ThreadViewController.h; sourceTree = "<group>"; };
@@ -333,6 +332,7 @@
 		9C276857181C771D0073453E /* colors */ = {
 			isa = PBXGroup;
 			children = (
+				9CF1F933184D3BF700AE3EAC /* colorSlider.png */,
 				9C276858181C771D0073453E /* CCBlack.png */,
 				9C276859181C771D0073453E /* CCBlue.png */,
 				9C27685A181C771D0073453E /* CCGreen.png */,
@@ -392,8 +392,6 @@
 			children = (
 				9C276842181C76B00073453E /* CanvasViewController.h */,
 				9C276843181C76B00073453E /* CanvasViewController.m */,
-				9C276844181C76B00073453E /* SettingsViewController.h */,
-				9C276845181C76B00073453E /* SettingsViewController.m */,
 			);
 			name = "Drawing Views";
 			sourceTree = "<group>";
@@ -507,6 +505,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF1F934184D3BF700AE3EAC /* colorSlider.png in Resources */,
 				9C276866181C771D0073453E /* SaveB.png in Resources */,
 				9C276869181C771D0073453E /* CCBlack.png in Resources */,
 				9C27686A181C771D0073453E /* CCBlue.png in Resources */,
@@ -554,7 +553,6 @@
 				9CB59BB418454A16006AB105 /* sendToCell.m in Sources */,
 				9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */,
 				9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */,
-				9C27684D181C76B10073453E /* SettingsViewController.m in Sources */,
 				9C276877181C774F0073453E /* LeaveATraceItem.m in Sources */,
 				9C27684E181C76B10073453E /* LoginViewController.m in Sources */,
 				9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */,

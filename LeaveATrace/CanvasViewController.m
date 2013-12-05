@@ -11,7 +11,6 @@
 //----------------------------------------------------------------------------------
 
 #import "CanvasViewController.h"
-#import "SettingsViewController.h"
 #import "SelectAContactViewController.h"
 #import "tracesViewController.h"
 #import <Twitter/Twitter.h>
@@ -33,7 +32,7 @@ UIImageView *mainImage;
 
 @implementation CanvasViewController
 
-@synthesize mainImage,currentColorImage,red,green,blue,brush;
+@synthesize mainImage,red,green,blue,brush,currentColorImage;
 
 //----------------------------------------------------------------------------------
 //
@@ -55,15 +54,15 @@ UIImageView *mainImage;
     [self countRequests];
     [self countTraces];
     
-    red = 0.0/255.0;
-    green = 0.0/255.0;
-    blue = 0.0/255.0;
+    red = 255;
+    green = 0;
+    blue = 0;
     brush = 11.0;
     opacity = 1.0;
-   
+    
     UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 29);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 25);
     CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
     CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
     CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
@@ -140,7 +139,7 @@ UIImageView *mainImage;
 // Name: countTraces
 //
 // Purpose:
-// [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
+//
 //----------------------------------------------------------------------------------
 
 -(void) countTraces
@@ -368,21 +367,6 @@ UIImageView *mainImage;
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     
-    SettingsViewController *settingsVC = (SettingsViewController *)segue.destinationViewController;
-    
-    if ([[segue identifier] isEqualToString:@"SendTo"])
-    {
-        
-        NSLog(@"SendTo segue");
-        
-        settingsVC.delegate = self;
-        settingsVC.red = red;
-        settingsVC.green = green;
-        settingsVC.blue = blue;
-        settingsVC.brush = brush;
-
-    }
-    
     if ([[segue identifier] isEqualToString:@"selectAContact"])
     {
         
@@ -422,41 +406,28 @@ UIImageView *mainImage;
     
     if(changedSlider == self.colorValue)
     {
-    
-        
        
+        UIColor *theColor = [UIColor colorWithHue:changedSlider.value saturation:1.0 brightness:1.0 alpha:1.0];
+        
+        CGColorRef colorRef = [theColor CGColor];
+            
+        const CGFloat *_components = CGColorGetComponents(colorRef);
+        red     = _components[0];
+        green = _components[1];
+        blue   = _components[2];
+        
+        UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
+        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
+        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 25);
+        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
+        CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
+        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
+        CGContextStrokePath(UIGraphicsGetCurrentContext());
+        self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
     }
     
-}
-
-//----------------------------------------------------------------------------------
-//
-// Name: closeSettings
-//
-// Purpose:
-//
-//----------------------------------------------------------------------------------
-
--(void) closeSettings:(id)sender
-{
-    
-    red = ((SettingsViewController*)sender).red;
-    green = ((SettingsViewController*)sender).green;
-    blue = ((SettingsViewController*)sender).blue;
-    brush = ((SettingsViewController*)sender).brush;
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
-    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 35);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
-    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextStrokePath(UIGraphicsGetCurrentContext());
-    self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-
 }
 
 //----------------------------------------------------------------------------------
@@ -645,7 +616,7 @@ UIImageView *mainImage;
 
 //----------------------------------------------------------------------------------
 //
-// Name:
+// Name: eraser
 //
 // Purpose:
 //
@@ -662,7 +633,7 @@ UIImageView *mainImage;
     
     UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 35);
+    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 29);
     CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
     CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
     CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
