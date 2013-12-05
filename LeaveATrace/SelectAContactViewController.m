@@ -6,8 +6,9 @@
 //  Created by Ricky Brown on 11/26/13.
 //  Copyright (c) 2013 15and50. All rights reserved.
 //
-//  Purpose:
-//
+//  Purpose: This class is for displaying the list of contacts after the user
+//  user has decided to send a Trace.  The user selects from the contact list
+//  (only valid contacts) and then the Trace is sent to that user.
 //----------------------------------------------------------------------------------
 
 #import "SelectAContactViewController.h"
@@ -30,7 +31,8 @@ BOOL clearImage;
 //
 // Name: viewDidLoad
 //
-// Purpose:
+// Purpose: First method called. Simply allocates the array and then calls the
+// method to display the list of valid contacts.
 //
 //----------------------------------------------------------------------------------
 
@@ -49,7 +51,10 @@ BOOL clearImage;
 //
 // Name: displayValidContacts
 //
-// Purpose:
+// Purpose: This method queries the database for a list of valid contacts for the
+// given user. We say 'valid contacts' because we don't want to show any that
+// haven't been confirmed by the friend (i.e. they haven't accepted the friend
+// request.
 //
 //----------------------------------------------------------------------------------
 
@@ -83,7 +88,8 @@ BOOL clearImage;
 //
 // Name: cancel
 //
-// Purpose:
+// Purpose:  This method is called if they press cancel on the table view. It should
+// close the screen and go back to the drawing screen.
 //
 //----------------------------------------------------------------------------------
 
@@ -98,7 +104,7 @@ BOOL clearImage;
 //
 // Name: numberOfSectionsInTableView
 //
-// Purpose:
+// Purpose:  Simply returns 1 because we only have 1 section.
 //
 //----------------------------------------------------------------------------------
 
@@ -111,9 +117,9 @@ BOOL clearImage;
 
 //----------------------------------------------------------------------------------
 //
-// Name: tableView
+// Name: tableView:numberOfRowsInSection
 //
-// Purpose:
+// Purpose: Method returns the number of valid contacts.
 //
 //----------------------------------------------------------------------------------
 
@@ -126,9 +132,9 @@ BOOL clearImage;
 
 //----------------------------------------------------------------------------------
 //
-// Name: tableView
+// Name: tableView:cellForRowAtIndexPath
 //
-// Purpose:
+// Purpose:  This method displays the appropriate row from our array in a cell.
 //
 //----------------------------------------------------------------------------------
 
@@ -151,9 +157,10 @@ BOOL clearImage;
 
 //----------------------------------------------------------------------------------
 //
-// Name: tableView
+// Name: tableView:willSelectRowAtIndexPath
 //
-// Purpose:
+// Purpose: This method will determine which contact has been selected, and then
+// send the image up to Parse for that person.
 //
 //----------------------------------------------------------------------------------
 
