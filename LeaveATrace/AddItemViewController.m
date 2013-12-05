@@ -6,7 +6,9 @@
 //  Created by Matthijs Hollemans on 03-06-12.
 //  Copyright (c) 2012 Hollance. All rights reserved.
 //
-//  Purpose:
+//  Purpose: This class is for the "pop-up" to add a new contact. The contact
+//  entered by the user is validated to ensure that it already exists in our
+//  database.
 //
 //----------------------------------------------------------------------------------
 
@@ -27,9 +29,10 @@
 
 //----------------------------------------------------------------------------------
 //
-// Name:
+// Name: viewDidLoad
 //
-// Purpose:
+// Purpose: First method to be called. Turn off autocorrection and
+// turn off auto capitalization.
 //
 //----------------------------------------------------------------------------------
 
@@ -44,9 +47,9 @@
 
 //----------------------------------------------------------------------------------
 //
-// Name:
+// Name: viewWillAppear
 //
-// Purpose:
+// Purpose: Called whenever the view is displayed.
 //
 //----------------------------------------------------------------------------------
 
@@ -61,9 +64,10 @@
 
 //----------------------------------------------------------------------------------
 //
-// Name:
+// Name: cancel
 //
-// Purpose:
+// Purpose: Method called if the user presses cancel on the pop-up. It simply
+// closes the screen and returns to the contact list.
 //
 //----------------------------------------------------------------------------------
 
@@ -76,9 +80,11 @@
 
 //----------------------------------------------------------------------------------
 //
-// Name:
+// Name: done
 //
-// Purpose:
+// Purpose: Method called if the user presses Done on the pop-up. We first query
+// Parse to make sure the user that was entered exists in the database and will give
+// an error if it doesn't. Otherwise we entered the row in our database.
 //
 //----------------------------------------------------------------------------------
  
@@ -140,9 +146,9 @@
 
 //----------------------------------------------------------------------------------
 //
-// Name:
+// Name: tableView:willSelectRowAtIndexPath
 //
-// Purpose:
+// Purpose: The user can't "select" a row so we simply return nil if it's pressed.
 //
 //----------------------------------------------------------------------------------
 
@@ -155,9 +161,9 @@
 
 //----------------------------------------------------------------------------------
 //
-// Name:
+// Name: textField:shouldChangeCharactersInRange
 //
-// Purpose:
+// Purpose: Method makes sure there's a value in the field.
 //
 //----------------------------------------------------------------------------------
 
