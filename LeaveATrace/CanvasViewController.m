@@ -628,7 +628,6 @@ UIImageView *mainImage;
     red = 255.0/255.0;
     green = 255.0/255.0;
     blue = 255.0/255.0;
-    brush = 28.0;
     opacity = 1.0;
     
     UIGraphicsBeginImageContext(self.currentColorImage.frame.size);

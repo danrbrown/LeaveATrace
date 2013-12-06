@@ -246,7 +246,20 @@
     
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
     
+    /* start of DTRB
+     
+     PFObject *traceObject = [items objectAtIndex:indexPath.row];
+    
+    NSString *traceObjectId = [traceObject objectId];
+    
+    PFObject *object = [PFObject objectWithoutDataWithClassName:@"TracesObject" objectId:traceObjectId];
+    
+    [object deleteEventually];
+     
+     end of DTRB */ 
+    
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    
     
     // DB. Need code to delete from the contact from Parse.
     

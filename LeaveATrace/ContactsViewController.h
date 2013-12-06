@@ -10,7 +10,7 @@
 #import "AddItemViewController.h"
 #import <Parse/Parse.h>
 
-@interface ContactsViewController : UITableViewController <AddItemViewControllerDelegate, UISearchBarDelegate, UISearchDisplayDelegate> {
+@interface ContactsViewController : UITableViewController <AddItemViewControllerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate> {
     
     //Variables
     NSMutableArray *items;
@@ -22,7 +22,8 @@
 }
 
 //Propertys
-@property (strong,nonatomic) NSMutableArray *filteredArray;
+@property (strong, nonatomic) NSDictionary *names;
+@property (strong, nonatomic) NSArray *keys;
 @property IBOutlet UISearchBar *SearchBar;
 @property (nonatomic, weak) id <AddItemViewControllerDelegate> delegate;
 

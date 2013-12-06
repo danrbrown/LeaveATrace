@@ -187,7 +187,13 @@ NSString *deliveredToUser;
  
     [dateFormat setDateFormat:@"h:mm a"];
     
-    cell.dateAndTimeLabel.text = [NSString stringWithFormat:@"%@", [dateFormat stringFromDate:updated]];
+    NSString *date = [NSString stringWithFormat:@"%@", [dateFormat stringFromDate:updated]];
+    
+    cell.dateAndTimeLabel.text = date;
+    
+    NSSortDescriptor *sorter = [[NSSortDescriptor alloc] initWithKey:date ascending:YES];
+    
+    [traces sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
     
     return cell;
     
