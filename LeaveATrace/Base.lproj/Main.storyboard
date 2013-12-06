@@ -170,7 +170,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="O1Q-lZ-m3k">
-                                <rect key="frame" x="6" y="20" width="39" height="40"/>
+                                <rect key="frame" x="196" y="471" width="39" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="TrashITB.png">
@@ -182,7 +182,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rns-hs-jRr">
-                                <rect key="frame" x="133" y="473" width="38" height="35"/>
+                                <rect key="frame" x="138" y="473" width="38" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <state key="normal" image="eraserB.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -192,7 +192,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8OC-gi-fZk">
-                                <rect key="frame" x="76" y="473" width="40" height="39"/>
+                                <rect key="frame" x="79" y="473" width="40" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <state key="normal" image="backB.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -214,7 +214,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nhl-67-LS2">
-                                <rect key="frame" x="243" y="472" width="69" height="41"/>
+                                <rect key="frame" x="246" y="472" width="69" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" image="sendingB.png">
@@ -225,7 +225,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.80000000000000004" id="yHo-Fg-5qT">
-                                <rect key="frame" x="183" y="23" width="119" height="34"/>
+                                <rect key="frame" x="192" y="26" width="119" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -234,7 +234,7 @@
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="7" maxValue="65" id="7n7-wn-SDY">
-                                <rect key="frame" x="56" y="23" width="118" height="34"/>
+                                <rect key="frame" x="10" y="26" width="118" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -243,10 +243,11 @@
                                     <action selector="sliderChanged:" destination="GrZ-6C-8aQ" eventType="valueChanged" id="PeI-Pk-Hsv"/>
                                 </connections>
                             </slider>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="vdm-CA-HB1">
-                                <rect key="frame" x="242" y="28" width="98" height="78"/>
+                            <view contentMode="scaleToFill" id="pYi-NC-Zxn" customClass="currentColorBox">
+                                <rect key="frame" x="142" y="27" width="36" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -254,7 +255,6 @@
                     <connections>
                         <outlet property="brushSize" destination="7n7-wn-SDY" id="vL7-Ll-j3D"/>
                         <outlet property="colorValue" destination="yHo-Fg-5qT" id="8aQ-Rv-XhC"/>
-                        <outlet property="currentColorImage" destination="vdm-CA-HB1" id="jK3-Mu-VHt"/>
                         <outlet property="eraseB" destination="Rns-hs-jRr" id="6Og-Pf-Tva"/>
                         <outlet property="mainImage" destination="X7s-Uc-4iM" id="Vyw-xD-5aB"/>
                         <outlet property="saveB" destination="yIF-o3-zbA" id="B6g-Er-EpM"/>

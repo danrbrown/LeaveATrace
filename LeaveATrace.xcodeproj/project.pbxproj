@@ -68,6 +68,7 @@
 		9CF1F932184BE89F00AE3EAC /* traceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F931184BE89F00AE3EAC /* traceCell.m */; };
 		9CF1F934184D3BF700AE3EAC /* colorSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F933184D3BF700AE3EAC /* colorSlider.png */; };
 		9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F93D18515D4600AE3EAC /* Alph.plist */; };
+		9CF1F941185170D700AE3EAC /* currentColorBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F940185170D700AE3EAC /* currentColorBox.m */; };
 		A508D48F184A2EFC004005AD /* iconsberlin@2x copy.png in Resources */ = {isa = PBXBuildFile; fileRef = A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */; };
 		A508D491184A3386004005AD /* tabBar.png in Resources */ = {isa = PBXBuildFile; fileRef = A508D490184A3386004005AD /* tabBar.png */; };
 		A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555C8D91846D53B00C012ED /* ThreadViewController.m */; };
@@ -166,6 +167,8 @@
 		9CF1F931184BE89F00AE3EAC /* traceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = traceCell.m; path = LeaveATrace/traceCell.m; sourceTree = "<group>"; };
 		9CF1F933184D3BF700AE3EAC /* colorSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorSlider.png; sourceTree = "<group>"; };
 		9CF1F93D18515D4600AE3EAC /* Alph.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Alph.plist; sourceTree = "<group>"; };
+		9CF1F93F185170D700AE3EAC /* currentColorBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = currentColorBox.h; path = LeaveATrace/currentColorBox.h; sourceTree = "<group>"; };
+		9CF1F940185170D700AE3EAC /* currentColorBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = currentColorBox.m; path = LeaveATrace/currentColorBox.m; sourceTree = "<group>"; };
 		A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x copy.png"; sourceTree = "<group>"; };
 		A508D490184A3386004005AD /* tabBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBar.png; sourceTree = "<group>"; };
 		A555C8D81846D53B00C012ED /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreadViewController.h; path = LeaveATrace/ThreadViewController.h; sourceTree = "<group>"; };
@@ -395,6 +398,8 @@
 			children = (
 				9C276842181C76B00073453E /* CanvasViewController.h */,
 				9C276843181C76B00073453E /* CanvasViewController.m */,
+				9CF1F93F185170D700AE3EAC /* currentColorBox.h */,
+				9CF1F940185170D700AE3EAC /* currentColorBox.m */,
 			);
 			name = "Drawing Views";
 			sourceTree = "<group>";
@@ -565,6 +570,7 @@
 				9C27681B181C75B10073453E /* AppDelegate.m in Sources */,
 				9CB59BB11844F94C006AB105 /* SelectAContactViewController.m in Sources */,
 				9C27684F181C76B10073453E /* SignUpViewController.m in Sources */,
+				9CF1F941185170D700AE3EAC /* currentColorBox.m in Sources */,
 				9CF1F932184BE89F00AE3EAC /* traceCell.m in Sources */,
 				9C276850181C76B10073453E /* RequestsAndLogOutViewController.m in Sources */,
 				9C276817181C75B10073453E /* main.m in Sources */,

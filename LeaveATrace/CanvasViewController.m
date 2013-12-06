@@ -13,6 +13,7 @@
 #import "CanvasViewController.h"
 #import "SelectAContactViewController.h"
 #import "tracesViewController.h"
+#import "currentColorBox.h"
 #import <Twitter/Twitter.h>
 #import <Parse/Parse.h>
 
@@ -25,6 +26,8 @@ NSString *badgeString;
 NSString *tracesBadgeString;
 NSUserDefaults *defaults;
 UIImageView *mainImage;
+UIColor *theColor;
+double hue;
 
 @interface CanvasViewController ()
 
@@ -59,6 +62,8 @@ UIImageView *mainImage;
     blue = 0;
     brush = 11.0;
     opacity = 1.0;
+    
+    theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
     
     UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
     CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -407,7 +412,9 @@ UIImageView *mainImage;
     if(changedSlider == self.colorValue)
     {
        
-        UIColor *theColor = [UIColor colorWithHue:changedSlider.value saturation:1.0 brightness:1.0 alpha:1.0];
+        hue = changedSlider.value;
+        
+        theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
         
         CGColorRef colorRef = [theColor CGColor];
             

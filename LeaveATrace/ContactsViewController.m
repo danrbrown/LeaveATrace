@@ -260,7 +260,6 @@
     
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     
-    
     // DB. Need code to delete from the contact from Parse.
     
 }
