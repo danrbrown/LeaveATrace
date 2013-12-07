@@ -88,12 +88,75 @@ double hue;
 -(void) viewWillAppear:(BOOL)animated
 {
     
+    [self becomeFirstResponder];
+    
     if (clearImage)
     {
         
         mainImage.image = nil;
         
     }
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: viewDidDisappear
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) viewDidDisappear:(BOOL)animated
+{
+    
+    [self becomeFirstResponder];
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: canBecomeFirstResponder
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(BOOL) canBecomeFirstResponder
+{
+    
+    return YES;
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: motionBegan
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        
+        [UIView beginAnimations:@"suck" context:NULL];
+        [UIView setAnimationTransition:108 forView:mainImage cache:NO];
+        [UIView setAnimationDuration:0.9f];
+        [UIView commitAnimations];
+        
+        self.mainImage.image = nil;
+        
+        NSLog(@"shoke the app...");
+        
+        //DTRB - does not work....
+        
+    }
+    
+
     
 }
 
