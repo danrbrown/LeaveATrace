@@ -32,7 +32,7 @@
 -(void) displayContacts;
 -(void) refreshView:(UIRefreshControl *)sender;
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
--(void) configureCheckmarkForCell:(UITableViewCell *)cell withChecklistItem:(LeaveATraceItem *)item;
+-(void) configureCheckmarkForCell:(UITableViewCell *)cell withChecklistItem:(NSString *)isAFriend;
 -(void) configureTextForCell:(UITableViewCell *)cell withChecklistItem:(LeaveATraceItem *)item;
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 -(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPathindexPath;

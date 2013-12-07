@@ -62,34 +62,24 @@
 -(void) displayContacts
 {
     
-    LeaveATraceItem *item = [[LeaveATraceItem alloc] init];
-    
     query = [PFQuery queryWithClassName:@"UserContact"];
     
     [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
-    [query orderByAscending:@"contact"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if (!error)
         {
-            
             NSLog(@"The find succeeded!");
             
-            for (PFObject *myContacts in objects)
-            {
-                
-                userContact = [myContacts objectForKey:@"contact"];
-                userAccepted = [myContacts objectForKey:@"userAccepted"];
-                
-                item.text = userContact;
-                item.userAccepted = userAccepted;
-                    
-                [self addItemViewControllerNoDismiss:nil didFinishAddingItem:item];
-                
-                NSLog(@"%@",userContact);
-                
-            }
+            items = [[NSMutableArray alloc] initWithArray:objects];
+
+            NSLog(@"contacts before sort %@",items);
+            
+            NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"contact" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+            [items sortUsingDescriptors:[NSArray arrayWithObject:sort1]];
+            
+            NSLog(@"contacts after sort %@",items);
             
         }
         else
@@ -98,6 +88,8 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
             
         }
+        
+        [contactsView reloadData];
         
     }];
     
@@ -115,12 +107,8 @@
 -(void) refreshView:(UIRefreshControl *)sender
 {
     
-    NSUInteger x = [items count];
+    [self displayContacts];
     
-    x = [items count];
-    
-    [items removeAllObjects];
-
     [sender endRefreshing];
     
 }
@@ -137,7 +125,7 @@
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return [items count];
+    return items.count;
     
 }
 
@@ -150,12 +138,12 @@
 //
 //----------------------------------------------------------------------------------
 
--(void) configureCheckmarkForCell:(UITableViewCell *)cell withChecklistItem:(LeaveATraceItem *)item
+-(void) configureCheckmarkForCell:(UITableViewCell *)cell withChecklistItem:(NSString *)isAFriend
 {
     
     cell.textLabel.enabled = YES;
     
-    if ([item.userAccepted isEqualToString:@"NO"])
+    if ([isAFriend isEqualToString:@"NO"])
     {
         
         cell.detailTextLabel.text = @"Pending";
@@ -203,14 +191,16 @@
 
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    // break here
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChecklistItem"];
     
-    LeaveATraceItem *item = [items objectAtIndex:indexPath.row];
+    PFObject *item = [items objectAtIndex:indexPath.row];
+    NSString *tmpUserContact = [item objectForKey:@"contact"];
+    NSString *tmpUserAccepted = [item objectForKey:@"userAccepted"];
     
-    [self configureTextForCell:cell withChecklistItem:item];
+    cell.textLabel.text = tmpUserContact;
     
-    [self configureCheckmarkForCell:cell withChecklistItem:item];
+    [self configureCheckmarkForCell:cell withChecklistItem:tmpUserAccepted];
     
     return cell;
     
@@ -248,18 +238,6 @@
     
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
     
-    /* start of DTRB
-     
-     PFObject *traceObject = [items objectAtIndex:indexPath.row];
-    
-    NSString *traceObjectId = [traceObject objectId];
-    
-    PFObject *object = [PFObject objectWithoutDataWithClassName:@"TracesObject" objectId:traceObjectId];
-    
-    [object deleteEventually];
-     
-     end of DTRB */ 
-    
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     
     // DB. Need code to delete from the contact from Parse.
@@ -295,18 +273,12 @@
 -(void) addItemViewController:(AddItemViewController *)controller didFinishAddingItem:(LeaveATraceItem *)item
 {
     
-    NSUInteger newRowIndex = [items count];
-    
-    [items addObject:item];
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0];
-    
-    NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
-    
-    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
+    //  Need a better way to do this. Right now we're going to the database. But we really should simply
+    //  add a PFObject to our array. How do you do this? DB
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    
+    [self displayContacts];
+
 }
 
 //----------------------------------------------------------------------------------
