@@ -88,6 +88,8 @@ double hue;
 -(void) viewWillAppear:(BOOL)animated
 {
     
+    [super viewWillAppear:animated];
+    
     [self becomeFirstResponder];
     
     if (clearImage)
@@ -110,7 +112,9 @@ double hue;
 -(void) viewDidDisappear:(BOOL)animated
 {
     
-    [self becomeFirstResponder];
+    [super viewDidDisappear:animated];
+    
+    [self resignFirstResponder];
     
 }
 
@@ -140,8 +144,8 @@ double hue;
 -(void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
     
-    if (motion == UIEventSubtypeMotionShake)
-    {
+     if (motion == UIEventSubtypeMotionShake)
+     {
         
         [UIView beginAnimations:@"suck" context:NULL];
         [UIView setAnimationTransition:108 forView:mainImage cache:NO];
@@ -153,10 +157,8 @@ double hue;
         NSLog(@"shoke the app...");
         
         //DTRB - does not work....
-        
-    }
-    
-
+         
+     }
     
 }
 
