@@ -23,6 +23,8 @@
 
 @implementation ContactsViewController
 
+@synthesize contactsView;
+
 //----------------------------------------------------------------------------------
 //
 // Name: viewDidLoad

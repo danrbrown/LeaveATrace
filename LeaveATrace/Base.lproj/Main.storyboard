@@ -59,6 +59,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="SearchBar" destination="mSF-3q-fHd" id="hgg-Mc-Lxr"/>
+                        <outlet property="contactsView" destination="Q9g-y1-B53" id="u9f-NT-h68"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fBC-6T-KMi" userLabel="First Responder" sceneMemberID="firstResponder"/>

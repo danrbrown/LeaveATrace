@@ -22,6 +22,7 @@
 }
 
 //Propertys
+@property (weak, nonatomic) IBOutlet UITableView *contactsView;
 @property (strong, nonatomic) NSDictionary *names;
 @property (strong, nonatomic) NSArray *keys;
 @property IBOutlet UISearchBar *SearchBar;
