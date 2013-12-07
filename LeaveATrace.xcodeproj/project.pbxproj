@@ -703,7 +703,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Brown (E87A7PXSD4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace,
+					/Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";
@@ -721,7 +721,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Brown (E87A7PXSD4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace,
+					/Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";

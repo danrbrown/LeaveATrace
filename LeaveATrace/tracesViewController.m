@@ -105,7 +105,7 @@ NSString *deliveredToUser;
             NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"updatedAt" ascending:NO];
             [traces sortUsingDescriptors:[NSArray arrayWithObject:sort]];
             
-            NSLog(@"traces %@",traces);
+            //NSLog(@"traces %@",traces);
             
         }
         
@@ -152,6 +152,7 @@ NSString *deliveredToUser;
 
     NSString *tmpCurrentUser = [[PFUser currentUser]username];
     NSString *tmpFromUser = [traceObject objectForKey:@"fromUser"];
+    NSString *tmpLastSentBY = [traceObject objectForKey:@"lastSentBY"];
     
     if ([tmpCurrentUser isEqualToString:tmpFromUser])
     {
@@ -181,6 +182,7 @@ NSString *deliveredToUser;
         
     }
     
+    //NSDate *updated = [traceObject createdAt];
     NSDate *updated = [traceObject updatedAt];
     NSDate *currentdate = [NSDate date];
     
@@ -196,21 +198,29 @@ NSString *deliveredToUser;
     NSString *todaysDate = [NSString stringWithFormat:@"%@", [displayDayFormat stringFromDate:currentdate]];
     
     NSString *screenDate;
+    NSString *combined;
+    
     if ([tmpUpdatedDate isEqualToString:todaysDate])
     {
         screenDate = [NSString stringWithFormat:@"%@", [displayTimeFormat stringFromDate:updated]];
-        cell.dateAndTimeLabel.text = screenDate;
     }
     else
     {
         screenDate = [NSString stringWithFormat:@"%@", [displayDayAndTimeFormat stringFromDate:updated]];
-        cell.dateAndTimeLabel.text = screenDate;
     }
 
-// I don't think these belong here....DTRB?
-//    NSSortDescriptor *sorter = [[NSSortDescriptor alloc] initWithKey:screenDate ascending:YES];
-//    [traces sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
     
+    if ([tmpCurrentUser isEqualToString:tmpLastSentBY])
+    {
+        combined = [NSString stringWithFormat:@"%@%@", @"Sent: ", screenDate];
+    }
+    else
+    {
+        combined = [NSString stringWithFormat:@"%@%@", @"Recd: ", screenDate];
+    }
+    
+    cell.dateAndTimeLabel.text = combined;
+
     return cell;
     
 }

@@ -583,6 +583,7 @@ double hue;
 
 -(void) uploadTrace
 {
+    // I DON'T THINK THIS IS CALLED ANYMORE. DB DTRB
     
     NSLog(@"in uploadTrace");
     

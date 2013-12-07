@@ -99,9 +99,14 @@
                         UIImage *image = [UIImage imageWithData:data];
                         mainThreadImage.image = image;
                         
-                        [myImages setObject:@"YES"forKey:@"deliveredToUser"];
-                        [myImages saveInBackground];
+                        NSString *tmpCurrentUser = [[PFUser currentUser]username];
+                        NSString *tmpLastSentBY = [myImages objectForKey:@"lastSentBY"];
                         
+                        if (![tmpCurrentUser isEqualToString:tmpLastSentBY])
+                        {
+                            [myImages setObject:@"YES"forKey:@"deliveredToUser"];
+                            [myImages saveInBackground];
+                        }
                     }
                     
                 }];
@@ -345,6 +350,8 @@
             [traceObject setObject:imageFile forKey:@"image"];
 
             [traceObject setObject:@"NO"forKey:@"deliveredToUser"];
+            
+            [traceObject setObject:[PFUser currentUser].username forKey:@"lastSentBY"];
             
             [traceObject saveInBackground];
                         
