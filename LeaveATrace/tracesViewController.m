@@ -102,8 +102,8 @@ NSString *deliveredToUser;
             
             traces = [[NSMutableArray alloc] initWithArray:objects];
             
-//            NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-//            [traces sortUsingDescriptors:[NSArray arrayWithObject:sort]];
+            NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"updatedAt" ascending:NO];
+            [traces sortUsingDescriptors:[NSArray arrayWithObject:sort]];
             
             NSLog(@"traces %@",traces);
             
@@ -181,19 +181,35 @@ NSString *deliveredToUser;
         
     }
     
-    NSDate *updated = [traceObject createdAt];
+    NSDate *updated = [traceObject updatedAt];
+    NSDate *currentdate = [NSDate date];
     
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    NSDateFormatter *displayTimeFormat = [[NSDateFormatter alloc] init];
+    NSDateFormatter *displayDayFormat = [[NSDateFormatter alloc] init];
+    NSDateFormatter *displayDayAndTimeFormat = [[NSDateFormatter alloc] init];
  
-    [dateFormat setDateFormat:@"h:mm a"];
+    [displayTimeFormat setDateFormat:@"h:mm a"];
+    [displayDayFormat setDateFormat:@"MM-dd-YYYY"];
+    [displayDayAndTimeFormat setDateFormat:@"MMM dd h:mm a"];
     
-    NSString *date = [NSString stringWithFormat:@"%@", [dateFormat stringFromDate:updated]];
+    NSString *tmpUpdatedDate = [NSString stringWithFormat:@"%@", [displayDayFormat stringFromDate:updated]];
+    NSString *todaysDate = [NSString stringWithFormat:@"%@", [displayDayFormat stringFromDate:currentdate]];
     
-    cell.dateAndTimeLabel.text = date;
-    
-    NSSortDescriptor *sorter = [[NSSortDescriptor alloc] initWithKey:date ascending:YES];
-    
-    [traces sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
+    NSString *screenDate;
+    if ([tmpUpdatedDate isEqualToString:todaysDate])
+    {
+        screenDate = [NSString stringWithFormat:@"%@", [displayTimeFormat stringFromDate:updated]];
+        cell.dateAndTimeLabel.text = screenDate;
+    }
+    else
+    {
+        screenDate = [NSString stringWithFormat:@"%@", [displayDayAndTimeFormat stringFromDate:updated]];
+        cell.dateAndTimeLabel.text = screenDate;
+    }
+
+// I don't think these belong here....DTRB?
+//    NSSortDescriptor *sorter = [[NSSortDescriptor alloc] initWithKey:screenDate ascending:YES];
+//    [traces sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
     
     return cell;
     
