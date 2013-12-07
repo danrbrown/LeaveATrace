@@ -172,13 +172,13 @@ NSString *deliveredToUser;
     if ([deliveredToUser isEqualToString:@"YES"])
     {
         
-        cell.didNotOpenImage.hidden = YES;
+        cell.didNotOpenImage.hidden = YES; //DTRB
         
     }
     else
     {
         
-        cell.didNotOpenImage.hidden = NO;
+        cell.didNotOpenImage.hidden = NO; //DTRB
         
     }
     
@@ -202,21 +202,28 @@ NSString *deliveredToUser;
     
     if ([tmpUpdatedDate isEqualToString:todaysDate])
     {
+        
         screenDate = [NSString stringWithFormat:@"%@", [displayTimeFormat stringFromDate:updated]];
+        
     }
     else
     {
+        
         screenDate = [NSString stringWithFormat:@"%@", [displayDayAndTimeFormat stringFromDate:updated]];
+        
     }
-
     
     if ([tmpCurrentUser isEqualToString:tmpLastSentBY])
     {
-        combined = [NSString stringWithFormat:@"%@%@", @"Sent: ", screenDate];
+        
+        combined = [NSString stringWithFormat:@"%@ - Sent", screenDate];
+        
     }
     else
     {
-        combined = [NSString stringWithFormat:@"%@%@", @"Recd: ", screenDate];
+        
+        combined = [NSString stringWithFormat:@"%@ - Received", screenDate];
+        
     }
     
     cell.dateAndTimeLabel.text = combined;

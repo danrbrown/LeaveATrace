@@ -39,6 +39,8 @@
     
     items = [[NSMutableArray alloc] initWithCapacity:1000];
     
+    alphabetsArray =[[NSMutableArray alloc]initWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",nil];
+    
     [self displayContacts];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -128,6 +130,50 @@
     return items.count;
     
 }
+//----------------------------------------------------------------------------------
+//
+// Name: numberOfSectionsInTableView
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    return [alphabetsArray count];
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: sectionIndexTitlesForTableView
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+
+    return alphabetsArray;
+
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: tableView tableView
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    
+    return [alphabetsArray objectAtIndex:section];
+    
+}
 
 //----------------------------------------------------------------------------------
 //
@@ -147,6 +193,7 @@
     {
         
         cell.detailTextLabel.text = @"Pending";
+        cell.detailTextLabel.textColor = [UIColor grayColor];
         cell.textLabel.enabled = NO;
         cell.userInteractionEnabled = NO;
         
@@ -155,7 +202,6 @@
     {
         
         cell.detailTextLabel.text = @"Friend";
-        cell.detailTextLabel.font = [UIFont fontWithName:@"Verdana Bold Italic" size:15.0f];
         cell.detailTextLabel.textColor = [UIColor redColor];
         cell.textLabel.enabled = YES;
         cell.userInteractionEnabled = YES;
