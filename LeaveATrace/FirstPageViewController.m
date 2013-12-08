@@ -25,6 +25,57 @@
 
 //---------------------------------------------------------
 //
+// Name: logInUsingDefaults
+//
+// Purpose: Log into Parse based on user defaults
+//
+//---------------------------------------------------------
+
+-(void) logInUsingDefaults:(NSString *)parseUserDef parsePasswordDef:(NSString *)parsePasswordDef
+{
+    [PFUser logInWithUsernameInBackground:parseUserDef password:parsePasswordDef block:^(PFUser *user, NSError *error) {
+        if (user)
+        {
+            
+            if (![[user objectForKey:@"emailVerified"] boolValue])
+            {
+                
+                [user refresh];
+                
+                if (![[user objectForKey:@"emailVerified"] boolValue])
+                {
+                    
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must verify your email before logging in." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    
+                    [errorAlertView show];
+                    
+                    
+                }
+                
+            }
+            else
+            {
+                
+                [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
+                
+            }
+            
+        }
+        else
+        {
+            
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Try again" message:@"There was a error loging in" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            
+            [errorAlertView show];
+            
+        }
+        
+    }];
+    
+}
+
+//---------------------------------------------------------
+//
 // Name: viewDidAppear
 //
 // Purpose: when the screen opens and you are logged in
@@ -44,14 +95,17 @@
     if ([tmpUsername length] != 0)
     {
         NSLog(@"user is already logged in");
+        // DB - need to determine if log in was successful or failure and then act according;
+        // Right now it assumes the user logs in.
+        //[self logInUsingDefaults:tmpUsername parsePasswordDef:tmpPassword];
         [self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
-        
     }
     else
     {
         NSLog(@"user needs to log in");
     }
 }
+
 //---------------------------------------------------------
 //
 // Name: viewDidLoad

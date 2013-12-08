@@ -192,7 +192,7 @@ BOOL clearImage;
 //
 //----------------------------------------------------------------------------------
 
--(void) sendPushToContact:(NSString *)pushRecipient
+-(void) sendPushToContact:(NSString *)pushRecipient pushObjectId:(NSString *)newObjectId
 {
     
      NSString *pushMessage = [NSString stringWithFormat:@"%@ sent you a Trace!", [PFUser currentUser].username];
@@ -201,8 +201,8 @@ BOOL clearImage;
      [userQuery whereKey:@"username" equalTo:pushRecipient];
      PFUser *user = (PFUser *)[userQuery getFirstObject];
         
-     NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert", nil];
-     
+     NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert", newObjectId, @"p", nil];
+    
      PFQuery *pushQuery = [PFInstallation query];
      [pushQuery whereKey:@"user" equalTo:user];
     
@@ -211,7 +211,7 @@ BOOL clearImage;
      [push setData:data];
      [push sendPushInBackground];
     
-     NSLog(@"Just saved the installation - push going to %@",pushRecipient);
+     NSLog(@"Just saved the installation - push going to %@, object id is %@",pushRecipient, newObjectId);
     
 }
 
@@ -251,8 +251,8 @@ BOOL clearImage;
                 
                 if (succeeded)
                 {
-                    
-                    [self sendPushToContact:tempContact];
+                    NSString *newObjectId = [imageObject objectId];
+                    [self sendPushToContact:tempContact pushObjectId:newObjectId];
                     [self.navigationController popViewControllerAnimated:YES];
                     
                 }

@@ -8,8 +8,9 @@
 
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
-#import "CanvasViewController.h"
+//#import "CanvasViewController.h"
 #import "AppDelegate.h"
+#import "ThreadViewController.h"
 
 @implementation AppDelegate
 
@@ -26,9 +27,25 @@
      UIRemoteNotificationTypeSound];
     
     
-    //UITabBar *tabBar = [UITabBar appearance];
-    //[tabBar setBackgroundImage:[UIImage imageNamed:@"tabBar.png"]];
-    //[tabBar setTintColor:[UIColor whiteColor]];
+    // new attempt to respond to push payload
+//    
+//    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+//    
+//    // Create a pointer to the Photo object
+//    NSString *imageId = [notificationPayload objectForKey:@"p"];
+//    PFObject *targetTrace = [PFObject objectWithoutDataWithClassName:@"Photo"
+//                                                            objectId:imageId];
+//    
+//    // Fetch photo object
+//    [targetTrace fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+//        // Show photo view controller
+//        if (!error && [PFUser currentUser]) {
+////            PhotoVC *ThreadViewController = [[PhotoVC alloc] initWithPhoto:object];
+////            [self.navController pushViewController:viewController animated:YES];
+//            
+//            NSLog(@"fetched the image %@",object);
+//        }
+//    }];
 
     return YES;
 }
