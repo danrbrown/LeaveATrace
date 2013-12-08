@@ -157,27 +157,66 @@ BOOL clearImage;
 
 //----------------------------------------------------------------------------------
 //
-// Name:
+// Name: sendPushToAlliosUsers
 //
-// Purpose:
+// Purpose: This method is currently not being used, but leave it here for
+// testing purposes. It will send a push to all ios users and we can use it to
+// make sure the Push Notification framework is working.
 //
+//----------------------------------------------------------------------------------
+
+-(void) sendPushToAlliosUsers
+{
+    
+    PFQuery *pushQuery = [PFInstallation query];
+    [pushQuery whereKey:@"deviceType" equalTo:@"ios"];
+    
+    //  end push notification to query
+    
+    [PFPush sendPushMessageToQueryInBackground:pushQuery
+    withMessage:@"Hello World from LeaveATrace!"];
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: sendPushToContact
+//
+// Purpose: Will send a push to a specifc user. It gets the Installation record
+// for this user and then sends the push.
+//
+// To debug this incase it isn't working. There should be a row in the
+// Installation object and the deviceToken should have a value (some long string).
+// The 'user' field for that Installation record should be the 'objectId' in
+// the User object for that user.
 //
 //----------------------------------------------------------------------------------
 
 -(void) sendPushToContact:(NSString *)pushRecipient
 {
     
-     // Create our Installation query
-//     PFQuery *pushQuery = [PFInstallation query];
-//     [pushQuery whereKey:@"deviceType" equalTo:@"ios"];
-//    
-//     // Send push notification to query
-//     [PFPush sendPushMessageToQueryInBackground:pushQuery
-//     withMessage:@"Hello World!"];
-    
+     NSString *pushMessage = [NSString stringWithFormat:@"%@ sent you a Trace!", [PFUser currentUser].username];
 
-//
-     NSLog(@"Just saved the installation - push going to %@",@"ios");
+     PFQuery *userQuery = [PFUser query];
+     [userQuery whereKey:@"username" equalTo:pushRecipient];
+     PFUser *user = (PFUser *)[userQuery getFirstObject];
+        
+     // Define a text message
+     NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert", nil];
+     
+     // Prepare to send the push notification
+     
+     PFQuery *pushQuery = [PFInstallation query];
+     [pushQuery whereKey:@"user" equalTo:user];
+     
+     // Send push notification to query
+     PFPush *push = [[PFPush alloc] init];
+     [push setQuery:pushQuery]; // Set our installation query
+     [push setData:data];
+     [push sendPushInBackground];
+    
+     NSLog(@"Just saved the installation - push going to %@",pushRecipient);
+    
 }
 
 //----------------------------------------------------------------------------------
