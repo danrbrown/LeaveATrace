@@ -69,10 +69,6 @@
 		9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F93D18515D4600AE3EAC /* Alph.plist */; };
 		9CF1F941185170D700AE3EAC /* currentColorBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F940185170D700AE3EAC /* currentColorBox.m */; };
 		A508D48F184A2EFC004005AD /* iconsberlin@2x copy.png in Resources */ = {isa = PBXBuildFile; fileRef = A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */; };
-		A5528D6B1853C589005D77E8 /* RecNotOpended.png in Resources */ = {isa = PBXBuildFile; fileRef = A5528D671853C589005D77E8 /* RecNotOpended.png */; };
-		A5528D6C1853C589005D77E8 /* RecOpened.png in Resources */ = {isa = PBXBuildFile; fileRef = A5528D681853C589005D77E8 /* RecOpened.png */; };
-		A5528D6D1853C589005D77E8 /* SentNotOpened.png in Resources */ = {isa = PBXBuildFile; fileRef = A5528D691853C589005D77E8 /* SentNotOpened.png */; };
-		A5528D6E1853C589005D77E8 /* SentOpened.png in Resources */ = {isa = PBXBuildFile; fileRef = A5528D6A1853C589005D77E8 /* SentOpened.png */; };
 		A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555C8D91846D53B00C012ED /* ThreadViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -170,10 +166,6 @@
 		9CF1F93F185170D700AE3EAC /* currentColorBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = currentColorBox.h; path = LeaveATrace/currentColorBox.h; sourceTree = "<group>"; };
 		9CF1F940185170D700AE3EAC /* currentColorBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = currentColorBox.m; path = LeaveATrace/currentColorBox.m; sourceTree = "<group>"; };
 		A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x copy.png"; sourceTree = "<group>"; };
-		A5528D671853C589005D77E8 /* RecNotOpended.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecNotOpended.png; sourceTree = "<group>"; };
-		A5528D681853C589005D77E8 /* RecOpened.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecOpened.png; sourceTree = "<group>"; };
-		A5528D691853C589005D77E8 /* SentNotOpened.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SentNotOpened.png; sourceTree = "<group>"; };
-		A5528D6A1853C589005D77E8 /* SentOpened.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SentOpened.png; sourceTree = "<group>"; };
 		A555C8D81846D53B00C012ED /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreadViewController.h; path = LeaveATrace/ThreadViewController.h; sourceTree = "<group>"; };
 		A555C8D91846D53B00C012ED /* ThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreadViewController.m; path = LeaveATrace/ThreadViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -358,10 +350,6 @@
 				A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */,
 				9C276861181C771D0073453E /* iconsberlin@2x.png */,
 				9C276862181C771D0073453E /* iconsberlin@2x3.png */,
-				A5528D671853C589005D77E8 /* RecNotOpended.png */,
-				A5528D681853C589005D77E8 /* RecOpened.png */,
-				A5528D691853C589005D77E8 /* SentNotOpened.png */,
-				A5528D6A1853C589005D77E8 /* SentOpened.png */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -516,9 +504,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5528D6B1853C589005D77E8 /* RecNotOpended.png in Resources */,
 				9CF1F934184D3BF700AE3EAC /* colorSlider.png in Resources */,
-				A5528D6D1853C589005D77E8 /* SentNotOpened.png in Resources */,
 				9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */,
 				9C276866181C771D0073453E /* SaveB.png in Resources */,
 				9C276869181C771D0073453E /* CCBlack.png in Resources */,
@@ -527,7 +513,6 @@
 				9C276872181C771D0073453E /* iconsberlin@2x3.png in Resources */,
 				9C276823181C75B10073453E /* Images.xcassets in Resources */,
 				9C27686F181C771D0073453E /* Default-568h@2x.png in Resources */,
-				A5528D6C1853C589005D77E8 /* RecOpened.png in Resources */,
 				9C276871181C771D0073453E /* iconsberlin@2x.png in Resources */,
 				9C276815181C75B10073453E /* InfoPlist.strings in Resources */,
 				9C276865181C771D0073453E /* colorsB.png in Resources */,
@@ -535,7 +520,6 @@
 				9C782E05182885ED00077FC8 /* eraserB.png in Resources */,
 				9C27686C181C771D0073453E /* CCOrange.png in Resources */,
 				9C27686E181C771D0073453E /* CCYellow.png in Resources */,
-				A5528D6E1853C589005D77E8 /* SentOpened.png in Resources */,
 				A508D48F184A2EFC004005AD /* iconsberlin@2x copy.png in Resources */,
 				9C27686B181C771D0073453E /* CCGreen.png in Resources */,
 				9C27686D181C771D0073453E /* CCRed.png in Resources */,
@@ -644,6 +628,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Brown (E87A7PXSD4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -662,6 +647,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "71866A19-38C6-4A1D-B6A3-5AE7E616ECDE";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -683,6 +669,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Brown (E87A7PXSD4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -694,6 +681,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "71866A19-38C6-4A1D-B6A3-5AE7E616ECDE";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -707,12 +695,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Brown (E87A7PXSD4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace,
+					/Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";
 				INFOPLIST_FILE = "LeaveATrace/LeaveATrace-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "71866A19-38C6-4A1D-B6A3-5AE7E616ECDE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -725,12 +714,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Brown (E87A7PXSD4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace,
+					/Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";
 				INFOPLIST_FILE = "LeaveATrace/LeaveATrace-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "71866A19-38C6-4A1D-B6A3-5AE7E616ECDE";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -157,6 +157,31 @@ BOOL clearImage;
 
 //----------------------------------------------------------------------------------
 //
+// Name:
+//
+// Purpose:
+//
+//
+//----------------------------------------------------------------------------------
+
+-(void) sendPushToContact:(NSString *)pushRecipient
+{
+    
+     // Create our Installation query
+//     PFQuery *pushQuery = [PFInstallation query];
+//     [pushQuery whereKey:@"deviceType" equalTo:@"ios"];
+//    
+//     // Send push notification to query
+//     [PFPush sendPushMessageToQueryInBackground:pushQuery
+//     withMessage:@"Hello World!"];
+    
+
+//
+     NSLog(@"Just saved the installation - push going to %@",@"ios");
+}
+
+//----------------------------------------------------------------------------------
+//
 // Name: tableView:willSelectRowAtIndexPath
 //
 // Purpose: This method will determine which contact has been selected, and then
@@ -192,6 +217,7 @@ BOOL clearImage;
                 if (succeeded)
                 {
                     
+                    [self sendPushToContact:tempContact];
                     [self.navigationController popViewControllerAnimated:YES];
                     
                 }
