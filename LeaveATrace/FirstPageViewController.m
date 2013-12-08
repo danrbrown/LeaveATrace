@@ -25,6 +25,35 @@
 
 //---------------------------------------------------------
 //
+// Name: viewDidAppear
+//
+// Purpose: when the screen opens and you are logged in
+// it will skip this screen and go to the drawing screen
+// in the app.
+//
+//---------------------------------------------------------
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *tmpUsername = [traceDefaults objectForKey:@"username"];
+    NSString *tmpPassword = [traceDefaults objectForKey:@"password"];
+    NSLog(@"username from defaults --> %@",tmpUsername);
+    NSLog(@"password from defaults --> %@",tmpPassword);
+    
+    if ([tmpUsername length] != 0)
+    {
+        NSLog(@"user is already logged in");
+        [self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
+        
+    }
+    else
+    {
+        NSLog(@"user needs to log in");
+    }
+}
+//---------------------------------------------------------
+//
 // Name: viewDidLoad
 //
 // Purpose: when the screen opens and you are logged in
@@ -35,16 +64,15 @@
 
 - (void)viewDidLoad
 {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    userLoggedIn = [defaults objectForKey:@"theUser"];
-    
-    if ([userLoggedIn isEqual:@"LoggedIn"])
-    {
-        
-        //DTRB
-        
-    }
+//    
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    userLoggedIn = [defaults objectForKey:@"theUser"];
+//    
+//    if ([userLoggedIn isEqual:@"LoggedIn"])
+//    {
+//        //DTRB
+//        
+//    }
     
     red = (CGFloat)random()/(CGFloat)RAND_MAX;
     green = (CGFloat)random()/(CGFloat)RAND_MAX;

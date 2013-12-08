@@ -201,17 +201,13 @@ BOOL clearImage;
      [userQuery whereKey:@"username" equalTo:pushRecipient];
      PFUser *user = (PFUser *)[userQuery getFirstObject];
         
-     // Define a text message
      NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert", nil];
-     
-     // Prepare to send the push notification
      
      PFQuery *pushQuery = [PFInstallation query];
      [pushQuery whereKey:@"user" equalTo:user];
-     
-     // Send push notification to query
+    
      PFPush *push = [[PFPush alloc] init];
-     [push setQuery:pushQuery]; // Set our installation query
+     [push setQuery:pushQuery];
      [push setData:data];
      [push sendPushInBackground];
     

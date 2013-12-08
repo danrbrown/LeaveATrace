@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RuF-KD-iC2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Contacts View Controller - Contacts-->
@@ -465,6 +465,7 @@
                         <outlet property="logInButton" destination="Vn2-Gn-JMH" id="XAI-A7-SYp"/>
                         <outlet property="mainImage" destination="T99-hH-w9z" id="hJ6-U8-yT0"/>
                         <outlet property="signUpButton" destination="cca-D8-5Zu" id="77T-cB-LEs"/>
+                        <segue destination="Qsb-vs-PUu" kind="modal" identifier="userAlreadyLoggedIn" id="UCm-eX-8Dj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zP-E3-cCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -949,7 +950,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="vm4-Ru-Iag"/>
+        <segue reference="UCm-eX-8Dj"/>
         <segue reference="r4Y-3E-9Ey"/>
     </inferredMetricsTieBreakers>
 </document>

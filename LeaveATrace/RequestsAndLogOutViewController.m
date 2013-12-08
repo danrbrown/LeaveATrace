@@ -34,6 +34,13 @@
 
 -(void) viewDidLoad
 {
+    // DB move this to log out method which currently isn't working
+    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
+    [traceDefaults setObject:@"" forKey:@"username"];
+    [traceDefaults setObject:@"" forKey:@"password"];
+    [traceDefaults synchronize];
+    
+    NSLog(@"zero'd out the defaults");
     
     [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
     
@@ -207,10 +214,17 @@
 
 -(IBAction) logOut:(id)sender
 {
-    
+    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
+
     userLoggedIn = nil;
     
     [PFUser logOut];
+    
+    [traceDefaults setObject:@"" forKey:@"username"];
+    [traceDefaults setObject:@"" forKey:@"password"];
+    [traceDefaults synchronize];
+    
+    NSLog(@"In logOut method: zero'd out the defaults");
     
     [self performSegueWithIdentifier:@"LogOutSuccesful" sender:self];
     

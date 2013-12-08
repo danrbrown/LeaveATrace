@@ -37,7 +37,7 @@
 
 -(void) viewDidLoad
 {
-    
+     
     userNameTextField.layer.cornerRadius = 7;
     passWordTextField.layer.cornerRadius = 7;
     
@@ -136,6 +136,7 @@
 
 -(void) logingIn
 {
+    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
     
     [PFUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passWordTextField.text block:^(PFUser *user, NSError *error) {
         if (user)
@@ -160,6 +161,9 @@
             }
             else
             {
+                [traceDefaults setObject:self.userNameTextField.text forKey:@"username"];
+                [traceDefaults setObject:self.passWordTextField.text forKey:@"password"];
+                [traceDefaults synchronize];
                 
                 [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
                 
