@@ -39,6 +39,8 @@
     NSString *userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
     
     self.title = userWhoSentTrace;
+ 
+    sendingProg.hidden = YES;
     
     [self getThreadTrace:userWhoSentTrace];
     
@@ -368,6 +370,8 @@
                     
                     [errorAlertView show];
                     
+                    sendingProg.hidden = YES;
+                    
                 }
                 else
                 {
@@ -398,6 +402,21 @@
     {
         
         NSLog(@"Uploaded return trace: %d %%", percentDone);
+        
+        if (sendingProg.progress < 100)
+        {
+            
+            sendingProg.hidden = NO;
+            
+            sendingProg.progress = percentDone;
+            
+        }
+        else if (sendingProg.progress >= 100)
+        {
+         
+            sendingProg.hidden = YES;
+            
+        }
         
     }];
 

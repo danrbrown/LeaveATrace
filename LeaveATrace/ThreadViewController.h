@@ -23,13 +23,14 @@
     //Variables
     BOOL dontTrash;
     
-    //Buttons on the screen
+    //IBOutlets
     IBOutlet UIButton *undoB;
     IBOutlet UIButton *trashB;
     IBOutlet UIButton *eraseB;
     IBOutlet UIButton *colorsB;
     IBOutlet UIButton *saveB;
     IBOutlet UIButton *sendB;
+    IBOutlet UIProgressView *sendingProg;
     
 }
 

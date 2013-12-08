@@ -761,7 +761,7 @@
             </objects>
             <point key="canvasLocation" x="2252" y="-884"/>
         </scene>
-        <!--Thread View Controller - Username-->
+        <!--Thread View Controller-->
         <scene sceneID="2mO-jC-J9T">
             <objects>
                 <viewController id="tKm-6e-p5w" customClass="ThreadViewController" sceneMemberID="viewController">
@@ -856,10 +856,16 @@
                                 <rect key="frame" x="242" y="74" width="98" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" id="kMZ-Lt-obe">
+                                <rect key="frame" x="0.0" y="64" width="320" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="progressTintColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Username" id="fhd-SY-6vS">
+                    <navigationItem key="navigationItem" id="fhd-SY-6vS">
+                        <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="wnp-zM-cAV"/>
                     </navigationItem>
                     <connections>
@@ -870,6 +876,7 @@
                         <outlet property="mainThreadImage" destination="Fms-ao-vy8" id="AxB-4v-XBG"/>
                         <outlet property="saveB" destination="2Li-M4-Xbc" id="NEm-pl-edv"/>
                         <outlet property="sendB" destination="EtZ-Hq-yQb" id="QmU-JO-ZGE"/>
+                        <outlet property="sendingProg" destination="kMZ-Lt-obe" id="xHs-3S-9Mo"/>
                         <outlet property="trashB" destination="bXD-Nr-LjE" id="uyH-UZ-WZR"/>
                         <outlet property="undoB" destination="sie-Wv-3v0" id="3lP-aG-ojh"/>
                     </connections>

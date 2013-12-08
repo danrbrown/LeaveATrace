@@ -14,7 +14,6 @@
     
     //Variables
     NSMutableArray *items;
-    NSMutableArray *alphabetsArray;
     NSString *userAccepted;
     NSString *userContact;
     PFQuery *query;
