@@ -13,7 +13,6 @@
 #import "CanvasViewController.h"
 #import "SelectAContactViewController.h"
 #import "tracesViewController.h"
-#import "currentColorBox.h"
 #import <Twitter/Twitter.h>
 #import <Parse/Parse.h>
 
@@ -35,7 +34,7 @@ double hue;
 
 @implementation CanvasViewController
 
-@synthesize mainImage,red,green,blue,brush,currentColorImage;
+@synthesize mainImage,red,green,blue,brush,currentColorImage,colorValue;
 
 //----------------------------------------------------------------------------------
 //
@@ -60,21 +59,20 @@ double hue;
     red = 255;
     green = 0;
     blue = 0;
+    colorValue.value = 0;
     brush = 11.0;
     opacity = 1.0;
     
     theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
-    
-    UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
-    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 25);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
-    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextStrokePath(UIGraphicsGetCurrentContext());
-    self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
+
+    currentColorImage.backgroundColor = theColor;
+    currentColorImage.layer.cornerRadius = 7.0;
+    currentColorImage.layer.borderColor = [UIColor blackColor].CGColor;
+    currentColorImage.layer.borderWidth = 3.0;
+    CGFloat *width = &(brush);
+    CGFloat *height = &(brush);
+    currentColorImage.frame = CGRectMake(8, 26, *width, *height);
+
 }
 
 //----------------------------------------------------------------------------------
@@ -217,12 +215,17 @@ double hue;
     
     PFQuery *toUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
     
-    [toUserQuery whereKey:@"toUser" equalTo:[[PFUser currentUser]username]];
+    NSString *tmpCurrentUser = [[PFUser currentUser]username];
+    NSLog(@"tmpCurrentUser --> %@",tmpCurrentUser);
+    
+    [toUserQuery whereKey:@"toUser" equalTo:tmpCurrentUser];
+    [toUserQuery whereKey:@"lastSentBY" notEqualTo:tmpCurrentUser];
     [toUserQuery whereKey:@"deliveredToUser" equalTo:@"NO"];
     
     PFQuery *fromUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
     
-    [fromUserQuery whereKey:@"fromUser" equalTo:[[PFUser currentUser]username]];
+    [fromUserQuery whereKey:@"fromUser" equalTo:tmpCurrentUser];
+    [fromUserQuery whereKey:@"lastSentBY" notEqualTo:tmpCurrentUser];
     [fromUserQuery whereKey:@"deliveredToUser" equalTo:@"NO"];
     
     query = [PFQuery orQueryWithSubqueries:@[toUserQuery,fromUserQuery]];
@@ -471,6 +474,9 @@ double hue;
     {
         
         brush = self.brushSize.value;
+        CGFloat *width = &(brush);
+        CGFloat *height = &(brush);
+        currentColorImage.frame = CGRectMake(8, 26, *width, *height);
         
     }
     
@@ -488,15 +494,7 @@ double hue;
         green = _components[1];
         blue   = _components[2];
         
-        UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
-        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 25);
-        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
-        CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
-        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
-        CGContextStrokePath(UIGraphicsGetCurrentContext());
-        self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+        currentColorImage.backgroundColor = theColor;
         
     }
     
@@ -702,16 +700,6 @@ double hue;
     green = 255.0/255.0;
     blue = 255.0/255.0;
     opacity = 1.0;
-    
-    UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
-    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 29);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
-    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextStrokePath(UIGraphicsGetCurrentContext());
-    self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
     
 }
 

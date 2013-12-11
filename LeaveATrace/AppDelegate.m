@@ -26,7 +26,6 @@
      UIRemoteNotificationTypeAlert |
      UIRemoteNotificationTypeSound];
     
-    
     // new attempt to respond to push payload
 //    
 //    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
@@ -46,7 +45,15 @@
 //            NSLog(@"fetched the image %@",object);
 //        }
 //    }];
-
+    
+    // to be looked at later. DB
+    /*
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"ThreadTabBar"];
+    self.navigationController.navigationBarHidden=YES;
+    [self.navigationController pushViewController:obj animated:YES];
+    */
+    
     return YES;
 }
 
@@ -72,8 +79,6 @@
     //tabBarController.selectedIndex = 1;
     
 }
-
-
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

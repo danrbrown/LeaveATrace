@@ -50,16 +50,6 @@
     brush = 11.0;
     opacity = 1.0;
     
-    UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
-    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 29);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
-    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextStrokePath(UIGraphicsGetCurrentContext());
-    self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
     NSLog(@"About to load trace in ThreadViewController");
     NSLog(@"User who sent trace --> %@, objectId --> %@",userWhoSentTrace,traceObjectId);
 
@@ -304,16 +294,6 @@
         green = _components[1];
         blue   = _components[2];
         
-        UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
-        CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-        CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 25);
-        CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
-        CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
-        CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
-        CGContextStrokePath(UIGraphicsGetCurrentContext());
-        self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
     }
     
 }
@@ -440,16 +420,6 @@
     green = 255.0/255.0;
     blue = 255.0/255.0;
     opacity = 1.0;
-    
-    UIGraphicsBeginImageContext(self.currentColorImage.frame.size);
-    CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
-    CGContextSetLineWidth(UIGraphicsGetCurrentContext(), 29);
-    CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), self.red, self.green, self.blue, 1.0);
-    CGContextMoveToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextAddLineToPoint(UIGraphicsGetCurrentContext(),45, 45);
-    CGContextStrokePath(UIGraphicsGetCurrentContext());
-    self.currentColorImage.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
     
 }
 

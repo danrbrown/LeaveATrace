@@ -24,7 +24,6 @@
 -(IBAction)logOut:(id)sender;
 -(IBAction)Accept:(id)sender;
 -(IBAction)Decline:(id)sender;
--(IBAction)ask:(id)sender;
 
 //Methods
 -(void) refreshView:(UIRefreshControl *)sender;

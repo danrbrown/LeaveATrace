@@ -23,7 +23,7 @@ extern UIImageView *mainImage;
 extern UIColor *theColor;
 extern double hue;
 
-@interface CanvasViewController : UIViewController <UIActionSheetDelegate> {
+@interface CanvasViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate> {
     
     //Variables for drawing
     CGPoint lastPoint;
@@ -41,8 +41,11 @@ extern double hue;
     NSMutableArray *pathArray;
     NSMutableArray *bufferArray;
     UIBezierPath *myPath;
+    UIImagePickerController *imagePicker;
+    UIImagePickerController *picturePicker;
+    UIImage *camraImage;
     
-    //Buttons for view
+    //Outlets for view
     IBOutlet UIButton *undoB;
     IBOutlet UIButton *trashB;
     IBOutlet UIButton *eraseB;
@@ -83,7 +86,7 @@ extern double hue;
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
 -(void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event;
--(BOOL)canBecomeFirstResponder;
+-(BOOL) canBecomeFirstResponder;
 -(UIImage*) convertToMask: (UIImage *) image;
 
 @end

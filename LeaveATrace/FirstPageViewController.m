@@ -33,7 +33,9 @@
 
 -(void) logInUsingDefaults:(NSString *)parseUserDef parsePasswordDef:(NSString *)parsePasswordDef
 {
+    
     [PFUser logInWithUsernameInBackground:parseUserDef password:parsePasswordDef block:^(PFUser *user, NSError *error) {
+        
         if (user)
         {
             
@@ -48,7 +50,6 @@
                     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must verify your email before logging in." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                     
                     [errorAlertView show];
-                    
                     
                 }
                 
@@ -86,6 +87,7 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+    
     NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
     NSString *tmpUsername = [traceDefaults objectForKey:@"username"];
     NSString *tmpPassword = [traceDefaults objectForKey:@"password"];
@@ -94,16 +96,23 @@
     
     if ([tmpUsername length] != 0)
     {
+        
         NSLog(@"user is already logged in");
+        
         // DB - need to determine if log in was successful or failure and then act according;
         // Right now it assumes the user logs in.
         //[self logInUsingDefaults:tmpUsername parsePasswordDef:tmpPassword];
+        
         [self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
+        
     }
     else
     {
+        
         NSLog(@"user needs to log in");
+        
     }
+    
 }
 
 //---------------------------------------------------------
@@ -118,15 +127,6 @@
 
 - (void)viewDidLoad
 {
-//    
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    userLoggedIn = [defaults objectForKey:@"theUser"];
-//    
-//    if ([userLoggedIn isEqual:@"LoggedIn"])
-//    {
-//        //DTRB
-//        
-//    }
     
     red = (CGFloat)random()/(CGFloat)RAND_MAX;
     green = (CGFloat)random()/(CGFloat)RAND_MAX;
@@ -208,10 +208,6 @@
 
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
-//    red = (CGFloat)random()/(CGFloat)RAND_MAX;
-//    green = (CGFloat)random()/(CGFloat)RAND_MAX;
-//    blue = (CGFloat)random()/(CGFloat)RAND_MAX;
     
     mouseSwiped = YES;
     

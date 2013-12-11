@@ -64,10 +64,14 @@
 		9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */; };
 		9CB59BB11844F94C006AB105 /* SelectAContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB59BB01844F94C006AB105 /* SelectAContactViewController.m */; };
 		9CB59BB418454A16006AB105 /* sendToCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB59BB318454A16006AB105 /* sendToCell.m */; };
+		9CBC5AFA1856899B00725BD5 /* LoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5AF91856899B00725BD5 /* LoginButton.png */; };
+		9CBC5AFC1856900A00725BD5 /* SignUpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5AFB1856900A00725BD5 /* SignUpButton.png */; };
+		9CBC5AFE1856D2E800725BD5 /* LeaveATraceLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5AFD1856D2E800725BD5 /* LeaveATraceLogo.png */; };
+		9CBC5B0018576D7700725BD5 /* NewTraceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5AFF18576D7700725BD5 /* NewTraceIcon.png */; };
+		9CBC5B041857FCA000725BD5 /* LeaveATraceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5B031857FCA000725BD5 /* LeaveATraceIcon.png */; };
 		9CF1F932184BE89F00AE3EAC /* traceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F931184BE89F00AE3EAC /* traceCell.m */; };
 		9CF1F934184D3BF700AE3EAC /* colorSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F933184D3BF700AE3EAC /* colorSlider.png */; };
 		9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F93D18515D4600AE3EAC /* Alph.plist */; };
-		9CF1F941185170D700AE3EAC /* currentColorBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F940185170D700AE3EAC /* currentColorBox.m */; };
 		A508D48F184A2EFC004005AD /* iconsberlin@2x copy.png in Resources */ = {isa = PBXBuildFile; fileRef = A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */; };
 		A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555C8D91846D53B00C012ED /* ThreadViewController.m */; };
 /* End PBXBuildFile section */
@@ -159,12 +163,15 @@
 		9CB59BB01844F94C006AB105 /* SelectAContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectAContactViewController.m; path = LeaveATrace/SelectAContactViewController.m; sourceTree = "<group>"; };
 		9CB59BB218454A16006AB105 /* sendToCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sendToCell.h; path = LeaveATrace/sendToCell.h; sourceTree = "<group>"; };
 		9CB59BB318454A16006AB105 /* sendToCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sendToCell.m; path = LeaveATrace/sendToCell.m; sourceTree = "<group>"; };
+		9CBC5AF91856899B00725BD5 /* LoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginButton.png; sourceTree = "<group>"; };
+		9CBC5AFB1856900A00725BD5 /* SignUpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignUpButton.png; sourceTree = "<group>"; };
+		9CBC5AFD1856D2E800725BD5 /* LeaveATraceLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeaveATraceLogo.png; sourceTree = "<group>"; };
+		9CBC5AFF18576D7700725BD5 /* NewTraceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewTraceIcon.png; sourceTree = "<group>"; };
+		9CBC5B031857FCA000725BD5 /* LeaveATraceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeaveATraceIcon.png; sourceTree = "<group>"; };
 		9CF1F930184BE89F00AE3EAC /* traceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = traceCell.h; path = LeaveATrace/traceCell.h; sourceTree = "<group>"; };
 		9CF1F931184BE89F00AE3EAC /* traceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = traceCell.m; path = LeaveATrace/traceCell.m; sourceTree = "<group>"; };
 		9CF1F933184D3BF700AE3EAC /* colorSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorSlider.png; sourceTree = "<group>"; };
 		9CF1F93D18515D4600AE3EAC /* Alph.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Alph.plist; sourceTree = "<group>"; };
-		9CF1F93F185170D700AE3EAC /* currentColorBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = currentColorBox.h; path = LeaveATrace/currentColorBox.h; sourceTree = "<group>"; };
-		9CF1F940185170D700AE3EAC /* currentColorBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = currentColorBox.m; path = LeaveATrace/currentColorBox.m; sourceTree = "<group>"; };
 		A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x copy.png"; sourceTree = "<group>"; };
 		A555C8D81846D53B00C012ED /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreadViewController.h; path = LeaveATrace/ThreadViewController.h; sourceTree = "<group>"; };
 		A555C8D91846D53B00C012ED /* ThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreadViewController.m; path = LeaveATrace/ThreadViewController.m; sourceTree = "<group>"; };
@@ -319,6 +326,8 @@
 		9C276852181C771D0073453E /* buttons */ = {
 			isa = PBXGroup;
 			children = (
+				9CBC5AF91856899B00725BD5 /* LoginButton.png */,
+				9CBC5AFB1856900A00725BD5 /* SignUpButton.png */,
 				9C69AA9818299DD00032EF24 /* backB.png */,
 				9C782E04182885ED00077FC8 /* eraserB.png */,
 				9C276853181C771D0073453E /* colorsB.png */,
@@ -346,6 +355,9 @@
 		9C27685E181C771D0073453E /* other */ = {
 			isa = PBXGroup;
 			children = (
+				9CBC5B031857FCA000725BD5 /* LeaveATraceIcon.png */,
+				9CBC5AFD1856D2E800725BD5 /* LeaveATraceLogo.png */,
+				9CBC5AFF18576D7700725BD5 /* NewTraceIcon.png */,
 				9C27685F181C771D0073453E /* Default-568h@2x.png */,
 				A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */,
 				9C276861181C771D0073453E /* iconsberlin@2x.png */,
@@ -389,8 +401,6 @@
 			children = (
 				9C276842181C76B00073453E /* CanvasViewController.h */,
 				9C276843181C76B00073453E /* CanvasViewController.m */,
-				9CF1F93F185170D700AE3EAC /* currentColorBox.h */,
-				9CF1F940185170D700AE3EAC /* currentColorBox.m */,
 			);
 			name = "Drawing Views";
 			sourceTree = "<group>";
@@ -504,6 +514,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CBC5AFC1856900A00725BD5 /* SignUpButton.png in Resources */,
 				9CF1F934184D3BF700AE3EAC /* colorSlider.png in Resources */,
 				9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */,
 				9C276866181C771D0073453E /* SaveB.png in Resources */,
@@ -515,7 +526,11 @@
 				9C27686F181C771D0073453E /* Default-568h@2x.png in Resources */,
 				9C276871181C771D0073453E /* iconsberlin@2x.png in Resources */,
 				9C276815181C75B10073453E /* InfoPlist.strings in Resources */,
+				9CBC5B041857FCA000725BD5 /* LeaveATraceIcon.png in Resources */,
+				9CBC5AFE1856D2E800725BD5 /* LeaveATraceLogo.png in Resources */,
+				9CBC5AFA1856899B00725BD5 /* LoginButton.png in Resources */,
 				9C276865181C771D0073453E /* colorsB.png in Resources */,
+				9CBC5B0018576D7700725BD5 /* NewTraceIcon.png in Resources */,
 				9C69AA9918299DD00032EF24 /* backB.png in Resources */,
 				9C782E05182885ED00077FC8 /* eraserB.png in Resources */,
 				9C27686C181C771D0073453E /* CCOrange.png in Resources */,
@@ -558,7 +573,6 @@
 				9C27681B181C75B10073453E /* AppDelegate.m in Sources */,
 				9CB59BB11844F94C006AB105 /* SelectAContactViewController.m in Sources */,
 				9C27684F181C76B10073453E /* SignUpViewController.m in Sources */,
-				9CF1F941185170D700AE3EAC /* currentColorBox.m in Sources */,
 				9CF1F932184BE89F00AE3EAC /* traceCell.m in Sources */,
 				9C276850181C76B10073453E /* RequestsAndLogOutViewController.m in Sources */,
 				9C276817181C75B10073453E /* main.m in Sources */,
