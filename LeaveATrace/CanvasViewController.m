@@ -34,7 +34,7 @@ double hue;
 
 @implementation CanvasViewController
 
-@synthesize mainImage,red,green,blue,brush,currentColorImage,colorValue;
+@synthesize mainImage,red,green,blue,brush,currentColorImage,colorValue,brushSize;
 
 //----------------------------------------------------------------------------------
 //
@@ -375,6 +375,8 @@ double hue;
     UIGraphicsEndImageContext();
     
     lastPoint = currentPoint;
+    
+    [self hide];
 
 }
 
@@ -411,6 +413,8 @@ double hue;
     [self.mainImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) blendMode:kCGBlendModeNormal alpha:opacity];
     self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    [self show];
 
 }
 
@@ -700,6 +704,42 @@ double hue;
     green = 255.0/255.0;
     blue = 255.0/255.0;
     opacity = 1.0;
+    
+}
+
+-(void) show
+{
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [trashB setAlpha:1];
+    [undoB setAlpha:1];
+    [saveB setAlpha:1];
+    [colorValue setAlpha:1];
+    [brushSize setAlpha:1];
+    [undoB setAlpha:1];
+    [sendB setAlpha:1];
+    [eraseB setAlpha:1];
+    [currentColorImage setAlpha:1];
+    [UIView commitAnimations];
+    
+}
+
+-(void) hide
+{
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [trashB setAlpha:0];
+    [undoB setAlpha:0];
+    [saveB setAlpha:0];
+    [colorValue setAlpha:0];
+    [brushSize setAlpha:0];
+    [undoB setAlpha:0];
+    [sendB setAlpha:0];
+    [eraseB setAlpha:0];
+    [currentColorImage setAlpha:0];
+    [UIView commitAnimations];
     
 }
 

@@ -34,7 +34,7 @@
 
 -(void) viewDidLoad
 {
-    
+
     // DB move this to log out method which currently isn't working
     
     NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];

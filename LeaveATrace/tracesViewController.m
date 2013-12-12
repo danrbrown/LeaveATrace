@@ -172,13 +172,16 @@ NSString *deliveredToUser;
     if ([deliveredToUser isEqualToString:@"YES"])
     {
         
-        cell.didNotOpenImage.hidden = YES; //DTRB
+        //cell.didNotOpenImage.hidden = YES; //DTRB
+        //cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTraceIcon.png"];
+        
         
     }
     else
     {
         
-        cell.didNotOpenImage.hidden = NO; //DTRB
+        //cell.didNotOpenImage.hidden = NO; //DTRB
+        cell.didNotOpenImage.image = [UIImage imageNamed:@"NewTraceIcon.png"];
         
     }
     
@@ -192,7 +195,7 @@ NSString *deliveredToUser;
  
     [displayTimeFormat setDateFormat:@"h:mm a"];
     [displayDayFormat setDateFormat:@"MM-dd-YYYY"];
-    [displayDayAndTimeFormat setDateFormat:@"MMM dd h:mm a"];
+    [displayDayAndTimeFormat setDateFormat:@"MMM dd"];
     
     NSString *tmpUpdatedDate = [NSString stringWithFormat:@"%@", [displayDayFormat stringFromDate:updated]];
     NSString *todaysDate = [NSString stringWithFormat:@"%@", [displayDayFormat stringFromDate:currentdate]];

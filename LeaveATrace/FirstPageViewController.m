@@ -88,6 +88,11 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:10.0];
+    [drawLabel setAlpha:0];
+    [UIView commitAnimations];
+    
     NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
     NSString *tmpUsername = [traceDefaults objectForKey:@"username"];
     NSString *tmpPassword = [traceDefaults objectForKey:@"password"];

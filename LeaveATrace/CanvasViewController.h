@@ -77,6 +77,8 @@ extern double hue;
 -(IBAction) sliderChanged:(id)sender;
 
 //Methods for view
+-(void) hide;
+-(void) show;
 -(void) uploadTrace;
 -(void) countRequests;
 -(void) countTraces;

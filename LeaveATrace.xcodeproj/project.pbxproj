@@ -16,7 +16,6 @@
 		9C27681B181C75B10073453E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C27681A181C75B10073453E /* AppDelegate.m */; };
 		9C27681E181C75B10073453E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C27681C181C75B10073453E /* Main.storyboard */; };
 		9C276821181C75B10073453E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C276820181C75B10073453E /* ViewController.m */; };
-		9C276823181C75B10073453E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C276822181C75B10073453E /* Images.xcassets */; };
 		9C27682A181C75B10073453E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C276829181C75B10073453E /* XCTest.framework */; };
 		9C27682B181C75B10073453E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680A181C75B10073453E /* Foundation.framework */; };
 		9C27682C181C75B10073453E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680E181C75B10073453E /* UIKit.framework */; };
@@ -69,6 +68,9 @@
 		9CBC5AFE1856D2E800725BD5 /* LeaveATraceLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5AFD1856D2E800725BD5 /* LeaveATraceLogo.png */; };
 		9CBC5B0018576D7700725BD5 /* NewTraceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5AFF18576D7700725BD5 /* NewTraceIcon.png */; };
 		9CBC5B041857FCA000725BD5 /* LeaveATraceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5B031857FCA000725BD5 /* LeaveATraceIcon.png */; };
+		9CBC5B49185931B600725BD5 /* SaveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5B48185931B600725BD5 /* SaveButton.png */; };
+		9CBC5B4C1859619D00725BD5 /* AcceptedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5B4A1859619D00725BD5 /* AcceptedIcon.png */; };
+		9CBC5B4D1859619D00725BD5 /* DeclineIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5B4B1859619D00725BD5 /* DeclineIcon.png */; };
 		9CF1F932184BE89F00AE3EAC /* traceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F931184BE89F00AE3EAC /* traceCell.m */; };
 		9CF1F934184D3BF700AE3EAC /* colorSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F933184D3BF700AE3EAC /* colorSlider.png */; };
 		9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F93D18515D4600AE3EAC /* Alph.plist */; };
@@ -102,7 +104,6 @@
 		9C27681D181C75B10073453E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C27681F181C75B10073453E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9C276820181C75B10073453E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		9C276822181C75B10073453E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9C276828181C75B10073453E /* LeaveATraceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeaveATraceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C276829181C75B10073453E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		9C276831181C75B10073453E /* LeaveATraceTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LeaveATraceTests-Info.plist"; sourceTree = "<group>"; };
@@ -168,6 +169,9 @@
 		9CBC5AFD1856D2E800725BD5 /* LeaveATraceLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeaveATraceLogo.png; sourceTree = "<group>"; };
 		9CBC5AFF18576D7700725BD5 /* NewTraceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewTraceIcon.png; sourceTree = "<group>"; };
 		9CBC5B031857FCA000725BD5 /* LeaveATraceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeaveATraceIcon.png; sourceTree = "<group>"; };
+		9CBC5B48185931B600725BD5 /* SaveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SaveButton.png; sourceTree = "<group>"; };
+		9CBC5B4A1859619D00725BD5 /* AcceptedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AcceptedIcon.png; sourceTree = "<group>"; };
+		9CBC5B4B1859619D00725BD5 /* DeclineIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeclineIcon.png; sourceTree = "<group>"; };
 		9CF1F930184BE89F00AE3EAC /* traceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = traceCell.h; path = LeaveATrace/traceCell.h; sourceTree = "<group>"; };
 		9CF1F931184BE89F00AE3EAC /* traceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = traceCell.m; path = LeaveATrace/traceCell.m; sourceTree = "<group>"; };
 		9CF1F933184D3BF700AE3EAC /* colorSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorSlider.png; sourceTree = "<group>"; };
@@ -277,7 +281,6 @@
 				9C27681C181C75B10073453E /* Main.storyboard */,
 				9C27681F181C75B10073453E /* ViewController.h */,
 				9C276820181C75B10073453E /* ViewController.m */,
-				9C276822181C75B10073453E /* Images.xcassets */,
 				9C276811181C75B10073453E /* Supporting Files */,
 			);
 			path = LeaveATrace;
@@ -326,8 +329,11 @@
 		9C276852181C771D0073453E /* buttons */ = {
 			isa = PBXGroup;
 			children = (
+				9CBC5B48185931B600725BD5 /* SaveButton.png */,
 				9CBC5AF91856899B00725BD5 /* LoginButton.png */,
 				9CBC5AFB1856900A00725BD5 /* SignUpButton.png */,
+				9CBC5B4A1859619D00725BD5 /* AcceptedIcon.png */,
+				9CBC5B4B1859619D00725BD5 /* DeclineIcon.png */,
 				9C69AA9818299DD00032EF24 /* backB.png */,
 				9C782E04182885ED00077FC8 /* eraserB.png */,
 				9C276853181C771D0073453E /* colorsB.png */,
@@ -514,15 +520,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CBC5B4C1859619D00725BD5 /* AcceptedIcon.png in Resources */,
 				9CBC5AFC1856900A00725BD5 /* SignUpButton.png in Resources */,
 				9CF1F934184D3BF700AE3EAC /* colorSlider.png in Resources */,
 				9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */,
 				9C276866181C771D0073453E /* SaveB.png in Resources */,
 				9C276869181C771D0073453E /* CCBlack.png in Resources */,
 				9C27686A181C771D0073453E /* CCBlue.png in Resources */,
+				9CBC5B49185931B600725BD5 /* SaveButton.png in Resources */,
 				9C276868181C771D0073453E /* TrashITB.png in Resources */,
 				9C276872181C771D0073453E /* iconsberlin@2x3.png in Resources */,
-				9C276823181C75B10073453E /* Images.xcassets in Resources */,
 				9C27686F181C771D0073453E /* Default-568h@2x.png in Resources */,
 				9C276871181C771D0073453E /* iconsberlin@2x.png in Resources */,
 				9C276815181C75B10073453E /* InfoPlist.strings in Resources */,
@@ -532,6 +539,7 @@
 				9C276865181C771D0073453E /* colorsB.png in Resources */,
 				9CBC5B0018576D7700725BD5 /* NewTraceIcon.png in Resources */,
 				9C69AA9918299DD00032EF24 /* backB.png in Resources */,
+				9CBC5B4D1859619D00725BD5 /* DeclineIcon.png in Resources */,
 				9C782E05182885ED00077FC8 /* eraserB.png in Resources */,
 				9C27686C181C771D0073453E /* CCOrange.png in Resources */,
 				9C27686E181C771D0073453E /* CCYellow.png in Resources */,
