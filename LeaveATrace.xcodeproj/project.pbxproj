@@ -71,6 +71,10 @@
 		9CBC5B49185931B600725BD5 /* SaveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5B48185931B600725BD5 /* SaveButton.png */; };
 		9CBC5B4C1859619D00725BD5 /* AcceptedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5B4A1859619D00725BD5 /* AcceptedIcon.png */; };
 		9CBC5B4D1859619D00725BD5 /* DeclineIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5B4B1859619D00725BD5 /* DeclineIcon.png */; };
+		9CD69C0D185A945800177EA0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD69C0C185A945800177EA0 /* FacebookSDK.framework */; };
+		9CD69C0F185A951200177EA0 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9CD69C0E185A951100177EA0 /* FBUserSettingsViewResources.bundle */; };
+		9CD69C12185A983F00177EA0 /* commonLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CD69C11185A983F00177EA0 /* commonLogin.m */; };
+		9CD69C14185A9A2000177EA0 /* FBLogin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CD69C13185A9A2000177EA0 /* FBLogin.png */; };
 		9CF1F932184BE89F00AE3EAC /* traceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F931184BE89F00AE3EAC /* traceCell.m */; };
 		9CF1F934184D3BF700AE3EAC /* colorSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F933184D3BF700AE3EAC /* colorSlider.png */; };
 		9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F93D18515D4600AE3EAC /* Alph.plist */; };
@@ -172,6 +176,11 @@
 		9CBC5B48185931B600725BD5 /* SaveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SaveButton.png; sourceTree = "<group>"; };
 		9CBC5B4A1859619D00725BD5 /* AcceptedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AcceptedIcon.png; sourceTree = "<group>"; };
 		9CBC5B4B1859619D00725BD5 /* DeclineIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeclineIcon.png; sourceTree = "<group>"; };
+		9CD69C0C185A945800177EA0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		9CD69C0E185A951100177EA0 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
+		9CD69C10185A983F00177EA0 /* commonLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = commonLogin.h; path = LeaveATrace/commonLogin.h; sourceTree = "<group>"; };
+		9CD69C11185A983F00177EA0 /* commonLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = commonLogin.m; path = LeaveATrace/commonLogin.m; sourceTree = "<group>"; };
+		9CD69C13185A9A2000177EA0 /* FBLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FBLogin.png; sourceTree = "<group>"; };
 		9CF1F930184BE89F00AE3EAC /* traceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = traceCell.h; path = LeaveATrace/traceCell.h; sourceTree = "<group>"; };
 		9CF1F931184BE89F00AE3EAC /* traceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = traceCell.m; path = LeaveATrace/traceCell.m; sourceTree = "<group>"; };
 		9CF1F933184D3BF700AE3EAC /* colorSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorSlider.png; sourceTree = "<group>"; };
@@ -187,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C27689D181C7CDE0073453E /* AudioToolbox.framework in Frameworks */,
+				9CD69C0D185A945800177EA0 /* FacebookSDK.framework in Frameworks */,
 				9C276899181C7C1A0073453E /* Accounts.framework in Frameworks */,
 				9C276888181C7BAB0073453E /* AdSupport.framework in Frameworks */,
 				9C27688A181C7BAB0073453E /* CFNetwork.framework in Frameworks */,
@@ -249,12 +259,14 @@
 		9C276809181C75B10073453E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CD69C0E185A951100177EA0 /* FBUserSettingsViewResources.bundle */,
 				9C27689C181C7CDE0073453E /* AudioToolbox.framework */,
 				9C27689A181C7C660073453E /* SystemConfiguration.framework */,
 				9C276898181C7C1A0073453E /* Accounts.framework */,
 				9C276896181C7BE40073453E /* Parse.framework */,
 				9C276894181C7BC90073453E /* libz.1.1.3.dylib */,
 				9C276892181C7BBD0073453E /* libsqlite3.dylib */,
+				9CD69C0C185A945800177EA0 /* FacebookSDK.framework */,
 				9C27687E181C7BAB0073453E /* AdSupport.framework */,
 				9C27687F181C7BAB0073453E /* AudioUnit.framework */,
 				9C276880181C7BAB0073453E /* CFNetwork.framework */,
@@ -361,6 +373,7 @@
 		9C27685E181C771D0073453E /* other */ = {
 			isa = PBXGroup;
 			children = (
+				9CD69C13185A9A2000177EA0 /* FBLogin.png */,
 				9CBC5B031857FCA000725BD5 /* LeaveATraceIcon.png */,
 				9CBC5AFD1856D2E800725BD5 /* LeaveATraceLogo.png */,
 				9CBC5AFF18576D7700725BD5 /* NewTraceIcon.png */,
@@ -398,6 +411,8 @@
 				9C276847181C76B00073453E /* LoginViewController.m */,
 				9C276848181C76B00073453E /* SignUpViewController.h */,
 				9C276849181C76B00073453E /* SignUpViewController.m */,
+				9CD69C10185A983F00177EA0 /* commonLogin.h */,
+				9CD69C11185A983F00177EA0 /* commonLogin.m */,
 			);
 			name = "Login and Sign Up Views";
 			sourceTree = "<group>";
@@ -526,10 +541,12 @@
 				9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */,
 				9C276866181C771D0073453E /* SaveB.png in Resources */,
 				9C276869181C771D0073453E /* CCBlack.png in Resources */,
+				9CD69C0F185A951200177EA0 /* FBUserSettingsViewResources.bundle in Resources */,
 				9C27686A181C771D0073453E /* CCBlue.png in Resources */,
 				9CBC5B49185931B600725BD5 /* SaveButton.png in Resources */,
 				9C276868181C771D0073453E /* TrashITB.png in Resources */,
 				9C276872181C771D0073453E /* iconsberlin@2x3.png in Resources */,
+				9CD69C14185A9A2000177EA0 /* FBLogin.png in Resources */,
 				9C27686F181C771D0073453E /* Default-568h@2x.png in Resources */,
 				9C276871181C771D0073453E /* iconsberlin@2x.png in Resources */,
 				9C276815181C75B10073453E /* InfoPlist.strings in Resources */,
@@ -576,6 +593,7 @@
 				9C276877181C774F0073453E /* LeaveATraceItem.m in Sources */,
 				9C27684E181C76B10073453E /* LoginViewController.m in Sources */,
 				9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */,
+				9CD69C12185A983F00177EA0 /* commonLogin.m in Sources */,
 				A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */,
 				9CAC90E518413D45007CC2CD /* RequestCell.m in Sources */,
 				9C27681B181C75B10073453E /* AppDelegate.m in Sources */,
