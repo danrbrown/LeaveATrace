@@ -53,6 +53,7 @@ extern double hue;
     IBOutlet UIButton *menuB;
     IBOutlet UIButton *saveB;
     IBOutlet UIButton *sendB;
+    IBOutlet UIActivityIndicatorView *loading;
     
 }
 

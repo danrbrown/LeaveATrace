@@ -13,7 +13,6 @@
     //Outlets
     IBOutlet UIButton *logInButton;
     IBOutlet UIButton *signUpButton;
-    IBOutlet UILabel *drawLabel;
     
     //Variables for drawing
     CGPoint lastPoint;

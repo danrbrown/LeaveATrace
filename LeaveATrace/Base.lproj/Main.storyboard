@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RuF-KD-iC2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--Contacts View Controller - Contacts-->
@@ -261,6 +261,11 @@
                                 <rect key="frame" x="6" y="26" width="38" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="d1c-bP-hDx">
+                                <rect key="frame" x="142" y="241" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -270,6 +275,7 @@
                         <outlet property="colorValue" destination="yHo-Fg-5qT" id="8aQ-Rv-XhC"/>
                         <outlet property="currentColorImage" destination="ihn-yS-Xo2" id="FZf-Vx-PIn"/>
                         <outlet property="eraseB" destination="Rns-hs-jRr" id="6Og-Pf-Tva"/>
+                        <outlet property="loading" destination="d1c-bP-hDx" id="EUK-xD-vbX"/>
                         <outlet property="mainImage" destination="X7s-Uc-4iM" id="Vyw-xD-5aB"/>
                         <outlet property="saveB" destination="yIF-o3-zbA" id="B6g-Er-EpM"/>
                         <outlet property="sendB" destination="nhl-67-LS2" id="FdI-aU-ltA"/>
@@ -472,13 +478,6 @@
                                     <segue destination="q66-0j-MX0" kind="modal" identifier="testingSegue" modalTransitionStyle="flipHorizontal" id="aqm-j9-75I"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="draw anywhere..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Om7-wv-ETf">
-                                <rect key="frame" x="18" y="52" width="285" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Verdana-BoldItalic" family="Verdana" pointSize="28"/>
-                                <color key="textColor" red="0.95367935979999996" green="1" blue="0.20564326029999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9Hs-Xv-5Do">
                                 <rect key="frame" x="59" y="413" width="202" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -499,7 +498,6 @@
                     <connections>
                         <outlet property="activityLogin" destination="udc-i4-mnF" id="TTK-FA-gpv"/>
                         <outlet property="btnLogin" destination="9Hs-Xv-5Do" id="W42-zr-uy7"/>
-                        <outlet property="drawLabel" destination="Om7-wv-ETf" id="QII-Rb-TSU"/>
                         <outlet property="logInButton" destination="Vn2-Gn-JMH" id="XAI-A7-SYp"/>
                         <outlet property="mainImage" destination="T99-hH-w9z" id="hJ6-U8-yT0"/>
                         <outlet property="signUpButton" destination="cca-D8-5Zu" id="77T-cB-LEs"/>
@@ -994,7 +992,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="spu-jz-L3F"/>
+        <segue reference="UCm-eX-8Dj"/>
         <segue reference="r4Y-3E-9Ey"/>
     </inferredMetricsTieBreakers>
 </document>

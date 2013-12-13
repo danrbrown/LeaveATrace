@@ -535,6 +535,8 @@ double hue;
     if(buttonIndex == 0)
     {
         
+        [loading startAnimating];
+        
         UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
         [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
         UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -559,6 +561,8 @@ double hue;
     if (error != NULL)
     {
         
+        [loading stopAnimating];
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Image could not be saved. Please try again"  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
         
         [alert show];
@@ -566,6 +570,8 @@ double hue;
     }
     else
     {
+        
+        [loading stopAnimating];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Image was successfully saved in photoalbum"  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
         
