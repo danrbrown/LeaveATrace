@@ -59,6 +59,23 @@ NSString *deliveredToUser;
 
 //----------------------------------------------------------------------------------
 //
+// Name: viewDidAppear
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    
+    [tracesTable reloadData];
+    
+    NSLog(@"in traces view did apear");
+    
+}
+
+//----------------------------------------------------------------------------------
+//
 // Name: refreshView
 //
 // Purpose: Method called if the user "pulls down" on the table view. We then call

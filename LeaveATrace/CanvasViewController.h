@@ -17,8 +17,6 @@ extern NSInteger tracesBadgeInt;
 extern NSData *pictureData;
 extern UIImage *SaveImage;
 extern PFFile *file;
-extern NSString *userLoggedIn;
-extern NSUserDefaults *defaults;
 extern UIImageView *mainImage;
 extern UIColor *theColor;
 extern double hue;

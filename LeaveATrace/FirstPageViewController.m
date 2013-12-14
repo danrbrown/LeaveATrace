@@ -15,13 +15,6 @@
 #import "FirstPageViewController.h"
 #import "CanvasViewController.h"
 
-@interface FirstPageViewController () <CommsDelegate>
-
-@property (nonatomic, strong) IBOutlet UIButton *btnLogin;
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityLogin;
-
-@end
-
 @interface FirstPageViewController ()
 
 @end
@@ -102,23 +95,15 @@
         
     NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
     NSString *tmpUsername = [traceDefaults objectForKey:@"username"];
-    NSString *tmpPassword = [traceDefaults objectForKey:@"password"];
+    //NSString *tmpPassword = [traceDefaults objectForKey:@"password"];
     NSLog(@"username from defaults --> %@",tmpUsername);
-    NSLog(@"password from defaults --> %@",tmpPassword);
-    
-    //TMP ONLY REMOVE THIS ONCE IT WORKS DB
-    [traceDefaults setObject:@"" forKey:@"username"];
-    [traceDefaults setObject:@"" forKey:@"password"];
-    [traceDefaults synchronize];
     
     if ([tmpUsername length] != 0)
     {
         
-        NSLog(@"user is already logged in");
+        NSLog(@"Log in with user defaults");
         
-        // DB - need to determine if log in was successful or failure and then act according;
-        // Right now it assumes the user logs in.
-        [self logInUsingDefaults:tmpUsername parsePasswordDef:tmpPassword];
+        //[self logInUsingDefaults:tmpUsername parsePasswordDef:tmpPassword]; DB
         
         [self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
         
@@ -127,8 +112,6 @@
     {
         
         NSLog(@"user needs to log in");
-        
-        //[PFUser logOut];
         
     }
     
@@ -311,41 +294,6 @@
     
     mainImage.image = nil;
     
-}
-
-// Outlet for FBLogin button
-- (IBAction) loginPressed:(id)sender
-{
-	// Disable the Login button to prevent multiple touches
-	[_btnLogin setEnabled:NO];
-	
-	// Show an activity indicator
-	[_activityLogin startAnimating];
-	
-	// Do the login
-	[commonLogin login:self];
-    
-}
-
-- (void) commsDidLogin:(BOOL)loggedIn {
-	// Re-enable the Login button
-	[_btnLogin setEnabled:YES];
-    
-	// Stop the activity indicator
-	[_activityLogin stopAnimating];
-    
-	// Did we login successfully ?
-	if (loggedIn) {
-		// Seque to the Image Wall
-		[self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
-	} else {
-		// Show error alert
-		[[[UIAlertView alloc] initWithTitle:@"Login Failed"
-                                    message:@"Facebook Login failed. Please try again"
-                                   delegate:nil
-                          cancelButtonTitle:@"Ok"
-                          otherButtonTitles:nil] show];
-	}
 }
 
 @end

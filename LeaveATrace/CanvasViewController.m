@@ -20,10 +20,8 @@
 UIImage *SaveImage;
 NSData *pictureData;
 PFFile *file;
-NSString *userLoggedIn;
 NSString *badgeString;
 NSString *tracesBadgeString;
-NSUserDefaults *defaults;
 UIImageView *mainImage;
 UIColor *theColor;
 double hue;
@@ -46,12 +44,6 @@ double hue;
 
 -(void) viewDidLoad
 {
-    
-    userLoggedIn = @"LoggedIn";
-    
-    defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:userLoggedIn forKey:@"theUser"];
-    [defaults synchronize];
     
     [self countRequests];
     [self countTraces];
@@ -94,6 +86,8 @@ double hue;
     {
         
         mainImage.image = nil;
+        
+        [self.tabBarController setSelectedIndex:1];
         
     }
     

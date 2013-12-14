@@ -478,26 +478,10 @@
                                     <segue destination="q66-0j-MX0" kind="modal" identifier="testingSegue" modalTransitionStyle="flipHorizontal" id="aqm-j9-75I"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9Hs-Xv-5Do">
-                                <rect key="frame" x="59" y="413" width="202" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="FBLogin.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginPressed:" destination="RuF-KD-iC2" eventType="touchUpInside" id="X5H-75-q1Y"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="udc-i4-mnF">
-                                <rect key="frame" x="142" y="488" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <outlet property="activityLogin" destination="udc-i4-mnF" id="TTK-FA-gpv"/>
-                        <outlet property="btnLogin" destination="9Hs-Xv-5Do" id="W42-zr-uy7"/>
                         <outlet property="logInButton" destination="Vn2-Gn-JMH" id="XAI-A7-SYp"/>
                         <outlet property="mainImage" destination="T99-hH-w9z" id="hJ6-U8-yT0"/>
                         <outlet property="signUpButton" destination="cca-D8-5Zu" id="77T-cB-LEs"/>
@@ -974,7 +958,6 @@
     <resources>
         <image name="AcceptedIcon.png" width="64" height="61"/>
         <image name="DeclineIcon.png" width="61" height="59"/>
-        <image name="FBLogin.png" width="202" height="44"/>
         <image name="LoginButton.png" width="340" height="138"/>
         <image name="NewTraceIcon.png" width="223" height="138"/>
         <image name="SaveButton.png" width="293" height="287"/>

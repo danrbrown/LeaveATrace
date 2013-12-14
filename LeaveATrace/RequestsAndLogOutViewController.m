@@ -219,7 +219,9 @@
     
     NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
 
-    userLoggedIn = nil;
+    [traceDefaults setObject:@"" forKey:@"username"];
+    [traceDefaults setObject:@"" forKey:@"password"];
+    [traceDefaults synchronize];
     
     NSLog(@"In logOut method: zero'd out the defaults");
     
