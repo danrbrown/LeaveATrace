@@ -15,6 +15,9 @@
 #import "CanvasViewController.h"
 #import "tracesViewController.h"
 
+int timerInt;
+NSString *timerString;
+
 @interface ThreadViewController ()
 
 @end
@@ -41,6 +44,8 @@
     self.title = userWhoSentTrace;
  
     sendingProg.hidden = YES;
+    
+    minutes = 0;
     
     [self getThreadTrace:userWhoSentTrace];
     
@@ -246,7 +251,6 @@
     
 }
 
-
 //----------------------------------------------------------------------------------
 //
 // Name: send
@@ -258,7 +262,50 @@
 -(IBAction) send:(id)sender
 {
     
+    timerInt = 0;
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countIt) userInfo:nil repeats:YES];
+    
     [self uploadThreadTrace];
+    
+}
+
+
+-(void) countIt
+{
+    
+    timerInt += 1;
+    
+    if (timerInt > 60)
+    {
+        
+        if ((timerInt % 60) == 0)
+        {
+        
+            minutes++;
+        
+            timerString = [NSString stringWithFormat:@"%i minutes ago", minutes];
+            
+        }
+        
+    }
+    else
+    {
+    
+        if (timerInt == 1)
+        {
+    
+            timerString = [NSString stringWithFormat:@"%i second ago", timerInt];
+        
+        }
+        else
+        {
+    
+            timerString = [NSString stringWithFormat:@"%i seconds ago", timerInt];
+        
+        }
+        
+    }
     
 }
 

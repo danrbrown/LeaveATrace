@@ -12,6 +12,7 @@
 //----------------------------------------------------------------------------------
 
 #import "tracesViewController.h"
+#import "ThreadViewController.h"
 #import "traceCell.h"
 #import "CanvasViewController.h"
 #import <Parse/Parse.h>
@@ -236,7 +237,7 @@ NSString *deliveredToUser;
     if ([tmpCurrentUser isEqualToString:tmpLastSentBY])
     {
         
-        combined = [NSString stringWithFormat:@"%@ - Sent", screenDate];
+        combined = [NSString stringWithFormat:@"%@ - Sent %@", screenDate, timerString];
         
     }
     else
