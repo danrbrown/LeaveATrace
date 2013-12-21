@@ -11,6 +11,7 @@
 
 extern int timerInt;
 extern NSString *timerString;
+extern NSString *openedString;
 
 @interface ThreadViewController : UIViewController <UIActionSheetDelegate> {
     

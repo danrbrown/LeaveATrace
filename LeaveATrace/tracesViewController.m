@@ -24,6 +24,7 @@ PFObject *traceObject;
 NSString *traceObjectId;
 PFQuery *query;
 NSString *deliveredToUser;
+NSMutableArray *traces;
 
 @interface tracesViewController ()
 
@@ -44,6 +45,8 @@ NSString *deliveredToUser;
 
 -(void) viewDidLoad
 {
+    
+    openedString = @"Received";
 
     traces = [[NSMutableArray alloc] initWithCapacity:1000];
     
@@ -190,16 +193,15 @@ NSString *deliveredToUser;
     if ([deliveredToUser isEqualToString:@"YES"])
     {
         
-        //cell.didNotOpenImage.hidden = YES; //DTRB
-        //cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTraceIcon.png"];
-        
+        cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTrace.jpg"];
+        cell.didNotOpenImage.frame = CGRectMake(12, 5, 54, 47);
         
     }
     else
     {
         
-        //cell.didNotOpenImage.hidden = NO; //DTRB
-        cell.didNotOpenImage.image = [UIImage imageNamed:@"NewTraceIcon.png"];
+        cell.didNotOpenImage.image = [UIImage imageNamed:@"NewTrace.jpg"];
+        cell.didNotOpenImage.frame = CGRectMake(12, 13, 54, 32);
         
     }
     
@@ -243,7 +245,7 @@ NSString *deliveredToUser;
     else
     {
         
-        combined = [NSString stringWithFormat:@"%@ - Received", screenDate];
+        combined = [NSString stringWithFormat:@"%@ - %@", screenDate, openedString];
         
     }
     

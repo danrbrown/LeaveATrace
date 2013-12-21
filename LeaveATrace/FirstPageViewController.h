@@ -32,4 +32,7 @@
 @property CGFloat brush;
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 
+//Actions
+-(IBAction)fifteenAndFifty:(id)sender;
+
 @end

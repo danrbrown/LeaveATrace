@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RuF-KD-iC2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Contacts View Controller - Contacts-->
@@ -16,7 +16,7 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Leave a search" id="hMw-Mf-3K0">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" red="0.0" green="0.89433013760000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="barTintColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <outlet property="delegate" destination="45d-8g-mdk" id="OPf-0e-Sgy"/>
@@ -478,6 +478,16 @@
                                     <segue destination="q66-0j-MX0" kind="modal" identifier="testingSegue" modalTransitionStyle="flipHorizontal" id="aqm-j9-75I"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9sk-4P-i9y">
+                                <rect key="frame" x="0.0" y="533" width="129" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="15and50.com">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="fifteenAndFifty:" destination="RuF-KD-iC2" eventType="touchUpInside" id="4j3-tf-Sfk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -751,8 +761,8 @@
                                             <color key="textColor" red="0.65531589673913038" green="0.65531589673913038" blue="0.65531589673913038" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewTraceIcon.png" id="VVY-Hw-2EH">
-                                            <rect key="frame" x="13" y="12" width="53" height="34"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OpenedTrace.jpg" id="VVY-Hw-2EH">
+                                            <rect key="frame" x="12" y="5" width="54" height="47"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -959,7 +969,7 @@
         <image name="AcceptedIcon.png" width="64" height="61"/>
         <image name="DeclineIcon.png" width="61" height="59"/>
         <image name="LoginButton.png" width="340" height="138"/>
-        <image name="NewTraceIcon.png" width="223" height="138"/>
+        <image name="OpenedTrace.jpg" width="291" height="272"/>
         <image name="SaveButton.png" width="293" height="287"/>
         <image name="SignUpButton.png" width="340" height="138"/>
         <image name="TrashITB.png" width="187" height="184"/>

@@ -17,6 +17,7 @@
 
 int timerInt;
 NSString *timerString;
+NSString *openedString;
 
 @interface ThreadViewController ()
 
@@ -38,6 +39,8 @@ NSString *timerString;
 
 -(void) viewDidLoad
 {
+    
+    openedString = @"Opened";
     
     NSString *userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
     
