@@ -213,13 +213,13 @@ double hue;
     NSLog(@"tmpCurrentUser --> %@",tmpCurrentUser);
     
     [toUserQuery whereKey:@"toUser" equalTo:tmpCurrentUser];
-    [toUserQuery whereKey:@"lastSentBY" notEqualTo:tmpCurrentUser];
+    [toUserQuery whereKey:@"lastSentBy" notEqualTo:tmpCurrentUser];
     [toUserQuery whereKey:@"deliveredToUser" equalTo:@"NO"];
     
     PFQuery *fromUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
     
     [fromUserQuery whereKey:@"fromUser" equalTo:tmpCurrentUser];
-    [fromUserQuery whereKey:@"lastSentBY" notEqualTo:tmpCurrentUser];
+    [fromUserQuery whereKey:@"lastSentBy" notEqualTo:tmpCurrentUser];
     [fromUserQuery whereKey:@"deliveredToUser" equalTo:@"NO"];
     
     query = [PFQuery orQueryWithSubqueries:@[toUserQuery,fromUserQuery]];

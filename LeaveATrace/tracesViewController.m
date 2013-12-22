@@ -173,7 +173,7 @@ NSMutableArray *traces;
 
     NSString *tmpCurrentUser = [[PFUser currentUser]username];
     NSString *tmpFromUser = [traceObject objectForKey:@"fromUser"];
-    NSString *tmpLastSentBY = [traceObject objectForKey:@"lastSentBY"];
+    NSString *tmpLastSentBy = [traceObject objectForKey:@"lastSentBy"];
     
     if ([tmpCurrentUser isEqualToString:tmpFromUser])
     {
@@ -236,7 +236,7 @@ NSMutableArray *traces;
         
     }
     
-    if ([tmpCurrentUser isEqualToString:tmpLastSentBY])
+    if ([tmpCurrentUser isEqualToString:tmpLastSentBy])
     {
         
         combined = [NSString stringWithFormat:@"%@ - Sent %@", screenDate, timerString];

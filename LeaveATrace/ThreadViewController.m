@@ -100,9 +100,9 @@ NSString *openedString;
                         mainThreadImage.image = image;
                         
                         NSString *tmpCurrentUser = [[PFUser currentUser]username];
-                        NSString *tmpLastSentBY = [myImages objectForKey:@"lastSentBY"];
+                        NSString *tmpLastSentBy = [myImages objectForKey:@"lastSentBy"];
                         
-                        if (![tmpCurrentUser isEqualToString:tmpLastSentBY])
+                        if (![tmpCurrentUser isEqualToString:tmpLastSentBy])
                         {
                             [myImages setObject:@"YES"forKey:@"deliveredToUser"];
                             [myImages saveInBackground];
@@ -383,7 +383,7 @@ NSString *openedString;
 
             [traceObject setObject:@"NO"forKey:@"deliveredToUser"];
             
-            [traceObject setObject:[PFUser currentUser].username forKey:@"lastSentBY"];
+            [traceObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];
             
             [traceObject saveInBackground];
                         

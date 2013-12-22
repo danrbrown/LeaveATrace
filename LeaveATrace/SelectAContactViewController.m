@@ -243,7 +243,7 @@ BOOL clearImage;
             
             [imageObject setObject:file forKey:@"image"];
             [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
-            [imageObject setObject:[PFUser currentUser].username forKey:@"lastSentBY"];
+            [imageObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];
             [imageObject setObject:tempContact forKey:@"toUser"];
             [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
             
