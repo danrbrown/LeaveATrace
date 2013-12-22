@@ -231,6 +231,7 @@ BOOL clearImage;
     
     PFObject *tempObject = [validContacts objectAtIndex:indexPath.row];
     NSString *tempContact = [tempObject objectForKey:@"contact"];
+    NSDate *currentDateTime = [NSDate date];
 
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -244,6 +245,7 @@ BOOL clearImage;
             [imageObject setObject:file forKey:@"image"];
             [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
             [imageObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];
+            [imageObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
             [imageObject setObject:tempContact forKey:@"toUser"];
             [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
             

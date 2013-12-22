@@ -78,7 +78,6 @@ extern double hue;
 //Methods for view
 -(void) hide;
 -(void) show;
--(void) uploadTrace;
 -(void) countRequests;
 -(void) countTraces;
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;

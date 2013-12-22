@@ -9,10 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-extern int timerInt;
-extern NSString *timerString;
-extern NSString *openedString;
-
 @interface ThreadViewController : UIViewController <UIActionSheetDelegate> {
     
     //Variables for drawing
@@ -23,11 +19,6 @@ extern NSString *openedString;
     CGFloat brush;
     CGFloat opacity;
     BOOL mouseSwiped;
-    
-    //Variables
-    BOOL dontTrash;
-    NSTimer *timer;
-    int minutes;
     
     //IBOutlets
     IBOutlet UIButton *undoB;
@@ -63,7 +54,6 @@ extern NSString *openedString;
 
 //Methods for view
 -(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
--(void) countIt;
 -(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
 -(void) uploadThreadTrace;
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;

@@ -15,10 +15,6 @@
 #import "CanvasViewController.h"
 #import "tracesViewController.h"
 
-int timerInt;
-NSString *timerString;
-NSString *openedString;
-
 @interface ThreadViewController ()
 
 @end
@@ -40,15 +36,11 @@ NSString *openedString;
 -(void) viewDidLoad
 {
     
-    openedString = @"Opened";
-    
     NSString *userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
     
     self.title = userWhoSentTrace;
  
     sendingProg.hidden = YES;
-    
-    minutes = 0;
     
     [self getThreadTrace:userWhoSentTrace];
     
@@ -101,10 +93,12 @@ NSString *openedString;
                         
                         NSString *tmpCurrentUser = [[PFUser currentUser]username];
                         NSString *tmpLastSentBy = [myImages objectForKey:@"lastSentBy"];
+                        NSDate *currentDateTime = [NSDate date];
                         
                         if (![tmpCurrentUser isEqualToString:tmpLastSentBy])
                         {
                             [myImages setObject:@"YES"forKey:@"deliveredToUser"];
+                            [myImages setObject:currentDateTime forKey:@"lastSentByDateTime"];
                             [myImages saveInBackground];
                         }
                     }
@@ -265,50 +259,7 @@ NSString *openedString;
 -(IBAction) send:(id)sender
 {
     
-    timerInt = 0;
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countIt) userInfo:nil repeats:YES];
-    
     [self uploadThreadTrace];
-    
-}
-
-
--(void) countIt
-{
-    
-    timerInt += 1;
-    
-    if (timerInt > 60)
-    {
-        
-        if ((timerInt % 60) == 0)
-        {
-        
-            minutes++;
-        
-            timerString = [NSString stringWithFormat:@"%i minutes ago", minutes];
-            
-        }
-        
-    }
-    else
-    {
-    
-        if (timerInt == 1)
-        {
-    
-            timerString = [NSString stringWithFormat:@"%i second ago", timerInt];
-        
-        }
-        else
-        {
-    
-            timerString = [NSString stringWithFormat:@"%i seconds ago", timerInt];
-        
-        }
-        
-    }
     
 }
 
@@ -373,6 +324,7 @@ NSString *openedString;
     UIGraphicsEndImageContext();
     
     PFFile *imageFile  = [PFFile fileWithName:@"img" data:threadPictureData];
+    NSDate *currentDateTime = [NSDate date];
     
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
@@ -380,13 +332,10 @@ NSString *openedString;
         {
             
             [traceObject setObject:imageFile forKey:@"image"];
-
             [traceObject setObject:@"NO"forKey:@"deliveredToUser"];
-            
             [traceObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];
-            
+            [traceObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
             [traceObject saveInBackground];
-                        
             [traceObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
                 if (succeeded)

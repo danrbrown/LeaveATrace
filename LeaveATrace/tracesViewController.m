@@ -45,8 +45,6 @@ NSMutableArray *traces;
 
 -(void) viewDidLoad
 {
-    
-    openedString = @"Received";
 
     traces = [[NSMutableArray alloc] initWithCapacity:1000];
     
@@ -56,8 +54,6 @@ NSMutableArray *traces;
     [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
     refreshControl.tintColor = [UIColor redColor];
     self.refreshControl = refreshControl;
-    
-    [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:nil];
     
 }
 
@@ -75,6 +71,10 @@ NSMutableArray *traces;
     [tracesTable reloadData];
     
     NSLog(@"in traces view did apear");
+    
+    tracesBadgeString = nil;
+    
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:tracesBadgeString];
     
 }
 
@@ -123,7 +123,7 @@ NSMutableArray *traces;
             
             traces = [[NSMutableArray alloc] initWithArray:objects];
             
-            NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"updatedAt" ascending:NO];
+            NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"lastSentByDateTime" ascending:NO];
             [traces sortUsingDescriptors:[NSArray arrayWithObject:sort]];
             
             //NSLog(@"traces %@",traces);
@@ -174,6 +174,12 @@ NSMutableArray *traces;
     NSString *tmpCurrentUser = [[PFUser currentUser]username];
     NSString *tmpFromUser = [traceObject objectForKey:@"fromUser"];
     NSString *tmpLastSentBy = [traceObject objectForKey:@"lastSentBy"];
+    NSString *tmpOpenedString;
+    
+    //-------------------------------------------------------------------------------
+    // Determine what is displayed on the Title line.  Should always be the "other"
+    // user (i.e. not the Current user.
+    //-------------------------------------------------------------------------------
     
     if ([tmpCurrentUser isEqualToString:tmpFromUser])
     {
@@ -188,25 +194,58 @@ NSMutableArray *traces;
         
     }
     
+    //-------------------------------------------------------------------------------
+    // Determine the status: Opened, sent, or blank (i.e. just the time)
+    // Display the approiate image and set the appropriate text.
+    //-------------------------------------------------------------------------------
+
     deliveredToUser = [traceObject objectForKey:@"deliveredToUser"];
     
     if ([deliveredToUser isEqualToString:@"YES"])
     {
         
-        cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTrace.jpg"];
-        cell.didNotOpenImage.frame = CGRectMake(12, 5, 54, 47);
+        tmpOpenedString = @"- Opened";
+        
+        if ([tmpCurrentUser isEqualToString:tmpLastSentBy])  // Current user sent it
+        {
+            
+            cell.didNotOpenImage.image = [UIImage imageNamed:@"2.png"];
+            
+        }
+        else  // Other user sent it
+        {
+            
+            cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTrace.jpg"];
+            cell.didNotOpenImage.frame = CGRectMake(12, 5, 54, 47);
+            
+        }
         
     }
     else
     {
-        
-        cell.didNotOpenImage.image = [UIImage imageNamed:@"NewTrace.jpg"];
-        cell.didNotOpenImage.frame = CGRectMake(12, 13, 54, 32);
-        
+        if ([tmpCurrentUser isEqualToString:tmpLastSentBy])  // Current user sent it
+        {
+            
+            tmpOpenedString = @"- Sent";
+            cell.didNotOpenImage.image = [UIImage imageNamed:@"1.png"];
+            
+        }
+        else  // Other user sent it
+        {
+            
+            tmpOpenedString = @"";
+            cell.didNotOpenImage.image = [UIImage imageNamed:@"NewTrace.jpg"];
+            cell.didNotOpenImage.frame = CGRectMake(12, 13, 54, 32);
+            
+        }
     }
     
-    //NSDate *updated = [traceObject createdAt];
-    NSDate *updated = [traceObject updatedAt];
+    //-------------------------------------------------------------------------------
+    // Determine the display date. If the Trace happened today, then show only
+    // the time. Otherwise show the entire date.
+    //-------------------------------------------------------------------------------
+
+    NSDate *updated = [traceObject objectForKey:@"lastSentByDateTime"];
     NSDate *currentdate = [NSDate date];
     
     NSDateFormatter *displayTimeFormat = [[NSDateFormatter alloc] init];
@@ -223,6 +262,10 @@ NSMutableArray *traces;
     NSString *screenDate;
     NSString *combined;
     
+    //-------------------------------------------------------------------------------
+    // Set the string to be the full date or just the date & time
+    //-------------------------------------------------------------------------------
+    
     if ([tmpUpdatedDate isEqualToString:todaysDate])
     {
         
@@ -236,16 +279,20 @@ NSMutableArray *traces;
         
     }
     
+    //-------------------------------------------------------------------------------
+    // Show the full date or just the date & time
+    //-------------------------------------------------------------------------------
+
     if ([tmpCurrentUser isEqualToString:tmpLastSentBy])
     {
         
-        combined = [NSString stringWithFormat:@"%@ - Sent %@", screenDate, timerString];
+        combined = [NSString stringWithFormat:@"%@ %@", screenDate, tmpOpenedString];
         
     }
     else
     {
         
-        combined = [NSString stringWithFormat:@"%@ - %@", screenDate, openedString];
+        combined = [NSString stringWithFormat:@"%@ %@", screenDate, tmpOpenedString];
         
     }
     

@@ -56,6 +56,8 @@
 		9C276899181C7C1A0073453E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C276898181C7C1A0073453E /* Accounts.framework */; };
 		9C27689B181C7C660073453E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27689A181C7C660073453E /* SystemConfiguration.framework */; };
 		9C27689D181C7CDE0073453E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27689C181C7CDE0073453E /* AudioToolbox.framework */; };
+		9C595CAF1867A0D700D1B7E8 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C595CAD1867A0D700D1B7E8 /* 1.png */; };
+		9C595CB01867A0D700D1B7E8 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C595CAE1867A0D700D1B7E8 /* 2.png */; };
 		9C69AA9918299DD00032EF24 /* backB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C69AA9818299DD00032EF24 /* backB.png */; };
 		9C782E05182885ED00077FC8 /* eraserB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C782E04182885ED00077FC8 /* eraserB.png */; };
 		9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */; };
@@ -157,6 +159,8 @@
 		9C276898181C7C1A0073453E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		9C27689A181C7C660073453E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9C27689C181C7CDE0073453E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9C595CAD1867A0D700D1B7E8 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		9C595CAE1867A0D700D1B7E8 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		9C69AA9818299DD00032EF24 /* backB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backB.png; sourceTree = "<group>"; };
 		9C782E04182885ED00077FC8 /* eraserB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraserB.png; sourceTree = "<group>"; };
 		9CA1B48C1832CDC700CAFA8E /* FirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstPageViewController.h; path = LeaveATrace/FirstPageViewController.h; sourceTree = "<group>"; };
@@ -374,6 +378,8 @@
 		9C27685E181C771D0073453E /* other */ = {
 			isa = PBXGroup;
 			children = (
+				9C595CAD1867A0D700D1B7E8 /* 1.png */,
+				9C595CAE1867A0D700D1B7E8 /* 2.png */,
 				9CD69C1D1861110A00177EA0 /* NewTrace.jpg */,
 				9CD69C1E1861110A00177EA0 /* OpenedTrace.jpg */,
 				9CD69C13185A9A2000177EA0 /* FBLogin.png */,
@@ -536,6 +542,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CBC5B4C1859619D00725BD5 /* AcceptedIcon.png in Resources */,
+				9C595CAF1867A0D700D1B7E8 /* 1.png in Resources */,
+				9C595CB01867A0D700D1B7E8 /* 2.png in Resources */,
 				9CBC5AFC1856900A00725BD5 /* SignUpButton.png in Resources */,
 				9CF1F934184D3BF700AE3EAC /* colorSlider.png in Resources */,
 				9CD69C1C1860E55E00177EA0 /* 15and50LogoLink.png in Resources */,
@@ -737,7 +745,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Brown (E87A7PXSD4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace,
+					/Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";
@@ -756,7 +764,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Daniel Brown (E87A7PXSD4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace,
+					/Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";
