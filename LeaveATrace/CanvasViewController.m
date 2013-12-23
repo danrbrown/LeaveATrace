@@ -127,35 +127,6 @@ double hue;
 
 //----------------------------------------------------------------------------------
 //
-// Name: motionBegan
-//
-// Purpose:
-//
-//----------------------------------------------------------------------------------
-
--(void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    
-     if (motion == UIEventSubtypeMotionShake)
-     {
-        
-        [UIView beginAnimations:@"suck" context:NULL];
-        [UIView setAnimationTransition:108 forView:mainImage cache:NO];
-        [UIView setAnimationDuration:0.9f];
-        [UIView commitAnimations];
-        
-        self.mainImage.image = nil;
-        
-        NSLog(@"shoke the app...");
-        
-        //DTRB - does not work....
-         
-     }
-    
-}
-
-//----------------------------------------------------------------------------------
-//
 // Name: countRequests
 //
 // Purpose:
@@ -210,7 +181,6 @@ double hue;
     PFQuery *toUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
     
     NSString *tmpCurrentUser = [[PFUser currentUser]username];
-    NSLog(@"tmpCurrentUser --> %@",tmpCurrentUser);
     
     [toUserQuery whereKey:@"toUser" equalTo:tmpCurrentUser];
     [toUserQuery whereKey:@"lastSentBy" notEqualTo:tmpCurrentUser];
@@ -441,8 +411,6 @@ double hue;
     if ([[segue identifier] isEqualToString:@"selectAContact"])
     {
         
-        NSLog(@"selectAContact segue");
-     
         UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
         [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
         SaveImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -585,32 +553,6 @@ double hue;
 
 -(IBAction) send:(id)sender
 {
-    
-    /* ----Start DRB ---------------------------------------
-    // Get the user we want to push the notification to
-    
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:@"danrbrown"];
-    PFUser *user = (PFUser *)[query getFirstObject];
-    
-    // Define a text message
-    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:
-                          @"Someone sent you a trace!", @"alert", nil];
-    
-    // Prepare to send the push notification
-    
-    PFQuery *pushQuery = [PFInstallation query];
-    [pushQuery whereKey:@"user" equalTo:user];
-    
-    // Send push notification to query
-    PFPush *push = [[PFPush alloc] init];
-    [push setQuery:pushQuery]; // Set our installation query
-    [push setData:data];
-    [push sendPushInBackground];
-    
-    NSLog(@"Just saved the installation");
-    // End of the push sequence. Need to clean up later.
-    ----End DRB ---------------------------------------*/
     
     [self performSegueWithIdentifier:@"selectAContact" sender:self];
     

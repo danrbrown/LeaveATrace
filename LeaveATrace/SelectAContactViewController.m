@@ -39,8 +39,6 @@ BOOL clearImage;
 -(void) viewDidLoad
 {
     
-    NSLog(@"in my new table view");
-    
     validContacts = [[NSMutableArray alloc] initWithCapacity:1000];
     
     [self performSelector:@selector(displayValidContacts)];
@@ -75,8 +73,6 @@ BOOL clearImage;
             validContacts = [[NSMutableArray alloc] initWithArray:objects];
             
         }
-        
-        NSLog(@"Valid contacts %@",validContacts);
         
         [validContactsTable reloadData];
         
@@ -149,8 +145,6 @@ BOOL clearImage;
     
     cell.sendToTitle.text = [tempObject objectForKey:@"contact"];
     
-    NSLog(@"contact is: %@",cell.sendToTitle.text);
-    
     return cell;
     
 }
@@ -210,9 +204,7 @@ BOOL clearImage;
      [push setQuery:pushQuery];
      [push setData:data];
      [push sendPushInBackground];
-    
-     NSLog(@"Just saved the installation - push going to %@, object id is %@",pushRecipient, newObjectId);
-    
+
 }
 
 //----------------------------------------------------------------------------------

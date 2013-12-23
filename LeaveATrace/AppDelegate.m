@@ -65,14 +65,10 @@
     [currentInstallation setDeviceTokenFromData:newDeviceToken];
     [currentInstallation saveInBackground];
     
-    NSLog(@"In didRegisterForRemoteNotificationsWithDeviceToken");
-
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
-    NSLog(@"I just got a push notification!");
-
     [PFPush handlePush:userInfo];
     
     //UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;

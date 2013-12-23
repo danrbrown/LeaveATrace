@@ -50,9 +50,6 @@
     brush = 11.0;
     opacity = 1.0;
     
-    NSLog(@"About to load trace in ThreadViewController");
-    NSLog(@"User who sent trace --> %@, objectId --> %@",userWhoSentTrace,traceObjectId);
-
 }
 
 //----------------------------------------------------------------------------------
@@ -74,8 +71,6 @@
         
         if (!error)
         {
-            
-            NSLog(@"The find in getThreadTrace succeeded %lu", (unsigned long)objects.count);
             
             for (PFObject *myImages in objects)
             {
@@ -104,8 +99,6 @@
                     }
                     
                 }];
-                
-                NSLog(@"%@",myImages.objectId);
                 
             }
             
@@ -310,12 +303,6 @@
 -(void) uploadThreadTrace
 {
     
-    NSLog(@"in uploadThreadTrace");
-    
-    NSString *userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
-    
-    NSLog(@"user who sent trace in upload --> %@",userWhoSentTrace);
-    
     UIGraphicsBeginImageContextWithOptions(mainThreadImage.bounds.size, NO, 0.0);
     [mainThreadImage.image drawInRect:CGRectMake(0, 0, mainThreadImage.frame.size.width, mainThreadImage.frame.size.height)];
     
@@ -379,8 +366,6 @@
     }
     progressBlock:^(int percentDone)
     {
-        
-        NSLog(@"Uploaded return trace: %d %%", percentDone);
         
         if (sendingProg.progress < 100)
         {

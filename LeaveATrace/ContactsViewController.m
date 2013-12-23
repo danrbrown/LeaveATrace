@@ -70,16 +70,11 @@
         
         if (!error)
         {
-            NSLog(@"The find succeeded!");
-            
-            items = [[NSMutableArray alloc] initWithArray:objects];
 
-            NSLog(@"contacts before sort %@",items);
+            items = [[NSMutableArray alloc] initWithArray:objects];
             
             NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"contact" ascending:YES selector:@selector(caseInsensitiveCompare:)];
             [items sortUsingDescriptors:[NSArray arrayWithObject:sort1]];
-            
-            NSLog(@"contacts after sort %@",items);
             
         }
         else

@@ -70,8 +70,6 @@ NSMutableArray *traces;
     
     [tracesTable reloadData];
     
-    NSLog(@"in traces view did apear");
-    
     tracesBadgeString = nil;
     
     [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:tracesBadgeString];
@@ -125,8 +123,6 @@ NSMutableArray *traces;
             
             NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"lastSentByDateTime" ascending:NO];
             [traces sortUsingDescriptors:[NSArray arrayWithObject:sort]];
-            
-            //NSLog(@"traces %@",traces);
             
         }
         

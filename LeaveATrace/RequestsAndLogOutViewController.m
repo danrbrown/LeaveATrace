@@ -42,8 +42,6 @@
     [traceDefaults setObject:@"" forKey:@"password"];
     [traceDefaults synchronize];
     
-    NSLog(@"zero'd out the defaults");
-    
     [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
     
     requests = [[NSMutableArray alloc] initWithCapacity:1000];
@@ -120,13 +118,9 @@
     
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
     
-    NSLog(@"cell tapped on %li ", (long)indexPath.row);
-    
     PFObject *tempObject = [requests objectAtIndex:indexPath.row];
     
     NSString *name = [tempObject objectForKey:@"username"];
-    
-    NSLog(@"Name on row --> %@", name);
     
     // Insert the new row for the new friend relationship
     
@@ -163,7 +157,6 @@
         if (!error)
         {
             
-            NSLog(@"The Other Row succeeded!");
             [objects setObject:@"YES" forKey:@"userAccepted"];
             [objects saveInBackground];
             
@@ -223,8 +216,6 @@
     [traceDefaults setObject:@"" forKey:@"password"];
     [traceDefaults synchronize];
     
-    NSLog(@"In logOut method: zero'd out the defaults");
-    
     [traceDefaults setObject:@"" forKey:@"username"];
     [traceDefaults setObject:@"" forKey:@"password"];
     [traceDefaults synchronize];
@@ -283,9 +274,7 @@
     PFObject *tempObject = [requests objectAtIndex:indexPath.row];
     
     cell.cellTitle.text = [tempObject objectForKey:@"username"];
-    
-    NSLog(@"%@",cell.cellTitle.text);
-    
+        
     return cell;
     
 }

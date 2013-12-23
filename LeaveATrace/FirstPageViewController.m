@@ -34,11 +34,6 @@
 -(void) logInUsingDefaults:(NSString *)parseUserDef parsePasswordDef:(NSString *)parsePasswordDef
 {
     
-    NSLog(@"username from defaults --> %@",parseUserDef);
-    NSLog(@"password from defaults --> %@",parsePasswordDef);
-
-//    [PFUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passWordTextField.text block:^(PFUser *user, NSError *error) {
-   
     [PFUser logInWithUsernameInBackground:parseUserDef password:parsePasswordDef block:^(PFUser *user, NSError *error) {
         
         if (user)
@@ -95,13 +90,9 @@
         
     NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
     NSString *tmpUsername = [traceDefaults objectForKey:@"username"];
-    //NSString *tmpPassword = [traceDefaults objectForKey:@"password"];
-    NSLog(@"username from defaults --> %@",tmpUsername);
     
     if ([tmpUsername length] != 0)
     {
-        
-        NSLog(@"Log in with user defaults");
         
         //[self logInUsingDefaults:tmpUsername parsePasswordDef:tmpPassword]; DB
         
