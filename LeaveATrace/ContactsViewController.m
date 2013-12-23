@@ -319,7 +319,7 @@
         UINavigationController *navigationController = segue.destinationViewController;
         AddItemViewController *controller = (AddItemViewController *)navigationController.topViewController;
         controller.delegate = self;
-        
+        controller.stuff = items;
     }
     
 }

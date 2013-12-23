@@ -13,9 +13,9 @@
  
 @protocol AddItemViewControllerDelegate <NSObject>
  
-- (void)addItemViewControllerDidCancel:(AddItemViewController *)controller;
+-(void) addItemViewControllerDidCancel:(AddItemViewController *)controller;
  
-- (void)addItemViewController:(AddItemViewController *)controller didFinishAddingItem:(LeaveATraceItem *)item;
+-(void) addItemViewController:(AddItemViewController *)controller didFinishAddingItem:(LeaveATraceItem *)item;
  
 @end
 
@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
 @property (nonatomic, weak) id <AddItemViewControllerDelegate> delegate;
+@property (nonatomic, weak) NSMutableArray *stuff;
 
 //Actions
 -(IBAction) cancel;

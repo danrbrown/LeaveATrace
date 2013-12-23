@@ -23,9 +23,9 @@
 
 @end
 
-@implementation AddItemViewController 
+@implementation AddItemViewController
 
-@synthesize textField, doneBarButton, delegate;
+@synthesize textField, doneBarButton, delegate, stuff;
 
 //----------------------------------------------------------------------------------
 //
@@ -91,57 +91,124 @@
 -(IBAction) done
 {
     
+    BOOL isDuplicate = NO;
+    
     LeaveATraceItem *item = [[LeaveATraceItem alloc] init];
     item.text = self.textField.text;
-    item.userAccepted = @"NO";
     
-    PFQuery *query= [PFUser query];
-    [query whereKey:@"username" equalTo:item.text];
+    //---------------------------------------------------------
+    //Check to see if the user is trying to insert him/herself
+    //---------------------------------------------------------
     
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+    NSString *tmpCurrentUser = [[PFUser currentUser]username];
+    if ([tmpCurrentUser isEqualToString:item.text])
+    {
         
-        if (!error)
+        NSString *errorString = @"Can't add yourself as a contact Jackass";
+        
+        UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:errorString message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        
+        [errorAlertView show];
+        
+    }
+    else
+    {
+        //---------------------------------------------------------
+        // See if the contact is already in our array.
+        // Thanks to co-founder 15 for figuring this out.
+        //---------------------------------------------------------
+        
+        NSUInteger contactIndex;
+        PFObject *tmpObject;
+        NSString *tmpContact;
+        
+        for (contactIndex = 0; contactIndex < stuff.count; contactIndex++)
         {
-
-            PFObject *userContact = [PFObject objectWithClassName:@"UserContact"];
-            [userContact setObject:[PFUser currentUser].username forKey:@"username"];
-            [userContact setObject:item.text forKey:@"contact"];
-            [userContact setObject:@"NO" forKey:@"userAccepted"];
-    
-            [userContact saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        
-                if (succeeded)
-                {
             
-                    [self.delegate addItemViewController:self didFinishAddingItem:item];
+            tmpObject = [stuff objectAtIndex:contactIndex];
             
-                }
-                else
-                {
+            tmpContact = [tmpObject objectForKey:@"contact"];
             
-                    NSString *errorString = [[error userInfo] objectForKey:@"error"];
-                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:  errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                    
-                    [errorAlertView show];
-            
-                }
-                
-            }];
+            if ([tmpContact isEqualToString:item.text])
+            {
+                isDuplicate = YES;
+                break;
+            }
             
         }
-        else
+
+        if (isDuplicate)
         {
             
-            NSString *errorString = @"User not found";
+            NSString *errorString = @"Contact is already in the list";
             
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:errorString message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             
             [errorAlertView show];
             
         }
+        else
+        {
         
-    }];
+            //---------------------------------------------------------
+            // Query to see if the person they're adding is a valid
+            // LeaveATrace user.
+            //---------------------------------------------------------
+
+            item.userAccepted = @"NO";
     
+            PFQuery *query= [PFUser query];
+            [query whereKey:@"username" equalTo:item.text];
+    
+            [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        
+                if (!error)
+                {
+                
+                    //---------------------------------------------------------
+                    // If they're valid, then add to database.
+                    //---------------------------------------------------------
+
+                    PFObject *userContact = [PFObject objectWithClassName:@"UserContact"];
+                    [userContact setObject:[PFUser currentUser].username forKey:@"username"];
+                    [userContact setObject:item.text forKey:@"contact"];
+                    [userContact setObject:@"NO" forKey:@"userAccepted"];
+    
+                    [userContact saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+                        if (succeeded)
+                        {
+            
+                            [self.delegate addItemViewController:self didFinishAddingItem:item];
+            
+                        }
+                        else
+                        {
+            
+                            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:  errorString delegate:nil cancelButtonTitle:@"Ok"    otherButtonTitles:nil, nil];
+                    
+                            [errorAlertView show];
+                        
+                        }
+                
+                    }];
+            
+                }
+                else
+                {
+            
+                    NSString *errorString = @"User not found";
+            
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:errorString message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            
+                    [errorAlertView show];
+            
+                }
+        
+            }];
+        }
+    }
 }
 
 //----------------------------------------------------------------------------------
