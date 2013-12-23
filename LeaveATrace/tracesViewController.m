@@ -209,14 +209,15 @@ NSMutableArray *traces;
         if ([tmpCurrentUser isEqualToString:tmpLastSentBy])  // Current user sent it
         {
             
-            cell.didNotOpenImage.image = [UIImage imageNamed:@"2.png"];
+            cell.didNotOpenImage.image = [UIImage imageNamed:@"SentTrace.png"];
+            cell.didNotOpenImage.frame = CGRectMake(20, 14, 47, 29);
             
         }
         else  // Other user sent it
         {
             
-            cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTrace.jpg"];
-            cell.didNotOpenImage.frame = CGRectMake(12, 5, 54, 47);
+            cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTrace.png"];
+            cell.didNotOpenImage.frame = CGRectMake(19, 8, 50, 42);
             
         }
         
@@ -227,15 +228,16 @@ NSMutableArray *traces;
         {
             
             tmpOpenedString = @"- Sent";
-            cell.didNotOpenImage.image = [UIImage imageNamed:@"1.png"];
+            cell.didNotOpenImage.image = [UIImage imageNamed:@"SentNotOpened.png"];
+            cell.didNotOpenImage.frame = CGRectMake(20, 14, 47, 29);
             
         }
         else  // Other user sent it
         {
             
             tmpOpenedString = @"";
-            cell.didNotOpenImage.image = [UIImage imageNamed:@"NewTrace.jpg"];
-            cell.didNotOpenImage.frame = CGRectMake(12, 13, 54, 32);
+            cell.didNotOpenImage.image = [UIImage imageNamed:@"NewTrace.png"];
+            cell.didNotOpenImage.frame = CGRectMake(20, 14, 47, 29);
             
         }
     }
