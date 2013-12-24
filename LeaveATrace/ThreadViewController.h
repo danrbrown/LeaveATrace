@@ -28,6 +28,7 @@
     IBOutlet UIButton *saveB;
     IBOutlet UIButton *sendB;
     IBOutlet UIProgressView *sendingProg;
+    IBOutlet UILabel *otherUser;
     
 }
 
@@ -45,6 +46,7 @@
 @property IBOutlet UISlider *colorValue;
 
 //Actions for the View
+-(IBAction) close:(id)sender;
 -(IBAction) eraser:(id)sender;
 -(IBAction) undo:(id)sender;
 -(IBAction) clear:(id)sender;

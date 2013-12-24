@@ -37,7 +37,7 @@
 -(void) viewDidLoad
 {
     
-    items = [[NSMutableArray alloc] initWithCapacity:1000];
+    items = [[NSMutableArray alloc] initWithCapacity:100];
     
     [self displayContacts];
     

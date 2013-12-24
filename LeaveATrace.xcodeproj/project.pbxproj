@@ -61,6 +61,7 @@
 		9C595CBA1867DE3600D1B7E8 /* SentTrace.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C595CB91867DE3600D1B7E8 /* SentTrace.png */; };
 		9C595CBC1867E04700D1B7E8 /* SentNotOpened.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C595CBB1867E04700D1B7E8 /* SentNotOpened.png */; };
 		9C69AA9918299DD00032EF24 /* backB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C69AA9818299DD00032EF24 /* backB.png */; };
+		9C7547201868DC1500AED9EB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75471F1868DC1500AED9EB /* SettingsViewController.m */; };
 		9C782E05182885ED00077FC8 /* eraserB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C782E04182885ED00077FC8 /* eraserB.png */; };
 		9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */; };
 		9CAC90E518413D45007CC2CD /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E418413D45007CC2CD /* RequestCell.m */; };
@@ -162,6 +163,8 @@
 		9C595CB91867DE3600D1B7E8 /* SentTrace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SentTrace.png; sourceTree = "<group>"; };
 		9C595CBB1867E04700D1B7E8 /* SentNotOpened.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SentNotOpened.png; sourceTree = "<group>"; };
 		9C69AA9818299DD00032EF24 /* backB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backB.png; sourceTree = "<group>"; };
+		9C75471E1868DC1500AED9EB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		9C75471F1868DC1500AED9EB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		9C782E04182885ED00077FC8 /* eraserB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraserB.png; sourceTree = "<group>"; };
 		9CA1B48C1832CDC700CAFA8E /* FirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstPageViewController.h; path = LeaveATrace/FirstPageViewController.h; sourceTree = "<group>"; };
 		9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstPageViewController.m; path = LeaveATrace/FirstPageViewController.m; sourceTree = "<group>"; };
@@ -292,6 +295,8 @@
 				9C27681C181C75B10073453E /* Main.storyboard */,
 				9C27681F181C75B10073453E /* ViewController.h */,
 				9C276820181C75B10073453E /* ViewController.m */,
+				9C75471E1868DC1500AED9EB /* SettingsViewController.h */,
+				9C75471F1868DC1500AED9EB /* SettingsViewController.m */,
 				9CD69C171860E36C00177EA0 /* Images.xcassets */,
 				9C276811181C75B10073453E /* Supporting Files */,
 			);
@@ -597,6 +602,7 @@
 				9C27684E181C76B10073453E /* LoginViewController.m in Sources */,
 				9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */,
 				A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */,
+				9C7547201868DC1500AED9EB /* SettingsViewController.m in Sources */,
 				9CAC90E518413D45007CC2CD /* RequestCell.m in Sources */,
 				9C27681B181C75B10073453E /* AppDelegate.m in Sources */,
 				9CB59BB11844F94C006AB105 /* SelectAContactViewController.m in Sources */,

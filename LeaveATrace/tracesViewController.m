@@ -46,7 +46,7 @@ NSMutableArray *traces;
 -(void) viewDidLoad
 {
 
-    traces = [[NSMutableArray alloc] initWithCapacity:1000];
+    traces = [[NSMutableArray alloc] initWithCapacity:100];
     
     [self performSelector:@selector(displayTraces)];
     

@@ -44,7 +44,7 @@
     
     [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
     
-    requests = [[NSMutableArray alloc] initWithCapacity:1000];
+    requests = [[NSMutableArray alloc] initWithCapacity:100];
     [self performSelector:@selector(displayRequests)];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];

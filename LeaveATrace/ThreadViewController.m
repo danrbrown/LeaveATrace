@@ -38,7 +38,7 @@
     
     NSString *userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
     
-    self.title = userWhoSentTrace;
+    otherUser.text = userWhoSentTrace;
  
     sendingProg.hidden = YES;
     
@@ -404,6 +404,13 @@
     green = 255.0/255.0;
     blue = 255.0/255.0;
     opacity = 1.0;
+    
+}
+
+-(IBAction) close:(id)sender
+{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 

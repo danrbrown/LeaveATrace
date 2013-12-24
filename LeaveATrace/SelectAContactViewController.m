@@ -39,7 +39,7 @@ BOOL clearImage;
 -(void) viewDidLoad
 {
     
-    validContacts = [[NSMutableArray alloc] initWithCapacity:1000];
+    validContacts = [[NSMutableArray alloc] initWithCapacity:100];
     
     [self performSelector:@selector(displayValidContacts)];
     
