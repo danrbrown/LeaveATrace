@@ -27,12 +27,6 @@
 		9C27684E181C76B10073453E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C276847181C76B00073453E /* LoginViewController.m */; };
 		9C27684F181C76B10073453E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C276849181C76B00073453E /* SignUpViewController.m */; };
 		9C276850181C76B10073453E /* RequestsAndLogOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C27684B181C76B00073453E /* RequestsAndLogOutViewController.m */; };
-		9C276869181C771D0073453E /* CCBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C276858181C771D0073453E /* CCBlack.png */; };
-		9C27686A181C771D0073453E /* CCBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C276859181C771D0073453E /* CCBlue.png */; };
-		9C27686B181C771D0073453E /* CCGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C27685A181C771D0073453E /* CCGreen.png */; };
-		9C27686C181C771D0073453E /* CCOrange.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C27685B181C771D0073453E /* CCOrange.png */; };
-		9C27686D181C771D0073453E /* CCRed.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C27685C181C771D0073453E /* CCRed.png */; };
-		9C27686E181C771D0073453E /* CCYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C27685D181C771D0073453E /* CCYellow.png */; };
 		9C27686F181C771D0073453E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C27685F181C771D0073453E /* Default-568h@2x.png */; };
 		9C276871181C771D0073453E /* iconsberlin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C276861181C771D0073453E /* iconsberlin@2x.png */; };
 		9C276872181C771D0073453E /* iconsberlin@2x3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C276862181C771D0073453E /* iconsberlin@2x3.png */; };
@@ -75,7 +69,6 @@
 		9CD69C181860E36C00177EA0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CD69C171860E36C00177EA0 /* Images.xcassets */; };
 		9CD69C1C1860E55E00177EA0 /* 15and50LogoLink.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CD69C1B1860E55E00177EA0 /* 15and50LogoLink.png */; };
 		9CF1F932184BE89F00AE3EAC /* traceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F931184BE89F00AE3EAC /* traceCell.m */; };
-		9CF1F934184D3BF700AE3EAC /* colorSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F933184D3BF700AE3EAC /* colorSlider.png */; };
 		9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F93D18515D4600AE3EAC /* Alph.plist */; };
 		A508D48F184A2EFC004005AD /* iconsberlin@2x copy.png in Resources */ = {isa = PBXBuildFile; fileRef = A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */; };
 		A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555C8D91846D53B00C012ED /* ThreadViewController.m */; };
@@ -123,12 +116,6 @@
 		9C276849181C76B00073453E /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = LeaveATrace/SignUpViewController.m; sourceTree = "<group>"; };
 		9C27684A181C76B00073453E /* RequestsAndLogOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestsAndLogOutViewController.h; path = LeaveATrace/RequestsAndLogOutViewController.h; sourceTree = "<group>"; };
 		9C27684B181C76B00073453E /* RequestsAndLogOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestsAndLogOutViewController.m; path = LeaveATrace/RequestsAndLogOutViewController.m; sourceTree = "<group>"; };
-		9C276858181C771D0073453E /* CCBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CCBlack.png; sourceTree = "<group>"; };
-		9C276859181C771D0073453E /* CCBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CCBlue.png; sourceTree = "<group>"; };
-		9C27685A181C771D0073453E /* CCGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CCGreen.png; sourceTree = "<group>"; };
-		9C27685B181C771D0073453E /* CCOrange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CCOrange.png; sourceTree = "<group>"; };
-		9C27685C181C771D0073453E /* CCRed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CCRed.png; sourceTree = "<group>"; };
-		9C27685D181C771D0073453E /* CCYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CCYellow.png; sourceTree = "<group>"; };
 		9C27685F181C771D0073453E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9C276861181C771D0073453E /* iconsberlin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x.png"; sourceTree = "<group>"; };
 		9C276862181C771D0073453E /* iconsberlin@2x3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x3.png"; sourceTree = "<group>"; };
@@ -181,7 +168,6 @@
 		9CD69C1B1860E55E00177EA0 /* 15and50LogoLink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15and50LogoLink.png; sourceTree = "<group>"; };
 		9CF1F930184BE89F00AE3EAC /* traceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = traceCell.h; path = LeaveATrace/traceCell.h; sourceTree = "<group>"; };
 		9CF1F931184BE89F00AE3EAC /* traceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = traceCell.m; path = LeaveATrace/traceCell.m; sourceTree = "<group>"; };
-		9CF1F933184D3BF700AE3EAC /* colorSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorSlider.png; sourceTree = "<group>"; };
 		9CF1F93D18515D4600AE3EAC /* Alph.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Alph.plist; sourceTree = "<group>"; };
 		A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x copy.png"; sourceTree = "<group>"; };
 		A555C8D81846D53B00C012ED /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreadViewController.h; path = LeaveATrace/ThreadViewController.h; sourceTree = "<group>"; };
@@ -331,7 +317,6 @@
 			isa = PBXGroup;
 			children = (
 				9C276852181C771D0073453E /* buttons */,
-				9C276857181C771D0073453E /* colors */,
 				9C27685E181C771D0073453E /* other */,
 			);
 			path = images;
@@ -351,20 +336,6 @@
 				9C0818381869524E006E9DFD /* TrashButton.png */,
 			);
 			path = buttons;
-			sourceTree = "<group>";
-		};
-		9C276857181C771D0073453E /* colors */ = {
-			isa = PBXGroup;
-			children = (
-				9CF1F933184D3BF700AE3EAC /* colorSlider.png */,
-				9C276858181C771D0073453E /* CCBlack.png */,
-				9C276859181C771D0073453E /* CCBlue.png */,
-				9C27685A181C771D0073453E /* CCGreen.png */,
-				9C27685B181C771D0073453E /* CCOrange.png */,
-				9C27685C181C771D0073453E /* CCRed.png */,
-				9C27685D181C771D0073453E /* CCYellow.png */,
-			);
-			path = colors;
 			sourceTree = "<group>";
 		};
 		9C27685E181C771D0073453E /* other */ = {
@@ -533,15 +504,12 @@
 			files = (
 				9CBC5B4C1859619D00725BD5 /* AcceptedIcon.png in Resources */,
 				9CBC5AFC1856900A00725BD5 /* SignUpButton.png in Resources */,
-				9CF1F934184D3BF700AE3EAC /* colorSlider.png in Resources */,
 				9CD69C1C1860E55E00177EA0 /* 15and50LogoLink.png in Resources */,
 				9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */,
 				9CD69C181860E36C00177EA0 /* Images.xcassets in Resources */,
-				9C276869181C771D0073453E /* CCBlack.png in Resources */,
 				9CD69C0F185A951200177EA0 /* FBUserSettingsViewResources.bundle in Resources */,
 				9C595CBA1867DE3600D1B7E8 /* SentTrace.png in Resources */,
 				9C595CBC1867E04700D1B7E8 /* SentNotOpened.png in Resources */,
-				9C27686A181C771D0073453E /* CCBlue.png in Resources */,
 				9CBC5B49185931B600725BD5 /* SaveButton.png in Resources */,
 				9C0818391869524E006E9DFD /* TrashButton.png in Resources */,
 				9C276872181C771D0073453E /* iconsberlin@2x3.png in Resources */,
@@ -555,11 +523,7 @@
 				9CBC5B4D1859619D00725BD5 /* DeclineIcon.png in Resources */,
 				9C782E05182885ED00077FC8 /* eraserB.png in Resources */,
 				9C595CB61867B66500D1B7E8 /* NewTrace.png in Resources */,
-				9C27686C181C771D0073453E /* CCOrange.png in Resources */,
-				9C27686E181C771D0073453E /* CCYellow.png in Resources */,
 				A508D48F184A2EFC004005AD /* iconsberlin@2x copy.png in Resources */,
-				9C27686B181C771D0073453E /* CCGreen.png in Resources */,
-				9C27686D181C771D0073453E /* CCRed.png in Resources */,
 				9C27681E181C75B10073453E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
