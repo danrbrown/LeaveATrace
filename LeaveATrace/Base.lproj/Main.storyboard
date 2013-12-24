@@ -218,7 +218,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nhl-67-LS2">
-                                <rect key="frame" x="246" y="473" width="64" height="40"/>
+                                <rect key="frame" x="246" y="471" width="64" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" image="SentTrace.png">
@@ -439,6 +439,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="RuF-KD-iC2" kind="modal" identifier="LogOutSuccesful" modalTransitionStyle="flipHorizontal" id="MPc-CD-CeS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -1054,6 +1057,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="UCm-eX-8Dj"/>
-        <segue reference="vZm-Ey-PdG"/>
+        <segue reference="MPc-CD-CeS"/>
     </inferredMetricsTieBreakers>
 </document>

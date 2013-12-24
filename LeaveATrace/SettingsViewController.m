@@ -18,62 +18,6 @@
 - (void)viewDidLoad
 {
     
-    
-}
-
--(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-    return 3;
-    
-}
-
--(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
-{
-    
-    return 1;
-
-}
-
--(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    
-    NSString *sectionName;
-    
-    if (section == 0)
-    {
-        
-        sectionName = @"Account";
-        
-    }
-    
-    return sectionName;
-    
-}
-
-//- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    
-//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 3, tableView.bounds.size.width - 10, 18)];
-//    label.text = @"Section Header Text Here";
-//    label.textColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.75];
-//    label.backgroundColor = [UIColor clearColor];
-//    return label;
-//    
-//}
-
--(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    return nil;
-    
-}
-
--(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingsItem"];
-    
     NSString *usernameString = [[PFUser currentUser] username];
     NSString *emailString = [[PFUser currentUser] email];
     NSDate *createdAt = [[PFUser currentUser] createdAt];
@@ -82,28 +26,120 @@
     [displayDayAndTimeFormat setDateFormat:@"MMM dd, YYYY h:mm a"];
     NSString *createdAtString = [NSString stringWithFormat:@"%@", [displayDayAndTimeFormat stringFromDate:createdAt]];
     
-    if (indexPath.row == 0)
+    self.acountInfo = [@[@"Username", @"Email", @"Leave A Trace user since"] mutableCopy];
+    self.acountInfoDetail = [@[usernameString, emailString, createdAtString] mutableCopy];
+    
+    self.actions = [@[@"Log Out"] mutableCopy];
+    
+}
+
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    if (section == 0)
     {
-        
-        cell.textLabel.text = @"Username";
-        cell.detailTextLabel.text = usernameString;
-        
+    
+        return self.acountInfo.count;
+    
     }
-    else if (indexPath.row == 1)
+    else
     {
-        
-        cell.textLabel.text = @"Email";
-        cell.detailTextLabel.text = emailString;
-        
+    
+        return self.actions.count;
+    
     }
-    else if (indexPath.row == 2)
+    
+}
+
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    return 2;
+
+}
+
+-(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    
+    if (section == 0)
     {
         
-        cell.textLabel.text = @"Leave A Trace user since...";
-        cell.detailTextLabel.text = createdAtString;
+        return @"Acount";
+    
+    }
+    else
+    {
+    
+        return @"Actions";
+    
+    }
+    
+}
+
+-(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (indexPath.section == 1 && indexPath.row == 0)
+    {
+        
+        UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"Do you really want to log out?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        
+        [errorAlertView show];
         
     }
 
+    return nil;
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+ 
+    if (buttonIndex == 1)
+    {
+        
+        NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
+        
+        [traceDefaults setObject:@"" forKey:@"username"];
+        [traceDefaults setObject:@"" forKey:@"password"];
+        [traceDefaults synchronize];
+        
+        [traceDefaults setObject:@"" forKey:@"username"];
+        [traceDefaults setObject:@"" forKey:@"password"];
+        [traceDefaults synchronize];
+        
+        [PFUser logOut];
+        
+        [self performSegueWithIdentifier:@"LogOutSuccesful" sender:self];
+        
+    }
+    
+}
+
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"settingsItem"];
+    
+    NSString *text;
+    NSString *detail;
+    
+    if (indexPath.section == 0)
+    {
+        
+        text = self.acountInfo[indexPath.row];
+        detail = self.acountInfoDetail[indexPath.row];
+    
+    }
+    else
+    {
+    
+        text = self.actions[indexPath.row];
+    
+    }
+    
+    cell.textLabel.text = text;
+    cell.detailTextLabel.text = detail;
 
     return cell;
 

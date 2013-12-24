@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UITableViewController {
-    
+@interface SettingsViewController : UITableViewController <UIAlertViewDelegate>
 
-    
-}
+@property (copy) NSMutableArray *acountInfo;
+@property (copy) NSMutableArray *acountInfoDetail;
+@property (copy) NSMutableArray *actions;
 
 @end
