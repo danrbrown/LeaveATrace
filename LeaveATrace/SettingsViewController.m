@@ -51,16 +51,16 @@
     
 }
 
-- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 3, tableView.bounds.size.width - 10, 18)];
-    label.text = @"Section Header Text Here";
-    label.textColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.75];
-    label.backgroundColor = [UIColor clearColor];
-    return label;
-    
-}
+//- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 3, tableView.bounds.size.width - 10, 18)];
+//    label.text = @"Section Header Text Here";
+//    label.textColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.75];
+//    label.backgroundColor = [UIColor clearColor];
+//    return label;
+//    
+//}
 
 -(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

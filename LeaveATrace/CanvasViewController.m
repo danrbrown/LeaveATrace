@@ -477,35 +477,13 @@ double hue;
 -(IBAction) save:(id)sender
 {
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Save to Camera Roll", @"Cancel", nil];
+    [loading startAnimating];
     
-    [actionSheet showInView:self.view];
-    
-}
-
-//----------------------------------------------------------------------------------
-//
-// Name: actionSheet
-//
-// Purpose:
-//
-//----------------------------------------------------------------------------------
-
--(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    
-    if(buttonIndex == 0)
-    {
-        
-        [loading startAnimating];
-        
-        UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
-        [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
-        UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        UIImageWriteToSavedPhotosAlbum(SaveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
-        
-    }
+    UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
+    [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
+    UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    UIImageWriteToSavedPhotosAlbum(SaveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
     
 }
 
@@ -525,7 +503,7 @@ double hue;
         
         [loading stopAnimating];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Image could not be saved. Please try again"  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh-oh" message:@"Image could not be saved. Please try again"  delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
         
         [alert show];
         
@@ -535,7 +513,7 @@ double hue;
         
         [loading stopAnimating];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Image was successfully saved in photoalbum"  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Nice drawing! Image was saved."  delegate:nil cancelButtonTitle:@"Yay" otherButtonTitles:nil];
         
         [alert show];
         

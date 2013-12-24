@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C0818391869524E006E9DFD /* TrashButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0818381869524E006E9DFD /* TrashButton.png */; };
 		9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16751C181DA1B50024EE93 /* tracesViewController.m */; };
 		9C27680B181C75B10073453E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680A181C75B10073453E /* Foundation.framework */; };
 		9C27680D181C75B10073453E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680C181C75B10073453E /* CoreGraphics.framework */; };
@@ -26,10 +27,6 @@
 		9C27684E181C76B10073453E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C276847181C76B00073453E /* LoginViewController.m */; };
 		9C27684F181C76B10073453E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C276849181C76B00073453E /* SignUpViewController.m */; };
 		9C276850181C76B10073453E /* RequestsAndLogOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C27684B181C76B00073453E /* RequestsAndLogOutViewController.m */; };
-		9C276865181C771D0073453E /* colorsB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C276853181C771D0073453E /* colorsB.png */; };
-		9C276866181C771D0073453E /* SaveB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C276854181C771D0073453E /* SaveB.png */; };
-		9C276867181C771D0073453E /* sendingB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C276855181C771D0073453E /* sendingB.png */; };
-		9C276868181C771D0073453E /* TrashITB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C276856181C771D0073453E /* TrashITB.png */; };
 		9C276869181C771D0073453E /* CCBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C276858181C771D0073453E /* CCBlack.png */; };
 		9C27686A181C771D0073453E /* CCBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C276859181C771D0073453E /* CCBlue.png */; };
 		9C27686B181C771D0073453E /* CCGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C27685A181C771D0073453E /* CCGreen.png */; };
@@ -95,6 +92,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C0818381869524E006E9DFD /* TrashButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrashButton.png; sourceTree = "<group>"; };
 		9C16751B181DA1B50024EE93 /* tracesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tracesViewController.h; path = LeaveATrace/tracesViewController.h; sourceTree = "<group>"; };
 		9C16751C181DA1B50024EE93 /* tracesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = tracesViewController.m; path = LeaveATrace/tracesViewController.m; sourceTree = "<group>"; };
 		9C276807181C75B10073453E /* LeaveATrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeaveATrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,10 +123,6 @@
 		9C276849181C76B00073453E /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = LeaveATrace/SignUpViewController.m; sourceTree = "<group>"; };
 		9C27684A181C76B00073453E /* RequestsAndLogOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestsAndLogOutViewController.h; path = LeaveATrace/RequestsAndLogOutViewController.h; sourceTree = "<group>"; };
 		9C27684B181C76B00073453E /* RequestsAndLogOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestsAndLogOutViewController.m; path = LeaveATrace/RequestsAndLogOutViewController.m; sourceTree = "<group>"; };
-		9C276853181C771D0073453E /* colorsB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorsB.png; sourceTree = "<group>"; };
-		9C276854181C771D0073453E /* SaveB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SaveB.png; sourceTree = "<group>"; };
-		9C276855181C771D0073453E /* sendingB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sendingB.png; sourceTree = "<group>"; };
-		9C276856181C771D0073453E /* TrashITB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrashITB.png; sourceTree = "<group>"; };
 		9C276858181C771D0073453E /* CCBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CCBlack.png; sourceTree = "<group>"; };
 		9C276859181C771D0073453E /* CCBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CCBlue.png; sourceTree = "<group>"; };
 		9C27685A181C771D0073453E /* CCGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CCGreen.png; sourceTree = "<group>"; };
@@ -354,10 +348,7 @@
 				9CBC5B4B1859619D00725BD5 /* DeclineIcon.png */,
 				9C69AA9818299DD00032EF24 /* backB.png */,
 				9C782E04182885ED00077FC8 /* eraserB.png */,
-				9C276853181C771D0073453E /* colorsB.png */,
-				9C276854181C771D0073453E /* SaveB.png */,
-				9C276855181C771D0073453E /* sendingB.png */,
-				9C276856181C771D0073453E /* TrashITB.png */,
+				9C0818381869524E006E9DFD /* TrashButton.png */,
 			);
 			path = buttons;
 			sourceTree = "<group>";
@@ -545,7 +536,6 @@
 				9CF1F934184D3BF700AE3EAC /* colorSlider.png in Resources */,
 				9CD69C1C1860E55E00177EA0 /* 15and50LogoLink.png in Resources */,
 				9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */,
-				9C276866181C771D0073453E /* SaveB.png in Resources */,
 				9CD69C181860E36C00177EA0 /* Images.xcassets in Resources */,
 				9C276869181C771D0073453E /* CCBlack.png in Resources */,
 				9CD69C0F185A951200177EA0 /* FBUserSettingsViewResources.bundle in Resources */,
@@ -553,7 +543,7 @@
 				9C595CBC1867E04700D1B7E8 /* SentNotOpened.png in Resources */,
 				9C27686A181C771D0073453E /* CCBlue.png in Resources */,
 				9CBC5B49185931B600725BD5 /* SaveButton.png in Resources */,
-				9C276868181C771D0073453E /* TrashITB.png in Resources */,
+				9C0818391869524E006E9DFD /* TrashButton.png in Resources */,
 				9C276872181C771D0073453E /* iconsberlin@2x3.png in Resources */,
 				9C27686F181C771D0073453E /* Default-568h@2x.png in Resources */,
 				9C276871181C771D0073453E /* iconsberlin@2x.png in Resources */,
@@ -561,7 +551,6 @@
 				9CBC5B041857FCA000725BD5 /* LeaveATraceIcon.png in Resources */,
 				9C595CB41867B65B00D1B7E8 /* OpenedTrace.png in Resources */,
 				9CBC5AFA1856899B00725BD5 /* LoginButton.png in Resources */,
-				9C276865181C771D0073453E /* colorsB.png in Resources */,
 				9C69AA9918299DD00032EF24 /* backB.png in Resources */,
 				9CBC5B4D1859619D00725BD5 /* DeclineIcon.png in Resources */,
 				9C782E05182885ED00077FC8 /* eraserB.png in Resources */,
@@ -572,7 +561,6 @@
 				9C27686B181C771D0073453E /* CCGreen.png in Resources */,
 				9C27686D181C771D0073453E /* CCRed.png in Resources */,
 				9C27681E181C75B10073453E /* Main.storyboard in Resources */,
-				9C276867181C771D0073453E /* sendingB.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

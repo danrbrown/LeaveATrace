@@ -36,7 +36,7 @@
 -(void) viewDidLoad
 {
     
-    NSString *userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
+    NSString *userWhoSentTrace = [traceObject objectForKey:@"toUser"];
     
     otherUser.text = userWhoSentTrace;
  

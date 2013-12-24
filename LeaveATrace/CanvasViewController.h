@@ -84,7 +84,6 @@ extern double hue;
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
--(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
 -(BOOL) canBecomeFirstResponder;
 -(UIImage*) convertToMask: (UIImage *) image;
 

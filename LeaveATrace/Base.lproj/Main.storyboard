@@ -184,10 +184,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="O1Q-lZ-m3k">
-                                <rect key="frame" x="196" y="471" width="39" height="40"/>
+                                <rect key="frame" x="107" y="467" width="39" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
-                                <state key="normal" image="TrashITB.png">
+                                <state key="normal" image="TrashButton.png">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -196,7 +196,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rns-hs-jRr">
-                                <rect key="frame" x="138" y="473" width="38" height="35"/>
+                                <rect key="frame" x="58" y="471" width="45" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <state key="normal" image="eraserB.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -205,18 +205,8 @@
                                     <action selector="eraser:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="gjV-ib-ynM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8OC-gi-fZk">
-                                <rect key="frame" x="79" y="473" width="40" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <state key="normal" image="backB.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="undo:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="SH9-Q3-pgk"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yIF-o3-zbA">
-                                <rect key="frame" x="6" y="463" width="60" height="52"/>
+                                <rect key="frame" x="6" y="469" width="49" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="SaveButton.png">
@@ -228,10 +218,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nhl-67-LS2">
-                                <rect key="frame" x="246" y="472" width="69" height="41"/>
+                                <rect key="frame" x="246" y="473" width="64" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" image="sendingB.png">
+                                <state key="normal" image="SentTrace.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -280,7 +270,6 @@
                         <outlet property="saveB" destination="yIF-o3-zbA" id="B6g-Er-EpM"/>
                         <outlet property="sendB" destination="nhl-67-LS2" id="FdI-aU-ltA"/>
                         <outlet property="trashB" destination="O1Q-lZ-m3k" id="OqW-F7-9Vn"/>
-                        <outlet property="undoB" destination="8OC-gi-fZk" id="lfR-Wk-qLD"/>
                         <segue destination="afe-A0-nhl" kind="modal" identifier="selectAContact" id="RX7-Ij-e6B"/>
                     </connections>
                 </viewController>
@@ -866,10 +855,10 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EtZ-Hq-yQb">
-                                <rect key="frame" x="246" y="518" width="69" height="41"/>
+                                <rect key="frame" x="246" y="518" width="64" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" image="sendingB.png">
+                                <state key="normal" image="SentTrace.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -878,7 +867,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2Li-M4-Xbc">
-                                <rect key="frame" x="15" y="516" width="46" height="42"/>
+                                <rect key="frame" x="12" y="517" width="49" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="SaveButton.png">
@@ -891,10 +880,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bXD-Nr-LjE">
-                                <rect key="frame" x="198" y="518" width="40" height="38"/>
+                                <rect key="frame" x="117" y="516" width="39" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
-                                <state key="normal" image="TrashITB.png">
+                                <state key="normal" image="TrashButton.png">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -904,7 +893,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BL5-p0-jgB">
-                                <rect key="frame" x="140" y="518" width="40" height="37"/>
+                                <rect key="frame" x="66" y="519" width="45" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="eraserB.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -912,17 +901,6 @@
                                 <connections>
                                     <action selector="eraser:" destination="tKm-6e-p5w" eventType="touchUpInside" id="emM-5f-fkw"/>
                                     <action selector="eraser:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="x5l-97-CBY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sie-Wv-3v0">
-                                <rect key="frame" x="80" y="517" width="41" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="backB.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="undo:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="Ipj-DN-UzW"/>
-                                    <action selector="undo:" destination="tKm-6e-p5w" eventType="touchUpInside" id="wp0-bz-v0s"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.80000001192092896" id="KdT-TH-d3c">
@@ -978,7 +956,6 @@
                         <outlet property="saveB" destination="2Li-M4-Xbc" id="NEm-pl-edv"/>
                         <outlet property="sendB" destination="EtZ-Hq-yQb" id="QmU-JO-ZGE"/>
                         <outlet property="trashB" destination="bXD-Nr-LjE" id="uyH-UZ-WZR"/>
-                        <outlet property="undoB" destination="sie-Wv-3v0" id="3lP-aG-ojh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HM1-ml-qKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1062,15 +1039,13 @@
         <image name="AcceptedIcon.png" width="64" height="61"/>
         <image name="DeclineIcon.png" width="61" height="59"/>
         <image name="LoginButton.png" width="340" height="138"/>
-        <image name="SaveButton.png" width="293" height="287"/>
+        <image name="SaveButton.png" width="102" height="101"/>
         <image name="SentTrace.png" width="157" height="109"/>
         <image name="SignUpButton.png" width="340" height="138"/>
-        <image name="TrashITB.png" width="187" height="184"/>
-        <image name="backB.png" width="204" height="204"/>
-        <image name="eraserB.png" width="225" height="225"/>
+        <image name="TrashButton.png" width="105" height="172"/>
+        <image name="eraserB.png" width="168" height="110"/>
         <image name="iconsberlin.png" width="30" height="30"/>
         <image name="iconsberlin@2x copy.png" width="60" height="60"/>
-        <image name="sendingB.png" width="253" height="118"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
