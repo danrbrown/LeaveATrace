@@ -45,7 +45,7 @@ NSMutableArray *traces;
 
 -(void) viewDidLoad
 {
-
+    
     traces = [[NSMutableArray alloc] initWithCapacity:100];
     
     [self.tabBarController setSelectedIndex:1];
@@ -57,7 +57,9 @@ NSMutableArray *traces;
     refreshControl.tintColor = [UIColor redColor];
     self.refreshControl = refreshControl;
     
-    [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:nil];
+    tracesBadgeString = nil;
+    
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:tracesBadgeString];
     
 }
 
@@ -77,6 +79,21 @@ NSMutableArray *traces;
     tracesBadgeString = nil;
     
     [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:tracesBadgeString];
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: draw
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(IBAction) draw:(id)sender
+{
+    
+    [self.tabBarController setSelectedIndex:1];
     
 }
 
@@ -168,6 +185,13 @@ NSMutableArray *traces;
     
     static NSString *CellIdentifier = @"traceItem";
     traceCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil)
+    {
+        
+        cell = [[traceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
+    }
     
     PFObject *traceObject = [traces objectAtIndex:indexPath.row];
 

@@ -28,6 +28,9 @@ extern NSMutableArray *traces;
 
 @property (weak, nonatomic) IBOutlet UITableView *tracesTable;
 
+//Actions
+-(IBAction) draw:(id)sender;
+
 //Methods for view
 -(void) refreshView:(UIRefreshControl *)sender;
 -(void) displayTraces;

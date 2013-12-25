@@ -817,7 +817,14 @@
                             <outlet property="delegate" destination="8JU-eN-LMV" id="gfh-OI-dZ2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Leave A Trace" id="gPm-FI-W3k"/>
+                    <navigationItem key="navigationItem" title="Leave A Trace" id="gPm-FI-W3k">
+                        <barButtonItem key="leftBarButtonItem" image="iconsberlin.png" id="VJf-iD-ClQ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="draw:" destination="8JU-eN-LMV" id="vqd-Pj-8j3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tracesTable" destination="6qg-OO-yOW" id="Gsf-wl-sOD"/>
                     </connections>
