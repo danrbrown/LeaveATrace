@@ -173,6 +173,7 @@
                     [userContact setObject:[PFUser currentUser].username forKey:@"username"];
                     [userContact setObject:item.text forKey:@"contact"];
                     [userContact setObject:@"NO" forKey:@"userAccepted"];
+                    [userContact setObject:@"" forKey:@"nickname"];
     
                     [userContact saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         

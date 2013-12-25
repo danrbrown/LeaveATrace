@@ -39,6 +39,8 @@
     
     items = [[NSMutableArray alloc] initWithCapacity:100];
     
+    alphabetsArray =[[NSMutableArray alloc]initWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",nil];
+    
     [self displayContacts];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -202,27 +204,6 @@
 
 //----------------------------------------------------------------------------------
 //
-// Name: tableView commitEditingStyle
-//
-// Purpose: Method for deleting a contact from the array and the database.
-//
-//----------------------------------------------------------------------------------
-
--(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    [items removeObjectAtIndex:indexPath.row];
-    
-    NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
-    
-    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-    
-    // DB. Need code to delete from the contact from Parse.
-    
-}
-
-//----------------------------------------------------------------------------------
-//
 // Name: addItemViewControllerDidCancel
 //
 // Purpose: This is called if a user goes to add a new contact, but then hits
@@ -318,60 +299,32 @@
 
 -(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    PFObject *tempObject = [items objectAtIndex:indexPath.row];
-    
-    NSString *name = [tempObject objectForKey:@"contact"];
-    
-    buttonString = @"Give nickname";
-    
-    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:name message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:buttonString,@"Delete", @"Block", nil];
-    
-    [errorAlertView show];
 
     return nil;
     
 }
 
--(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
-    if ([buttonString isEqual:@"Give nickname"])
-    {
-     
-        buttonString = @"Save";
-        
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Give a nickname" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:buttonString, nil];
-        
-        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-        nicknameText = [alert textFieldAtIndex:0];
-        nicknameText.placeholder = @"Enter nickname";
-        
-        [alert show];
-        
-    }
-    else
-    {
-        
-        nickname = nicknameText.text;
-        NSLog(@"nickname --> %@", nickname);
-        
-    }
+    return [alphabetsArray count];
     
-    if (buttonIndex == 2)
-    {
-        
+}
 
-        
-    }
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
     
-    if (buttonIndex == 3)
-    {
-        
+    return alphabetsArray;
+    
+}
 
-        
-    }
-
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    
+    return [alphabetsArray objectAtIndex:section];
+    
 }
 
 @end

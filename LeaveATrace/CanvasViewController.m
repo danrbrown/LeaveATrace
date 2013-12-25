@@ -159,7 +159,7 @@ double hue;
             
                 badgeString = [NSString stringWithFormat:@"%lu",(unsigned long)objects.count];
             
-                [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:badgeString];
+                [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:badgeString];
             
             }
                 
@@ -379,6 +379,8 @@ double hue;
     [self.mainImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) blendMode:kCGBlendModeNormal alpha:opacity];
     self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    
     
     [self show];
 

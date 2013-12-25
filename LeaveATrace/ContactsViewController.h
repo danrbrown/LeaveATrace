@@ -14,14 +14,11 @@
     
     //Variables
     NSMutableArray *items;
-    NSMutableArray *results;
+    NSMutableArray *alphabetsArray;
     NSString *userAccepted;
     NSString *userContact;
     PFQuery *query;
     NSArray *indices;
-    NSString *buttonString;
-    NSString *nickname;
-    UITextField *nicknameText;
 }
 
 //Propertys
@@ -39,7 +36,6 @@
 -(void) configureTextForCell:(UITableViewCell *)cell withChecklistItem:(LeaveATraceItem *)item;
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 -(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPathindexPath;
--(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
 -(void) addItemViewControllerDidCancel:(AddItemViewController *)controller;
 -(void) addItemViewController:(AddItemViewController *)controller didFinishAddingItem:(LeaveATraceItem *)item;
 -(void) addItemViewControllerNoDismiss:(AddItemViewController *)controller didFinishAddingItem:(LeaveATraceItem *)item;
