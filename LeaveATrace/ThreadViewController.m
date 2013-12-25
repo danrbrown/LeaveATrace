@@ -39,8 +39,6 @@
     NSString *userWhoSentTrace = [traceObject objectForKey:@"toUser"];
     
     otherUser.text = userWhoSentTrace;
- 
-    sendingProg.hidden = YES;
     
     [self getThreadTrace:userWhoSentTrace];
     
@@ -336,7 +334,7 @@
                     
                     [errorAlertView show];
                     
-                    sendingProg.hidden = YES;
+                    [self dismissViewControllerAnimated:YES completion:nil];
                     
                 }
                 else
@@ -347,6 +345,7 @@
                     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                     
                     [errorAlertView show];
+    
                     
                 }
                 
@@ -367,20 +366,7 @@
     progressBlock:^(int percentDone)
     {
         
-        if (sendingProg.progress < 100)
-        {
-            
-            sendingProg.hidden = NO;
-            
-            sendingProg.progress = percentDone;
-            
-        }
-        else if (sendingProg.progress >= 100)
-        {
-         
-            sendingProg.hidden = YES;
-            
-        }
+        NSLog(@"%i", percentDone);
         
     }];
 

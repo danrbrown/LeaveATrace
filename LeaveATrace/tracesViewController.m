@@ -345,41 +345,6 @@ NSMutableArray *traces;
 
 }
 
-//----------------------------------------------------------------------------------
-//
-// Name: edit
-//
-// Purpose: This is part of the "delete trace" process. It is called when the user
-// presses the 'edit' button.
-//
-//----------------------------------------------------------------------------------
-
--(IBAction) edit
-{
-    
-    if (self.editing)
-    {
-        
-        editButton.title = @"Edit";
-        
-        editButton.tintColor = [UIColor whiteColor];
-        
-        [super setEditing:NO animated:YES];
-        
-    }
-    else
-    {
-        
-        editButton.title = @"Done";
-        
-        editButton.tintColor = [UIColor redColor];
-        
-        [super setEditing:YES animated:YES];
-        
-    }
-    
-}
-
 @end
 
 

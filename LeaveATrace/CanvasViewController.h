@@ -34,6 +34,7 @@ extern double hue;
     
     //Variables
     BOOL dontTrash;
+    BOOL buttonPressed;
     int waitTwo;
     NSArray *imagesArray;
     NSMutableArray *pathArray;

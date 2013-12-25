@@ -27,7 +27,6 @@
     IBOutlet UIButton *colorsB;
     IBOutlet UIButton *saveB;
     IBOutlet UIButton *sendB;
-    IBOutlet UIProgressView *sendingProg;
     IBOutlet UILabel *otherUser;
     
 }

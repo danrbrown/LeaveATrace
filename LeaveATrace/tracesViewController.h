@@ -28,9 +28,6 @@ extern NSMutableArray *traces;
 
 @property (weak, nonatomic) IBOutlet UITableView *tracesTable;
 
-//Actions for view
--(IBAction) edit;
-
 //Methods for view
 -(void) refreshView:(UIRefreshControl *)sender;
 -(void) displayTraces;

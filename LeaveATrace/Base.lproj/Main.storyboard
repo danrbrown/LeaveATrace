@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RuF-KD-iC2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RuF-KD-iC2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--Contacts View Controller - Contacts-->
@@ -13,18 +13,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.30152911999999998" green="0.74419076780000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Leave a search" id="hMw-Mf-3K0">
-                            <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="barTintColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <outlet property="delegate" destination="45d-8g-mdk" id="OPf-0e-Sgy"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChecklistItem" textLabel="e22-J9-8zx" detailTextLabel="bIH-Ak-6Gz" rowHeight="48" style="IBUITableViewCellStyleValue1" id="6lc-sW-QaZ">
-                                <rect key="frame" x="0.0" y="130" width="320" height="48"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6lc-sW-QaZ" id="twe-5i-H8k">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
@@ -70,7 +61,6 @@
                 <searchDisplayController id="WiZ-I1-Ylh">
                     <connections>
                         <outlet property="delegate" destination="45d-8g-mdk" id="f5c-kG-SJ7"/>
-                        <outlet property="searchBar" destination="hMw-Mf-3K0" id="GQM-O9-17u"/>
                         <outlet property="searchContentsController" destination="45d-8g-mdk" id="Y6f-d9-Qcu"/>
                         <outlet property="searchResultsDataSource" destination="45d-8g-mdk" id="R98-Kc-J4C"/>
                         <outlet property="searchResultsDelegate" destination="45d-8g-mdk" id="h9r-bp-CJK"/>
@@ -742,8 +732,8 @@
                         <color key="selectedImageTintColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="GrZ-6C-8aQ" kind="relationship" relationship="viewControllers" id="1ys-dS-k9f"/>
                         <segue destination="MYI-Rr-srH" kind="relationship" relationship="viewControllers" id="obg-0J-TEq"/>
+                        <segue destination="GrZ-6C-8aQ" kind="relationship" relationship="viewControllers" id="1ys-dS-k9f"/>
                         <segue destination="pOU-Ps-LuG" kind="relationship" relationship="viewControllers" id="Rkf-hT-LbS"/>
                         <segue destination="oAk-xL-6bB" kind="relationship" relationship="viewControllers" id="hYU-V6-1Jz"/>
                     </connections>
@@ -778,7 +768,7 @@
             </objects>
             <point key="canvasLocation" x="1872" y="-884"/>
         </scene>
-        <!--Traces View Controller - Traces-->
+        <!--Traces View Controller - Leave A Trace-->
         <scene sceneID="CtP-qU-0pw">
             <objects>
                 <tableViewController id="8JU-eN-LMV" customClass="tracesViewController" sceneMemberID="viewController">
@@ -828,16 +818,8 @@
                             <outlet property="delegate" destination="8JU-eN-LMV" id="gfh-OI-dZ2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Traces" id="gPm-FI-W3k">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="kJZ-W3-ofU">
-                            <color key="tintColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
-                            <connections>
-                                <action selector="edit" destination="8JU-eN-LMV" id="gtm-cm-hJN"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Leave A Trace" id="gPm-FI-W3k"/>
                     <connections>
-                        <outlet property="editButton" destination="kJZ-W3-ofU" id="8lc-9L-UeJ"/>
                         <outlet property="tracesTable" destination="6qg-OO-yOW" id="Gsf-wl-sOD"/>
                     </connections>
                 </tableViewController>
@@ -907,7 +889,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.80000001192092896" id="KdT-TH-d3c">
-                                <rect key="frame" x="182" y="58" width="119" height="34"/>
+                                <rect key="frame" x="193" y="22" width="119" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -916,7 +898,7 @@
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="7" maxValue="65" id="uXR-2n-oOM">
-                                <rect key="frame" x="20" y="58" width="118" height="34"/>
+                                <rect key="frame" x="71" y="22" width="118" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -925,17 +907,10 @@
                                     <action selector="sliderChanged:" destination="tKm-6e-p5w" eventType="valueChanged" id="dr8-1z-s4k"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hea-mw-9tw">
-                                <rect key="frame" x="50" y="22" width="220" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="w9O-1z-IrR">
-                                <rect key="frame" x="16" y="22" width="45" height="30"/>
+                                <rect key="frame" x="12" y="22" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <state key="normal" title="Close">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -955,7 +930,6 @@
                         <outlet property="colorValue" destination="KdT-TH-d3c" id="350-gE-6Lj"/>
                         <outlet property="eraseB" destination="BL5-p0-jgB" id="KeA-fR-Ija"/>
                         <outlet property="mainThreadImage" destination="Fms-ao-vy8" id="AxB-4v-XBG"/>
-                        <outlet property="otherUser" destination="hea-mw-9tw" id="9cN-V9-rMe"/>
                         <outlet property="saveB" destination="2Li-M4-Xbc" id="NEm-pl-edv"/>
                         <outlet property="sendB" destination="EtZ-Hq-yQb" id="QmU-JO-ZGE"/>
                         <outlet property="trashB" destination="bXD-Nr-LjE" id="uyH-UZ-WZR"/>

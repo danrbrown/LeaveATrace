@@ -45,6 +45,8 @@ double hue;
 -(void) viewDidLoad
 {
     
+    buttonPressed = NO;
+    
     [self countRequests];
     [self countTraces];
     
