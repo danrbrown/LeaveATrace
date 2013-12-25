@@ -142,7 +142,7 @@
     {
         
         cell.detailTextLabel.text = @"Pending";
-        cell.detailTextLabel.textColor = [UIColor grayColor];
+        cell.detailTextLabel.enabled = NO;
         cell.textLabel.enabled = NO;
         cell.userInteractionEnabled = NO;
         
@@ -151,7 +151,6 @@
     {
         
         cell.detailTextLabel.text = @"Friend";
-        cell.detailTextLabel.textColor = [UIColor redColor];
         cell.textLabel.enabled = YES;
         cell.userInteractionEnabled = YES;
         
@@ -198,23 +197,6 @@
     [self configureCheckmarkForCell:cell withChecklistItem:tmpUserAccepted];
     
     return cell;
-    
-}
-
-//----------------------------------------------------------------------------------
-//
-// Name: tableView willSelectRowAtIndexPath
-//
-// Purpose: Method is one of the many called for navigating around the tableview.
-// We don't want any action to take place when the user touches a row, so we
-// simply return nil.
-//
-//----------------------------------------------------------------------------------
-
--(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    return nil;
     
 }
 
@@ -324,5 +306,80 @@
     
 }
 
+//----------------------------------------------------------------------------------
+//
+// Name: tableView willSelectRowAtIndexPath
+//
+// Purpose: Method is one of the many called for navigating around the tableview.
+// We don't want any action to take place when the user touches a row, so we
+// simply return nil.
+//
+//----------------------------------------------------------------------------------
+
+-(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    PFObject *tempObject = [items objectAtIndex:indexPath.row];
+    
+    NSString *name = [tempObject objectForKey:@"contact"];
+    
+    buttonString = @"Give nickname";
+    
+    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:name message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:buttonString,@"Delete", @"Block", nil];
+    
+    [errorAlertView show];
+
+    return nil;
+    
+}
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if ([buttonString isEqual:@"Give nickname"])
+    {
+     
+        buttonString = @"Save";
+        
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Give a nickname" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:buttonString, nil];
+        
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        nicknameText = [alert textFieldAtIndex:0];
+        nicknameText.placeholder = @"Enter nickname";
+        
+        [alert show];
+        
+    }
+    else
+    {
+        
+        nickname = nicknameText.text;
+        NSLog(@"nickname --> %@", nickname);
+        
+    }
+    
+    if (buttonIndex == 2)
+    {
+        
+
+        
+    }
+    
+    if (buttonIndex == 3)
+    {
+        
+
+        
+    }
+
+}
 
 @end
+
+
+
+
+
+
+
+

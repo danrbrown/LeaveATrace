@@ -89,7 +89,7 @@ double hue;
         
         mainImage.image = nil;
         
-        [self.tabBarController setSelectedIndex:1];
+        [self.tabBarController setSelectedIndex:0];
         
     }
     

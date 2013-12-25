@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface RequestsAndLogOutViewController : UITableViewController {
+@interface RequestsAndLogOutViewController : UITableViewController <UIAlertViewDelegate> {
 
     NSMutableArray *requests;
     NSString *userAccepted;

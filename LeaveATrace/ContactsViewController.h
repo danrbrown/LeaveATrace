@@ -10,7 +10,7 @@
 #import "AddItemViewController.h"
 #import <Parse/Parse.h>
 
-@interface ContactsViewController : UITableViewController <AddItemViewControllerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface ContactsViewController : UITableViewController <AddItemViewControllerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate> {
     
     //Variables
     NSMutableArray *items;
@@ -19,7 +19,9 @@
     NSString *userContact;
     PFQuery *query;
     NSArray *indices;
-    
+    NSString *buttonString;
+    NSString *nickname;
+    UITextField *nicknameText;
 }
 
 //Propertys

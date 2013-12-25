@@ -142,34 +142,13 @@
         if (user)
         {
             
-            if (![[user objectForKey:@"emailVerified"] boolValue])
-            {
-                
-                [user refresh];
-                
-                if (![[user objectForKey:@"emailVerified"] boolValue])
-                {
-                    
-                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You must verify your email before logging in." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                    
-                    [errorAlertView show];
-                    
-                    passWordTextField.text = nil;
-                    
-                }
-                
-            }
-            else
-            {
-                [traceDefaults setObject:self.userNameTextField.text forKey:@"username"];
-                [traceDefaults setObject:self.passWordTextField.text forKey:@"password"];
-                [traceDefaults synchronize];
-                
-                [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
-                
-                [self textFieldShouldReturn:passWordTextField];
-                
-            }
+            [traceDefaults setObject:self.userNameTextField.text forKey:@"username"];
+            [traceDefaults setObject:self.passWordTextField.text forKey:@"password"];
+            [traceDefaults synchronize];
+            
+            [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
+            
+            [self textFieldShouldReturn:passWordTextField];
             
         }
         else

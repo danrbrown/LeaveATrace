@@ -178,7 +178,7 @@
     
     NSString *acceptedMessage = [NSString stringWithFormat:@"You are now friends with %@!", name];
     
-    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Congrats!" message:acceptedMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:acceptedMessage message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
     
     [errorAlertView show];
     
@@ -195,7 +195,37 @@
 -(IBAction) Decline:(id)sender
 {
     
-    NSLog(@"User Declined"); //DB
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
+    PFObject *tempObject = [requests objectAtIndex:indexPath.row];
+    
+    [tempObject deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if (succeeded)
+        {
+            
+            [requests removeObjectAtIndex:indexPath.row];
+            
+            [requestsTable reloadData];
+            
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"Why can't we all be friends?" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            
+            [errorAlertView show];
+            
+        }
+        
+        if (error)
+        {
+            
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error deleting, please try again." delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+            
+            [errorAlertView show];
+            
+        }
+        
+    }];
     
 }
 
