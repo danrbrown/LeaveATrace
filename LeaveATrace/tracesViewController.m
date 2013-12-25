@@ -48,12 +48,16 @@ NSMutableArray *traces;
 
     traces = [[NSMutableArray alloc] initWithCapacity:100];
     
+    [self.tabBarController setSelectedIndex:1];
+    
     [self performSelector:@selector(displayTraces)];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
     refreshControl.tintColor = [UIColor redColor];
     self.refreshControl = refreshControl;
+    
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:nil];
     
 }
 

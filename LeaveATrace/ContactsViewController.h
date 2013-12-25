@@ -19,6 +19,7 @@
     NSString *userContact;
     PFQuery *query;
     NSArray *indices;
+
 }
 
 //Propertys

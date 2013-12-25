@@ -159,7 +159,7 @@ double hue;
             
                 badgeString = [NSString stringWithFormat:@"%lu",(unsigned long)objects.count];
             
-                [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:badgeString];
+                [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:badgeString];
             
             }
                 
@@ -212,7 +212,7 @@ double hue;
                 
                 tracesBadgeString = [NSString stringWithFormat:@"%lu",(unsigned long)objects.count];
                 
-                [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:tracesBadgeString];
+                [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:tracesBadgeString];
                 
             }
             

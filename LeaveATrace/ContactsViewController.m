@@ -40,6 +40,7 @@
     items = [[NSMutableArray alloc] initWithCapacity:100];
     
     alphabetsArray =[[NSMutableArray alloc]initWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",nil];
+
     
     [self displayContacts];
     
@@ -153,6 +154,7 @@
     {
         
         cell.detailTextLabel.text = @"Friend";
+        cell.detailTextLabel.enabled = YES;
         cell.textLabel.enabled = YES;
         cell.userInteractionEnabled = YES;
         
@@ -195,6 +197,8 @@
     NSString *tmpUserAccepted = [item objectForKey:@"userAccepted"];
     
     cell.textLabel.text = tmpUserContact;
+
+    NSLog(@"contact %@, indexpath %@", tmpUserContact, indexPath);
     
     [self configureCheckmarkForCell:cell withChecklistItem:tmpUserAccepted];
     
@@ -304,28 +308,37 @@
     
 }
 
-
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    
-    return [alphabetsArray count];
-    
-}
-
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
-    
-    return alphabetsArray;
-    
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    
-    return [alphabetsArray objectAtIndex:section];
-    
-}
+//
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    
+//    return [alphabetsArray count];
+//    
+//}
+//
+//- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+//{
+//    
+//    return alphabetsArray;
+//    
+//}
+//
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    
+//    return [alphabetsArray objectAtIndex:section];
+//    
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+//{
+//
+////    return <yourSectionIndexForTheSectionForSectionIndexTitle >;
+//    NSLog(@"title %@, indexpath %ld", title, (long)index);
+//
+//    return index;
+//
+//}
 
 @end
 

@@ -250,6 +250,8 @@
 -(IBAction) send:(id)sender
 {
     
+    [loading startAnimating];
+    
     [self uploadThreadTrace];
     
 }
@@ -326,13 +328,15 @@
                 if (succeeded)
                 {
                     
-                    NSString *userWhoSentTrace = [traceObject objectForKey:@"fromUser"];
+                    NSString *userWhoSentTrace = [traceObject objectForKey:@"toUser"];
         
                     NSString *sentMessage = [NSString stringWithFormat:@"Trace was sent to %@", userWhoSentTrace];
                     
-                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Nice drawing..." message:sentMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:nil message:sentMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                     
                     [errorAlertView show];
+                    
+                    [loading stopAnimating];
                     
                     [self dismissViewControllerAnimated:YES completion:nil];
                     

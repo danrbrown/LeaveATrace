@@ -42,7 +42,6 @@ extern double hue;
     UIBezierPath *myPath;
     UIImagePickerController *imagePicker;
     UIImagePickerController *picturePicker;
-    UIImage *camraImage;
     
     //Outlets for view
     IBOutlet UIButton *undoB;

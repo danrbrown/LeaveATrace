@@ -28,6 +28,7 @@
     IBOutlet UIButton *saveB;
     IBOutlet UIButton *sendB;
     IBOutlet UILabel *otherUser;
+    IBOutlet UIActivityIndicatorView *loading;
     
 }
 
