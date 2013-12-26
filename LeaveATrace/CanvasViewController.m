@@ -57,15 +57,15 @@ double hue;
     brush = 11.0;
     opacity = 1.0;
     
+    brushSize.value = brush;
+    
     theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
 
     currentColorImage.backgroundColor = theColor;
     currentColorImage.layer.cornerRadius = 7.0;
     currentColorImage.layer.borderColor = [UIColor blackColor].CGColor;
     currentColorImage.layer.borderWidth = 3.0;
-    CGFloat *width = &(brush);
-    CGFloat *height = &(brush);
-    currentColorImage.frame = CGRectMake(8, 26, *width, *height);
+    currentColorImage.frame = CGRectMake(141, 26, 38, 33);
 
 }
 
@@ -77,7 +77,7 @@ double hue;
 //
 //----------------------------------------------------------------------------------
 
--(void) viewWillAppear:(BOOL)animated
+-(void) viewDidAppear:(BOOL)animated
 {
     
     [super viewWillAppear:animated];
@@ -92,6 +92,8 @@ double hue;
         [self.tabBarController setSelectedIndex:0];
         
     }
+    
+    clearImage = NO;
     
 }
 
@@ -444,9 +446,6 @@ double hue;
     {
         
         brush = self.brushSize.value;
-        CGFloat *width = &(brush);
-        CGFloat *height = &(brush);
-        currentColorImage.frame = CGRectMake(8, 26, *width, *height);
         
     }
     
@@ -555,6 +554,8 @@ double hue;
     green = 255.0/255.0;
     blue = 255.0/255.0;
     opacity = 1.0;
+    
+    currentColorImage.backgroundColor = [UIColor whiteColor];
     
 }
 

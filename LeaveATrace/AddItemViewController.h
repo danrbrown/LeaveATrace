@@ -19,7 +19,11 @@
  
 @end
 
-@interface AddItemViewController : UITableViewController <UITextFieldDelegate>
+@interface AddItemViewController : UITableViewController <UITextFieldDelegate> {
+    
+    IBOutlet UIActivityIndicatorView *loadingContact;
+    
+}
 
 //Propertys
 @property (strong, nonatomic) IBOutlet UITextField *textField;

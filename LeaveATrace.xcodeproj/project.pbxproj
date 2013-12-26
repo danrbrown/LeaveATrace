@@ -29,7 +29,6 @@
 		9C276850181C76B10073453E /* RequestsAndLogOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C27684B181C76B00073453E /* RequestsAndLogOutViewController.m */; };
 		9C27686F181C771D0073453E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C27685F181C771D0073453E /* Default-568h@2x.png */; };
 		9C276871181C771D0073453E /* iconsberlin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C276861181C771D0073453E /* iconsberlin@2x.png */; };
-		9C276872181C771D0073453E /* iconsberlin@2x3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C276862181C771D0073453E /* iconsberlin@2x3.png */; };
 		9C276877181C774F0073453E /* LeaveATraceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C276876181C774F0073453E /* LeaveATraceItem.m */; };
 		9C27687A181C77E70073453E /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C276879181C77E70073453E /* ContactsViewController.m */; };
 		9C276888181C7BAB0073453E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27687E181C7BAB0073453E /* AdSupport.framework */; };
@@ -70,8 +69,8 @@
 		9CD69C1C1860E55E00177EA0 /* 15and50LogoLink.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CD69C1B1860E55E00177EA0 /* 15and50LogoLink.png */; };
 		9CF1F932184BE89F00AE3EAC /* traceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F931184BE89F00AE3EAC /* traceCell.m */; };
 		9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F93D18515D4600AE3EAC /* Alph.plist */; };
-		A508D48F184A2EFC004005AD /* iconsberlin@2x copy.png in Resources */ = {isa = PBXBuildFile; fileRef = A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */; };
 		A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555C8D91846D53B00C012ED /* ThreadViewController.m */; };
+		A5CC7FAF186BF6F0003DB2E7 /* iconsberlin@2x-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A5CC7FAE186BF6F0003DB2E7 /* iconsberlin@2x-3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +117,6 @@
 		9C27684B181C76B00073453E /* RequestsAndLogOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestsAndLogOutViewController.m; path = LeaveATrace/RequestsAndLogOutViewController.m; sourceTree = "<group>"; };
 		9C27685F181C771D0073453E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9C276861181C771D0073453E /* iconsberlin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x.png"; sourceTree = "<group>"; };
-		9C276862181C771D0073453E /* iconsberlin@2x3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x3.png"; sourceTree = "<group>"; };
 		9C276875181C774F0073453E /* LeaveATraceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaveATraceItem.h; path = LeaveATrace/LeaveATraceItem.h; sourceTree = "<group>"; };
 		9C276876181C774F0073453E /* LeaveATraceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaveATraceItem.m; path = LeaveATrace/LeaveATraceItem.m; sourceTree = "<group>"; };
 		9C276878181C77E70073453E /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactsViewController.h; path = LeaveATrace/ContactsViewController.h; sourceTree = "<group>"; };
@@ -169,9 +167,9 @@
 		9CF1F930184BE89F00AE3EAC /* traceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = traceCell.h; path = LeaveATrace/traceCell.h; sourceTree = "<group>"; };
 		9CF1F931184BE89F00AE3EAC /* traceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = traceCell.m; path = LeaveATrace/traceCell.m; sourceTree = "<group>"; };
 		9CF1F93D18515D4600AE3EAC /* Alph.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Alph.plist; sourceTree = "<group>"; };
-		A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x copy.png"; sourceTree = "<group>"; };
 		A555C8D81846D53B00C012ED /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreadViewController.h; path = LeaveATrace/ThreadViewController.h; sourceTree = "<group>"; };
 		A555C8D91846D53B00C012ED /* ThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreadViewController.m; path = LeaveATrace/ThreadViewController.m; sourceTree = "<group>"; };
+		A5CC7FAE186BF6F0003DB2E7 /* iconsberlin@2x-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x-3.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,9 +345,8 @@
 				9C595CB91867DE3600D1B7E8 /* SentTrace.png */,
 				9CBC5B031857FCA000725BD5 /* LeaveATraceIcon.png */,
 				9C27685F181C771D0073453E /* Default-568h@2x.png */,
-				A508D48E184A2EFC004005AD /* iconsberlin@2x copy.png */,
+				A5CC7FAE186BF6F0003DB2E7 /* iconsberlin@2x-3.png */,
 				9C276861181C771D0073453E /* iconsberlin@2x.png */,
-				9C276862181C771D0073453E /* iconsberlin@2x3.png */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -511,8 +508,8 @@
 				9C595CBA1867DE3600D1B7E8 /* SentTrace.png in Resources */,
 				9C595CBC1867E04700D1B7E8 /* SentNotOpened.png in Resources */,
 				9CBC5B49185931B600725BD5 /* SaveButton.png in Resources */,
+				A5CC7FAF186BF6F0003DB2E7 /* iconsberlin@2x-3.png in Resources */,
 				9C0818391869524E006E9DFD /* TrashButton.png in Resources */,
-				9C276872181C771D0073453E /* iconsberlin@2x3.png in Resources */,
 				9C27686F181C771D0073453E /* Default-568h@2x.png in Resources */,
 				9C276871181C771D0073453E /* iconsberlin@2x.png in Resources */,
 				9C276815181C75B10073453E /* InfoPlist.strings in Resources */,
@@ -523,7 +520,6 @@
 				9CBC5B4D1859619D00725BD5 /* DeclineIcon.png in Resources */,
 				9C782E05182885ED00077FC8 /* eraserB.png in Resources */,
 				9C595CB61867B66500D1B7E8 /* NewTrace.png in Resources */,
-				A508D48F184A2EFC004005AD /* iconsberlin@2x copy.png in Resources */,
 				9C27681E181C75B10073453E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

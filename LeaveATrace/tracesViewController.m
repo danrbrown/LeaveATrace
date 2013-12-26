@@ -57,10 +57,6 @@ NSMutableArray *traces;
     refreshControl.tintColor = [UIColor redColor];
     self.refreshControl = refreshControl;
     
-    tracesBadgeString = nil;
-    
-    [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:tracesBadgeString];
-    
 }
 
 //----------------------------------------------------------------------------------
@@ -74,11 +70,18 @@ NSMutableArray *traces;
 -(void) viewDidAppear:(BOOL)animated
 {
     
+    if ([traces count] == 0)
+    {
+        
+        NSLog(@"you have no traces, haha sucks...");
+        
+    }
+    
     [tracesTable reloadData];
     
     tracesBadgeString = nil;
     
-    [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:tracesBadgeString];
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:tracesBadgeString];
     
 }
 
@@ -240,6 +243,8 @@ NSMutableArray *traces;
         else  // Other user sent it
         {
             
+            tmpOpenedString = @"";
+            
             cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTrace.png"];
             cell.didNotOpenImage.frame = CGRectMake(19, 8, 50, 42);
             
@@ -248,6 +253,7 @@ NSMutableArray *traces;
     }
     else
     {
+        
         if ([tmpCurrentUser isEqualToString:tmpLastSentBy])  // Current user sent it
         {
             
@@ -264,6 +270,7 @@ NSMutableArray *traces;
             cell.didNotOpenImage.frame = CGRectMake(20, 14, 47, 29);
             
         }
+    
     }
     
     //-------------------------------------------------------------------------------

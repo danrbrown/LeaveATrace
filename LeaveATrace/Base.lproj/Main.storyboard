@@ -78,6 +78,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.82718610196372244" green="0.95929313749269196" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.30152911999999998" green="0.74419076780000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="5sX-bq-TVC">
+                            <rect key="frame" x="0.0" y="163" width="320" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                         <sections>
                             <tableViewSection id="spu-ft-oBs">
                                 <cells>
@@ -128,6 +133,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="doneBarButton" destination="xms-GF-83r" id="5sZ-g8-Qag"/>
+                        <outlet property="loadingContact" destination="5sX-bq-TVC" id="4qB-Dx-rgb"/>
                         <outlet property="textField" destination="mCP-3F-x14" id="dMA-np-lgR"/>
                     </connections>
                 </tableViewController>
@@ -218,8 +224,8 @@
                                     <action selector="send:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="fcX-Fy-9HV"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.80000000000000004" id="yHo-Fg-5qT">
-                                <rect key="frame" x="194" y="26" width="118" height="34"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.40000000000000002" minValue="0.0" maxValue="0.80000000000000004" id="yHo-Fg-5qT">
+                                <rect key="frame" x="189" y="26" width="118" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -227,8 +233,8 @@
                                     <action selector="sliderChanged:" destination="GrZ-6C-8aQ" eventType="valueChanged" id="tM0-H5-xfy"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="5" maxValue="50" id="7n7-wn-SDY">
-                                <rect key="frame" x="66" y="26" width="118" height="34"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="5" maxValue="50" id="7n7-wn-SDY">
+                                <rect key="frame" x="13" y="26" width="118" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -238,7 +244,7 @@
                                 </connections>
                             </slider>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ihn-yS-Xo2">
-                                <rect key="frame" x="6" y="26" width="38" height="33"/>
+                                <rect key="frame" x="141" y="26" width="38" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="d1c-bP-hDx">
@@ -745,7 +751,7 @@
         <scene sceneID="Bz5-Tt-ViE">
             <objects>
                 <navigationController storyboardIdentifier="ThreadTabBar" automaticallyAdjustsScrollViewInsets="NO" id="MYI-Rr-srH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Traces" image="iconsberlin@2x copy.png" id="taT-SI-XU7"/>
+                    <tabBarItem key="tabBarItem" title="Traces" image="iconsberlin@2x-3.png" id="taT-SI-XU7"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="zm2-Ld-2yC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YoB-Z7-pLf">
@@ -1032,7 +1038,7 @@
         <image name="TrashButton.png" width="105" height="172"/>
         <image name="eraserB.png" width="168" height="110"/>
         <image name="iconsberlin.png" width="30" height="30"/>
-        <image name="iconsberlin@2x copy.png" width="60" height="60"/>
+        <image name="iconsberlin@2x-3.png" width="60" height="60"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

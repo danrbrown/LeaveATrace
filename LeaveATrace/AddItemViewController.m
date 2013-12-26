@@ -91,6 +91,8 @@
 -(IBAction) done
 {
     
+    [loadingContact startAnimating];
+    
     BOOL isDuplicate = NO;
     
     LeaveATraceItem *item = [[LeaveATraceItem alloc] init];
@@ -103,6 +105,8 @@
     NSString *tmpCurrentUser = [[PFUser currentUser]username];
     if ([tmpCurrentUser isEqualToString:item.text])
     {
+    
+        [loadingContact stopAnimating];
         
         NSString *errorString = @"Can't add yourself as a contact Jackass";
         
@@ -139,6 +143,8 @@
 
         if (isDuplicate)
         {
+            
+            [loadingContact stopAnimating];
             
             NSString *errorString = @"Contact is already in the list";
             
@@ -180,12 +186,16 @@
                         if (succeeded)
                         {
             
+                            [loadingContact stopAnimating];
+                            
                             [self.delegate addItemViewController:self didFinishAddingItem:item];
             
                         }
                         else
                         {
             
+                            [loadingContact stopAnimating];
+                            
                             NSString *errorString = [[error userInfo] objectForKey:@"error"];
                             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:  errorString delegate:nil cancelButtonTitle:@"Ok"    otherButtonTitles:nil, nil];
                     
@@ -199,6 +209,8 @@
                 else
                 {
             
+                    [loadingContact stopAnimating];
+                    
                     NSString *errorString = @"User not found";
             
                     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:errorString message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];

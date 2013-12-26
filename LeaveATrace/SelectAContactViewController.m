@@ -92,6 +92,8 @@ BOOL clearImage;
 -(IBAction) cancel
 {
     
+    clearImage = NO;
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -277,7 +279,7 @@ BOOL clearImage;
     progressBlock:^(int percentDone)
     {
         
-        NSLog(@"Uploaded: %d %%", percentDone);
+        NSLog(@"%d %% done", percentDone);
         
     }];
 

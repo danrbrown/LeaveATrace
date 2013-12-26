@@ -42,8 +42,6 @@
     [traceDefaults setObject:@"" forKey:@"password"];
     [traceDefaults synchronize];
     
-    [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
-    
     requests = [[NSMutableArray alloc] initWithCapacity:100];
     [self performSelector:@selector(displayRequests)];
     
@@ -51,6 +49,15 @@
     [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
     refreshControl.tintColor = [UIColor redColor];
     self.refreshControl = refreshControl;
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+    badgeString = nil;
+    
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:badgeString];
     
 }
 

@@ -197,8 +197,6 @@
     NSString *tmpUserAccepted = [item objectForKey:@"userAccepted"];
     
     cell.textLabel.text = tmpUserContact;
-
-    NSLog(@"contact %@, indexpath %@", tmpUserContact, indexPath);
     
     [self configureCheckmarkForCell:cell withChecklistItem:tmpUserAccepted];
     

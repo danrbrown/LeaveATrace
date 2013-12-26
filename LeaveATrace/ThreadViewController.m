@@ -370,7 +370,7 @@
     progressBlock:^(int percentDone)
     {
         
-        NSLog(@"%i", percentDone);
+        NSLog(@"%d %% done", percentDone);
         
     }];
 
