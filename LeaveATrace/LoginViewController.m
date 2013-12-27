@@ -116,6 +116,10 @@
 -(IBAction) userLogInPressed:(id)sender
 {
     
+    [passWordTextField resignFirstResponder];
+    
+    [loadingLogin startAnimating];
+    
     [self logingIn];
     
 }
@@ -146,6 +150,8 @@
             [traceDefaults setObject:self.passWordTextField.text forKey:@"password"];
             [traceDefaults synchronize];
             
+            [loadingLogin stopAnimating];
+            
             [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
             
             [self textFieldShouldReturn:passWordTextField];
@@ -153,6 +159,8 @@
         }
         else
         {
+            
+            [loadingLogin stopAnimating];
             
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Try again" message:@"There was a error loging in" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             

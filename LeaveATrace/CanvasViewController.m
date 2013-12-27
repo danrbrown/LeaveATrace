@@ -50,6 +50,8 @@ double hue;
     [self countRequests];
     [self countTraces];
     
+    pathArray = [[NSMutableArray alloc] init];
+    
     red = 255;
     green = 0;
     blue = 0;
@@ -312,7 +314,8 @@ double hue;
         
         self.mainImage.image = nil;
         
-    } 
+    }
+    
 }
 
 //----------------------------------------------------------------------------------
@@ -419,7 +422,6 @@ double hue;
 
 -(IBAction) undo:(id)sender
 {
-    
 
     
 }

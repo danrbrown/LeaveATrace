@@ -32,6 +32,8 @@ extern double hue;
     CGFloat opacity;
     BOOL mouseSwiped;
     
+    UIBezierPath *myPath;
+    
     //Variables
     BOOL dontTrash;
     BOOL buttonPressed;
@@ -39,7 +41,6 @@ extern double hue;
     NSArray *imagesArray;
     NSMutableArray *pathArray;
     NSMutableArray *bufferArray;
-    UIBezierPath *myPath;
     UIImagePickerController *imagePicker;
     UIImagePickerController *picturePicker;
     

@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController <UITextFieldDelegate>
+@interface LoginViewController : UIViewController <UITextFieldDelegate> {
+    
+    IBOutlet UIActivityIndicatorView *loadingLogin;
+    
+}
 
 //username name text field
 @property (strong, nonatomic) IBOutlet UITextField *userNameTextField;

@@ -61,6 +61,8 @@
 -(void) getThreadTrace:(NSString *)userWhoSentTrace
 {
     
+    [loading startAnimating];
+    
     PFQuery *traceQuery = [PFQuery queryWithClassName:@"TracesObject"];
 
     [traceQuery whereKey:@"objectId" equalTo:traceObjectId];
@@ -83,6 +85,8 @@
 
                         UIImage *image = [UIImage imageWithData:data];
                         mainThreadImage.image = image;
+                        
+                        [loading stopAnimating];
                         
                         NSString *tmpCurrentUser = [[PFUser currentUser]username];
                         NSString *tmpLastSentBy = [myImages objectForKey:@"lastSentBy"];
