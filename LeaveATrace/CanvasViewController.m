@@ -53,10 +53,10 @@ double hue;
     red = 255;
     green = 0;
     blue = 0;
-    colorValue.value = 0;
     brush = 11.0;
     opacity = 1.0;
     
+    colorValue.value = 0;
     brushSize.value = brush;
     
     theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
@@ -80,9 +80,9 @@ double hue;
 -(void) viewDidAppear:(BOOL)animated
 {
     
-    [super viewWillAppear:animated];
-    
     [self becomeFirstResponder];
+    
+    [super viewWillAppear:animated];
     
     if (clearImage)
     {
@@ -108,9 +108,9 @@ double hue;
 -(void) viewDidDisappear:(BOOL)animated
 {
     
-    [super viewDidDisappear:animated];
-    
     [self resignFirstResponder];
+    
+    [super viewDidDisappear:animated];
     
 }
 
@@ -293,6 +293,28 @@ double hue;
     
 }
 
+-(void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        
+        if (self.mainImage.image != nil)
+        {
+            
+            [UIView beginAnimations:@"suck" context:NULL];
+            [UIView setAnimationTransition:108 forView:mainImage cache:NO];
+            [UIView setAnimationDuration:0.9f];
+            [UIView commitAnimations];
+            
+            self.mainImage.image = nil;
+            
+        }
+        
+        self.mainImage.image = nil;
+        
+    } 
+}
+
 //----------------------------------------------------------------------------------
 //
 // Name: touchesBegan
@@ -340,6 +362,7 @@ double hue;
     CGContextStrokePath(UIGraphicsGetCurrentContext());
     self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
     [self.mainImage setAlpha:opacity];
+    
     UIGraphicsEndImageContext();
     
     lastPoint = currentPoint;
@@ -373,7 +396,7 @@ double hue;
         CGContextFlush(UIGraphicsGetCurrentContext());
         self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-    
+        
     }
     
     UIGraphicsBeginImageContext(self.mainImage.frame.size);
@@ -381,8 +404,6 @@ double hue;
     [self.mainImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) blendMode:kCGBlendModeNormal alpha:opacity];
     self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
-    
     
     [self show];
 
@@ -399,7 +420,7 @@ double hue;
 -(IBAction) undo:(id)sender
 {
     
-    //DTRB
+
     
 }
 

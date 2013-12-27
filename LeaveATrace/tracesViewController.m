@@ -70,13 +70,6 @@ NSMutableArray *traces;
 -(void) viewDidAppear:(BOOL)animated
 {
     
-    if ([traces count] == 0)
-    {
-        
-        NSLog(@"you have no traces, haha sucks...");
-        
-    }
-    
     [tracesTable reloadData];
     
     tracesBadgeString = nil;

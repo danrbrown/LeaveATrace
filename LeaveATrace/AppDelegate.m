@@ -26,6 +26,8 @@
      UIRemoteNotificationTypeAlert |
      UIRemoteNotificationTypeSound];
     
+    application.applicationSupportsShakeToEdit = YES;
+    
     // new attempt to respond to push payload
 //    
 //    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];

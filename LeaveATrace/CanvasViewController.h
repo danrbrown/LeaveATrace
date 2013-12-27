@@ -59,7 +59,7 @@ extern double hue;
 @property (weak, nonatomic) IBOutlet UIImageView *mainImage;
 @property (weak, nonatomic) IBOutlet UIImageView *currentColorImage;
 
-//Color property vaiables for view
+//Propertys for view
 @property CGFloat red;
 @property CGFloat green;
 @property CGFloat blue;
@@ -84,6 +84,7 @@ extern double hue;
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
+-(void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event;
 -(BOOL) canBecomeFirstResponder;
 -(UIImage*) convertToMask: (UIImage *) image;
 

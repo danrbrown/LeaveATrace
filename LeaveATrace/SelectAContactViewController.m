@@ -12,6 +12,7 @@
 //----------------------------------------------------------------------------------
 
 #import "SelectAContactViewController.h"
+#import "tracesViewController.h"
 #import "CanvasViewController.h"
 #import "LeaveATraceItem.h"
 #import "sendToCell.h"
@@ -227,12 +228,12 @@ BOOL clearImage;
     NSString *tempContact = [tempObject objectForKey:@"contact"];
     NSDate *currentDateTime = [NSDate date];
 
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         if (succeeded)
         {
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
             
             PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
             
