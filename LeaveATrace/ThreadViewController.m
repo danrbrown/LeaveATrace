@@ -332,7 +332,23 @@
                 if (succeeded)
                 {
                     
-                    NSString *userWhoSentTrace = [traceObject objectForKey:@"toUser"];
+                    NSString *tmpCurrentUser = [[PFUser currentUser]username];
+                    NSString *tmpFromUser = [traceObject objectForKey:@"fromUser"];
+                    NSString *userWhoSentTrace;
+                    
+                    
+                    if ([tmpCurrentUser isEqualToString:tmpFromUser])
+                    {
+                        
+                        userWhoSentTrace = [traceObject objectForKey:@"toUser"];
+                        
+                    }
+                    else
+                    {
+                        
+                        userWhoSentTrace = tmpFromUser;
+                        
+                    }
         
                     NSString *sentMessage = [NSString stringWithFormat:@"Trace was sent to %@", userWhoSentTrace];
                     

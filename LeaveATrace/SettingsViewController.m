@@ -29,7 +29,7 @@
     self.acountInfo = [@[@"Username", @"Email", @"Leave A Trace user since"] mutableCopy];
     self.acountInfoDetail = [@[usernameString, emailString, createdAtString] mutableCopy];
     
-    self.actions = [@[@"Log Out"] mutableCopy];
+    self.actions = [@[@"Log out", @"Clear my traces"] mutableCopy];
     
 }
 
@@ -88,6 +88,36 @@
         
     }
 
+    if (indexPath.section == 1 && indexPath.row == 1)
+    {
+     
+        PFObject *userTraces = [PFObject objectWithClassName:@"TracesObject"];
+        [userTraces setObject:[PFUser currentUser].username forKey:@"fromUser"];
+        
+        [userTraces deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            
+            if (succeeded)
+            {
+                
+                UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"You cleared your traces." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                
+                [errorAlertView show];
+                
+            }
+            else
+            {
+                
+                NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:  errorString delegate:nil cancelButtonTitle:@"Ok"    otherButtonTitles:nil, nil];
+                
+                [errorAlertView show];
+                
+            }
+            
+        }];
+
+    }
+    
     return nil;
     
 }
@@ -135,6 +165,7 @@
     {
     
         text = self.actions[indexPath.row];
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
     }
     

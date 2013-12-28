@@ -224,6 +224,8 @@ BOOL clearImage;
     
     clearImage = YES;
     
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
     PFObject *tempObject = [validContacts objectAtIndex:indexPath.row];
     NSString *tempContact = [tempObject objectForKey:@"contact"];
     NSDate *currentDateTime = [NSDate date];
@@ -232,8 +234,6 @@ BOOL clearImage;
         
         if (succeeded)
         {
-            
-            [self dismissViewControllerAnimated:YES completion:nil];
             
             PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
             

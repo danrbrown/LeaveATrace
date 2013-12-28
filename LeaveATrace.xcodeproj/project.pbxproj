@@ -70,6 +70,8 @@
 		9CF1F932184BE89F00AE3EAC /* traceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F931184BE89F00AE3EAC /* traceCell.m */; };
 		9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F93D18515D4600AE3EAC /* Alph.plist */; };
 		A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555C8D91846D53B00C012ED /* ThreadViewController.m */; };
+		A568F76D186E209B003E074E /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A568F76C186E209B003E074E /* AddressBookUI.framework */; };
+		A568F76F186E20A6003E074E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A568F76E186E20A6003E074E /* AddressBook.framework */; };
 		A5CC7FAF186BF6F0003DB2E7 /* iconsberlin@2x-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A5CC7FAE186BF6F0003DB2E7 /* iconsberlin@2x-3.png */; };
 /* End PBXBuildFile section */
 
@@ -169,6 +171,8 @@
 		9CF1F93D18515D4600AE3EAC /* Alph.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Alph.plist; sourceTree = "<group>"; };
 		A555C8D81846D53B00C012ED /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreadViewController.h; path = LeaveATrace/ThreadViewController.h; sourceTree = "<group>"; };
 		A555C8D91846D53B00C012ED /* ThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreadViewController.m; path = LeaveATrace/ThreadViewController.m; sourceTree = "<group>"; };
+		A568F76C186E209B003E074E /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		A568F76E186E20A6003E074E /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		A5CC7FAE186BF6F0003DB2E7 /* iconsberlin@2x-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x-3.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +181,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A568F76F186E20A6003E074E /* AddressBook.framework in Frameworks */,
+				A568F76D186E209B003E074E /* AddressBookUI.framework in Frameworks */,
 				9C27689D181C7CDE0073453E /* AudioToolbox.framework in Frameworks */,
 				9C276899181C7C1A0073453E /* Accounts.framework in Frameworks */,
 				9C276888181C7BAB0073453E /* AdSupport.framework in Frameworks */,
@@ -240,6 +246,8 @@
 		9C276809181C75B10073453E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A568F76E186E20A6003E074E /* AddressBook.framework */,
+				A568F76C186E209B003E074E /* AddressBookUI.framework */,
 				9CD69C0E185A951100177EA0 /* FBUserSettingsViewResources.bundle */,
 				9C27689C181C7CDE0073453E /* AudioToolbox.framework */,
 				9C27689A181C7C660073453E /* SystemConfiguration.framework */,

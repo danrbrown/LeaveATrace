@@ -82,10 +82,6 @@ double hue;
 -(void) viewDidAppear:(BOOL)animated
 {
     
-    [self becomeFirstResponder];
-    
-    [super viewWillAppear:animated];
-    
     if (clearImage)
     {
         
@@ -96,6 +92,10 @@ double hue;
     }
     
     clearImage = NO;
+    
+    [self becomeFirstResponder];
+    
+    [super viewWillAppear:animated];
     
 }
 

@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UITableViewController <UIAlertViewDelegate>
+@interface SettingsViewController : UITableViewController <UIAlertViewDelegate> {
+    
+    NSMutableArray *deleteTraces;
+    
+}
 
 @property (copy) NSMutableArray *acountInfo;
 @property (copy) NSMutableArray *acountInfoDetail;

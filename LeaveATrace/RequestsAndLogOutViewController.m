@@ -226,7 +226,7 @@
         if (error)
         {
             
-            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error deleting, please try again." delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error declining, please try again." delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
             
             [errorAlertView show];
             

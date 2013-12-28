@@ -16,6 +16,8 @@
 #import "AddItemViewController.h"
 #import "LeaveATraceItem.h"
 #import <Parse/Parse.h>
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
 
 @interface ContactsViewController ()
 
@@ -338,13 +340,7 @@
 //
 //}
 
-
-
 @end
-
-
-
-
 
 
 
