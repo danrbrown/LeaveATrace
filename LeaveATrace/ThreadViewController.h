@@ -20,7 +20,7 @@
     CGFloat opacity;
     BOOL mouseSwiped;
     
-    //IBOutlets
+    //Variables
     IBOutlet UIButton *undoB;
     IBOutlet UIButton *trashB;
     IBOutlet UIButton *eraseB;
@@ -28,7 +28,11 @@
     IBOutlet UIButton *saveB;
     IBOutlet UIButton *sendB;
     IBOutlet UILabel *otherUser;
-    IBOutlet UIActivityIndicatorView *loading;
+    IBOutlet UIActivityIndicatorView *loadingSent;
+    IBOutlet UIActivityIndicatorView *loadingTrace;
+    UIView *_hudView;
+    UILabel *_captionLabel;
+    int viewText;
     
 }
 
@@ -56,7 +60,6 @@
 
 //Methods for view
 -(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
--(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex;
 -(void) uploadThreadTrace;
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;

@@ -48,13 +48,11 @@ NSMutableArray *traces;
     
     traces = [[NSMutableArray alloc] initWithCapacity:100];
     
-    [self.tabBarController setSelectedIndex:1];
-    
     [self performSelector:@selector(displayTraces)];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
-    refreshControl.tintColor = [UIColor redColor];
+    refreshControl.tintColor = [UIColor blackColor];
     self.refreshControl = refreshControl;
     
 }
@@ -71,6 +69,8 @@ NSMutableArray *traces;
 {
     
     [tracesTable reloadData];
+    
+    [self performSelector:@selector(displayTraces)];
     
     tracesBadgeString = nil;
     
@@ -139,6 +139,7 @@ NSMutableArray *traces;
             traces = [[NSMutableArray alloc] initWithArray:objects];
             
             NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"lastSentByDateTime" ascending:NO];
+            
             [traces sortUsingDescriptors:[NSArray arrayWithObject:sort]];
             
         }
@@ -280,7 +281,7 @@ NSMutableArray *traces;
  
     [displayTimeFormat setDateFormat:@"h:mm a"];
     [displayDayFormat setDateFormat:@"MM-dd-YYYY"];
-    [displayDayAndTimeFormat setDateFormat:@"MMM dd"];
+    [displayDayAndTimeFormat setDateFormat:@"MMM dd, h:mm a"];
     
     NSString *tmpUpdatedDate = [NSString stringWithFormat:@"%@", [displayDayFormat stringFromDate:updated]];
     NSString *todaysDate = [NSString stringWithFormat:@"%@", [displayDayFormat stringFromDate:currentdate]];

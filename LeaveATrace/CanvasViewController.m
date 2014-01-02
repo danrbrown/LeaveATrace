@@ -45,11 +45,6 @@ double hue;
 -(void) viewDidLoad
 {
     
-    buttonPressed = NO;
-    
-    [self countRequests];
-    [self countTraces];
-    
     pathArray = [[NSMutableArray alloc] init];
     
     red = 255;
@@ -62,7 +57,7 @@ double hue;
     brushSize.value = brush;
     
     theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
-
+    
     currentColorImage.backgroundColor = theColor;
     currentColorImage.layer.cornerRadius = 7.0;
     currentColorImage.layer.borderColor = [UIColor blackColor].CGColor;
@@ -93,9 +88,10 @@ double hue;
     
     clearImage = NO;
     
-    [self becomeFirstResponder];
+    [self countRequests];
+    [self countTraces];
     
-    [super viewWillAppear:animated];
+    [self becomeFirstResponder];
     
 }
 
@@ -503,7 +499,7 @@ double hue;
 -(IBAction) save:(id)sender
 {
     
-    [loading startAnimating];
+    [self loading];
     
     UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
     [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
@@ -528,6 +524,7 @@ double hue;
     {
         
         [loading stopAnimating];
+        [_hudView removeFromSuperview];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh-oh" message:@"Image could not be saved. Please try again"  delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
         
@@ -538,6 +535,7 @@ double hue;
     {
         
         [loading stopAnimating];
+        [_hudView removeFromSuperview];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Nice drawing! Image was saved."  delegate:nil cancelButtonTitle:@"Yay" otherButtonTitles:nil];
         
@@ -615,6 +613,31 @@ double hue;
     [eraseB setAlpha:0];
     [currentColorImage setAlpha:0];
     [UIView commitAnimations];
+    
+}
+
+-(void) loading
+{
+    
+    _hudView = [[UIView alloc] initWithFrame:CGRectMake(45, 180, 230, 50)];
+    _hudView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
+    _hudView.clipsToBounds = YES;
+    _hudView.layer.cornerRadius = 10.0;
+    
+    loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    loading.frame = CGRectMake(25, 16, loading.bounds.size.width, loading.bounds.size.height);
+    [_hudView addSubview:loading];
+    [loading startAnimating];
+    
+    _captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 15, 130, 22)];
+    _captionLabel.backgroundColor = [UIColor clearColor];
+    _captionLabel.textColor = [UIColor whiteColor];
+    _captionLabel.adjustsFontSizeToFitWidth = YES;
+    _captionLabel.text = @"Saving trace...";
+    [_captionLabel setTextAlignment:NSTextAlignmentCenter];
+    [_hudView addSubview:_captionLabel];
+    
+    [self.view addSubview:_hudView];
     
 }
 

@@ -44,12 +44,27 @@
     alphabetsArray =[[NSMutableArray alloc]initWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",nil];
 
     
-    [self displayContacts];
+    [self performSelector:@selector(displayContacts)];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
-    refreshControl.tintColor = [UIColor redColor];
+    refreshControl.tintColor = [UIColor blackColor];
     self.refreshControl = refreshControl;
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: viewDidAppear
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    
+    [self performSelector:@selector(displayContacts)];
     
 }
 
@@ -75,7 +90,9 @@
         
         if (!error)
         {
-
+            
+            [items addObject:@"default"];
+            
             items = [[NSMutableArray alloc] initWithArray:objects];
             
             NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"contact" ascending:YES selector:@selector(caseInsensitiveCompare:)];

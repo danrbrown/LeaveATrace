@@ -47,7 +47,7 @@
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
-    refreshControl.tintColor = [UIColor redColor];
+    refreshControl.tintColor = [UIColor blackColor];
     self.refreshControl = refreshControl;
     
 }
@@ -56,6 +56,8 @@
 {
     
     badgeString = nil;
+    
+    [self performSelector:@selector(displayRequests)];
     
     [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:badgeString];
     

@@ -24,6 +24,8 @@ extern NSMutableArray *traces;
     
     IBOutlet UIBarButtonItem *editButton;
     
+    IBOutlet UIImageView *previewImage;
+    
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tracesTable;

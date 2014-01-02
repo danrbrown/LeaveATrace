@@ -61,7 +61,9 @@
 -(void) getThreadTrace:(NSString *)userWhoSentTrace
 {
     
-    [loading startAnimating];
+    viewText = 1;
+    
+    [self loadingTrace];
     
     PFQuery *traceQuery = [PFQuery queryWithClassName:@"TracesObject"];
 
@@ -86,7 +88,8 @@
                         UIImage *image = [UIImage imageWithData:data];
                         mainThreadImage.image = image;
                         
-                        [loading stopAnimating];
+                        [loadingTrace stopAnimating];
+                        [_hudView removeFromSuperview];
                         
                         NSString *tmpCurrentUser = [[PFUser currentUser]username];
                         NSString *tmpLastSentBy = [myImages objectForKey:@"lastSentBy"];
@@ -254,7 +257,13 @@
 -(IBAction) send:(id)sender
 {
     
-    [loading startAnimating];
+    viewText = 2;
+    
+    [self loadingTrace];
+    
+    [sendB setEnabled:NO];
+    
+    [sendB setAlpha:0.5];
     
     [self uploadThreadTrace];
     
@@ -332,33 +341,11 @@
                 if (succeeded)
                 {
                     
-                    NSString *tmpCurrentUser = [[PFUser currentUser]username];
-                    NSString *tmpFromUser = [traceObject objectForKey:@"fromUser"];
-                    NSString *userWhoSentTrace;
+                    viewText = 3;
                     
+                    [_hudView removeFromSuperview];
                     
-                    if ([tmpCurrentUser isEqualToString:tmpFromUser])
-                    {
-                        
-                        userWhoSentTrace = [traceObject objectForKey:@"toUser"];
-                        
-                    }
-                    else
-                    {
-                        
-                        userWhoSentTrace = tmpFromUser;
-                        
-                    }
-        
-                    NSString *sentMessage = [NSString stringWithFormat:@"Trace was sent to %@", userWhoSentTrace];
-                    
-                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:nil message:sentMessage delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                    
-                    [errorAlertView show];
-                    
-                    [loading stopAnimating];
-                    
-                    [self dismissViewControllerAnimated:YES completion:nil];
+                    [self loadingTrace];
                     
                 }
                 else
@@ -469,35 +456,15 @@
 -(IBAction) save:(id)sender
 {
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Save to Camera Roll", @"Close", nil];
+    viewText = 4;
+    [self loadingTrace];
     
-    [actionSheet showInView:self.view];
+    UIGraphicsBeginImageContextWithOptions(mainThreadImage.bounds.size, NO, 0.0);
+    [mainThreadImage.image drawInRect:CGRectMake(0, 0, mainThreadImage.frame.size.width, mainThreadImage.frame.size.height)];
+    UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     
-}
-
-//----------------------------------------------------------------------------------
-//
-// Name: actionSheet
-//
-// Purpose: if the user picks the option to "save to camra roll", it will call a method
-// to save to the the drawing to the users camra roll.
-//
-//----------------------------------------------------------------------------------
-
--(void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    
-    if(buttonIndex == 0)
-    {
-        
-        UIGraphicsBeginImageContextWithOptions(mainThreadImage.bounds.size, NO, 0.0);
-        [mainThreadImage.image drawInRect:CGRectMake(0, 0, mainThreadImage.frame.size.width, mainThreadImage.frame.size.height)];
-        UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        UIImageWriteToSavedPhotosAlbum(SaveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
-        
-    }
+    UIImageWriteToSavedPhotosAlbum(SaveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
     
 }
 
@@ -516,7 +483,7 @@
     if (error != NULL)
     {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Image could not be saved. Please try again"  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh-oh" message:@"Image could not be saved. Please try again"  delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
         
         [alert show];
         
@@ -524,11 +491,100 @@
     else
     {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Image was successfully saved in photoalbum"  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Close", nil];
+        viewText = 5;
         
-        [alert show];
+        [_hudView removeFromSuperview];
+        
+        [self loadingTrace];
         
     }
+    
+}
+
+-(void) loadingTrace
+{
+    
+    _hudView = [[UIView alloc] initWithFrame:CGRectMake(45, 180, 230, 50)];
+    _hudView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8];
+    _hudView.clipsToBounds = YES;
+    _hudView.layer.cornerRadius = 10.0;
+    
+    loadingTrace = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    loadingTrace.frame = CGRectMake(25, 16, loadingTrace.bounds.size.width, loadingTrace.bounds.size.height);
+    [_hudView addSubview:loadingTrace];
+    [loadingTrace startAnimating];
+    
+    _captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 15, 130, 22)];
+    _captionLabel.backgroundColor = [UIColor clearColor];
+    _captionLabel.textColor = [UIColor whiteColor];
+    _captionLabel.adjustsFontSizeToFitWidth = YES;
+    _captionLabel.font = [UIFont fontWithName:@"verdana" size:15.0];
+    
+    if (viewText == 2)
+    {
+        
+        _captionLabel.text = @"Sending trace...";
+        
+    }
+    else if (viewText == 1)
+    {
+        
+        _captionLabel.text = @"Loading trace...";
+        
+    }
+    else if (viewText == 3)
+    {
+        
+        [loadingTrace stopAnimating];
+        
+        _captionLabel.frame = CGRectMake(53, 15, 130, 22);
+        _captionLabel.text = @"Trace was sent!";
+        
+        [sendB setEnabled:YES];
+        
+        [sendB setAlpha:1.0];
+        
+        [self fade];
+        
+    }
+    else if (viewText == 4)
+    {
+        
+        _captionLabel.text = @"Saving trace...";
+        
+    }
+    else if (viewText == 5)
+    {
+        
+        [loadingTrace stopAnimating];
+        
+        _captionLabel.frame = CGRectMake(53, 15, 130, 22);
+        _captionLabel.text = @"Trace was saved!";
+        
+        [sendB setEnabled:YES];
+        
+        [sendB setAlpha:1.0];
+        
+        [self fade];
+        
+    }
+
+    [_captionLabel setTextAlignment:NSTextAlignmentCenter];
+    [_hudView addSubview:_captionLabel];
+    
+    [self.view addSubview:_hudView];
+    
+}
+
+-(void) fade
+{
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:5];
+    [_hudView setAlpha:0];
+    [UIView commitAnimations];
+    [_hudView removeFromSuperview];
+    
 }
 
 @end

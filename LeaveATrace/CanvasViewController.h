@@ -36,7 +36,6 @@ extern double hue;
     
     //Variables
     BOOL dontTrash;
-    BOOL buttonPressed;
     int waitTwo;
     NSArray *imagesArray;
     NSMutableArray *pathArray;
@@ -53,6 +52,8 @@ extern double hue;
     IBOutlet UIButton *saveB;
     IBOutlet UIButton *sendB;
     IBOutlet UIActivityIndicatorView *loading;
+    UIView *_hudView;
+    UILabel *_captionLabel;
     
 }
 
