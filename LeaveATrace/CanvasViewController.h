@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
+#import "canvasImage.h"
 
 //Global variables
 extern NSString *badgeString;
@@ -20,6 +23,7 @@ extern PFFile *file;
 extern UIImageView *mainImage;
 extern UIColor *theColor;
 extern double hue;
+extern long iconBadge;
 
 @interface CanvasViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate> {
     
@@ -32,14 +36,13 @@ extern double hue;
     CGFloat opacity;
     BOOL mouseSwiped;
     
-    UIBezierPath *myPath;
+    NSMutableArray *lineArray;
+    NSMutableArray *bufferArray;
     
     //Variables
     BOOL dontTrash;
     int waitTwo;
     NSArray *imagesArray;
-    NSMutableArray *pathArray;
-    NSMutableArray *bufferArray;
     UIImagePickerController *imagePicker;
     UIImagePickerController *picturePicker;
     

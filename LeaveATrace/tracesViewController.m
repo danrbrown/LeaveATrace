@@ -231,7 +231,7 @@ NSMutableArray *traces;
         {
             
             cell.didNotOpenImage.image = [UIImage imageNamed:@"SentTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(20, 14, 47, 29);
+            cell.didNotOpenImage.frame = CGRectMake(15, 14, 47, 29);
             
         }
         else  // Other user sent it
@@ -240,7 +240,7 @@ NSMutableArray *traces;
             tmpOpenedString = @"";
             
             cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(19, 8, 50, 42);
+            cell.didNotOpenImage.frame = CGRectMake(15, 8, 50, 42);
             
         }
         
@@ -253,7 +253,7 @@ NSMutableArray *traces;
             
             tmpOpenedString = @"- Sent";
             cell.didNotOpenImage.image = [UIImage imageNamed:@"SentNotOpened.png"];
-            cell.didNotOpenImage.frame = CGRectMake(20, 14, 47, 29);
+            cell.didNotOpenImage.frame = CGRectMake(15, 14, 47, 29);
             
         }
         else  // Other user sent it
@@ -261,7 +261,7 @@ NSMutableArray *traces;
             
             tmpOpenedString = @"";
             cell.didNotOpenImage.image = [UIImage imageNamed:@"NewTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(20, 14, 47, 29);
+            cell.didNotOpenImage.frame = CGRectMake(15, 14, 47, 29);
             
         }
     

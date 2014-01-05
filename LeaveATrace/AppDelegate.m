@@ -28,8 +28,6 @@
                                                            shadow, NSShadowAttributeName,
                                                            [UIFont fontWithName:@"verdana-bold" size:23.5], NSFontAttributeName, nil]];
     
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    
     // Register for push notifications
     [application registerForRemoteNotificationTypes:
      UIRemoteNotificationTypeBadge |

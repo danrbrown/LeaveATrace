@@ -13,6 +13,9 @@
 #import "CanvasViewController.h"
 #import "SelectAContactViewController.h"
 #import "tracesViewController.h"
+#import "canvasImage.h"
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
 #import <Twitter/Twitter.h>
 #import <Parse/Parse.h>
 
@@ -25,6 +28,7 @@ NSString *tracesBadgeString;
 UIImageView *mainImage;
 UIColor *theColor;
 double hue;
+long iconBadge;
 
 @interface CanvasViewController ()
 
@@ -45,8 +49,6 @@ double hue;
 -(void) viewDidLoad
 {
     
-    pathArray = [[NSMutableArray alloc] init];
-    
     red = 255;
     green = 0;
     blue = 0;
@@ -63,6 +65,8 @@ double hue;
     currentColorImage.layer.borderColor = [UIColor blackColor].CGColor;
     currentColorImage.layer.borderWidth = 3.0;
     currentColorImage.frame = CGRectMake(141, 26, 38, 33);
+    
+        
 
 }
 
@@ -158,7 +162,7 @@ double hue;
             {
             
                 badgeString = [NSString stringWithFormat:@"%lu",(unsigned long)objects.count];
-            
+                
                 [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:badgeString];
             
             }
@@ -418,7 +422,8 @@ double hue;
 
 -(IBAction) undo:(id)sender
 {
-
+    
+    NSLog(@"undo");
     
 }
 

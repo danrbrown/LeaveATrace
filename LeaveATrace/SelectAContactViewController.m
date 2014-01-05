@@ -244,7 +244,7 @@ BOOL clearImage;
             [imageObject setObject:tempContact forKey:@"toUser"];
             [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
             
-            NSLog(@"traces count %lu",traces.count);
+            NSLog(@"traces count %lu",(unsigned long)traces.count);
             
             [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
