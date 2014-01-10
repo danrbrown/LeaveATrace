@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "FirstPageViewController.h"
 #import <Parse/Parse.h>
 
 @interface SettingsViewController ()
@@ -127,16 +128,11 @@
  
     if (buttonIndex == 1)
     {
-        
-        NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
-        
-        [traceDefaults setObject:@"" forKey:@"username"];
-        [traceDefaults setObject:@"" forKey:@"password"];
-        [traceDefaults synchronize];
-        
-        [traceDefaults setObject:@"" forKey:@"username"];
-        [traceDefaults setObject:@"" forKey:@"password"];
-        [traceDefaults synchronize];
+
+//        NSLog(@"loging out");
+//        
+//        LoggedIn = NO;
+//        [[NSUserDefaults standardUserDefaults] setBool:LoggedIn forKey:@"log"];
         
         [PFUser logOut];
         

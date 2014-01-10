@@ -15,6 +15,8 @@
 #import "FirstPageViewController.h"
 #import "CanvasViewController.h"
 
+BOOL LoggedIn;
+
 @interface FirstPageViewController ()
 
 @end
@@ -87,24 +89,24 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-        
-    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *tmpUsername = [traceDefaults objectForKey:@"username"];
     
-    if ([tmpUsername length] != 0)
-    {
-        
-        //[self logInUsingDefaults:tmpUsername parsePasswordDef:tmpPassword]; DB
-        
-        [self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
-        
-    }
-    else
-    {
-        
-        NSLog(@"user needs to log in");
-        
-    }
+//    LoggedIn = NO;
+//    
+//    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
+//    LoggedIn = [traceDefaults objectForKey:@"log"];
+//    
+//    if (LoggedIn)
+//    {
+//        
+//        [self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
+//        
+//    }
+//    else
+//    {
+//        
+//        NSLog(@"user needs to log in");
+//        
+//    }
     
 }
 

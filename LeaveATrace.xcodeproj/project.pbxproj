@@ -64,6 +64,7 @@
 		9CBC5B49185931B600725BD5 /* SaveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5B48185931B600725BD5 /* SaveButton.png */; };
 		9CBC5B4C1859619D00725BD5 /* AcceptedIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5B4A1859619D00725BD5 /* AcceptedIcon.png */; };
 		9CBC5B4D1859619D00725BD5 /* DeclineIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5B4B1859619D00725BD5 /* DeclineIcon.png */; };
+		9CBF68EC187A070500718E8D /* CloseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF68EB187A070500718E8D /* CloseButton.png */; };
 		9CD69C0F185A951200177EA0 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9CD69C0E185A951100177EA0 /* FBUserSettingsViewResources.bundle */; };
 		9CD69C181860E36C00177EA0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CD69C171860E36C00177EA0 /* Images.xcassets */; };
 		9CD69C1C1860E55E00177EA0 /* 15and50LogoLink.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CD69C1B1860E55E00177EA0 /* 15and50LogoLink.png */; };
@@ -163,6 +164,7 @@
 		9CBC5B48185931B600725BD5 /* SaveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SaveButton.png; sourceTree = "<group>"; };
 		9CBC5B4A1859619D00725BD5 /* AcceptedIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AcceptedIcon.png; sourceTree = "<group>"; };
 		9CBC5B4B1859619D00725BD5 /* DeclineIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeclineIcon.png; sourceTree = "<group>"; };
+		9CBF68EB187A070500718E8D /* CloseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseButton.png; sourceTree = "<group>"; };
 		9CD69C0E185A951100177EA0 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
 		9CD69C171860E36C00177EA0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9CD69C1B1860E55E00177EA0 /* 15and50LogoLink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15and50LogoLink.png; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				9CD69C1B1860E55E00177EA0 /* 15and50LogoLink.png */,
 				9CBC5B48185931B600725BD5 /* SaveButton.png */,
 				9CBC5AF91856899B00725BD5 /* LoginButton.png */,
+				9CBF68EB187A070500718E8D /* CloseButton.png */,
 				9CBC5AFB1856900A00725BD5 /* SignUpButton.png */,
 				9CBC5B4A1859619D00725BD5 /* AcceptedIcon.png */,
 				9CBC5B4B1859619D00725BD5 /* DeclineIcon.png */,
@@ -515,6 +518,7 @@
 				9CD69C1C1860E55E00177EA0 /* 15and50LogoLink.png in Resources */,
 				9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */,
 				9CD69C181860E36C00177EA0 /* Images.xcassets in Resources */,
+				9CBF68EC187A070500718E8D /* CloseButton.png in Resources */,
 				9CD69C0F185A951200177EA0 /* FBUserSettingsViewResources.bundle in Resources */,
 				9C595CBA1867DE3600D1B7E8 /* SentTrace.png in Resources */,
 				9C595CBC1867E04700D1B7E8 /* SentNotOpened.png in Resources */,
@@ -703,7 +707,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace,
+					/Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";
@@ -723,7 +727,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace,
+					/Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";

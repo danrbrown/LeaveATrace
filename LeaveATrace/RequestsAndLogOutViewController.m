@@ -57,9 +57,22 @@
     
     badgeString = nil;
     
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:badgeString];
+    
     [self performSelector:@selector(displayRequests)];
     
-    [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:badgeString];
+    if (requests.count == 0)
+    {
+        
+        noRequests.text = @"No requests right now";
+        
+    }
+    else
+    {
+        
+        noRequests.text = @"";
+        
+    }
     
 }
 
@@ -235,33 +248,6 @@
         }
         
     }];
-    
-}
-
-//----------------------------------------------------------------------------------
-//
-// Name:
-//
-// Purpose:
-//
-//----------------------------------------------------------------------------------
-
--(IBAction) logOut:(id)sender
-{
-    
-    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
-
-    [traceDefaults setObject:@"" forKey:@"username"];
-    [traceDefaults setObject:@"" forKey:@"password"];
-    [traceDefaults synchronize];
-    
-    [traceDefaults setObject:@"" forKey:@"username"];
-    [traceDefaults setObject:@"" forKey:@"password"];
-    [traceDefaults synchronize];
-    
-    [PFUser logOut];
-    
-    [self performSegueWithIdentifier:@"LogOutSuccesful" sender:self];
     
 }
 

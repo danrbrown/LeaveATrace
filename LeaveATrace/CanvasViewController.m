@@ -12,6 +12,7 @@
 
 #import "CanvasViewController.h"
 #import "SelectAContactViewController.h"
+#import "FirstPageViewController.h"
 #import "tracesViewController.h"
 #import "canvasImage.h"
 #import <AddressBook/AddressBook.h>
@@ -66,7 +67,7 @@ long iconBadge;
     currentColorImage.layer.borderWidth = 3.0;
     currentColorImage.frame = CGRectMake(141, 26, 38, 33);
     
-        
+    imagesArray = [[NSMutableArray alloc] init];
 
 }
 
@@ -364,6 +365,7 @@ long iconBadge;
     
     CGContextStrokePath(UIGraphicsGetCurrentContext());
     self.mainImage.image = UIGraphicsGetImageFromCurrentImageContext();
+    
     [self.mainImage setAlpha:opacity];
     
     UIGraphicsEndImageContext();
@@ -424,6 +426,12 @@ long iconBadge;
 {
     
     NSLog(@"undo");
+    if([imagesArray count]>0){
+        NSLog(@"undoing");
+        UIBezierPath *_path=[imagesArray lastObject];
+        [bufferArray addObject:_path];
+        [imagesArray removeLastObject];
+    }
     
 }
 

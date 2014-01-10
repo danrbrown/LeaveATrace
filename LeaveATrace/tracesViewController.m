@@ -14,7 +14,9 @@
 #import "tracesViewController.h"
 #import "ThreadViewController.h"
 #import "traceCell.h"
+#import "FirstPageViewController.h"
 #import "CanvasViewController.h"
+#import "AppDelegate.h"
 #import <Parse/Parse.h>
 
 //Global variables
@@ -55,6 +57,9 @@ NSMutableArray *traces;
     refreshControl.tintColor = [UIColor blackColor];
     self.refreshControl = refreshControl;
     
+//    LoggedIn = YES;
+//    [[NSUserDefaults standardUserDefaults] setBool:LoggedIn forKey:@"log"];
+    
 }
 
 //----------------------------------------------------------------------------------
@@ -67,6 +72,23 @@ NSMutableArray *traces;
 
 -(void) viewDidAppear:(BOOL)animated
 {
+    
+    (APP).dbTraces = traces;
+    
+    NSLog(@"%lu", (unsigned long)traces.count);
+    
+    if (traces.count == 0)
+    {
+        
+        noTraces.text = @"You have no traces :(";
+        
+    }
+    else
+    {
+        
+        noTraces.text = @"";
+        
+    }
     
     [tracesTable reloadData];
     
@@ -137,10 +159,14 @@ NSMutableArray *traces;
         {
             
             traces = [[NSMutableArray alloc] initWithArray:objects];
+            (APP).dbTraces = traces;
             
             NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"lastSentByDateTime" ascending:NO];
             
             [traces sortUsingDescriptors:[NSArray arrayWithObject:sort]];
+            
+            NSLog(@"displayTraces: count of traces %lu",traces.count);
+            NSLog(@"displayTraces: count of dbtraces %lu",(APP).dbTraces.count);
             
         }
         
@@ -231,7 +257,7 @@ NSMutableArray *traces;
         {
             
             cell.didNotOpenImage.image = [UIImage imageNamed:@"SentTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(15, 14, 47, 29);
+            cell.didNotOpenImage.frame = CGRectMake(8, 14, 47, 29);
             
         }
         else  // Other user sent it
@@ -240,7 +266,7 @@ NSMutableArray *traces;
             tmpOpenedString = @"";
             
             cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(15, 8, 50, 42);
+            cell.didNotOpenImage.frame = CGRectMake(6, 8, 50, 42);
             
         }
         
@@ -253,7 +279,7 @@ NSMutableArray *traces;
             
             tmpOpenedString = @"- Sent";
             cell.didNotOpenImage.image = [UIImage imageNamed:@"SentNotOpened.png"];
-            cell.didNotOpenImage.frame = CGRectMake(15, 14, 47, 29);
+            cell.didNotOpenImage.frame = CGRectMake(8, 14, 47, 29);
             
         }
         else  // Other user sent it
@@ -261,7 +287,7 @@ NSMutableArray *traces;
             
             tmpOpenedString = @"";
             cell.didNotOpenImage.image = [UIImage imageNamed:@"NewTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(15, 14, 47, 29);
+            cell.didNotOpenImage.frame = CGRectMake(6, 14, 47, 29);
             
         }
     

@@ -16,6 +16,7 @@
 #import "CanvasViewController.h"
 #import "LeaveATraceItem.h"
 #import "sendToCell.h"
+#import "AppDelegate.h"
 #import <Parse/Parse.h>
 
 BOOL clearImage;
@@ -43,6 +44,32 @@ BOOL clearImage;
     validContacts = [[NSMutableArray alloc] initWithCapacity:100];
     
     [self performSelector:@selector(displayValidContacts)];
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: viewDidAppear
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    
+    if (validContacts.count == 0)
+    {
+        
+        noSendTo.text = @"No one to send to";
+        
+    }
+    else
+    {
+        
+        noSendTo.text = @"";
+        
+    }
     
 }
 
@@ -230,6 +257,9 @@ BOOL clearImage;
     NSString *tempContact = [tempObject objectForKey:@"contact"];
     NSDate *currentDateTime = [NSDate date];
 
+    
+    //NSString *tempId = @"sending_123 put in temp id";
+
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         if (succeeded)
@@ -243,9 +273,7 @@ BOOL clearImage;
             [imageObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
             [imageObject setObject:tempContact forKey:@"toUser"];
             [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
-            
-            NSLog(@"traces count %lu",(unsigned long)traces.count);
-            
+                        
             [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
                 if (succeeded)
@@ -253,6 +281,10 @@ BOOL clearImage;
                     NSString *newObjectId = [imageObject objectId];
                     [self sendPushToContact:tempContact pushObjectId:newObjectId];
                     [self.navigationController popViewControllerAnimated:YES];
+                    
+                    NSLog(@"select a contact: count of traces %lu",traces.count);
+                    NSLog(@"displayTraces: count of dbtraces %lu",(APP).dbTraces.count);
+
                     
                 }
                 else

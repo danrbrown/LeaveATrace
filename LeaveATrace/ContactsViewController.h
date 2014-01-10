@@ -19,6 +19,9 @@
     NSString *userContact;
     PFQuery *query;
     NSArray *indices;
+    
+    //Outlets
+    IBOutlet UILabel *noContacts;
 
 }
 

@@ -39,10 +39,12 @@ extern long iconBadge;
     NSMutableArray *lineArray;
     NSMutableArray *bufferArray;
     
+    UIBezierPath *myPath;
+    
     //Variables
     BOOL dontTrash;
     int waitTwo;
-    NSArray *imagesArray;
+    NSMutableArray *imagesArray;
     UIImagePickerController *imagePicker;
     UIImagePickerController *picturePicker;
     

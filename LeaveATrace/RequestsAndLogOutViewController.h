@@ -15,13 +15,13 @@
     NSString *userAccepted;
     NSString *userContact;
     PFQuery *query;
+    IBOutlet UILabel *noRequests;
     
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *requestsTable;
 
 //Actions
--(IBAction)logOut:(id)sender;
 -(IBAction)Accept:(id)sender;
 -(IBAction)Decline:(id)sender;
 

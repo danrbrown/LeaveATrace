@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern BOOL LoggedIn;
+
 @interface FirstPageViewController : UIViewController {
     
     //Outlets

@@ -66,6 +66,19 @@
     
     [self performSelector:@selector(displayContacts)];
     
+    if (items.count == 0)
+    {
+        
+        noContacts.text = @"You have no friends?";
+        
+    }
+    else
+    {
+        
+        
+        noContacts.text = @"";
+        
+    }
 }
 
 //----------------------------------------------------------------------------------

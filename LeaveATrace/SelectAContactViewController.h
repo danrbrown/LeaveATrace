@@ -13,10 +13,14 @@ extern BOOL clearImage;
 
 @interface SelectAContactViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate> {
     
+    //Variables
     NSMutableArray *validContacts;
     NSString *userAccepted;
     NSString *userContact;
     PFQuery *query;
+    
+    //Outlets
+    IBOutlet UILabel *noSendTo;
     
 }
 
