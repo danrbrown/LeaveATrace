@@ -18,7 +18,7 @@
 {
     
     
-    _dbTraces = [[NSMutableArray alloc] init];
+    _tracesArray = [[NSMutableArray alloc] init];
     
     
     [Parse setApplicationId:@"cK6TMBbNDsdNFsE1vSckhEQDrCQjztAxURMKPHXL"

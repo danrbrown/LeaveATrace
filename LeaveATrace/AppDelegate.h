@@ -13,6 +13,6 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, atomic) NSMutableArray *dbTraces;  //DB
+@property (strong, atomic) NSMutableArray *tracesArray;  //DB
 
 @end

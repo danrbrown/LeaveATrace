@@ -26,7 +26,6 @@ PFObject *traceObject;
 NSString *traceObjectId;
 PFQuery *query;
 NSString *deliveredToUser;
-NSMutableArray *traces;
 
 @interface tracesViewController ()
 
@@ -47,8 +46,6 @@ NSMutableArray *traces;
 
 -(void) viewDidLoad
 {
-    
-    traces = [[NSMutableArray alloc] initWithCapacity:100];
     
     [self performSelector:@selector(displayTraces)];
     
@@ -73,11 +70,9 @@ NSMutableArray *traces;
 -(void) viewDidAppear:(BOOL)animated
 {
     
-    (APP).dbTraces = traces;
+    NSLog(@"%lu", (unsigned long)(APP).tracesArray.count);
     
-    NSLog(@"%lu", (unsigned long)traces.count);
-    
-    if (traces.count == 0)
+    if ((APP).tracesArray.count == 0)
     {
         
         noTraces.text = @"You have no traces :(";
@@ -91,8 +86,6 @@ NSMutableArray *traces;
     }
     
     [tracesTable reloadData];
-    
-    [self performSelector:@selector(displayTraces)];
     
     tracesBadgeString = nil;
     
@@ -158,15 +151,13 @@ NSMutableArray *traces;
         if (!error)
         {
             
-            traces = [[NSMutableArray alloc] initWithArray:objects];
-            (APP).dbTraces = traces;
+            (APP).tracesArray = [[NSMutableArray alloc] initWithArray:objects];
             
             NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"lastSentByDateTime" ascending:NO];
             
-            [traces sortUsingDescriptors:[NSArray arrayWithObject:sort]];
+            [(APP).tracesArray sortUsingDescriptors:[NSArray arrayWithObject:sort]];
             
-            NSLog(@"displayTraces: count of traces %lu",traces.count);
-            NSLog(@"displayTraces: count of dbtraces %lu",(APP).dbTraces.count);
+            NSLog(@"displayTraces: count of traces %lu",(APP).tracesArray.count);
             
         }
         
@@ -188,7 +179,7 @@ NSMutableArray *traces;
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return traces.count;
+    return (APP).tracesArray.count;
     
 }
 
@@ -216,11 +207,12 @@ NSMutableArray *traces;
         
     }
     
-    PFObject *traceObject = [traces objectAtIndex:indexPath.row];
+    PFObject *traceObject = [(APP).tracesArray objectAtIndex:indexPath.row];
 
     NSString *tmpCurrentUser = [[PFUser currentUser]username];
     NSString *tmpFromUser = [traceObject objectForKey:@"fromUser"];
     NSString *tmpLastSentBy = [traceObject objectForKey:@"lastSentBy"];
+    NSString *tmpStatus = [traceObject objectForKey:@"status"];
     NSString *tmpOpenedString;
     
     //-------------------------------------------------------------------------------
@@ -276,8 +268,17 @@ NSMutableArray *traces;
         
         if ([tmpCurrentUser isEqualToString:tmpLastSentBy])  // Current user sent it
         {
+            if ([tmpStatus isEqualToString:@"P"])  // Current user sent it
+            {
+                tmpOpenedString = @"- Sending...";
+                
+            }
+            else
+            {
+                tmpOpenedString = @"- Sent";
+                
+            }
             
-            tmpOpenedString = @"- Sent";
             cell.didNotOpenImage.image = [UIImage imageNamed:@"SentNotOpened.png"];
             cell.didNotOpenImage.frame = CGRectMake(8, 14, 47, 29);
             
@@ -367,7 +368,7 @@ NSMutableArray *traces;
 -(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    traceObject = [traces objectAtIndex:indexPath.row];
+    traceObject = [(APP).tracesArray objectAtIndex:indexPath.row];
  
     traceObjectId = [traceObject objectId];
     
@@ -389,7 +390,7 @@ NSMutableArray *traces;
 -(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    [traces removeObjectAtIndex:indexPath.row];
+    [(APP).tracesArray removeObjectAtIndex:indexPath.row];
     
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
     

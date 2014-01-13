@@ -14,14 +14,11 @@ extern PFObject *traceObject;
 extern NSString *traceObjectId;
 extern PFQuery *query;
 extern NSString *deliveredToUser;
-extern NSMutableArray *traces;
 
 @interface tracesViewController : UITableViewController {
     
     PFQuery *query;
-    
-    NSMutableArray *traces;
-    
+        
     IBOutlet UIBarButtonItem *editButton;
     
     IBOutlet UIImageView *previewImage;

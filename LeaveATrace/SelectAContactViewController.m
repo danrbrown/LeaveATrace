@@ -259,31 +259,39 @@ BOOL clearImage;
 
     
     //NSString *tempId = @"sending_123 put in temp id";
+    
+    PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
+    
+    [imageObject setObject:file forKey:@"image"];
+    [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
+    [imageObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];
+    [imageObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
+    [imageObject setObject:tempContact forKey:@"toUser"];
+    [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
+    [imageObject setObject:@"P"forKey:@"status"];
+    
+    [(APP).tracesArray insertObject:imageObject atIndex:0];
+    NSLog(@"displayTraces 1: %@",(APP).tracesArray);
+    
+    // DB - is it possible to update the wrong row if they enter two quickly before Parse comes back?
 
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         if (succeeded)
         {
             
-            PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
-            
-            [imageObject setObject:file forKey:@"image"];
-            [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
-            [imageObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];
-            [imageObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
-            [imageObject setObject:tempContact forKey:@"toUser"];
-            [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
-                        
             [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
                 if (succeeded)
                 {
+                    
                     NSString *newObjectId = [imageObject objectId];
+                    [imageObject setObject:@"S"forKey:@"status"];
+                     NSLog(@"displayTraces 2: %@",(APP).tracesArray);
                     [self sendPushToContact:tempContact pushObjectId:newObjectId];
                     [self.navigationController popViewControllerAnimated:YES];
                     
-                    NSLog(@"select a contact: count of traces %lu",traces.count);
-                    NSLog(@"displayTraces: count of dbtraces %lu",(APP).dbTraces.count);
+                    NSLog(@"displayTraces: count of dbtraces %lu",(APP).tracesArray.count);
 
                     
                 }
