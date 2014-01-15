@@ -28,6 +28,7 @@ extern NSString *deliveredToUser;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tracesTable;
+@property (nonatomic, retain) UIActivityIndicatorView *sending;
 
 //Actions
 -(IBAction) draw:(id)sender;

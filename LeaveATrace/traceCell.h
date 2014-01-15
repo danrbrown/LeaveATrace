@@ -9,7 +9,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface traceCell : UITableViewCell
+@interface traceCell : UITableViewCell {
+    
+    
+    
+}
 
 //Labels on the cell
 @property (weak, nonatomic) IBOutlet UILabel *usernameTitle;
@@ -17,5 +21,8 @@
 
 //Images on the cell
 @property (weak, nonatomic) IBOutlet UIImageView *didNotOpenImage;
+
+//Other propertys
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *sending;
 
 @end

@@ -271,6 +271,7 @@ BOOL clearImage;
     [imageObject setObject:@"P"forKey:@"status"];
     
     [(APP).tracesArray insertObject:imageObject atIndex:0];
+
     NSLog(@"displayTraces 1: %@",(APP).tracesArray);
     
     // DB - is it possible to update the wrong row if they enter two quickly before Parse comes back?
@@ -280,6 +281,7 @@ BOOL clearImage;
         if (succeeded)
         {
             
+            [imageObject setObject:@"S"forKey:@"status"];
             [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
                 if (succeeded)
@@ -287,9 +289,13 @@ BOOL clearImage;
                     
                     NSString *newObjectId = [imageObject objectId];
                     [imageObject setObject:@"S"forKey:@"status"];
-                     NSLog(@"displayTraces 2: %@",(APP).tracesArray);
+                    NSLog(@"displayTraces 2: %@",(APP).tracesArray);
                     [self sendPushToContact:tempContact pushObjectId:newObjectId];
                     [self.navigationController popViewControllerAnimated:YES];
+                    
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:@"TestNotification"
+                     object:self];
                     
                     NSLog(@"displayTraces: count of dbtraces %lu",(APP).tracesArray.count);
 

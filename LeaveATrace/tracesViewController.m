@@ -33,7 +33,7 @@ NSString *deliveredToUser;
 
 @implementation tracesViewController
 
-@synthesize tracesTable;
+@synthesize tracesTable,sending;
 
 //----------------------------------------------------------------------------------
 //
@@ -53,6 +53,11 @@ NSString *deliveredToUser;
     [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
     refreshControl.tintColor = [UIColor blackColor];
     self.refreshControl = refreshControl;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveTestNotification:)
+                                                 name:@"TestNotification"
+                                               object:nil];    
     
 //    LoggedIn = YES;
 //    [[NSUserDefaults standardUserDefaults] setBool:LoggedIn forKey:@"log"];
@@ -90,6 +95,24 @@ NSString *deliveredToUser;
     tracesBadgeString = nil;
     
     [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:tracesBadgeString];
+    
+}
+
+
+- (void) receiveTestNotification:(NSNotification *) notification
+{
+    
+    // [notification name] should always be @"TestNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+    
+    if ([[notification name] isEqualToString:@"TestNotification"])
+    {
+
+        NSLog (@"Successfully received the test notification!");
+        [tracesTable reloadData];
+
+    }
     
 }
 
@@ -270,12 +293,17 @@ NSString *deliveredToUser;
         {
             if ([tmpStatus isEqualToString:@"P"])  // Current user sent it
             {
+                
                 tmpOpenedString = @"- Sending...";
+                [cell.didNotOpenImage setHidden:YES];
+                [cell.sending startAnimating];
                 
             }
             else
             {
                 tmpOpenedString = @"- Sent";
+                [cell.didNotOpenImage setHidden:NO];
+                [cell.sending stopAnimating];
                 
             }
             
