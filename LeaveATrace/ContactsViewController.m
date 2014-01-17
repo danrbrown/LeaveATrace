@@ -66,6 +66,8 @@
     
     [self performSelector:@selector(displayContacts)];
     
+    [contactsView reloadData];
+    
     if (items.count == 0)
     {
         

@@ -61,6 +61,8 @@
     
     [self performSelector:@selector(displayRequests)];
     
+    [requestsTable reloadData];
+    
     if (requests.count == 0)
     {
         
