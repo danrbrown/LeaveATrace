@@ -77,10 +77,12 @@ NSString *deliveredToUser;
     
     NSLog(@"%lu", (unsigned long)(APP).tracesArray.count);
     
+    [tracesTable reloadData];
+    
     if ((APP).tracesArray.count == 0)
     {
         
-        noTraces.text = @"You have no traces :(";
+        noTraces.text = @"You have no traces";
         
     }
     else
@@ -89,8 +91,6 @@ NSString *deliveredToUser;
         noTraces.text = @"";
         
     }
-    
-    [tracesTable reloadData];
     
     tracesBadgeString = nil;
     

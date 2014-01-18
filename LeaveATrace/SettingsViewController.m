@@ -185,7 +185,8 @@
 
 -(void) deleteMyTraces
 {
-    NSString *tmpCurrentUser = [[PFUser currentUser]username];
+    
+    NSString *tmpCurrentUser = [[PFUser currentUser] username];
     NSInteger idx = 0;
     
     for (PFObject *obj in (APP).tracesArray)
@@ -195,10 +196,10 @@
         NSString *tmpToUser = [obj objectForKey:@"toUser"];
         
         if ([tmpCurrentUser isEqualToString:tmpFromUser])
-            [obj setObject:@"NO"forKey:@"fromUserDisplay"];
+            [obj setObject:@"NO" forKey:@"fromUserDisplay"];
         
         if ([tmpCurrentUser isEqualToString:tmpToUser])
-            [obj setObject:@"NO"forKey:@"toUserDisplay"];
+            [obj setObject:@"NO" forKey:@"toUserDisplay"];
         
         //  See if the row should be deleted or updated. If both users deleted
         //  then delete from parse.  Else just update the delete flag
@@ -208,15 +209,22 @@
         
         if ([tmpFromUserDisplay isEqualToString:@"NO"] && [tmpToUserDisplay isEqualToString:@"NO"])
         {
+            
             [obj deleteInBackground];
-            [(APP).tracesArray removeObjectAtIndex:idx];
+            
             NSLog(@"Delete row in parse");
+            
         }
         else
         {
+            
             [obj saveInBackground];
+            
             NSLog(@"Delete one trace by updating");
+            
         }
+        
+        [(APP).tracesArray removeObjectAtIndex:idx];
         idx++;
         
     }

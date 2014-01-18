@@ -512,7 +512,8 @@ long iconBadge;
 -(IBAction) save:(id)sender
 {
     
-    [self loading];
+    viewText = 1;
+    [self loadingSave];
     
     UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
     [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
@@ -550,9 +551,8 @@ long iconBadge;
         [loading stopAnimating];
         [_hudView removeFromSuperview];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Nice drawing! Image was saved."  delegate:nil cancelButtonTitle:@"Yay" otherButtonTitles:nil];
-        
-        [alert show];
+        viewText = 2;
+        [self loadingSave];
         
     }
     
@@ -629,7 +629,7 @@ long iconBadge;
     
 }
 
--(void) loading
+-(void) loadingSave
 {
     
     _hudView = [[UIView alloc] initWithFrame:CGRectMake(45, 180, 230, 50)];
@@ -646,7 +646,21 @@ long iconBadge;
     _captionLabel.backgroundColor = [UIColor clearColor];
     _captionLabel.textColor = [UIColor whiteColor];
     _captionLabel.adjustsFontSizeToFitWidth = YES;
-    _captionLabel.text = @"Saving trace...";
+    
+    if (viewText == 1)
+    {
+        
+        _captionLabel.text = @"Saving trace...";
+    
+    }
+    
+    if (viewText == 2)
+    {
+        
+        _captionLabel.text = @"Trace was saved!";
+        
+    }
+    
     [_captionLabel setTextAlignment:NSTextAlignmentCenter];
     [_hudView addSubview:_captionLabel];
     

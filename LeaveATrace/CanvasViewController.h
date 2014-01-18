@@ -43,7 +43,7 @@ extern long iconBadge;
     
     //Variables
     BOOL dontTrash;
-    int waitTwo;
+    int viewText;
     NSMutableArray *imagesArray;
     UIImagePickerController *imagePicker;
     UIImagePickerController *picturePicker;

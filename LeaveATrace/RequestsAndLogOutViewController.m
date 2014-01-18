@@ -229,7 +229,7 @@
         
         if (succeeded)
         {
-            
+            NSLog(@"deleting the friend request");
             [requests removeObjectAtIndex:indexPath.row];
             
             [requestsTable reloadData];
