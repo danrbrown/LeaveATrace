@@ -104,6 +104,9 @@
                 
                 [errorAlertView show];
                 
+                
+                NSLog(@"'delete all traces'");  //Dan
+            
             }
             else
             {

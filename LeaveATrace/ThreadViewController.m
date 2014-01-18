@@ -333,6 +333,8 @@
             
             [traceObject setObject:imageFile forKey:@"image"];
             [traceObject setObject:@"NO"forKey:@"deliveredToUser"];
+            [traceObject setObject:@"YES"forKey:@"fromUserDisplay"];
+            [traceObject setObject:@"YES"forKey:@"toUserDisplay"];
             [traceObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];
             [traceObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
             [traceObject saveInBackground];

@@ -257,16 +257,15 @@ BOOL clearImage;
     NSString *tempContact = [tempObject objectForKey:@"contact"];
     NSDate *currentDateTime = [NSDate date];
 
-    
-    //NSString *tempId = @"sending_123 put in temp id";
-    
     PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
     
     [imageObject setObject:file forKey:@"image"];
     [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
+    [imageObject setObject:@"YES" forKey:@"fromUserDisplay"];
     [imageObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];
     [imageObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
     [imageObject setObject:tempContact forKey:@"toUser"];
+    [imageObject setObject:@"YES" forKey:@"toUserDisplay"];
     [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
     [imageObject setObject:@"P"forKey:@"status"];
     

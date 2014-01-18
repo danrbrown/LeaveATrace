@@ -163,9 +163,11 @@ NSString *deliveredToUser;
     
     PFQuery *toUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
     [toUserQuery whereKey:@"toUser" equalTo:[[PFUser currentUser]username]];
+    [toUserQuery whereKey:@"toUserDisplay" equalTo:@"YES"];
 
     PFQuery *fromUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
     [fromUserQuery whereKey:@"fromUser" equalTo:[[PFUser currentUser]username]];
+    [fromUserQuery whereKey:@"fromUserDisplay" equalTo:@"YES"];
 
     query = [PFQuery orQueryWithSubqueries:@[toUserQuery,fromUserQuery]];
     
@@ -418,14 +420,41 @@ NSString *deliveredToUser;
 -(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    PFObject *tempObject = [(APP).tracesArray objectAtIndex:indexPath.row];
+    NSString *tmpCurrentUser = [[PFUser currentUser]username];
+    
+    NSString *tmpFromUser = [tempObject objectForKey:@"fromUser"];
+    NSString *tmpToUser = [tempObject objectForKey:@"toUser"];
+    
+    if ([tmpCurrentUser isEqualToString:tmpFromUser])
+        [tempObject setObject:@"NO"forKey:@"fromUserDisplay"];
+
+    if ([tmpCurrentUser isEqualToString:tmpToUser])
+        [tempObject setObject:@"NO"forKey:@"toUserDisplay"];
+    
+    //  See if the row should be deleted or updated. If both users deleted
+    //  then delete from parse.  Else just update the delete flag
+    
+    NSString *tmpFromUserDisplay = [tempObject objectForKey:@"fromUserDisplay"];
+    NSString *tmpToUserDisplay = [tempObject objectForKey:@"toUserDisplay"];
+    
+    if ([tmpFromUserDisplay isEqualToString:@"NO"] && [tmpToUserDisplay isEqualToString:@"NO"])
+    {
+        [tempObject deleteInBackground];
+        NSLog(@"Delete row in parse"); //Dan
+    }
+    else
+    {
+        [tempObject saveInBackground];
+        NSLog(@"Delete one trace by updating"); //Dan
+           }
+ 
     [(APP).tracesArray removeObjectAtIndex:indexPath.row];
     
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
     
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
     
-    // DB need to put in code/method to update the row from Parse. More thought needed on how to
-    // design and implement this.
 
 }
 
