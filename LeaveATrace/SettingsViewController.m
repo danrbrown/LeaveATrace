@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "FirstPageViewController.h"
+#import "AppDelegate.h"
 #import <Parse/Parse.h>
 
 @interface SettingsViewController ()
@@ -100,12 +101,12 @@
             if (succeeded)
             {
                 
+                [self deleteMyTraces];
+                NSLog(@"'delete all traces'");  //Dan
+                
                 UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"You cleared your traces." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                 
                 [errorAlertView show];
-                
-                
-                NSLog(@"'delete all traces'");  //Dan
             
             }
             else
@@ -179,6 +180,46 @@
 {
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+-(void) deleteMyTraces
+{
+    NSString *tmpCurrentUser = [[PFUser currentUser]username];
+    NSInteger idx = 0;
+    
+    for (PFObject *obj in (APP).tracesArray)
+    {
+        
+        NSString *tmpFromUser = [obj objectForKey:@"fromUser"];
+        NSString *tmpToUser = [obj objectForKey:@"toUser"];
+        
+        if ([tmpCurrentUser isEqualToString:tmpFromUser])
+            [obj setObject:@"NO"forKey:@"fromUserDisplay"];
+        
+        if ([tmpCurrentUser isEqualToString:tmpToUser])
+            [obj setObject:@"NO"forKey:@"toUserDisplay"];
+        
+        //  See if the row should be deleted or updated. If both users deleted
+        //  then delete from parse.  Else just update the delete flag
+        
+        NSString *tmpFromUserDisplay = [obj objectForKey:@"fromUserDisplay"];
+        NSString *tmpToUserDisplay = [obj objectForKey:@"toUserDisplay"];
+        
+        if ([tmpFromUserDisplay isEqualToString:@"NO"] && [tmpToUserDisplay isEqualToString:@"NO"])
+        {
+            [obj deleteInBackground];
+            [(APP).tracesArray removeObjectAtIndex:idx];
+            NSLog(@"Delete row in parse");
+        }
+        else
+        {
+            [obj saveInBackground];
+            NSLog(@"Delete one trace by updating");
+        }
+        idx++;
+        
+    }
     
 }
 

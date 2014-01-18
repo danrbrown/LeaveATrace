@@ -441,13 +441,13 @@ NSString *deliveredToUser;
     if ([tmpFromUserDisplay isEqualToString:@"NO"] && [tmpToUserDisplay isEqualToString:@"NO"])
     {
         [tempObject deleteInBackground];
-        NSLog(@"Delete row in parse"); //Dan
+        NSLog(@"Delete row in parse");
     }
     else
     {
         [tempObject saveInBackground];
-        NSLog(@"Delete one trace by updating"); //Dan
-           }
+        NSLog(@"Delete one trace by updating");
+    }
  
     [(APP).tracesArray removeObjectAtIndex:indexPath.row];
     
