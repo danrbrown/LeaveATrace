@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RuF-KD-iC2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NsB-hd-S74">
     <dependencies>
         <deployment version="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
@@ -518,6 +518,24 @@
             </objects>
             <point key="canvasLocation" x="2647" y="-213"/>
         </scene>
+        <!--Start Up View Controller-->
+        <scene sceneID="1NU-VJ-rrY">
+            <objects>
+                <viewController id="NsB-hd-S74" customClass="StartUpViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6vW-AI-IBE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <segue destination="Qsb-vs-PUu" kind="modal" identifier="userAlreadyLoggedIn" modalTransitionStyle="crossDissolve" id="GBW-T9-TL5"/>
+                        <segue destination="RuF-KD-iC2" kind="modal" identifier="userNeedsToLogIn" modalTransitionStyle="crossDissolve" id="kY8-SR-qb2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6i9-36-Qaw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-805" y="472"/>
+        </scene>
         <!--First Page View Controller-->
         <scene sceneID="jGy-2o-cSF">
             <objects>
@@ -587,7 +605,6 @@
                         <outlet property="logInButton" destination="Vn2-Gn-JMH" id="XAI-A7-SYp"/>
                         <outlet property="mainImage" destination="T99-hH-w9z" id="hJ6-U8-yT0"/>
                         <outlet property="signUpButton" destination="cca-D8-5Zu" id="77T-cB-LEs"/>
-                        <segue destination="Qsb-vs-PUu" kind="modal" identifier="userAlreadyLoggedIn" animates="NO" id="UCm-eX-8Dj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zP-E3-cCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -800,7 +817,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhr-Af-3aD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1266" y="463"/>
+            <point key="canvasLocation" x="1209" y="463"/>
         </scene>
         <!--Navigation Controller - Traces-->
         <scene sceneID="Bz5-Tt-ViE">
@@ -1124,7 +1141,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="UCm-eX-8Dj"/>
-        <segue reference="MPc-CD-CeS"/>
+        <segue reference="GBW-T9-TL5"/>
+        <segue reference="kY8-SR-qb2"/>
     </inferredMetricsTieBreakers>
 </document>

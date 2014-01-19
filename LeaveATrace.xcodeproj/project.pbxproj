@@ -73,6 +73,7 @@
 		A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555C8D91846D53B00C012ED /* ThreadViewController.m */; };
 		A568F76D186E209B003E074E /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A568F76C186E209B003E074E /* AddressBookUI.framework */; };
 		A568F76F186E20A6003E074E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A568F76E186E20A6003E074E /* AddressBook.framework */; };
+		A5C4847A188B586300B98F9E /* StartUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C48479188B586300B98F9E /* StartUpViewController.m */; };
 		A5CC7FAF186BF6F0003DB2E7 /* iconsberlin@2x-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A5CC7FAE186BF6F0003DB2E7 /* iconsberlin@2x-3.png */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +176,8 @@
 		A555C8D91846D53B00C012ED /* ThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreadViewController.m; path = LeaveATrace/ThreadViewController.m; sourceTree = "<group>"; };
 		A568F76C186E209B003E074E /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		A568F76E186E20A6003E074E /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		A5C48478188B586300B98F9E /* StartUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartUpViewController.h; path = LeaveATrace/StartUpViewController.h; sourceTree = "<group>"; };
+		A5C48479188B586300B98F9E /* StartUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartUpViewController.m; path = LeaveATrace/StartUpViewController.m; sourceTree = "<group>"; };
 		A5CC7FAE186BF6F0003DB2E7 /* iconsberlin@2x-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x-3.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -388,6 +391,8 @@
 				9C276847181C76B00073453E /* LoginViewController.m */,
 				9C276848181C76B00073453E /* SignUpViewController.h */,
 				9C276849181C76B00073453E /* SignUpViewController.m */,
+				A5C48478188B586300B98F9E /* StartUpViewController.h */,
+				A5C48479188B586300B98F9E /* StartUpViewController.m */,
 			);
 			name = "Login and Sign Up Views";
 			sourceTree = "<group>";
@@ -562,6 +567,7 @@
 				9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */,
 				9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */,
 				9C276877181C774F0073453E /* LeaveATraceItem.m in Sources */,
+				A5C4847A188B586300B98F9E /* StartUpViewController.m in Sources */,
 				9C27684E181C76B10073453E /* LoginViewController.m in Sources */,
 				9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */,
 				A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */,
