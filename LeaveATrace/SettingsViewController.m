@@ -138,6 +138,8 @@
         [traceDefaults setObject:@"" forKey:@"password"];
         [traceDefaults synchronize];
         
+        (APP).tracesArray = nil;
+        
         [PFUser logOut];
         
         [self performSegueWithIdentifier:@"LogOutSuccesful" sender:self];

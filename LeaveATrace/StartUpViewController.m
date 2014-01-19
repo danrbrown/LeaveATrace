@@ -7,6 +7,7 @@
 //
 
 #import "StartUpViewController.h"
+#import "LoadTraces.h"
 
 @interface StartUpViewController ()
 
@@ -16,8 +17,8 @@
 
 -(void)viewDidLoad
 {
-  
-
+    
+    
     
 }
 
@@ -31,6 +32,8 @@
 -(void) defaults
 {
     
+    LoadTraces *loadTraces = [[LoadTraces alloc] init];
+    
     NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
     NSString *tmpUsername = [traceDefaults objectForKey:@"username"];
     
@@ -38,6 +41,8 @@
     
     if ([tmpUsername length] != 0)
     {
+        
+        [loadTraces loadTracesArray];
         
         [self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
         

@@ -14,6 +14,7 @@
 #import "LoginViewController.h"
 #import "CanvasViewController.h"
 #import "FirstPageViewController.h"
+#import "LoadTraces.h"
 #import <Parse/Parse.h>
 
 @interface LoginViewController ()
@@ -140,6 +141,9 @@
 
 -(void) logingIn
 {
+    
+    LoadTraces *loadTraces = [[LoadTraces alloc] init];
+    
     NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
     
     [PFUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passWordTextField.text block:^(PFUser *user, NSError *error) {
@@ -151,6 +155,8 @@
             [traceDefaults synchronize];
             
             [loadingLogin stopAnimating];
+            
+            [loadTraces loadTracesArray];
             
             [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
             

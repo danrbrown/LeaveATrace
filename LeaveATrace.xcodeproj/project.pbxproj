@@ -74,6 +74,7 @@
 		A568F76D186E209B003E074E /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A568F76C186E209B003E074E /* AddressBookUI.framework */; };
 		A568F76F186E20A6003E074E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A568F76E186E20A6003E074E /* AddressBook.framework */; };
 		A5C4847A188B586300B98F9E /* StartUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C48479188B586300B98F9E /* StartUpViewController.m */; };
+		A5C4847D188B5EDC00B98F9E /* LoadTraces.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C4847C188B5EDC00B98F9E /* LoadTraces.m */; };
 		A5CC7FAF186BF6F0003DB2E7 /* iconsberlin@2x-3.png in Resources */ = {isa = PBXBuildFile; fileRef = A5CC7FAE186BF6F0003DB2E7 /* iconsberlin@2x-3.png */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +179,8 @@
 		A568F76E186E20A6003E074E /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		A5C48478188B586300B98F9E /* StartUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartUpViewController.h; path = LeaveATrace/StartUpViewController.h; sourceTree = "<group>"; };
 		A5C48479188B586300B98F9E /* StartUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartUpViewController.m; path = LeaveATrace/StartUpViewController.m; sourceTree = "<group>"; };
+		A5C4847B188B5EDC00B98F9E /* LoadTraces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadTraces.h; sourceTree = "<group>"; };
+		A5C4847C188B5EDC00B98F9E /* LoadTraces.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadTraces.m; sourceTree = "<group>"; };
 		A5CC7FAE186BF6F0003DB2E7 /* iconsberlin@2x-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconsberlin@2x-3.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -288,6 +291,8 @@
 				9C276820181C75B10073453E /* ViewController.m */,
 				9C75471E1868DC1500AED9EB /* SettingsViewController.h */,
 				9C75471F1868DC1500AED9EB /* SettingsViewController.m */,
+				A5C4847B188B5EDC00B98F9E /* LoadTraces.h */,
+				A5C4847C188B5EDC00B98F9E /* LoadTraces.m */,
 				9CD69C171860E36C00177EA0 /* Images.xcassets */,
 				9C276811181C75B10073453E /* Supporting Files */,
 			);
@@ -560,6 +565,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C27687A181C77E70073453E /* ContactsViewController.m in Sources */,
+				A5C4847D188B5EDC00B98F9E /* LoadTraces.m in Sources */,
 				9C276821181C75B10073453E /* ViewController.m in Sources */,
 				9C276841181C76720073453E /* AddItemViewController.m in Sources */,
 				9C27684C181C76B10073453E /* CanvasViewController.m in Sources */,
