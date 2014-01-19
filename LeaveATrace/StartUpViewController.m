@@ -43,6 +43,7 @@
     {
         
         [loadTraces loadTracesArray];
+        [loadTraces loadContactsArray];
         
         [self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
         

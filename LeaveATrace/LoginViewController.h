@@ -12,6 +12,8 @@
     
     IBOutlet UIActivityIndicatorView *loadingLogin;
     
+    IBOutlet UIButton *logInButton;
+    
 }
 
 //username name text field

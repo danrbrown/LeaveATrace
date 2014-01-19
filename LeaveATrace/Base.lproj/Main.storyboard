@@ -529,7 +529,7 @@
                     </view>
                     <connections>
                         <segue destination="Qsb-vs-PUu" kind="modal" identifier="userAlreadyLoggedIn" modalTransitionStyle="crossDissolve" id="GBW-T9-TL5"/>
-                        <segue destination="RuF-KD-iC2" kind="modal" identifier="userNeedsToLogIn" modalTransitionStyle="crossDissolve" id="kY8-SR-qb2"/>
+                        <segue destination="RuF-KD-iC2" kind="modal" identifier="userNeedsToLogIn" animates="NO" id="kY8-SR-qb2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6i9-36-Qaw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -544,10 +544,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="T99-hH-w9z">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cca-D8-5Zu">
                                 <rect key="frame" x="83" y="291" width="166" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -598,6 +594,11 @@
                                 <color key="textColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="T99-hH-w9z">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -670,10 +671,10 @@
                                     <color key="titleShadowColor" red="0.0" green="0.96464839338897601" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="lfo-cH-2gf">
-                                <rect key="frame" x="142" y="407" width="37" height="37"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="lfo-cH-2gf">
+                                <rect key="frame" x="207" y="270" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="color" red="0.95367935979999996" green="1" blue="0.20564326029999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>

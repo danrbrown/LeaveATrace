@@ -14,5 +14,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, atomic) NSMutableArray *tracesArray;  
+@property (strong, atomic) NSMutableArray *contactsArray;
 
 @end

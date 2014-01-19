@@ -139,6 +139,7 @@
         [traceDefaults synchronize];
         
         (APP).tracesArray = nil;
+        (APP).contactsArray = nil;
         
         [PFUser logOut];
         

@@ -12,4 +12,6 @@
 
 -(void) loadTracesArray;
 
+-(void) loadContactsArray;
+
 @end

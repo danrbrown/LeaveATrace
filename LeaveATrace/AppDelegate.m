@@ -20,6 +20,7 @@
     
     _tracesArray = [[NSMutableArray alloc] init];
     
+    _contactsArray = [[NSMutableArray alloc] init];
     
     [Parse setApplicationId:@"cK6TMBbNDsdNFsE1vSckhEQDrCQjztAxURMKPHXL"
                   clientKey:@"8n0WuaSXapCrRAH1HRNL7bbSxIOBQxbjZHWLIrHr"];

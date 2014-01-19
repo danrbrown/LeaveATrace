@@ -42,7 +42,7 @@
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
-    refreshControl.tintColor = [UIColor blackColor];
+    refreshControl.tintColor = [UIColor redColor];
     self.refreshControl = refreshControl;
     
 }

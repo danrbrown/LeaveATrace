@@ -13,7 +13,6 @@
 @interface ContactsViewController : UITableViewController <AddItemViewControllerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate> {
     
     //Variables
-    NSMutableArray *items;
     NSMutableArray *alphabetsArray;
     NSString *userAccepted;
     NSString *userContact;

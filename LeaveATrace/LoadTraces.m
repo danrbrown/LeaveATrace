@@ -44,4 +44,37 @@
     
 }
 
+-(void) loadContactsArray
+{
+    
+    PFQuery *contactsQuery = [PFQuery queryWithClassName:@"UserContact"];
+    
+    [contactsQuery whereKey:@"username" equalTo:[[PFUser currentUser]username]];
+    
+    [contactsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (!error)
+        {
+            
+            (APP).contactsArray = [[NSMutableArray alloc] initWithArray:objects];
+            
+            NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"contact" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+            [(APP).contactsArray sortUsingDescriptors:[NSArray arrayWithObject:sort1]];
+            
+            NSLog(@"after load contacts... %@", (APP).contactsArray);
+            
+        }
+        else
+        {
+            
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            
+        }
+        
+    }];
+    
+    
+
+}
+
 @end

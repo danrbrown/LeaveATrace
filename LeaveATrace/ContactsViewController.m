@@ -14,6 +14,7 @@
 #import "ContactsViewController.h"
 #import "CanvasViewController.h"
 #import "AddItemViewController.h"
+#import "AppDelegate.h"
 #import "LeaveATraceItem.h"
 #import <Parse/Parse.h>
 #import <AddressBook/AddressBook.h>
@@ -39,7 +40,9 @@
 -(void) viewDidLoad
 {
     
-    items = [[NSMutableArray alloc] initWithCapacity:100];
+//    (APP).contactsArray = [[NSMutableArray alloc] initWithCapacity:100];
+    
+    NSLog(@"in contacts view contacts... %@", (APP).contactsArray);
     
     alphabetsArray =[[NSMutableArray alloc]initWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",nil];
 
@@ -48,7 +51,7 @@
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
-    refreshControl.tintColor = [UIColor blackColor];
+    refreshControl.tintColor = [UIColor redColor];
     self.refreshControl = refreshControl;
     
 }
@@ -68,7 +71,7 @@
     
     [contactsView reloadData];
     
-    if (items.count == 0)
+    if ((APP).contactsArray.count == 0)
     {
         
         noContacts.text = @"You have no friends?";
@@ -97,33 +100,7 @@
 -(void) displayContacts
 {
     
-    query = [PFQuery queryWithClassName:@"UserContact"];
-    
-    [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        if (!error)
-        {
-            
-            [items addObject:@"default"];
-            
-            items = [[NSMutableArray alloc] initWithArray:objects];
-            
-            NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"contact" ascending:YES selector:@selector(caseInsensitiveCompare:)];
-            [items sortUsingDescriptors:[NSArray arrayWithObject:sort1]];
-            
-        }
-        else
-        {
-    
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-            
-        }
-        
-        [contactsView reloadData];
-        
-    }];
+    [contactsView reloadData];
     
 }
 
@@ -157,7 +134,7 @@
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return items.count;
+    return (APP).contactsArray.count;
     
 }
 
@@ -226,7 +203,7 @@
     // break here
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChecklistItem"];
     
-    PFObject *item = [items objectAtIndex:indexPath.row];
+    PFObject *item = [(APP).contactsArray objectAtIndex:indexPath.row];
     NSString *tmpUserContact = [item objectForKey:@"contact"];
     NSString *tmpUserAccepted = [item objectForKey:@"userAccepted"];
     
@@ -289,9 +266,9 @@
 -(void) addItemViewControllerNoDismiss:(AddItemViewController *)controller didFinishAddingItem:(LeaveATraceItem *)item
 {
     
-    NSUInteger newRowIndex = [items count];
+    NSUInteger newRowIndex = [(APP).contactsArray count];
     
-    [items addObject:item];
+    [(APP).contactsArray addObject:item];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0];
     
@@ -318,7 +295,7 @@
         UINavigationController *navigationController = segue.destinationViewController;
         AddItemViewController *controller = (AddItemViewController *)navigationController.topViewController;
         controller.delegate = self;
-        controller.stuff = items;
+        controller.stuff = (APP).contactsArray;
     }
     
 }
@@ -345,7 +322,7 @@
     
     //Dan (aka jackass)
     
-    [items removeObjectAtIndex:indexPath.row];
+    [(APP).contactsArray removeObjectAtIndex:indexPath.row];
     
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
     

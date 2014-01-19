@@ -38,7 +38,8 @@
 
 -(void) viewDidLoad
 {
-     
+    
+    
     userNameTextField.layer.cornerRadius = 7;
     passWordTextField.layer.cornerRadius = 7;
     
@@ -157,6 +158,8 @@
             [loadingLogin stopAnimating];
             
             [loadTraces loadTracesArray];
+            
+            [loadTraces loadContactsArray];
             
             [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
             
