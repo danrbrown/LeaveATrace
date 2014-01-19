@@ -93,13 +93,13 @@
                         
                         NSString *tmpCurrentUser = [[PFUser currentUser]username];
                         NSString *tmpLastSentBy = [myImages objectForKey:@"lastSentBy"];
-                        NSDate *currentDateTime = [NSDate date];
                         
                         if (![tmpCurrentUser isEqualToString:tmpLastSentBy])
                         {
+                            
                             [myImages setObject:@"YES"forKey:@"deliveredToUser"];
-                            [myImages setObject:currentDateTime forKey:@"lastSentByDateTime"];
                             [myImages saveInBackground];
+                            
                         }
                     }
                     

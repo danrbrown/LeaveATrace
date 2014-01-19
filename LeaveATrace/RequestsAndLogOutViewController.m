@@ -37,11 +37,6 @@
 
     // DB move this to log out method which currently isn't working
     
-    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
-    [traceDefaults setObject:@"" forKey:@"username"];
-    [traceDefaults setObject:@"" forKey:@"password"];
-    [traceDefaults synchronize];
-    
     requests = [[NSMutableArray alloc] initWithCapacity:100];
     [self performSelector:@selector(displayRequests)];
     

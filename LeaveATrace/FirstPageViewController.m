@@ -90,23 +90,23 @@ BOOL LoggedIn;
 - (void) viewDidAppear:(BOOL)animated
 {
     
-//    LoggedIn = NO;
-//    
-//    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
-//    LoggedIn = [traceDefaults objectForKey:@"log"];
-//    
-//    if (LoggedIn)
-//    {
-//        
-//        [self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
-//        
-//    }
-//    else
-//    {
-//        
-//        NSLog(@"user needs to log in");
-//        
-//    }
+    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *tmpUsername = [traceDefaults objectForKey:@"username"];
+    
+    NSLog(@"username in defaults %@",tmpUsername);
+    
+    if ([tmpUsername length] != 0)
+    {
+                
+        [self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
+        
+    }
+    else
+    {
+        
+        NSLog(@"user needs to log in");
+        
+    }
     
 }
 

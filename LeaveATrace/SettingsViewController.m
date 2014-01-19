@@ -132,11 +132,11 @@
  
     if (buttonIndex == 1)
     {
-
-//        NSLog(@"loging out");
-//        
-//        LoggedIn = NO;
-//        [[NSUserDefaults standardUserDefaults] setBool:LoggedIn forKey:@"log"];
+        
+        NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
+        [traceDefaults setObject:@"" forKey:@"username"];
+        [traceDefaults setObject:@"" forKey:@"password"];
+        [traceDefaults synchronize];
         
         [PFUser logOut];
         

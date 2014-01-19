@@ -59,9 +59,6 @@ NSString *deliveredToUser;
                                                  name:@"TestNotification"
                                                object:nil];    
     
-//    LoggedIn = YES;
-//    [[NSUserDefaults standardUserDefaults] setBool:LoggedIn forKey:@"log"];
-    
 }
 
 //----------------------------------------------------------------------------------
