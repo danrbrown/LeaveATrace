@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StartUpViewController : UIViewController
+@interface StartUpViewController : UIViewController {
+    
+    BOOL tracesLoaded;
+    
+    BOOL contactsLoaded;
+    
+}
 
 @end

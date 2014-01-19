@@ -18,8 +18,19 @@
 -(void)viewDidLoad
 {
     
+    tracesLoaded = NO;
+    contactsLoaded = NO;
+
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveTestNotification:)
+                                                 name:@"LoadTracesNotification"
+                                               object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveTestNotification:)
+                                                 name:@"LoadContactsNotification"
+                                               object:nil];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -45,8 +56,6 @@
         [loadTraces loadTracesArray];
         [loadTraces loadContactsArray];
         
-        [self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
-        
     }
     else
     {
@@ -54,6 +63,35 @@
         NSLog(@"user needs to log in");
         
         [self performSegueWithIdentifier:@"userNeedsToLogIn" sender:self];
+        
+    }
+    
+}
+
+- (void) receiveTestNotification:(NSNotification *) notification
+{
+    
+    if ([[notification name] isEqualToString:@"LoadTracesNotification"])
+    {
+        
+        NSLog (@"Successfully received the traces load notification!");
+        tracesLoaded = YES;
+        
+    }
+    
+    if ([[notification name] isEqualToString:@"LoadContactsNotification"])
+    {
+        
+        NSLog (@"Successfully received the contacts load notification!");
+        contactsLoaded = YES;
+        
+    }
+    
+    if (tracesLoaded && contactsLoaded)
+    {
+        
+        [self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
+        
     }
     
 }

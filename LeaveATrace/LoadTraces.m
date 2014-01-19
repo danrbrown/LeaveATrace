@@ -38,6 +38,10 @@
             
             NSLog(@"displayTraces: count of traces %lu",(APP).tracesArray.count);
             
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"LoadTracesNotification"
+             object:self];
+            
         }
         
     }];
@@ -60,7 +64,12 @@
             
             NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"contact" ascending:YES selector:@selector(caseInsensitiveCompare:)];
             [(APP).contactsArray sortUsingDescriptors:[NSArray arrayWithObject:sort1]];
-                        
+            
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"LoadContactsNotification"
+             object:self];
+
+            
         }
         else
         {
