@@ -16,6 +16,7 @@
 #import "AddItemViewController.h"
 #import "AppDelegate.h"
 #import "LeaveATraceItem.h"
+#import "LoadTraces.h"
 #import <Parse/Parse.h>
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
@@ -116,6 +117,9 @@
 -(void) refreshView:(UIRefreshControl *)sender
 {
     
+    LoadTraces *loadTraces = [[LoadTraces alloc] init];
+    [loadTraces loadContactsArray];
+
     [self displayContacts];
     
     [sender endRefreshing];

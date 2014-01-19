@@ -17,6 +17,7 @@
 #import "FirstPageViewController.h"
 #import "CanvasViewController.h"
 #import "AppDelegate.h"
+#import "LoadTraces.h"
 #import <Parse/Parse.h>
 
 //Global variables
@@ -142,6 +143,9 @@ NSString *deliveredToUser;
 -(void) refreshView:(UIRefreshControl *)sender
 {
     
+    LoadTraces *loadTraces = [[LoadTraces alloc] init];
+    [loadTraces loadTracesArray];
+
     [self displayTraces];
     
     [sender endRefreshing];
