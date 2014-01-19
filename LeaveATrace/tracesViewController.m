@@ -23,10 +23,9 @@
 //Global variables
 UIImage *Threadimage;
 NSData *data;
-PFObject *traceObject;
-NSString *traceObjectId;
-PFQuery *query;
-NSString *deliveredToUser;
+NSInteger traceObjectIdx;
+//PFQuery *query;
+//NSString *deliveredToUser;
 
 @interface tracesViewController ()
 
@@ -215,6 +214,7 @@ NSString *deliveredToUser;
     NSString *tmpLastSentBy = [traceObject objectForKey:@"lastSentBy"];
     NSString *tmpStatus = [traceObject objectForKey:@"status"];
     NSString *tmpOpenedString;
+    NSString *tmpDeliveredToUser;
     
     //-------------------------------------------------------------------------------
     // Determine what is displayed on the Title line.  Should always be the "other"
@@ -239,9 +239,9 @@ NSString *deliveredToUser;
     // Display the approiate image and set the appropriate text.
     //-------------------------------------------------------------------------------
 
-    deliveredToUser = [traceObject objectForKey:@"deliveredToUser"];
+    tmpDeliveredToUser = [traceObject objectForKey:@"deliveredToUser"];
     
-    if ([deliveredToUser isEqualToString:@"YES"])
+    if ([tmpDeliveredToUser isEqualToString:@"YES"])
     {
         
         tmpOpenedString = @"- Opened";
@@ -374,9 +374,12 @@ NSString *deliveredToUser;
 -(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    traceObject = [(APP).tracesArray objectAtIndex:indexPath.row];
- 
-    traceObjectId = [traceObject objectId];
+//    traceObject = [(APP).tracesArray objectAtIndex:indexPath.row];
+// 
+//    traceObjectId = [traceObject objectId];
+    
+    traceObjectIdx = indexPath.row;
+    NSLog(@"traceObjectIdx in traces %lu",traceObjectIdx);
     
     [self performSegueWithIdentifier:@"TraceThread" sender:self];
     

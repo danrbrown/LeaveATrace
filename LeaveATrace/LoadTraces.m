@@ -60,9 +60,7 @@
             
             NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"contact" ascending:YES selector:@selector(caseInsensitiveCompare:)];
             [(APP).contactsArray sortUsingDescriptors:[NSArray arrayWithObject:sort1]];
-            
-            NSLog(@"after load contacts... %@", (APP).contactsArray);
-            
+                        
         }
         else
         {

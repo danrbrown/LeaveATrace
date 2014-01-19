@@ -33,7 +33,9 @@
     UIView *_hudView;
     UILabel *_captionLabel;
     int viewText;
-    
+    PFObject *traceObject;
+    NSString *traceObjectId;
+
 }
 
 //Property type UIImageView for the image that you draw on

@@ -159,7 +159,7 @@ long iconBadge;
                 [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
                 
             }
-            else if (objects.count >= 1 && [deliveredToUser isEqualToString:@"NO"])
+            else if (objects.count >= 1)
             {
             
                 badgeString = [NSString stringWithFormat:@"%lu",(unsigned long)objects.count];
@@ -199,9 +199,9 @@ long iconBadge;
     [fromUserQuery whereKey:@"lastSentBy" notEqualTo:tmpCurrentUser];
     [fromUserQuery whereKey:@"deliveredToUser" equalTo:@"NO"];
     
-    query = [PFQuery orQueryWithSubqueries:@[toUserQuery,fromUserQuery]];
+    PFQuery *countQuery = [PFQuery orQueryWithSubqueries:@[toUserQuery,fromUserQuery]];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    [countQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if (!error)
         {

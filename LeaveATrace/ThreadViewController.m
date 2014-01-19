@@ -14,6 +14,7 @@
 #import "ThreadViewController.h"
 #import "CanvasViewController.h"
 #import "tracesViewController.h"
+#import "AppDelegate.h"
 
 @interface ThreadViewController ()
 
@@ -36,19 +37,32 @@
 -(void) viewDidLoad
 {
     
-    NSString *userWhoSentTrace = [traceObject objectForKey:@"toUser"];
-    
-    otherUser.text = userWhoSentTrace;
-    
-    [self getThreadTrace:userWhoSentTrace];
-    
     red = 255.0;
     green = 0.0;
     blue = 0.0;
     brush = 11.0;
     opacity = 1.0;
-    
+
 }
+
+//----------------------------------------------------------------------------------
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    
+    NSLog(@"traceObjectIdx in thread %lu",traceObjectIdx);
+    traceObject = [(APP).tracesArray objectAtIndex:traceObjectIdx];
+    
+    traceObjectId = [traceObject objectId];
+    
+    NSString *userWhoSentTrace = [traceObject objectForKey:@"toUser"];
+    
+    otherUser.text = userWhoSentTrace;
+    
+    [self getThreadTrace:userWhoSentTrace];
+
+}
+
 
 //----------------------------------------------------------------------------------
 //
@@ -57,6 +71,8 @@
 // Purpose:
 //
 //----------------------------------------------------------------------------------
+
+//this should be done better - shouldn't loop since we're bringing back one image Dan DRB
 
 -(void) getThreadTrace:(NSString *)userWhoSentTrace
 {
@@ -98,6 +114,8 @@
                         {
                             
                             [myImages setObject:@"YES"forKey:@"deliveredToUser"];
+                            [traceObject setObject:@"YES"forKey:@"deliveredToUser"];
+                            //[traceObject setObject:@"S"forKey:@"status"];
                             [myImages saveInBackground];
                             
                         }

@@ -10,10 +10,7 @@
 #import <Parse/Parse.h>
 
 //Global variables
-extern PFObject *traceObject;
-extern NSString *traceObjectId;
-extern PFQuery *query;
-extern NSString *deliveredToUser;
+extern NSInteger traceObjectIdx;
 
 @interface tracesViewController : UITableViewController {
     
