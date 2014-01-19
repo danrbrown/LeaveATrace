@@ -47,6 +47,8 @@ NSString *deliveredToUser;
 -(void) viewDidLoad
 {
     
+    NSLog(@"the eagle is taking a poop on your head");
+    
     [self performSelector:@selector(displayTraces)];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
