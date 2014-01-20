@@ -36,11 +36,15 @@
             
             [(APP).tracesArray sortUsingDescriptors:[NSArray arrayWithObject:sort]];
             
-            NSLog(@"displayTraces: count of traces %lu",(APP).tracesArray.count);
-            
             [[NSNotificationCenter defaultCenter]
              postNotificationName:@"LoadTracesNotification"
              object:self];
+            
+        }
+        else
+        {
+            
+            NSLog(@"There was an error loading the traces");
             
         }
         
@@ -69,19 +73,48 @@
              postNotificationName:@"LoadContactsNotification"
              object:self];
 
-            
         }
         else
         {
             
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
+            NSLog(@"There was an error loading the contacts");
             
         }
         
     }];
     
-    
+}
 
+-(void) loadRequestsArray
+{
+    
+    PFQuery *requestsQuery = [PFQuery queryWithClassName:@"UserContact"];
+    
+    [requestsQuery whereKey:@"contact" equalTo:[[PFUser currentUser]username]];
+    [requestsQuery whereKey:@"userAccepted" equalTo:@"NO"];
+    [requestsQuery orderByAscending:@"contact"];
+    
+    [requestsQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (!error)
+        {
+            
+            (APP).requestsArray = [[NSMutableArray alloc] initWithArray:objects];
+            
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"LoadRequestsNotification"
+             object:self];
+            
+        }
+        else
+        {
+    
+            NSLog(@"There was an error loading the Requests");
+            
+        }
+        
+    }];
+    
 }
 
 @end

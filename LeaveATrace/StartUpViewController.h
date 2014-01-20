@@ -14,6 +14,8 @@
     
     BOOL contactsLoaded;
     
+    BOOL requestsLoaded;
+    
 }
 
 @end

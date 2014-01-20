@@ -11,7 +11,6 @@
 
 @interface RequestsAndLogOutViewController : UITableViewController <UIAlertViewDelegate> {
 
-    NSMutableArray *requests;
     NSString *userAccepted;
     NSString *userContact;
     PFQuery *query;

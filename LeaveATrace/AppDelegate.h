@@ -13,7 +13,9 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, atomic) NSMutableArray *tracesArray;  
+
+@property (strong, atomic) NSMutableArray *tracesArray;
 @property (strong, atomic) NSMutableArray *contactsArray;
+@property (strong, atomic) NSMutableArray *requestsArray;
 
 @end

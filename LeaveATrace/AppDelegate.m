@@ -17,52 +17,53 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-     
-    
     _tracesArray = [[NSMutableArray alloc] init];
     
     _contactsArray = [[NSMutableArray alloc] init];
+    
+    _requestsArray = [[NSMutableArray alloc] init];
     
     [Parse setApplicationId:@"cK6TMBbNDsdNFsE1vSckhEQDrCQjztAxURMKPHXL"
                   clientKey:@"8n0WuaSXapCrRAH1HRNL7bbSxIOBQxbjZHWLIrHr"];
     
     // Register for push notifications
-    [application registerForRemoteNotificationTypes:
-     UIRemoteNotificationTypeBadge |
-     UIRemoteNotificationTypeAlert |
-     UIRemoteNotificationTypeSound];
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge |UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
     
     application.applicationSupportsShakeToEdit = YES;
     
-    // new attempt to respond to push payload
-//    
-//    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
-//    
-//    // Create a pointer to the Photo object
-//    NSString *imageId = [notificationPayload objectForKey:@"p"];
-//    PFObject *targetTrace = [PFObject objectWithoutDataWithClassName:@"Photo"
-//                                                            objectId:imageId];
-//    
-//    // Fetch photo object
-//    [targetTrace fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-//        // Show photo view controller
-//        if (!error && [PFUser currentUser]) {
-////            PhotoVC *ThreadViewController = [[PhotoVC alloc] initWithPhoto:object];
-////            [self.navController pushViewController:viewController animated:YES];
-//            
-//            NSLog(@"fetched the image %@",object);
-//        }
-//    }];
+    //Dans notifacations crap.
+   /*
     
-    // to be looked at later. DB
+     new attempt to respond to push payload
+  
+   NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
     
-//    NSLog(@"In didFinishLaunchingWithOptions");
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    UIViewController *obj=[storyboard instantiateViewControllerWithIdentifier:@"haha"];
-//    self.navigationController.navigationBarHidden=YES;
-//    [self.navigationController pushViewController:obj animated:YES];
+    // Create a pointer to the Photo object
+    NSString *imageId = [notificationPayload objectForKey:@"p"];
+    PFObject *targetTrace = [PFObject objectWithoutDataWithClassName:@"Photo"
+                                                            objectId:imageId];
     
+    // Fetch photo object
+    [targetTrace fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        // Show photo view controller
+        if (!error && [PFUser currentUser]) {
+            PhotoVC *ThreadViewController = [[PhotoVC alloc] initWithPhoto:object];
+            [self.navController pushViewController:viewController animated:YES];
+            
+            NSLog(@"fetched the image %@",object);
+        }
+    }];
     
+     to be looked at later. DB
+    
+    NSLog(@"In didFinishLaunchingWithOptions");
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *obj=[storyboard instantiateViewControllerWithIdentifier:@"haha"];
+    self.navigationController.navigationBarHidden=YES;
+    [self.navigationController pushViewController:obj animated:YES];
+    
+    */
+     
     return YES;
 }
 

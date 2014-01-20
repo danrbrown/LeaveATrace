@@ -148,6 +148,7 @@
     NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
     
     [PFUser logInWithUsernameInBackground:self.userNameTextField.text password:self.passWordTextField.text block:^(PFUser *user, NSError *error) {
+        
         if (user)
         {
             
@@ -158,8 +159,8 @@
             [loadingLogin stopAnimating];
             
             [loadTraces loadTracesArray];
-            
             [loadTraces loadContactsArray];
+            [loadTraces loadRequestsArray];
             
             [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
             

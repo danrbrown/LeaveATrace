@@ -44,9 +44,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" id="fvy-DL-Gtp">
-                                            <rect key="frame" x="0.0" y="53" width="320" height="1"/>
+                                            <rect key="frame" x="15" y="53" width="305" height="1"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.8385275136" green="0.8385275136" blue="0.8385275136" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.96002072699999996" green="0.96002072699999996" blue="0.96002072699999996" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -285,38 +285,38 @@
         <scene sceneID="sXB-Ks-utV">
             <objects>
                 <tableViewController id="fzy-OR-OVR" customClass="SelectAContactViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="49" sectionHeaderHeight="22" sectionFooterHeight="22" id="GYn-6u-0sl">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="GYn-6u-0sl">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.82718610199999998" green="0.9592931375" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <label key="tableFooterView" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1lx-ot-lKv">
-                            <rect key="frame" x="0.0" y="76" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="78" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
                             <color key="textColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ValidContactCell" rowHeight="54" id="zIt-6l-4px" customClass="sendToCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="54"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ValidContactCell" rowHeight="56" id="zIt-6l-4px" customClass="sendToCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zIt-6l-4px" id="aaX-XV-rc4">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" id="Z0q-m2-BpM">
+                                            <rect key="frame" x="15" y="53" width="305" height="1"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.96002072699999996" green="0.96002072699999996" blue="0.96002072699999996" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Valid Contacts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mij-Gb-K4g">
-                                            <rect key="frame" x="8" y="12" width="264" height="30"/>
+                                            <rect key="frame" x="15" y="12" width="264" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="22"/>
                                             <color key="textColor" red="0.0004599110465" green="0.60365407859999998" blue="0.86190609060000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" id="Z0q-m2-BpM">
-                                            <rect key="frame" x="0.0" y="53" width="320" height="1"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.8385275136" green="0.8385275136" blue="0.8385275136" alpha="1" colorSpace="calibratedRGB"/>
-                                        </view>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
@@ -371,7 +371,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LmY-bC-Q9Q">
-                                            <rect key="frame" x="8" y="14" width="196" height="26"/>
+                                            <rect key="frame" x="15" y="14" width="196" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="22"/>
                                             <color key="textColor" red="0.0004599110465" green="0.60365407859999998" blue="0.86190609060000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -402,9 +402,9 @@
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" id="p2g-mc-PP8">
-                                            <rect key="frame" x="0.0" y="53" width="320" height="1"/>
+                                            <rect key="frame" x="15" y="53" width="305" height="1"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.8385275136" green="0.8385275136" blue="0.8385275136" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.96002072699999996" green="0.96002072699999996" blue="0.96002072699999996" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -871,27 +871,27 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b4l-zZ-67E">
-                                            <rect key="frame" x="64" y="4" width="222" height="30"/>
+                                            <rect key="frame" x="72" y="4" width="222" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="21"/>
                                             <color key="textColor" red="0.00045991104649968742" green="0.60365407863337173" blue="0.86190609056122447" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date, Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lAv-qM-d2N">
-                                            <rect key="frame" x="65" y="33" width="222" height="18"/>
+                                            <rect key="frame" x="73" y="33" width="222" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
                                             <color key="textColor" red="0.65531589673913038" green="0.65531589673913038" blue="0.65531589673913038" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SentTrace.png" id="VVY-Hw-2EH">
-                                            <rect key="frame" x="8" y="12" width="50" height="34"/>
+                                            <rect key="frame" x="15" y="12" width="50" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" id="5R9-Ai-itF">
-                                            <rect key="frame" x="0.0" y="58" width="322" height="1"/>
+                                            <rect key="frame" x="15" y="58" width="306" height="1"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.83852751358695654" green="0.83852751358695654" blue="0.83852751358695654" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.96002072704081631" green="0.96002072704081631" blue="0.96002072704081631" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="1bC-xB-1BT">
                                             <rect key="frame" x="23" y="19" width="20" height="20"/>

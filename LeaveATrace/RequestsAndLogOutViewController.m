@@ -13,6 +13,8 @@
 #import "RequestsAndLogOutViewController.h"
 #import "LeaveATraceRequest.h"
 #import "CanvasViewController.h"
+#import "LoadTraces.h"
+#import "AppDelegate.h"
 #import "RequestCell.h"
 #import <Parse/Parse.h>
 
@@ -34,10 +36,7 @@
 
 -(void) viewDidLoad
 {
-
-    // DB move this to log out method which currently isn't working
     
-    requests = [[NSMutableArray alloc] initWithCapacity:100];
     [self performSelector:@selector(displayRequests)];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -54,11 +53,9 @@
     
     [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:badgeString];
     
-    [self performSelector:@selector(displayRequests)];
-    
     [requestsTable reloadData];
     
-    if (requests.count == 0)
+    if ((APP).requestsArray.count == 0)
     {
         
         noRequests.text = @"No requests right now";
@@ -84,6 +81,10 @@
 -(void) refreshView:(UIRefreshControl *)sender
 {
     
+    LoadTraces *loadRequests = [[LoadTraces alloc] init];
+    
+    [loadRequests loadRequestsArray];
+    
     [self displayRequests];
     
     [sender endRefreshing];
@@ -101,24 +102,7 @@
 -(void) displayRequests
 {
     
-    query = [PFQuery queryWithClassName:@"UserContact"];
-    
-    [query whereKey:@"contact" equalTo:[[PFUser currentUser]username]];
-    [query whereKey:@"userAccepted" equalTo:@"NO"];
-    [query orderByAscending:@"contact"];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        if (!error)
-        {
-            
-            requests = [[NSMutableArray alloc] initWithArray:objects];
-            
-        }
-        
-        [requestsTable reloadData];
-        
-    }];
+    [requestsTable reloadData];
     
 }
 
@@ -137,7 +121,7 @@
     
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
     
-    PFObject *tempObject = [requests objectAtIndex:indexPath.row];
+    PFObject *tempObject = [(APP).requestsArray objectAtIndex:indexPath.row];
     
     NSString *name = [tempObject objectForKey:@"username"];
     
@@ -191,7 +175,7 @@
 
     // Now delete the row out of the array and off the screen
     
-    [requests removeObjectAtIndex:indexPath.row];
+    [(APP).requestsArray removeObjectAtIndex:indexPath.row];
     
     [requestsTable reloadData];
     
@@ -218,14 +202,14 @@
     
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
     
-    PFObject *tempObject = [requests objectAtIndex:indexPath.row];
+    PFObject *tempObject = [(APP).requestsArray objectAtIndex:indexPath.row];
     
     [tempObject deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         if (succeeded)
         {
             NSLog(@"deleting the friend request");
-            [requests removeObjectAtIndex:indexPath.row];
+            [(APP).requestsArray removeObjectAtIndex:indexPath.row];
             
             [requestsTable reloadData];
             
@@ -274,7 +258,7 @@
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return requests.count;
+    return (APP).requestsArray.count;
     
 }
 
@@ -293,7 +277,7 @@
     
     RequestCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    PFObject *tempObject = [requests objectAtIndex:indexPath.row];
+    PFObject *tempObject = [(APP).requestsArray objectAtIndex:indexPath.row];
     
     cell.cellTitle.text = [tempObject objectForKey:@"username"];
         

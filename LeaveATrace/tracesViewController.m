@@ -47,8 +47,6 @@ NSInteger traceObjectIdx;
 -(void) viewDidLoad
 {
     
-    NSLog(@"the eagle is taking a poop on your head");
-    
     [self performSelector:@selector(displayTraces)];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -73,8 +71,6 @@ NSInteger traceObjectIdx;
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    
-    NSLog(@"%lu", (unsigned long)(APP).tracesArray.count);
     
     [tracesTable reloadData];
     
@@ -143,6 +139,7 @@ NSInteger traceObjectIdx;
 {
     
     LoadTraces *loadTraces = [[LoadTraces alloc] init];
+    
     [loadTraces loadTracesArray];
 
     [self displayTraces];
@@ -250,7 +247,7 @@ NSInteger traceObjectIdx;
         {
             
             cell.didNotOpenImage.image = [UIImage imageNamed:@"SentTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(8, 14, 47, 29);
+            cell.didNotOpenImage.frame = CGRectMake(17, 14, 47, 29);
             
         }
         else  // Other user sent it
@@ -259,7 +256,7 @@ NSInteger traceObjectIdx;
             tmpOpenedString = @"";
             
             cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(6, 8, 50, 42);
+            cell.didNotOpenImage.frame = CGRectMake(15, 8, 50, 42);
             
         }
         
@@ -286,7 +283,7 @@ NSInteger traceObjectIdx;
             }
             
             cell.didNotOpenImage.image = [UIImage imageNamed:@"SentNotOpened.png"];
-            cell.didNotOpenImage.frame = CGRectMake(8, 14, 47, 29);
+            cell.didNotOpenImage.frame = CGRectMake(16, 14, 47, 29);
             
         }
         else  // Other user sent it
@@ -294,7 +291,7 @@ NSInteger traceObjectIdx;
             
             tmpOpenedString = @"";
             cell.didNotOpenImage.image = [UIImage imageNamed:@"NewTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(6, 14, 47, 29);
+            cell.didNotOpenImage.frame = CGRectMake(15, 14, 47, 29);
             
         }
     

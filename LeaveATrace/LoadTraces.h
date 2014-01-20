@@ -14,4 +14,6 @@
 
 -(void) loadContactsArray;
 
+-(void) loadRequestsArray;
+
 @end
