@@ -376,7 +376,7 @@ NSInteger traceObjectIdx;
 //    traceObjectId = [traceObject objectId];
     
     traceObjectIdx = indexPath.row;
-    NSLog(@"traceObjectIdx in traces %lu",traceObjectIdx);
+    NSLog(@"traceObjectIdx in traces %lu",(long)traceObjectIdx);
     
     [self performSegueWithIdentifier:@"TraceThread" sender:self];
     

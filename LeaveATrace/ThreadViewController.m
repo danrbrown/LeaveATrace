@@ -50,7 +50,7 @@
 -(void) viewDidAppear:(BOOL)animated
 {
     
-    NSLog(@"traceObjectIdx in thread %lu",traceObjectIdx);
+    NSLog(@"traceObjectIdx in thread %lu",(long)traceObjectIdx);
     traceObject = [(APP).tracesArray objectAtIndex:traceObjectIdx];
     
     traceObjectId = [traceObject objectId];

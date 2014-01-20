@@ -657,7 +657,14 @@ long iconBadge;
     if (viewText == 2)
     {
         
+        
+        [loading stopAnimating];
+        
+        _captionLabel.frame = CGRectMake(53, 15, 130, 22);
+        
         _captionLabel.text = @"Trace was saved!";
+        
+        [self fade];
         
     }
     
@@ -665,6 +672,17 @@ long iconBadge;
     [_hudView addSubview:_captionLabel];
     
     [self.view addSubview:_hudView];
+    
+}
+
+-(void) fade
+{
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:5];
+    [_hudView setAlpha:0];
+    [UIView commitAnimations];
+    [_hudView removeFromSuperview];
     
 }
 

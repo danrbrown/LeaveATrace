@@ -296,9 +296,6 @@ BOOL clearImage;
                      postNotificationName:@"TestNotification"
                      object:self];
                     
-                    NSLog(@"displayTraces: count of dbtraces %lu",(APP).tracesArray.count);
-
-                    
                 }
                 else
                 {

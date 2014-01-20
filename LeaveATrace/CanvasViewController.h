@@ -85,6 +85,7 @@ extern long iconBadge;
 //Methods for view
 -(void) hide;
 -(void) show;
+-(void) fade;
 -(void) countRequests;
 -(void) countTraces;
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
