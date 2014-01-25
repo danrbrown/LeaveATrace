@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 Hollance. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @class AddItemViewController;
 @class LeaveATraceItem;
  
@@ -19,9 +17,16 @@
  
 @end
 
-@interface AddItemViewController : UITableViewController <UITextFieldDelegate> {
+#import <UIKit/UIKit.h>
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
+#import <MessageUI/MessageUI.h>
+
+@interface AddItemViewController : UITableViewController <UITextFieldDelegate, ABPeoplePickerNavigationControllerDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate> {
     
     IBOutlet UIActivityIndicatorView *loadingContact;
+    
+    NSMutableArray *info;
     
 }
 
@@ -30,13 +35,18 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;
 @property (nonatomic, weak) id <AddItemViewControllerDelegate> delegate;
 @property (nonatomic, weak) NSMutableArray *stuff;
+@property (nonatomic, retain) ABPeoplePickerNavigationController *contacts;
 
 //Actions
 -(IBAction) cancel;
 -(IBAction) done;
+-(IBAction) askFriend;
 
 //Methods
 -(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 -(BOOL) textField:(UITextField *)theTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;
+-(void) peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker;
+-(BOOL) peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person;
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier;
 
 @end

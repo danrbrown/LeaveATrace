@@ -69,6 +69,7 @@
 		9CD69C1C1860E55E00177EA0 /* 15and50LogoLink.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CD69C1B1860E55E00177EA0 /* 15and50LogoLink.png */; };
 		9CF1F932184BE89F00AE3EAC /* traceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F931184BE89F00AE3EAC /* traceCell.m */; };
 		9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F93D18515D4600AE3EAC /* Alph.plist */; };
+		9CF34DCC18907D6C0082329B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CF34DCB18907D6C0082329B /* MessageUI.framework */; };
 		A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555C8D91846D53B00C012ED /* ThreadViewController.m */; };
 		A568F76D186E209B003E074E /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A568F76C186E209B003E074E /* AddressBookUI.framework */; };
 		A568F76F186E20A6003E074E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A568F76E186E20A6003E074E /* AddressBook.framework */; };
@@ -171,6 +172,7 @@
 		9CF1F930184BE89F00AE3EAC /* traceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = traceCell.h; path = LeaveATrace/traceCell.h; sourceTree = "<group>"; };
 		9CF1F931184BE89F00AE3EAC /* traceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = traceCell.m; path = LeaveATrace/traceCell.m; sourceTree = "<group>"; };
 		9CF1F93D18515D4600AE3EAC /* Alph.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Alph.plist; sourceTree = "<group>"; };
+		9CF34DCB18907D6C0082329B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A555C8D81846D53B00C012ED /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreadViewController.h; path = LeaveATrace/ThreadViewController.h; sourceTree = "<group>"; };
 		A555C8D91846D53B00C012ED /* ThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreadViewController.m; path = LeaveATrace/ThreadViewController.m; sourceTree = "<group>"; };
 		A568F76C186E209B003E074E /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
@@ -189,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF34DCC18907D6C0082329B /* MessageUI.framework in Frameworks */,
 				A568F76F186E20A6003E074E /* AddressBook.framework in Frameworks */,
 				A568F76D186E209B003E074E /* AddressBookUI.framework in Frameworks */,
 				9C27689D181C7CDE0073453E /* AudioToolbox.framework in Frameworks */,
@@ -254,6 +257,7 @@
 		9C276809181C75B10073453E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9CF34DCB18907D6C0082329B /* MessageUI.framework */,
 				A568F76E186E20A6003E074E /* AddressBook.framework */,
 				A568F76C186E209B003E074E /* AddressBookUI.framework */,
 				9CD69C0E185A951100177EA0 /* FBUserSettingsViewResources.bundle */,
@@ -715,11 +719,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace,
+					/Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";
@@ -735,11 +740,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace,
+					/Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";

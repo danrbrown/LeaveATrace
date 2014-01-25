@@ -56,7 +56,7 @@ long iconBadge;
     brush = 11.0;
     opacity = 1.0;
     
-    colorValue.value = 0;
+    colorValue.value = 0.001;
     brushSize.value = brush;
     
     theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
@@ -483,7 +483,7 @@ long iconBadge;
     
     if(changedSlider == self.colorValue)
     {
-       
+        
         hue = changedSlider.value;
         
         theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
@@ -491,12 +491,13 @@ long iconBadge;
         CGColorRef colorRef = [theColor CGColor];
             
         const CGFloat *_components = CGColorGetComponents(colorRef);
+        
         red     = _components[0];
         green = _components[1];
         blue   = _components[2];
         
         currentColorImage.backgroundColor = theColor;
-        
+            
     }
     
 }

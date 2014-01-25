@@ -17,6 +17,9 @@
 #import "LeaveATraceItem.h"
 #import "ContactsViewController.h"
 #import "CanvasViewController.h"
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
+#import <MessageUI/MessageUI.h>
 #import <Parse/Parse.h>
 
 @interface AddItemViewController ()
@@ -25,7 +28,7 @@
 
 @implementation AddItemViewController
 
-@synthesize textField, doneBarButton, delegate, stuff;
+@synthesize textField, doneBarButton, delegate, stuff, contacts;
 
 //----------------------------------------------------------------------------------
 //
@@ -59,6 +62,203 @@
     [super viewWillAppear:animated];
  
     [self.textField becomeFirstResponder];
+    
+}
+
+-(IBAction) askFriend
+{
+    
+    contacts = [[ABPeoplePickerNavigationController alloc] init];
+
+    [contacts setPeoplePickerDelegate:self];
+    
+    [self presentViewController:contacts animated:YES completion:nil];
+    
+}
+
+-(void) peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
+{
+    
+    [contacts dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+-(BOOL) peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person
+{
+    
+    // Get the first and the last name. Actually, copy their values using the person object and the appropriate
+    // properties into two string variables equivalently.
+    // Watch out the ABRecordCopyValue method below. Also, notice that we cast to NSString *.
+    
+    NSString *firstName = (__bridge NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+    NSString *lastName = (__bridge NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
+    
+    // Compose the full name.
+    
+    NSString *fullName = @"";
+    
+    // Before adding the first and the last name in the fullName string make sure that these values are filled in.
+    
+    if (firstName != nil)
+    {
+        
+        fullName = [fullName stringByAppendingString:firstName];
+        
+    }
+    if (lastName != nil)
+    {
+        
+        fullName = [fullName stringByAppendingString:@" "];
+        
+        fullName = [fullName stringByAppendingString:lastName];
+        
+    }
+    
+    // The phone numbers and the e-mails are contact info that have multiple values.
+    // For that reason we need to get them as arrays and not as single values as we did with the names above.
+    // Watch out the ABMultiValueCopyArrayOfAllValues method that we use to copy the necessary data into our arrays.
+    
+    NSArray *phones = (__bridge NSArray *)ABMultiValueCopyArrayOfAllValues(ABRecordCopyValue(person, kABPersonPhoneProperty));
+    NSArray *emails = (__bridge NSArray *)ABMultiValueCopyArrayOfAllValues(ABRecordCopyValue(person, kABPersonEmailProperty));
+    
+    // Create a temp array in which we'll add all the desired values.
+    
+    info = [[NSMutableArray alloc] init];
+    [info addObject:fullName];
+    
+    // Make sure that the selected contact has one phone at least filled in.
+    
+    if ([phones count] > 0)
+    {
+        
+        // We'll use the first phone number only here.
+        // In a real app, it's up to you to play around with the returned values and pick the necessary value.
+        [info addObject:[phones objectAtIndex:0]];
+        
+    }
+    else
+    {
+        
+        [info addObject:@"No phone number set"];
+        
+    }
+    
+    // Do the same for the e-mails.
+    // Make sure that the selected contact has one email at least filled in.
+    
+    if ([emails count] > 0)
+    {
+        
+        // We'll use the first email only here.
+        [info addObject:[emails objectAtIndex:0]];
+        
+    }
+    else
+    {
+        
+        [info addObject:@"No e-mail was set"];
+        
+    }
+    
+    NSLog(@"info: %@" , info);
+    
+    if ([info[1]  isEqual: @"No phone number set"] && [info[2]  isEqual: @"No e-mail was set"]) //No number and no email
+    {
+        
+        UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Opps" message:[NSString stringWithFormat:@"There is no number or email set for %@", info[0]] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        
+        [errorAlertView show];
+        
+    }
+    else if (![info[1]  isEqual: @"No phone number set"] && [info[2]  isEqual: @"No e-mail was set"]) //Yes number no email
+    {
+        
+        [contacts dismissViewControllerAnimated:YES completion:nil];
+        
+        [self performSelector:@selector(sendTheText) withObject:nil afterDelay:1.5];
+        
+    }
+    else if ([info[1]  isEqual: @"No phone number set"] && ![info[2]  isEqual: @"No e-mail was set"]) //No number yes email
+    {
+        
+        [contacts dismissViewControllerAnimated:YES completion:nil];
+        
+        [self performSelector:@selector(sendTheEmail) withObject:nil afterDelay:1.5];
+        
+    }
+    else //Both number and email
+    {
+        
+        [contacts dismissViewControllerAnimated:YES completion:nil];
+        
+        [self performSelector:@selector(sendTheText) withObject:nil afterDelay:1.5];
+        
+    }
+    
+    return NO;
+    
+}
+
+-(void) sendTheText
+{
+    
+    MFMessageComposeViewController *textMessage = [[MFMessageComposeViewController alloc] init];
+    
+    [textMessage setMessageComposeDelegate:self];
+    
+    if ([MFMessageComposeViewController canSendText])
+    {
+        
+        [textMessage setRecipients:[NSArray arrayWithObjects:info[1], nil]];
+        
+        [textMessage setBody:@"Join Leave A Trace, the best drawing social media app out there!"];
+        
+        [self presentViewController:textMessage animated:YES completion:nil];
+        
+    }
+    
+}
+
+-(void) sendTheEmail
+{
+    
+    MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
+    
+    [mailComposer setMailComposeDelegate:self];
+    
+    if ([MFMailComposeViewController canSendMail])
+    {
+        
+        [mailComposer setToRecipients:[NSArray arrayWithObjects:info[2], nil]];
+        
+        [mailComposer setSubject:@"Leave A Trace"];
+        
+        [mailComposer setMessageBody:@"Join Leave A Trace, the best drawing social media app out there!" isHTML:NO];
+        
+        [self presentViewController:mailComposer animated:YES completion:nil];
+        
+    }
+    
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+- (BOOL)peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
+{
+    
+    return NO;
+    
+}
+
+-(void) messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
