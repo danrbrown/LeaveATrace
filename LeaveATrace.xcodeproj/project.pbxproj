@@ -724,7 +724,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace,
+					/Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";
@@ -745,7 +745,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace,
+					/Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";

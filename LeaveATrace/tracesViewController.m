@@ -247,7 +247,7 @@ NSInteger traceObjectIdx;
         {
             
             cell.didNotOpenImage.image = [UIImage imageNamed:@"SentTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(17, 14, 47, 29);
+            cell.didNotOpenImage.frame = CGRectMake(17, 11, 45, 30);
             
         }
         else  // Other user sent it
@@ -256,7 +256,7 @@ NSInteger traceObjectIdx;
             tmpOpenedString = @"";
             
             cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(15, 8, 50, 42);
+            cell.didNotOpenImage.frame = CGRectMake(15, 8, 45, 38);
             
         }
         
@@ -283,7 +283,7 @@ NSInteger traceObjectIdx;
             }
             
             cell.didNotOpenImage.image = [UIImage imageNamed:@"SentNotOpened.png"];
-            cell.didNotOpenImage.frame = CGRectMake(16, 14, 47, 29);
+            cell.didNotOpenImage.frame = CGRectMake(16, 12, 45, 28);
             
         }
         else  // Other user sent it
@@ -291,7 +291,7 @@ NSInteger traceObjectIdx;
             
             tmpOpenedString = @"";
             cell.didNotOpenImage.image = [UIImage imageNamed:@"NewTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(15, 14, 47, 29);
+            cell.didNotOpenImage.frame = CGRectMake(16, 12, 45, 30);
             
         }
     

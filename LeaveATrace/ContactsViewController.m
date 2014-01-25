@@ -41,9 +41,6 @@
 -(void) viewDidLoad
 {
     
-    alphabetsArray =[[NSMutableArray alloc]initWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z",nil];
-
-    
     [self performSelector:@selector(displayContacts)];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -165,7 +162,7 @@
     else
     {
         
-        cell.detailTextLabel.text = @"Friend";
+        cell.detailTextLabel.text = @"";
         cell.detailTextLabel.enabled = YES;
         cell.textLabel.enabled = YES;
         cell.userInteractionEnabled = YES;

@@ -17,6 +17,7 @@
 #import "LeaveATraceItem.h"
 #import "ContactsViewController.h"
 #import "CanvasViewController.h"
+#import "AppDelegate.h"
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import <MessageUI/MessageUI.h>
@@ -303,6 +304,7 @@
     //---------------------------------------------------------
     
     NSString *tmpCurrentUser = [[PFUser currentUser]username];
+    
     if ([tmpCurrentUser isEqualToString:item.text])
     {
     
@@ -380,12 +382,16 @@
                     [userContact setObject:item.text forKey:@"contact"];
                     [userContact setObject:@"NO" forKey:@"userAccepted"];
                     [userContact setObject:@"" forKey:@"nickname"];
-    
+
+                    [(APP).contactsArray insertObject:userContact atIndex:0];
+                    NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"contact" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+                    [(APP).contactsArray sortUsingDescriptors:[NSArray arrayWithObject:sort1]];
+                    
                     [userContact saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
                         if (succeeded)
                         {
-            
+                            
                             [loadingContact stopAnimating];
                             
                             [self.delegate addItemViewController:self didFinishAddingItem:item];

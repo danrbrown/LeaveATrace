@@ -133,18 +133,27 @@
     [newContact setObject:name forKey:@"contact"];
     [newContact setObject:@"YES" forKey:@"userAccepted"];
     
+    [(APP).contactsArray insertObject:newContact atIndex:0];
+    NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"contact" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+    [(APP).contactsArray sortUsingDescriptors:[NSArray arrayWithObject:sort1]];
+    
+    NSLog(@"before contacts arraay %@",(APP).contactsArray);
+
     [newContact saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         if (!succeeded)
         {
-            
+
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             
             [errorAlertView show];
             
         }
-        
+
+        [newContact objectId];
+        NSLog(@"after contacts arraay %@",(APP).contactsArray);
+       
     }];
 
     // Now update the existing row and set the boolean flat to YES

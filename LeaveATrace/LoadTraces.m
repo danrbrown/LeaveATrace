@@ -67,6 +67,7 @@
             (APP).contactsArray = [[NSMutableArray alloc] initWithArray:objects];
             
             NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"contact" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+            
             [(APP).contactsArray sortUsingDescriptors:[NSArray arrayWithObject:sort1]];
             
             [[NSNotificationCenter defaultCenter]
