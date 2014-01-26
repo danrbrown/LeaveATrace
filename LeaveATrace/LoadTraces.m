@@ -32,6 +32,24 @@
             
             (APP).tracesArray = [[NSMutableArray alloc] initWithArray:objects];
             
+            for (PFObject *objStatus in objects) {
+                
+                NSLog(@"obj on load %@",objStatus);
+                
+                NSString *tmpStatus = [objStatus objectForKey:@"status"];
+                if ([tmpStatus isEqualToString:@"S"])
+                {
+                    
+                    [objStatus setObject:@"D"forKey:@"status"];
+                    [objStatus saveInBackground];
+                    
+                    
+                    
+                }
+                
+                // Update your message
+            }
+            
             NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"lastSentByDateTime" ascending:NO];
             
             [(APP).tracesArray sortUsingDescriptors:[NSArray arrayWithObject:sort]];

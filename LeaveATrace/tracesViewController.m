@@ -24,8 +24,6 @@
 UIImage *Threadimage;
 NSData *data;
 NSInteger traceObjectIdx;
-//PFQuery *query;
-//NSString *deliveredToUser;
 
 @interface tracesViewController ()
 
@@ -211,7 +209,6 @@ NSInteger traceObjectIdx;
     NSString *tmpLastSentBy = [traceObject objectForKey:@"lastSentBy"];
     NSString *tmpStatus = [traceObject objectForKey:@"status"];
     NSString *tmpOpenedString;
-    NSString *tmpDeliveredToUser;
     
     //-------------------------------------------------------------------------------
     // Determine what is displayed on the Title line.  Should always be the "other"
@@ -236,37 +233,26 @@ NSInteger traceObjectIdx;
     // Display the approiate image and set the appropriate text.
     //-------------------------------------------------------------------------------
 
-    tmpDeliveredToUser = [traceObject objectForKey:@"deliveredToUser"];
-    
-    if ([tmpDeliveredToUser isEqualToString:@"YES"])
+    if ([tmpCurrentUser isEqualToString:tmpLastSentBy])  // Current user sent it
     {
-        
-        tmpOpenedString = @"- Opened";
-        
-        if ([tmpCurrentUser isEqualToString:tmpLastSentBy])  // Current user sent it
+        if ([tmpStatus isEqualToString:@"O"])  
         {
             
             cell.didNotOpenImage.image = [UIImage imageNamed:@"SentTrace.png"];
             cell.didNotOpenImage.frame = CGRectMake(17, 11, 45, 30);
             
-        }
-        else  // Other user sent it
-        {
-            
-            tmpOpenedString = @"";
-            
-            cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(15, 8, 45, 38);
+            tmpOpenedString = @"- Opened";
+            [cell.didNotOpenImage setHidden:NO];
+            [cell.sending stopAnimating];
             
         }
-        
-    }
-    else
-    {
-        
-        if ([tmpCurrentUser isEqualToString:tmpLastSentBy])  // Current user sent it
+        else
         {
-            if ([tmpStatus isEqualToString:@"P"])  // Current user sent it
+
+            cell.didNotOpenImage.image = [UIImage imageNamed:@"SentNotOpened.png"];
+            cell.didNotOpenImage.frame = CGRectMake(16, 12, 45, 28);
+            
+            if ([tmpStatus isEqualToString:@"P"])
             {
                 
                 tmpOpenedString = @"- Sending...";
@@ -274,27 +260,45 @@ NSInteger traceObjectIdx;
                 [cell.sending startAnimating];
                 
             }
-            else
+            else if ([tmpStatus isEqualToString:@"S"])
             {
+                
                 tmpOpenedString = @"- Sent";
                 [cell.didNotOpenImage setHidden:NO];
                 [cell.sending stopAnimating];
                 
             }
-            
-            cell.didNotOpenImage.image = [UIImage imageNamed:@"SentNotOpened.png"];
-            cell.didNotOpenImage.frame = CGRectMake(16, 12, 45, 28);
+            else if ([tmpStatus isEqualToString:@"D"])
+            {
+                
+                tmpOpenedString = @"- Delivered";
+                [cell.didNotOpenImage setHidden:NO];
+                [cell.sending stopAnimating];
+                
+            }
             
         }
-        else  // Other user sent it
+        
+    }
+    else  // Other user sent it
+    {
+        tmpOpenedString = @"";
+
+        if ([tmpStatus isEqualToString:@"O"])
         {
             
-            tmpOpenedString = @"";
+            cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTrace.png"];
+            cell.didNotOpenImage.frame = CGRectMake(15, 8, 45, 38);
+            
+        }
+        else
+        {
+
             cell.didNotOpenImage.image = [UIImage imageNamed:@"NewTrace.png"];
             cell.didNotOpenImage.frame = CGRectMake(16, 12, 45, 30);
             
         }
-    
+        
     }
     
     //-------------------------------------------------------------------------------

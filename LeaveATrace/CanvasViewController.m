@@ -191,13 +191,11 @@ long iconBadge;
     
     [toUserQuery whereKey:@"toUser" equalTo:tmpCurrentUser];
     [toUserQuery whereKey:@"lastSentBy" notEqualTo:tmpCurrentUser];
-    [toUserQuery whereKey:@"deliveredToUser" equalTo:@"NO"];
     
     PFQuery *fromUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
     
     [fromUserQuery whereKey:@"fromUser" equalTo:tmpCurrentUser];
     [fromUserQuery whereKey:@"lastSentBy" notEqualTo:tmpCurrentUser];
-    [fromUserQuery whereKey:@"deliveredToUser" equalTo:@"NO"];
     
     PFQuery *countQuery = [PFQuery orQueryWithSubqueries:@[toUserQuery,fromUserQuery]];
     

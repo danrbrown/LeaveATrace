@@ -113,9 +113,8 @@
                         if (![tmpCurrentUser isEqualToString:tmpLastSentBy])
                         {
                             
-                            [myImages setObject:@"YES"forKey:@"deliveredToUser"];
-                            [traceObject setObject:@"YES"forKey:@"deliveredToUser"];
-                            //[traceObject setObject:@"S"forKey:@"status"];
+                            [myImages setObject:@"O"forKey:@"status"];
+                            [traceObject setObject:@"O"forKey:@"status"];
                             [myImages saveInBackground];
                             
                         }
@@ -350,7 +349,6 @@
         {
             
             [traceObject setObject:imageFile forKey:@"image"];
-            [traceObject setObject:@"NO"forKey:@"deliveredToUser"];
             [traceObject setObject:@"YES"forKey:@"fromUserDisplay"];
             [traceObject setObject:@"YES"forKey:@"toUserDisplay"];
             [traceObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];

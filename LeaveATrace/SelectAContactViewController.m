@@ -266,7 +266,6 @@ BOOL clearImage;
     [imageObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
     [imageObject setObject:tempContact forKey:@"toUser"];
     [imageObject setObject:@"YES" forKey:@"toUserDisplay"];
-    [imageObject setObject:@"NO"forKey:@"deliveredToUser"];
     [imageObject setObject:@"P"forKey:@"status"];
     
     [(APP).tracesArray insertObject:imageObject atIndex:0];
