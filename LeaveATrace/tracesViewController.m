@@ -51,7 +51,7 @@ NSInteger traceObjectIdx;
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
-    refreshControl.tintColor = [UIColor redColor];
+    refreshControl.tintColor = [UIColor whiteColor];
     self.refreshControl = refreshControl;
     
     [[NSNotificationCenter defaultCenter] addObserver:self

@@ -36,6 +36,7 @@
                                              selector:@selector(receiveTestNotification:)
                                                  name:@"LoadRequestsNotification"
                                                object:nil];
+    
 }
 
 -(void) viewDidAppear:(BOOL)animated

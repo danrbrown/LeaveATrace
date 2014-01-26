@@ -78,6 +78,41 @@
     
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    
+    NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
+    
+    if (sectionTitle == nil) {
+        return nil;
+    }
+    
+    UILabel *label = [[UILabel alloc] init];
+    
+    if (section == 0)
+    {
+        
+        label.frame = CGRectMake(20, 30, 320, 20);
+    
+    }
+    else
+    {
+        
+        label.frame = CGRectMake(20, 12, 320, 20);
+        
+    }
+    
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor whiteColor];
+    label.text = sectionTitle;
+    
+    UIView *view = [[UIView alloc] init];
+    [view addSubview:label];
+    
+    return view;
+    
+}
+
 -(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
