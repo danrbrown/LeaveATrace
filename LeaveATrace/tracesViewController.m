@@ -45,6 +45,8 @@ NSInteger traceObjectIdx;
 -(void) viewDidLoad
 {
     
+    NSLog(@"my favo number %lu",(long)(APP).unopenedTraceCount);
+    
     [self performSelector:@selector(displayTraces)];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -85,12 +87,57 @@ NSInteger traceObjectIdx;
         
     }
     
-    tracesBadgeString = nil;
-    
-    [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:tracesBadgeString];
+    [self displayBadgeCounts];
     
 }
 
+//----------------------------------------------------------------------------------
+//
+// Name: displayCountUnopenedTraces
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) displayBadgeCounts
+{
+    
+    NSString *countTracesBadge = [NSString stringWithFormat:@"%lu",(long)(APP).unopenedTraceCount];
+    NSString *countFriendRequestsBadge = [NSString stringWithFormat:@"%lu",(long)(APP).friendRequestsCount];
+    
+    // Count of unopened Traces
+    
+    if ((APP).unopenedTraceCount == 0)
+    {
+        
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:nil];
+        
+    }
+    else
+    {
+        
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:countTracesBadge];
+        
+    }
+    
+    // Count of Friend Requests
+    
+    if ((APP).friendRequestsCount == 0)
+    {
+        
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
+        
+    }
+    else
+    {
+        
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:countFriendRequestsBadge];
+        
+    }
+    
+}
+
+//----------------------------------------------------------------------------------
 
 - (void) receiveTestNotification:(NSNotification *) notification
 {

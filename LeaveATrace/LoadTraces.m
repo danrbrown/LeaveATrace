@@ -15,6 +15,8 @@
 -(void) loadTracesArray
 {
     
+    (APP).unopenedTraceCount = 0;
+    
     PFQuery *toUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
     [toUserQuery whereKey:@"toUser" equalTo:[[PFUser currentUser]username]];
     [toUserQuery whereKey:@"toUserDisplay" equalTo:@"YES"];
@@ -34,20 +36,29 @@
             
             for (PFObject *objStatus in objects) {
                 
-                NSLog(@"obj on load %@",objStatus);
-                
+                NSString *tmpCurrentUser = [[PFUser currentUser]username];
                 NSString *tmpStatus = [objStatus objectForKey:@"status"];
-                if ([tmpStatus isEqualToString:@"S"])
+                NSString *tmpLastSentBy = [objStatus objectForKey:@"lastSentBy"];
+
+                if (![tmpCurrentUser isEqualToString:tmpLastSentBy])  // Not the current user sent it
                 {
+                    if ([tmpStatus isEqualToString:@"S"] || [tmpStatus isEqualToString:@"D"])
+                    {
+                        
+                        (APP).unopenedTraceCount++;
+                        
+                    }
                     
-                    [objStatus setObject:@"D"forKey:@"status"];
-                    [objStatus saveInBackground];
-                    
-                    
-                    
+                    if ([tmpStatus isEqualToString:@"S"])
+                    {
+                        
+                        [objStatus setObject:@"D"forKey:@"status"];
+                        [objStatus saveInBackground];
+                        
+                    }
+
                 }
                 
-                // Update your message
             }
             
             NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"lastSentByDateTime" ascending:NO];
@@ -106,6 +117,7 @@
 
 -(void) loadRequestsArray
 {
+    (APP).friendRequestsCount = 0;
     
     PFQuery *requestsQuery = [PFQuery queryWithClassName:@"UserContact"];
     
@@ -119,6 +131,7 @@
         {
             
             (APP).requestsArray = [[NSMutableArray alloc] initWithArray:objects];
+            (APP).friendRequestsCount = objects.count;
             
             [[NSNotificationCenter defaultCenter]
              postNotificationName:@"LoadRequestsNotification"

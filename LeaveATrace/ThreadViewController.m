@@ -113,6 +113,7 @@
                         if (![tmpCurrentUser isEqualToString:tmpLastSentBy])
                         {
                             
+                            (APP).unopenedTraceCount--;
                             [myImages setObject:@"O"forKey:@"status"];
                             [traceObject setObject:@"O"forKey:@"status"];
                             [myImages saveInBackground];

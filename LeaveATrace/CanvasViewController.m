@@ -14,7 +14,7 @@
 #import "SelectAContactViewController.h"
 #import "FirstPageViewController.h"
 #import "tracesViewController.h"
-#import "canvasImage.h"
+#import "AppDelegate.h"
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import <Twitter/Twitter.h>
@@ -93,8 +93,7 @@ long iconBadge;
     
     clearImage = NO;
     
-    [self countRequests];
-    [self countTraces];
+    [self displayBadgeCounts];
     
     [self becomeFirstResponder];
     
@@ -134,44 +133,48 @@ long iconBadge;
 
 //----------------------------------------------------------------------------------
 //
-// Name: countRequests
+// Name: displayBadgeCounts
 //
 // Purpose:
 //
 //----------------------------------------------------------------------------------
 
--(void) countRequests
+-(void) displayBadgeCounts
 {
     
-    PFQuery *query = [PFQuery queryWithClassName:@"UserContact"];
+    NSString *countTracesBadge = [NSString stringWithFormat:@"%lu",(long)(APP).unopenedTraceCount];
+    NSString *countFriendRequestsBadge = [NSString stringWithFormat:@"%lu",(long)(APP).friendRequestsCount];
     
-    [query whereKey:@"contact" equalTo:[[PFUser currentUser]username]];
-    [query whereKey:@"userAccepted" equalTo:@"NO"];
+    // Count of unopened Traces
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    if ((APP).unopenedTraceCount == 0)
+    {
+                
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:nil];
+                
+    }
+    else
+    {
         
-        if (!error)
-        {
-            
-            if (objects.count == 0)
-            {
-                
-                [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
-                
-            }
-            else if (objects.count >= 1)
-            {
-            
-                badgeString = [NSString stringWithFormat:@"%lu",(unsigned long)objects.count];
-                
-                [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:badgeString];
-            
-            }
-                
-        }
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:countTracesBadge];
         
-    }];
+    }
+
+    // Count of Friend Requests
     
+    if ((APP).friendRequestsCount == 0)
+    {
+        
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
+        
+    }
+    else
+    {
+        
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:countFriendRequestsBadge];
+        
+    }
+
 }
 
 //----------------------------------------------------------------------------------

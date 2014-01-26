@@ -86,7 +86,6 @@ extern long iconBadge;
 -(void) hide;
 -(void) show;
 -(void) fade;
--(void) countRequests;
 -(void) countTraces;
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;

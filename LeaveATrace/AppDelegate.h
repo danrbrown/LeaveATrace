@@ -17,5 +17,7 @@
 @property (strong, atomic) NSMutableArray *tracesArray;
 @property (strong, atomic) NSMutableArray *contactsArray;
 @property (strong, atomic) NSMutableArray *requestsArray;
+@property (nonatomic, assign) NSInteger unopenedTraceCount;
+@property (nonatomic, assign) NSInteger friendRequestsCount;
 
 @end

@@ -23,6 +23,10 @@
     
     _requestsArray = [[NSMutableArray alloc] init];
     
+    _unopenedTraceCount = 0;
+
+    _friendRequestsCount = 0;
+    
     [Parse setApplicationId:@"cK6TMBbNDsdNFsE1vSckhEQDrCQjztAxURMKPHXL"
                   clientKey:@"8n0WuaSXapCrRAH1HRNL7bbSxIOBQxbjZHWLIrHr"];
     

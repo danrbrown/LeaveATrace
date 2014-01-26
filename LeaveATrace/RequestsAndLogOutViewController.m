@@ -49,10 +49,6 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     
-    badgeString = nil;
-    
-    [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:badgeString];
-    
     [requestsTable reloadData];
     
     if ((APP).requestsArray.count == 0)
@@ -65,6 +61,54 @@
     {
         
         noRequests.text = @"";
+        
+    }
+
+    [self displayBadgeCounts];
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: displayCountUnopenedTraces
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(void) displayBadgeCounts
+{
+    
+    NSString *countTracesBadge = [NSString stringWithFormat:@"%lu",(long)(APP).unopenedTraceCount];
+    NSString *countFriendRequestsBadge = [NSString stringWithFormat:@"%lu",(long)(APP).friendRequestsCount];
+    
+    // Count of unopened Traces
+    
+    if ((APP).unopenedTraceCount == 0)
+    {
+        
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:nil];
+        
+    }
+    else
+    {
+        
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:countTracesBadge];
+        
+    }
+    
+    // Count of Friend Requests
+    
+    if ((APP).friendRequestsCount == 0)
+    {
+        
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:nil];
+        
+    }
+    else
+    {
+        
+        [[[[[self tabBarController] tabBar] items] objectAtIndex:3] setBadgeValue:countFriendRequestsBadge];
         
     }
     
@@ -86,6 +130,7 @@
     [loadRequests loadRequestsArray];
     
     [self displayRequests];
+    [self displayBadgeCounts];
     
     [sender endRefreshing];
     
@@ -133,6 +178,7 @@
     [newContact setObject:name forKey:@"contact"];
     [newContact setObject:@"YES" forKey:@"userAccepted"];
     
+    (APP).friendRequestsCount--;
     [(APP).contactsArray insertObject:newContact atIndex:0];
     NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"contact" ascending:YES selector:@selector(caseInsensitiveCompare:)];
     [(APP).contactsArray sortUsingDescriptors:[NSArray arrayWithObject:sort1]];
@@ -213,6 +259,7 @@
     
     PFObject *tempObject = [(APP).requestsArray objectAtIndex:indexPath.row];
     
+    (APP).friendRequestsCount--;
     [tempObject deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         if (succeeded)
