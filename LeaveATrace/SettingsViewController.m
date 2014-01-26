@@ -175,6 +175,11 @@
         
         (APP).tracesArray = nil;
         (APP).contactsArray = nil;
+        (APP).requestsArray = nil;
+        
+        (APP).TRACES_DATA_LOADED = NO;
+        (APP).CONTACTS_DATA_LOADED = NO;
+        (APP).REQUESTS_DATA_LOADED = NO;
         
         [PFUser logOut];
         

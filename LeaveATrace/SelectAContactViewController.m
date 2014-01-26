@@ -292,7 +292,7 @@ BOOL clearImage;
                     [self.navigationController popViewControllerAnimated:YES];
                     
                     [[NSNotificationCenter defaultCenter]
-                     postNotificationName:@"TestNotification"
+                     postNotificationName:@"SendTraceNotification"
                      object:self];
                     
                 }

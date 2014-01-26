@@ -8,6 +8,7 @@
 
 #import "StartUpViewController.h"
 #import "LoadTraces.h"
+#import "AppDelegate.h"
 
 @interface StartUpViewController ()
 
@@ -17,23 +18,19 @@
 
 -(void)viewDidLoad
 {
-    
-    tracesLoaded = NO;
-    contactsLoaded = NO;
-    requestsLoaded = NO;
-    
+        
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveTestNotification:)
+                                             selector:@selector(receiveLoadNotification:)
                                                  name:@"LoadTracesNotification"
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveTestNotification:)
+                                             selector:@selector(receiveLoadNotification:)
                                                  name:@"LoadContactsNotification"
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveTestNotification:)
+                                             selector:@selector(receiveLoadNotification:)
                                                  name:@"LoadRequestsNotification"
                                                object:nil];
     
@@ -63,6 +60,8 @@
         [loadTraces loadContactsArray];
         [loadTraces loadRequestsArray];
         
+        [self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
+        
     }
     else
     {
@@ -75,14 +74,18 @@
     
 }
 
-- (void) receiveTestNotification:(NSNotification *) notification
+- (void) receiveLoadNotification:(NSNotification *) notification
 {
     
     if ([[notification name] isEqualToString:@"LoadTracesNotification"])
     {
         
         NSLog (@"Successfully received the traces load notification!");
-        tracesLoaded = YES;
+        (APP).TRACES_DATA_LOADED = YES;
+        
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"SendTraceNotification"
+         object:self];
         
     }
     
@@ -90,7 +93,11 @@
     {
         
         NSLog (@"Successfully received the contacts load notification!");
-        contactsLoaded = YES;
+        (APP).CONTACTS_DATA_LOADED = YES;
+        
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"ContactsLoadedNotification"
+         object:self];
         
     }
     
@@ -98,14 +105,11 @@
     {
         
         NSLog (@"Successfully received the requests load notification!");
-        requestsLoaded = YES;
+        (APP).REQUESTS_DATA_LOADED = YES;
         
-    }
-    
-    if (tracesLoaded && contactsLoaded && requestsLoaded)
-    {
-        
-        [self performSegueWithIdentifier:@"userAlreadyLoggedIn" sender:self];
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"RequestsLoadedNotification"
+         object:self];
         
     }
     

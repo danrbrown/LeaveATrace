@@ -48,6 +48,11 @@
     refreshControl.tintColor = [UIColor whiteColor];
     self.refreshControl = refreshControl;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveContactsLoadedNotification:)
+                                                 name:@"ContactsLoadedNotification"
+                                               object:nil];
+    
 }
 
 //----------------------------------------------------------------------------------
@@ -61,26 +66,66 @@
 -(void) viewDidAppear:(BOOL)animated
 {
     
-    [self performSelector:@selector(displayContacts)];
-    
-    [contactsView reloadData];
-    
-    if ((APP).contactsArray.count == 0)
+    if (!(APP).CONTACTS_DATA_LOADED)
     {
         
-        noContacts.text = @"You have no friends?";
+        [loadingFreinds startAnimating];
+        noContacts.text = @"Loading Friends";
         
     }
     else
     {
+        [contactsView reloadData];
         
+        if ((APP).contactsArray.count == 0)
+        {
+            
+            [loadingFreinds stopAnimating];
+            noContacts.text = @"You have no friends?";
+            
+        }
+        else
+        {
+            
+            [loadingFreinds stopAnimating];
+            noContacts.text = @"";
+            
+        }
+        
+        [self displayBadgeCounts];
+    }
+
+}
+
+//----------------------------------------------------------------------------------
+
+- (void) receiveContactsLoadedNotification:(NSNotification *) notification
+{
+    
+    // [notification name] should always be @"ContactsLoadedNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+    
+    if ([[notification name] isEqualToString:@"ContactsLoadedNotification"])
+    {
+        
+        NSLog (@"Successfully received the LoadContactsNotification notification!");
         
         noContacts.text = @"";
         
+        [contactsView reloadData];
+        [self displayBadgeCounts];
+        [loadingFreinds stopAnimating];
+        
+        if ((APP).contactsArray.count == 0)
+        {
+            
+            noContacts.text = @"You have no Friends";
+            
+        }
+        
     }
     
-    [self displayBadgeCounts];
-
 }
 
 //----------------------------------------------------------------------------------

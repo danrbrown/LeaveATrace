@@ -44,27 +44,79 @@
     refreshControl.tintColor = [UIColor whiteColor];
     self.refreshControl = refreshControl;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveRequestsLoadedNotification:)
+                                                 name:@"RequestsLoadedNotification"
+                                               object:nil];
+
+    
 }
+
+//----------------------------------------------------------------------------------
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
-    [requestsTable reloadData];
-    
-    if ((APP).requestsArray.count == 0)
+    if (!(APP).REQUESTS_DATA_LOADED)
     {
         
-        noRequests.text = @"No requests right now";
+        [loadinfRequests startAnimating];
+        noRequests.text = @"Loading requests";
         
     }
     else
     {
         
+        [requestsTable reloadData];
+        
+        if ((APP).requestsArray.count == 0)
+        {
+            
+            [loadinfRequests stopAnimating];
+            noRequests.text = @"No requests right now";
+            
+        }
+        else
+        {
+            
+            [loadinfRequests stopAnimating];
+            noRequests.text = @"";
+            
+        }
+        
+        [self displayBadgeCounts];
+    
+    }
+    
+}
+
+//----------------------------------------------------------------------------------
+
+- (void) receiveRequestsLoadedNotification:(NSNotification *) notification
+{
+    
+    // [notification name] should always be @"RequestsLoadedNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+    
+    if ([[notification name] isEqualToString:@"RequestsLoadedNotification"])
+    {
+        
+        NSLog (@"Successfully received the LoadContactsNotification notification!");
+        
         noRequests.text = @"";
         
+        [requestsTable reloadData];
+        [self displayBadgeCounts];
+        [loadinfRequests stopAnimating];
+        
+        if ((APP).requestsArray.count == 0)
+        {
+            
+            noRequests.text = @"You have no friend requests";
+            
+        }
+        
     }
-
-    [self displayBadgeCounts];
     
 }
 

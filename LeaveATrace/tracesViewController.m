@@ -55,8 +55,8 @@ NSInteger traceObjectIdx;
     self.refreshControl = refreshControl;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveTestNotification:)
-                                                 name:@"TestNotification"
+                                             selector:@selector(receiveTraceNotification:)
+                                                 name:@"SendTraceNotification"
                                                object:nil];    
     
 }
@@ -72,22 +72,34 @@ NSInteger traceObjectIdx;
 -(void) viewDidAppear:(BOOL)animated
 {
     
-    [tracesTable reloadData];
-    
-    if ((APP).tracesArray.count == 0)
+    if (!(APP).TRACES_DATA_LOADED)
     {
         
-        noTraces.text = @"You have no traces";
+        [loadingTraces startAnimating];
+        noTraces.text = @"Loading Traces";
         
     }
     else
     {
+        [tracesTable reloadData];
         
-        noTraces.text = @"";
+        if ((APP).tracesArray.count == 0)
+        {
+            
+            [loadingTraces stopAnimating];
+            noTraces.text = @"You have no Traces";
+            
+        }
+        else
+        {
+            
+            [loadingTraces stopAnimating];
+            noTraces.text = @"";
+            
+        }
         
+        [self displayBadgeCounts];
     }
-    
-    [self displayBadgeCounts];
     
 }
 
@@ -139,18 +151,30 @@ NSInteger traceObjectIdx;
 
 //----------------------------------------------------------------------------------
 
-- (void) receiveTestNotification:(NSNotification *) notification
+- (void) receiveTraceNotification:(NSNotification *) notification
 {
     
-    // [notification name] should always be @"TestNotification"
+    // [notification name] should always be @"SendTraceNotification"
     // unless you use this method for observation of other notifications
     // as well.
     
-    if ([[notification name] isEqualToString:@"TestNotification"])
+    if ([[notification name] isEqualToString:@"SendTraceNotification"])
     {
 
-        NSLog (@"Successfully received the test notification!");
+        NSLog (@"Successfully received the SendTraceNotification notification!");
+
+        noTraces.text = @"";
+
         [tracesTable reloadData];
+        [self displayBadgeCounts];
+        [loadingTraces stopAnimating];
+        
+        if ((APP).tracesArray.count == 0)
+        {
+        
+            noTraces.text = @"You have no traces";
+            
+        }
 
     }
     

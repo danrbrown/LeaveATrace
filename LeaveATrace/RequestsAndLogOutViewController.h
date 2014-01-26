@@ -14,7 +14,9 @@
     NSString *userAccepted;
     NSString *userContact;
     PFQuery *query;
+    
     IBOutlet UILabel *noRequests;
+    IBOutlet UIActivityIndicatorView *loadinfRequests;
     
 }
 

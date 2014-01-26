@@ -27,6 +27,10 @@
 
     _friendRequestsCount = 0;
     
+    _TRACES_DATA_LOADED = NO;
+    _CONTACTS_DATA_LOADED = NO;
+    _REQUESTS_DATA_LOADED = NO;
+    
     [Parse setApplicationId:@"cK6TMBbNDsdNFsE1vSckhEQDrCQjztAxURMKPHXL"
                   clientKey:@"8n0WuaSXapCrRAH1HRNL7bbSxIOBQxbjZHWLIrHr"];
     
