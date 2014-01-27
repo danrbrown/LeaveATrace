@@ -94,7 +94,7 @@
             </objects>
             <point key="canvasLocation" x="2252" y="-213"/>
         </scene>
-        <!--Add Item View Controller - Add Contact-->
+        <!--Add Item View Controller - Add a friend-->
         <scene sceneID="omQ-tG-tC7">
             <objects>
                 <tableViewController id="Kh5-VG-XGC" customClass="AddItemViewController" sceneMemberID="viewController">
@@ -153,7 +153,7 @@
                             <outlet property="delegate" destination="Kh5-VG-XGC" id="7qZ-Op-91b"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Contact" id="2GL-pb-p9A">
+                    <navigationItem key="navigationItem" title="Add a friend" id="2GL-pb-p9A">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Q7h-l3-x44">
                             <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -1186,7 +1186,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="vm4-Ru-Iag"/>
-        <segue reference="vZm-Ey-PdG"/>
+        <segue reference="M9D-NX-IN9"/>
+        <segue reference="spu-jz-L3F"/>
     </inferredMetricsTieBreakers>
 </document>

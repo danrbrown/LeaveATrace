@@ -45,13 +45,13 @@
     
     self.varifyPasswordSignUpTextField.delegate = self;
     
-    emailTextField.autocorrectionType = FALSE;
+    emailTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     emailTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    userSignUpTextField.autocorrectionType = FALSE;
+    userSignUpTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     userSignUpTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    passwordSignUpTextField.autocorrectionType = FALSE;
+    passwordSignUpTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     passwordSignUpTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    varifyPasswordSignUpTextField.autocorrectionType = FALSE;
+    varifyPasswordSignUpTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     varifyPasswordSignUpTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
 
     [self performSelector:@selector(showKeyBoard) withObject:nil afterDelay:0.4];

@@ -45,10 +45,10 @@
     
     self.passWordTextField.delegate = self;
     
-    userNameTextField.autocorrectionType = FALSE;
+    userNameTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     userNameTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     
-    passWordTextField.autocorrectionType = FALSE;
+    passWordTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     passWordTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     
     [self performSelector:@selector(showKeyBoard) withObject:nil afterDelay:0.4];
