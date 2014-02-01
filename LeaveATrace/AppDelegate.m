@@ -8,7 +8,6 @@
 
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
-//#import "CanvasViewController.h"
 #import "AppDelegate.h"
 #import "ThreadViewController.h"
 
@@ -88,9 +87,11 @@
     
     [PFPush handlePush:userInfo];
     
-    //UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    
-    //tabBarController.selectedIndex = 1;
+    NSString *p = [userInfo objectForKey:@"p"];
+    NSString *r = [userInfo objectForKey:@"r"];
+    NSLog(@"p = %@",p);
+    NSLog(@"r = %@",r);
+    NSLog(@"userinfo = %@",userInfo);
     
 }
 
