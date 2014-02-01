@@ -19,6 +19,8 @@
     CGFloat brush;
     CGFloat opacity;
     BOOL mouseSwiped;
+    UIColor *theColor;
+    double hue;
     
     //Variables
     IBOutlet UIButton *undoB;
@@ -66,7 +68,7 @@
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
--(void) getThreadTrace:(NSString *)userWhoSentTrace;
+-(void) getThreadTrace:(NSString *)userWhoSentTrace traceObjectStatus:(NSString *)traceStatus;
 -(UIImage *) convertToMask:(UIImage *)image;
 
 @end

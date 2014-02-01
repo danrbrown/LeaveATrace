@@ -27,8 +27,6 @@ PFFile *file;
 NSString *badgeString;
 NSString *tracesBadgeString;
 UIImageView *mainImage;
-UIColor *theColor;
-double hue;
 long iconBadge;
 
 @interface CanvasViewController ()
@@ -62,12 +60,14 @@ long iconBadge;
     theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
     
     currentColorImage.backgroundColor = theColor;
-    currentColorImage.layer.cornerRadius = 7.0;
+    currentColorImage.layer.cornerRadius = 2.0;
     currentColorImage.layer.borderColor = [UIColor blackColor].CGColor;
     currentColorImage.layer.borderWidth = 3.0;
-    currentColorImage.frame = CGRectMake(141, 26, 38, 33);
     
     imagesArray = [[NSMutableArray alloc] init];
+    
+    CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 1.5);
+    self.brushSize.transform = trans;
 
 }
 

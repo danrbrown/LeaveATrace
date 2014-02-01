@@ -112,7 +112,7 @@
         if ((APP).requestsArray.count == 0)
         {
             
-            noRequests.text = @"You have no friend requests";
+            noRequests.text = @"No requests right now";
             
         }
         

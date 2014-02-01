@@ -42,6 +42,19 @@
     blue = 0.0;
     brush = 11.0;
     opacity = 1.0;
+    
+    CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 1.5);
+    self.brushSize.transform = trans;
+    
+    self.colorValue.value = 0.001;
+    self.brushSize.value = brush;
+    
+    theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
+    
+    currentColorImage.backgroundColor = theColor;
+    currentColorImage.layer.cornerRadius = 2.0;
+    currentColorImage.layer.borderColor = [UIColor blackColor].CGColor;
+    currentColorImage.layer.borderWidth = 3.0;
 
 }
 
@@ -56,10 +69,11 @@
     traceObjectId = [traceObject objectId];
     
     NSString *userWhoSentTrace = [traceObject objectForKey:@"toUser"];
+    NSString *tmpStatus = [traceObject objectForKey:@"status"];
     
     otherUser.text = userWhoSentTrace;
     
-    [self getThreadTrace:userWhoSentTrace];
+    [self getThreadTrace:userWhoSentTrace traceObjectStatus:tmpStatus];
 
 }
 
@@ -74,8 +88,10 @@
 
 //this should be done better - shouldn't loop since we're bringing back one image Dan DRB
 
--(void) getThreadTrace:(NSString *)userWhoSentTrace
+-(void) getThreadTrace:(NSString *)userWhoSentTrace traceObjectStatus:(NSString *)traceStatus
 {
+    
+    NSLog(@"trace status %@",traceStatus);
     
     viewText = 1;
     
@@ -113,7 +129,9 @@
                         if (![tmpCurrentUser isEqualToString:tmpLastSentBy])
                         {
                             
-                            (APP).unopenedTraceCount--;
+                            if (((APP).unopenedTraceCount > 0) && ([traceStatus isEqualToString:@"D"]))
+                                (APP).unopenedTraceCount--;
+                            
                             [myImages setObject:@"O"forKey:@"status"];
                             [traceObject setObject:@"O"forKey:@"status"];
                             [myImages saveInBackground];
@@ -275,15 +293,17 @@
 -(IBAction) send:(id)sender
 {
     
-    viewText = 2;
-    
-    [self loadingTrace];
-    
-    [sendB setEnabled:NO];
-    
-    [sendB setAlpha:0.5];
+//    viewText = 2;
+//    
+//    [self loadingTrace];
+//    
+//    [sendB setEnabled:NO];
+//    
+//    [sendB setAlpha:0.5];
     
     [self uploadThreadTrace];
+    
+    [self close:nil];
     
 }
 
@@ -310,7 +330,7 @@
     if(changedSlider == self.colorValue)
     {
         
-        UIColor *theColor = [UIColor colorWithHue:changedSlider.value saturation:1.0 brightness:1.0 alpha:1.0];
+        theColor = [UIColor colorWithHue:changedSlider.value saturation:1.0 brightness:1.0 alpha:1.0];
         
         CGColorRef colorRef = [theColor CGColor];
         
@@ -318,6 +338,8 @@
         red     = _components[0];
         green = _components[1];
         blue   = _components[2];
+        
+        currentColorImage.backgroundColor = theColor;
         
     }
     
@@ -360,11 +382,7 @@
                 if (succeeded)
                 {
                     
-                    viewText = 3;
-                    
-                    [_hudView removeFromSuperview];
-                    
-                    [self loadingTrace];
+                    //[self close:nil];
                     
                 }
                 else
@@ -426,7 +444,7 @@
 -(IBAction) close:(id)sender
 {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
     
 }
 

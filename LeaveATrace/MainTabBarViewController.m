@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     
-    self.selectedIndex = 0;
+    self.selectedIndex = 1;
     
 }
 

@@ -21,8 +21,6 @@ extern NSData *pictureData;
 extern UIImage *SaveImage;
 extern PFFile *file;
 extern UIImageView *mainImage;
-extern UIColor *theColor;
-extern double hue;
 extern long iconBadge;
 
 @interface CanvasViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate> {
@@ -35,6 +33,8 @@ extern long iconBadge;
     CGFloat brush;
     CGFloat opacity;
     BOOL mouseSwiped;
+    UIColor *theColor;
+    double hue;
     
     NSMutableArray *lineArray;
     NSMutableArray *bufferArray;
