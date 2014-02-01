@@ -17,13 +17,10 @@
 {
     
     _tracesArray = [[NSMutableArray alloc] init];
-    
     _contactsArray = [[NSMutableArray alloc] init];
-    
     _requestsArray = [[NSMutableArray alloc] init];
     
     _unopenedTraceCount = 0;
-
     _friendRequestsCount = 0;
     
     _TRACES_DATA_LOADED = NO;
@@ -36,41 +33,28 @@
     // Register for push notifications
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge |UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
     
+    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (notificationPayload)
+    {
+        
+        NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *traceUsername = [traceDefaults objectForKey:@"username"];
+        NSLog(@"username in defaults %@",traceUsername);
+        NSLog(@"notificationPayload = %@",notificationPayload);
+        NSString *pushReceiver = [notificationPayload objectForKey:@"r"];
+        
+        if ([traceUsername isEqualToString:pushReceiver])
+        {
+        
+        }
+        
+        UIAlertView *pushR = [[UIAlertView alloc] initWithTitle:@"Value of pushReceiver is..." message:pushReceiver delegate:nil cancelButtonTitle:@"close" otherButtonTitles:nil];
+        [pushR show];
+        
+    }
+    
     application.applicationSupportsShakeToEdit = YES;
     
-    //Dans notifacations crap.
-   /*
-    
-     new attempt to respond to push payload
-  
-   NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
-    
-    // Create a pointer to the Photo object
-    NSString *imageId = [notificationPayload objectForKey:@"p"];
-    PFObject *targetTrace = [PFObject objectWithoutDataWithClassName:@"Photo"
-                                                            objectId:imageId];
-    
-    // Fetch photo object
-    [targetTrace fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        // Show photo view controller
-        if (!error && [PFUser currentUser]) {
-            PhotoVC *ThreadViewController = [[PhotoVC alloc] initWithPhoto:object];
-            [self.navController pushViewController:viewController animated:YES];
-            
-            NSLog(@"fetched the image %@",object);
-        }
-    }];
-    
-     to be looked at later. DB
-    
-    NSLog(@"In didFinishLaunchingWithOptions");
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *obj=[storyboard instantiateViewControllerWithIdentifier:@"haha"];
-    self.navigationController.navigationBarHidden=YES;
-    [self.navigationController pushViewController:obj animated:YES];
-    
-    */
-     
     return YES;
 }
 
@@ -85,13 +69,58 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
-    [PFPush handlePush:userInfo];
+   // [PFPush handlePush:userInfo];
     
-    NSString *p = [userInfo objectForKey:@"p"];
-    NSString *r = [userInfo objectForKey:@"r"];
+    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *traceUsername = [traceDefaults objectForKey:@"username"];
+    NSString *p = [userInfo objectForKey:@"p"]; //ObjectId
+    NSString *r = [userInfo objectForKey:@"r"]; //Who the push notification is going to
+    
     NSLog(@"p = %@",p);
     NSLog(@"r = %@",r);
     NSLog(@"userinfo = %@",userInfo);
+
+    // Only deal with the push if the user is logged in, and the logged in user
+    // is the one receiving the push
+    
+    if (([traceUsername length] > 0) && [r isEqualToString:traceUsername])
+    {
+
+        NSLog(@"We're good to go.");
+    
+        PFQuery *pushQuery = [PFQuery queryWithClassName:@"TracesObject"];
+        [pushQuery whereKey:@"objectId" equalTo:p];
+        
+        [pushQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            if (!error)
+            {
+                for (PFObject *obj in objects)
+                {
+                    
+                    [_tracesArray addObject:obj];
+                    _unopenedTraceCount++;
+                    
+                }
+                
+                NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"lastSentByDateTime" ascending:NO];
+                [_tracesArray sortUsingDescriptors:[NSArray arrayWithObject:sort]];
+                
+                [[NSNotificationCenter defaultCenter]
+                 postNotificationName:@"PushTraceNotification"
+                 object:self];
+                
+            }
+            else
+            {
+                
+                NSLog(@"There was an error loading the pushed trace.");
+                
+            }
+            
+        }];
+        
+    }
     
 }
 

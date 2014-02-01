@@ -117,6 +117,7 @@
 
 -(void) loadRequestsArray
 {
+    
     (APP).friendRequestsCount = 0;
     
     PFQuery *requestsQuery = [PFQuery queryWithClassName:@"UserContact"];

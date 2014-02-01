@@ -68,6 +68,11 @@ long iconBadge;
     
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 1.5);
     self.brushSize.transform = trans;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivePushTraceNotification:)
+                                                 name:@"PushTraceNotification"
+                                               object:nil];
 
 }
 
@@ -115,6 +120,21 @@ long iconBadge;
     [super viewDidDisappear:animated];
     
 }
+
+//----------------------------------------------------------------------------------
+
+- (void) receivePushTraceNotification:(NSNotification *) notification
+{
+    
+    if ([[notification name] isEqualToString:@"PushTraceNotification"])
+    {
+        
+        [self displayBadgeCounts];
+        
+    }
+    
+}
+
 
 //----------------------------------------------------------------------------------
 //
