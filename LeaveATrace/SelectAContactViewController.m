@@ -41,7 +41,10 @@ BOOL clearImage;
 -(void) viewDidLoad
 {
     
-    validContacts = [[NSMutableArray alloc] initWithCapacity:100];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receiveContactsLoadedNotification:)
+                                                 name:@"ContactsLoadedNotification"
+                                               object:nil];
     
     [self performSelector:@selector(displayValidContacts)];
     
@@ -58,20 +61,61 @@ BOOL clearImage;
 -(void) viewDidAppear:(BOOL)animated
 {
     
-    if (validContacts.count == 0)
+    if (!(APP).CONTACTS_DATA_LOADED)
+    {
+        
+        noSendTo.text = @"Loading...";
+        [loadingValid startAnimating];
+        
+    }
+    else if (validContacts.count == 0)
     {
         
         noSendTo.text = @"No one to send to";
+        [loadingValid stopAnimating];
         
     }
     else
     {
         
         noSendTo.text = @"";
+        [loadingValid stopAnimating];
         
     }
     
 }
+
+//----------------------------------------------------------------------------------
+
+- (void) receiveContactsLoadedNotification:(NSNotification *) notification
+{
+    
+    // [notification name] should always be @"ContactsLoadedNotification"
+    // unless you use this method for observation of other notifications
+    // as well.
+    
+    if ([[notification name] isEqualToString:@"ContactsLoadedNotification"])
+    {
+        
+        NSLog (@"Successfully received the LoadContactsNotification notification!");
+        
+        noSendTo.text = @"";
+        
+        [self displayValidContacts];
+        
+        [loadingValid stopAnimating];
+        
+        if ((APP).contactsArray.count == 0)
+        {
+            
+            noSendTo.text = @"You have no Friends to send to";
+            
+        }
+        
+    }
+    
+}
+
 
 //----------------------------------------------------------------------------------
 //
@@ -87,24 +131,28 @@ BOOL clearImage;
 -(void) displayValidContacts
 {
     
-    query = [PFQuery queryWithClassName:@"UserContact"];
+    NSString *tmpUserAccepted;
+    NSInteger idx = 0;
     
-    [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
-    [query whereKey:@"userAccepted" equalTo:@"YES"];
-    [query orderByAscending:@"contact"];
+    validContacts = [[NSMutableArray alloc] init];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        if (!error)
+    for (PFObject *friend in (APP).contactsArray)
+    {
+        tmpUserAccepted = [friend objectForKey:@"userAccepted"];
+        if ([tmpUserAccepted isEqualToString:@"YES"])
         {
             
-            validContacts = [[NSMutableArray alloc] initWithArray:objects];
+            [validContacts addObject:friend];
             
         }
         
-        [validContactsTable reloadData];
+        idx++;
         
-    }];
+    }
+    
+    NSLog(@"after valid %@",validContacts);
+    
+    [validContactsTable reloadData];
     
 }
 

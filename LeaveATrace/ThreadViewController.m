@@ -347,6 +347,42 @@
 
 //----------------------------------------------------------------------------------
 //
+// Name: sendPushToContact
+//
+// Purpose: Will send a push to a specifc user. It gets the Installation record
+// for this user and then sends the push.
+//
+// To debug this incase it isn't working. There should be a row in the
+// Installation object and the deviceToken should have a value (some long string).
+// The 'user' field for that Installation record should be the 'objectId' in
+// the User object for that user.
+//
+//----------------------------------------------------------------------------------
+
+-(void) sendPushToContact:(NSString *)pushRecipient pushObjectId:(NSString *)oldObjectId
+{
+    
+    NSString *pushMessage = [NSString stringWithFormat:@"%@ has responded to your Trace!", [PFUser currentUser].username];
+    
+    PFQuery *userQuery = [PFUser query];
+    [userQuery whereKey:@"username" equalTo:pushRecipient];
+    PFUser *user = (PFUser *)[userQuery getFirstObject];
+    
+    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert", oldObjectId, @"p", nil];
+    
+    PFQuery *pushQuery = [PFInstallation query];
+    [pushQuery whereKey:@"user" equalTo:user];
+    
+    PFPush *push = [[PFPush alloc] init];
+    [push setQuery:pushQuery];
+    [push setData:data];
+    [push sendPushInBackground];
+    
+}
+
+
+//----------------------------------------------------------------------------------
+//
 // Name: uploadThreadTrace
 //
 // Purpose:
@@ -366,23 +402,51 @@
     PFFile *imageFile  = [PFFile fileWithName:@"img" data:threadPictureData];
     NSDate *currentDateTime = [NSDate date];
     
+    NSString *tmpFriend;
+    NSString *tmpFromUser = [traceObject objectForKey:@"fromUser"];
+    NSString *tmpToUser = [traceObject objectForKey:@"toUser"];
+    NSString *tmpCurrentUser = [PFUser currentUser].username;
+    
+    if ([tmpCurrentUser isEqualToString:tmpFromUser])
+    {
+        
+        tmpFriend = tmpToUser;
+        
+    }
+    else
+    {
+        
+        tmpFriend = tmpFromUser;
+        
+    }
+
+    NSLog(@"last sent by %@",tmpFriend);
+ 
+    [traceObject setObject:imageFile forKey:@"image"];
+    [traceObject setObject:@"YES"forKey:@"fromUserDisplay"];
+    [traceObject setObject:@"YES"forKey:@"toUserDisplay"];
+    [traceObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];
+    [traceObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
+    [traceObject setObject:@"P"forKey:@"status"];
+
+
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         if (succeeded)
         {
             
-            [traceObject setObject:imageFile forKey:@"image"];
-            [traceObject setObject:@"YES"forKey:@"fromUserDisplay"];
-            [traceObject setObject:@"YES"forKey:@"toUserDisplay"];
-            [traceObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];
-            [traceObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
-            [traceObject saveInBackground];
+            [traceObject setObject:@"S"forKey:@"status"];
             [traceObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
                 if (succeeded)
                 {
                     
-                    //[self close:nil];
+                    NSString *oldObjectId = [traceObject objectId];
+                    [self sendPushToContact:tmpFriend pushObjectId:oldObjectId];
+
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:@"SendTraceNotification"
+                     object:self];
                     
                 }
                 else

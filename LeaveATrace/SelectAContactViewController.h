@@ -21,6 +21,7 @@ extern BOOL clearImage;
     
     //Outlets
     IBOutlet UILabel *noSendTo;
+    IBOutlet UIActivityIndicatorView *loadingValid;
     
 }
 
