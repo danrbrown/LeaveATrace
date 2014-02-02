@@ -476,6 +476,8 @@ NSInteger traceObjectIdx;
     
     NSString *tmpFromUser = [tempObject objectForKey:@"fromUser"];
     NSString *tmpToUser = [tempObject objectForKey:@"toUser"];
+    NSString *tmpTraceStatus = [tempObject objectForKey:@"status"];
+    NSString *tmpLastSentBy = [tempObject objectForKey:@"lastSentBy"];
     
     if ([tmpCurrentUser isEqualToString:tmpFromUser])
         [tempObject setObject:@"NO"forKey:@"fromUserDisplay"];
@@ -501,6 +503,16 @@ NSInteger traceObjectIdx;
     }
  
     [(APP).tracesArray removeObjectAtIndex:indexPath.row];
+    if (![tmpCurrentUser isEqualToString:tmpLastSentBy])  // Not the current user sent it
+    {
+        if (((APP).unopenedTraceCount > 0) && ([tmpTraceStatus isEqualToString:@"D"]))
+        {
+            
+            (APP).unopenedTraceCount--;
+            [self displayBadgeCounts];
+            
+        }
+    }
     
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
     

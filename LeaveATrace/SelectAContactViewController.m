@@ -341,6 +341,7 @@ BOOL clearImage;
                     
                     NSString *newObjectId = [imageObject objectId];
                     [imageObject setObject:@"S"forKey:@"status"];
+                                        
                     [self sendPushToContact:tempContact pushObjectId:newObjectId];
                     [self.navigationController popViewControllerAnimated:YES];
                     

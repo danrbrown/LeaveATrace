@@ -394,7 +394,9 @@
                             
                             [loadingContact stopAnimating];
                             
-                            [self sendPushForFriendRequest:item.text];
+                           // [self sendPushForFriendRequest:item.text];
+                            [self performSelectorInBackground:@selector(sendPushForFriendRequest:)
+                                                   withObject:item.text];
 
                             [self.delegate addItemViewController:self didFinishAddingItem:item];
             
@@ -456,7 +458,8 @@
     
     NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
     NSLog(@"friendLoggedIn %@",friendLoggedIn);
-    
+    NSLog(@"friendToBeAdded %@",friendToBeAdded);
+   
     if ([friendLoggedIn isEqualToString:@"Y"])
     {
         

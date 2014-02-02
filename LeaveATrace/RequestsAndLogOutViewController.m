@@ -287,6 +287,7 @@
     [(APP).requestsArray removeObjectAtIndex:indexPath.row];
     
     [requestsTable reloadData];
+    [self displayBadgeCounts];
     
     NSString *acceptedMessage = [NSString stringWithFormat:@"You are now friends with %@!", name];
     

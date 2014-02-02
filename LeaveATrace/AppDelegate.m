@@ -61,6 +61,8 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
     
+    NSLog(@"Registering the installation...");
+
     // Store the deviceToken in the current installation and save it to Parse.
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:newDeviceToken];
@@ -84,14 +86,18 @@
     
     if ([msgType isEqualToString:@"Trace"])
     {
+        NSLog(@"handling a trace push");
         [self processTracePush:userInfo];
     }
     else
     {
+        NSLog(@"handling a contact push");
         LoadTraces *loadTraces = [[LoadTraces alloc] init];
 
         [loadTraces loadContactsArray];
         [loadTraces loadRequestsArray];
+        
+        [PFPush handlePush:userInfo];
 
     }
     

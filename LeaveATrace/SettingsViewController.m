@@ -17,6 +17,14 @@
 
 @implementation SettingsViewController
 
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
 - (void)viewDidLoad
 {
     
@@ -34,6 +42,14 @@
     self.actions = [@[@"Log out", @"Clear my traces"] mutableCopy];
     
 }
+
+//----------------------------------------------------------------------------------
+//
+// Name: getThreadTrace
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -53,12 +69,28 @@
     
 }
 
+//----------------------------------------------------------------------------------
+//
+// Name: getThreadTrace
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
     
     return 2;
 
 }
+
+//----------------------------------------------------------------------------------
+//
+// Name: getThreadTrace
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
 -(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
@@ -77,6 +109,14 @@
     }
     
 }
+
+//----------------------------------------------------------------------------------
+//
+// Name: getThreadTrace
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -112,6 +152,14 @@
     return view;
     
 }
+
+//----------------------------------------------------------------------------------
+//
+// Name: getThreadTrace
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
 -(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -162,6 +210,14 @@
     
 }
 
+//----------------------------------------------------------------------------------
+//
+// Name: getThreadTrace
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
  
@@ -203,6 +259,14 @@
     
 }
 
+//----------------------------------------------------------------------------------
+//
+// Name: getThreadTrace
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
 -(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
@@ -233,12 +297,28 @@
 
 }
 
+//----------------------------------------------------------------------------------
+//
+// Name: getThreadTrace
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
 -(IBAction) done:(id)sender
 {
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
+//----------------------------------------------------------------------------------
+//
+// Name: getThreadTrace
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
 
 -(void) deleteMyTraces
 {
@@ -281,10 +361,14 @@
             
         }
         
-        [(APP).tracesArray removeObjectAtIndex:idx];
         idx++;
         
     }
+    
+    (APP).tracesArray = nil;
+    (APP).unopenedTraceCount = 0;
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:nil];
+
     
 }
 

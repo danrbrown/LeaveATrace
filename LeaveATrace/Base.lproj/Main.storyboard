@@ -5,12 +5,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Contacts View Controller - Contacts-->
+        <!--Contacts View Controller - Friends-->
         <scene sceneID="cGu-Vm-VBk">
             <objects>
                 <tableViewController id="45d-8g-mdk" customClass="ContactsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="Q9g-y1-B53">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.47966343839999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="afP-dt-kYR">
@@ -67,7 +67,7 @@
                             <outlet property="delegate" destination="45d-8g-mdk" id="wyZ-5i-FVj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Contacts" id="4sf-vO-YRL">
+                    <navigationItem key="navigationItem" title="Friends" id="4sf-vO-YRL">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="U0y-76-2us">
                             <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -177,11 +177,11 @@
             </objects>
             <point key="canvasLocation" x="3066" y="-213"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Friends-->
         <scene sceneID="0Lt-ps-5w0">
             <objects>
                 <navigationController id="pOU-Ps-LuG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="if9-vW-pB6"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="FriendsIcon.png" id="if9-vW-pB6"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="F1Q-lI-tdb"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translucent="NO" id="9jb-Lx-YCx">
@@ -208,7 +208,7 @@
             <objects>
                 <viewController id="GrZ-6C-8aQ" customClass="CanvasViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Qh-8P-k0Y">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="X7s-Uc-4iM">
@@ -286,7 +286,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New Trace" image="iconsberlin.png" id="pDS-ST-dHk"/>
+                    <tabBarItem key="tabBarItem" title="New Trace" image="NewTraceIcon.png" id="pDS-ST-dHk"/>
                     <connections>
                         <outlet property="brushSize" destination="7n7-wn-SDY" id="vL7-Ll-j3D"/>
                         <outlet property="colorValue" destination="yHo-Fg-5qT" id="8aQ-Rv-XhC"/>
@@ -308,7 +308,7 @@
             <objects>
                 <tableViewController id="fzy-OR-OVR" customClass="SelectAContactViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="GYn-6u-0sl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.47966343839999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="RUL-w9-gai">
@@ -384,7 +384,7 @@
             <objects>
                 <tableViewController id="dkT-yk-hJO" customClass="RequestsAndLogOutViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="LI9-LV-x7W">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.47966343839999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.30152911999999998" green="0.74419076780000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -486,7 +486,7 @@
             <objects>
                 <tableViewController id="UdK-a1-MbE" customClass="SettingsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="53" sectionHeaderHeight="10" sectionFooterHeight="10" id="22C-py-6wV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.47966343839999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.96002072699999996" green="0.96002072699999996" blue="0.96002072699999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -868,7 +868,7 @@
         <scene sceneID="Bz5-Tt-ViE">
             <objects>
                 <navigationController storyboardIdentifier="ThreadTabBar" automaticallyAdjustsScrollViewInsets="NO" id="MYI-Rr-srH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Traces" image="iconsberlin@2x-3.png" id="taT-SI-XU7"/>
+                    <tabBarItem key="tabBarItem" title="Traces" image="TracesIcon.png" id="taT-SI-XU7"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="zm2-Ld-2yC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="YoB-Z7-pLf">
@@ -895,7 +895,7 @@
             <objects>
                 <tableViewController id="8JU-eN-LMV" customClass="tracesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" id="6qg-OO-yOW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1107,11 +1107,11 @@
             </objects>
             <point key="canvasLocation" x="2647" y="-884"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Requests-->
         <scene sceneID="naY-BO-Efe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oAk-xL-6bB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="m2Y-QV-38M"/>
+                    <tabBarItem key="tabBarItem" title="Requests" image="RequestsIcon.png" id="m2Y-QV-38M"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="k14-F4-Wzh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1182,14 +1182,17 @@
     </scenes>
     <resources>
         <image name="CloseButton.png" width="90" height="155"/>
+        <image name="FriendsIcon.png" width="45" height="45"/>
         <image name="LoginButton.png" width="258" height="145"/>
+        <image name="NewTraceIcon.png" width="45" height="45"/>
+        <image name="RequestsIcon.png" width="55" height="55"/>
         <image name="SaveButton.png" width="102" height="101"/>
         <image name="SentTrace.png" width="157" height="109"/>
         <image name="SignUpButton.png" width="259" height="146"/>
+        <image name="TracesIcon.png" width="55" height="55"/>
         <image name="TrashButton.png" width="105" height="172"/>
         <image name="eraserB.png" width="168" height="110"/>
         <image name="iconsberlin.png" width="30" height="30"/>
-        <image name="iconsberlin@2x-3.png" width="60" height="60"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -1197,7 +1200,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="M9D-NX-IN9"/>
-        <segue reference="spu-jz-L3F"/>
+        <segue reference="GBW-T9-TL5"/>
+        <segue reference="kY8-SR-qb2"/>
     </inferredMetricsTieBreakers>
 </document>
