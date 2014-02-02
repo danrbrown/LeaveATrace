@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "ThreadViewController.h"
+#import "LoadTraces.h"
 
 @implementation AppDelegate
 
@@ -54,7 +55,7 @@
     }
     
     application.applicationSupportsShakeToEdit = YES;
-    
+            
     return YES;
 }
 
@@ -67,29 +68,67 @@
     
 }
 
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
    // [PFPush handlePush:userInfo];
     
+    NSString *msgType = [userInfo objectForKey:@"msgType"];
+    
+    if ([msgType isEqualToString:@"Trace"])
+    {
+        [self processTracePush:userInfo];
+    }
+    else
+    {
+        LoadTraces *loadTraces = [[LoadTraces alloc] init];
+
+        [loadTraces loadContactsArray];
+        [loadTraces loadRequestsArray];
+
+    }
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+- (void)processTracePush : (NSDictionary *)userInfo {
+    
+    // [PFPush handlePush:userInfo];
+    
     NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
     NSString *traceUsername = [traceDefaults objectForKey:@"username"];
-    NSString *p = [userInfo objectForKey:@"p"]; //ObjectId
-    NSString *r = [userInfo objectForKey:@"r"]; //Who the push notification is going to
     
-    NSLog(@"p = %@",p);
-    NSLog(@"r = %@",r);
+    NSString *objId = [userInfo objectForKey:@"objId"];
+    NSString *friend = [userInfo objectForKey:@"friend"];
+    
+    NSLog(@"objId = %@",objId);
+    NSLog(@"friend = %@",friend);
     NSLog(@"userinfo = %@",userInfo);
-
+    
     // Only deal with the push if the user is logged in, and the logged in user
     // is the one receiving the push
     
-    if (([traceUsername length] > 0) && [r isEqualToString:traceUsername])
+    if (([traceUsername length] > 0) && [friend isEqualToString:traceUsername])
     {
-
+        
         NSLog(@"We're good to go.");
-    
+        
         PFQuery *pushQuery = [PFQuery queryWithClassName:@"TracesObject"];
-        [pushQuery whereKey:@"objectId" equalTo:p];
+        [pushQuery whereKey:@"objectId" equalTo:objId];
         
         [pushQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             
@@ -97,9 +136,12 @@
             {
                 for (PFObject *obj in objects)
                 {
+                    [obj setObject:@"D"forKey:@"status"];
                     
                     [_tracesArray addObject:obj];
                     _unopenedTraceCount++;
+                    
+                    [obj saveInBackground];
                     
                 }
                 
@@ -123,6 +165,9 @@
     }
     
 }
+
+//----------------------------------------------------------------------------------
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

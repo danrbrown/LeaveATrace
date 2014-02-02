@@ -70,9 +70,15 @@ long iconBadge;
     self.brushSize.transform = trans;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receivePushTraceNotification:)
+                                             selector:@selector(updateBadges:)
                                                  name:@"PushTraceNotification"
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateBadges:)
+                                                 name:@"SendTraceNotification"
+                                               object:nil];
+
 
 }
 
@@ -123,7 +129,7 @@ long iconBadge;
 
 //----------------------------------------------------------------------------------
 
-- (void) receivePushTraceNotification:(NSNotification *) notification
+- (void) updateBadges:(NSNotification *) notification
 {
     
     if ([[notification name] isEqualToString:@"PushTraceNotification"])
@@ -133,6 +139,13 @@ long iconBadge;
         
     }
     
+    if ([[notification name] isEqualToString:@"SendTraceNotification"])
+    {
+        
+        [self displayBadgeCounts];
+        
+    }
+
 }
 
 

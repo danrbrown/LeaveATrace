@@ -151,6 +151,8 @@
         
         if (user)
         {
+            [[PFUser currentUser] setObject:@"Y" forKey:@"LoggedIn"];
+            [[PFUser currentUser] saveInBackground];
             
             [traceDefaults setObject:self.userNameTextField.text forKey:@"username"];
             [traceDefaults setObject:self.passWordTextField.text forKey:@"password"];
@@ -165,7 +167,7 @@
             [self performSegueWithIdentifier:@"LoginSuccesful" sender:self];
             
             [self textFieldShouldReturn:passWordTextField];
-            
+                        
         }
         else
         {

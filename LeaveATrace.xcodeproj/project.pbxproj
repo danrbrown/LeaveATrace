@@ -52,6 +52,7 @@
 		9C7547201868DC1500AED9EB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75471F1868DC1500AED9EB /* SettingsViewController.m */; };
 		9C782E05182885ED00077FC8 /* eraserB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C782E04182885ED00077FC8 /* eraserB.png */; };
 		9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */; };
+		9CAA06C9189D8EE700178030 /* TabBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAA06C8189D8EE700178030 /* TabBar.png */; };
 		9CAC90E518413D45007CC2CD /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E418413D45007CC2CD /* RequestCell.m */; };
 		9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */; };
 		9CB59BB11844F94C006AB105 /* SelectAContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB59BB01844F94C006AB105 /* SelectAContactViewController.m */; };
@@ -152,6 +153,7 @@
 		9C782E04182885ED00077FC8 /* eraserB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraserB.png; sourceTree = "<group>"; };
 		9CA1B48C1832CDC700CAFA8E /* FirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstPageViewController.h; path = LeaveATrace/FirstPageViewController.h; sourceTree = "<group>"; };
 		9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstPageViewController.m; path = LeaveATrace/FirstPageViewController.m; sourceTree = "<group>"; };
+		9CAA06C8189D8EE700178030 /* TabBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBar.png; sourceTree = "<group>"; };
 		9CAC90E318413D45007CC2CD /* RequestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestCell.h; path = LeaveATrace/RequestCell.h; sourceTree = "<group>"; };
 		9CAC90E418413D45007CC2CD /* RequestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestCell.m; path = LeaveATrace/RequestCell.m; sourceTree = "<group>"; };
 		9CAC90E618413DF5007CC2CD /* LeaveATraceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaveATraceRequest.h; path = LeaveATrace/LeaveATraceRequest.h; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 		9C27685E181C771D0073453E /* other */ = {
 			isa = PBXGroup;
 			children = (
+				9CAA06C8189D8EE700178030 /* TabBar.png */,
 				9CF34DD9189C58FD0082329B /* sliderlabel.png */,
 				9C595CB51867B66500D1B7E8 /* NewTrace.png */,
 				9C595CB31867B65B00D1B7E8 /* OpenedTrace.png */,
@@ -546,6 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CBC5B4C1859619D00725BD5 /* AcceptedIcon.png in Resources */,
+				9CAA06C9189D8EE700178030 /* TabBar.png in Resources */,
 				9CBC5AFC1856900A00725BD5 /* SignUpButton.png in Resources */,
 				9CD69C1C1860E55E00177EA0 /* 15and50LogoLink.png in Resources */,
 				9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */,

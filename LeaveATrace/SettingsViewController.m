@@ -181,7 +181,21 @@
         (APP).CONTACTS_DATA_LOADED = NO;
         (APP).REQUESTS_DATA_LOADED = NO;
         
-        [PFUser logOut];
+        [[PFUser currentUser] setObject:@"N" forKey:@"LoggedIn"];
+        
+        
+        [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            
+            if (succeeded)
+            {
+                
+                [PFUser logOut];
+                
+            }
+            
+        }];
+        
+        //[PFUser logOut];
         
         [self performSegueWithIdentifier:@"LogOutSuccesful" sender:self];
         

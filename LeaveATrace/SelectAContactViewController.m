@@ -272,19 +272,26 @@ BOOL clearImage;
      PFQuery *userQuery = [PFUser query];
      [userQuery whereKey:@"username" equalTo:pushRecipient];
      PFUser *user = (PFUser *)[userQuery getFirstObject];
+    
+     NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
+     NSLog(@"friendLoggedIn %@",friendLoggedIn);
+    
+    if ([friendLoggedIn isEqualToString:@"Y"])
+    {
         
-     NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert", newObjectId, @"p",
-                           pushRecipient, @"r",nil];
-    
-    NSLog(@"dictionary %@",data);
-    
-     PFQuery *pushQuery = [PFInstallation query];
-     [pushQuery whereKey:@"user" equalTo:user];
-    
-     PFPush *push = [[PFPush alloc] init];
-     [push setQuery:pushQuery];
-     [push setData:data];
-     [push sendPushInBackground];
+        NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert",
+                              @"Trace",@"msgType",
+                              newObjectId, @"objId",
+                              pushRecipient, @"friend",nil];
+                
+        PFQuery *pushQuery = [PFInstallation query];
+        [pushQuery whereKey:@"user" equalTo:user];
+        
+        PFPush *push = [[PFPush alloc] init];
+        [push setQuery:pushQuery];
+        [push setData:data];
+        [push sendPushInBackground];
+    }
 
 }
 

@@ -394,6 +394,8 @@
                             
                             [loadingContact stopAnimating];
                             
+                            [self sendPushForFriendRequest:item.text];
+
                             [self.delegate addItemViewController:self didFinishAddingItem:item];
             
                         }
@@ -429,6 +431,52 @@
         }
     }
 }
+//----------------------------------------------------------------------------------
+//
+// Name: sendPushToContact
+//
+// Purpose: Will send a push to a specifc user. It gets the Installation record
+// for this user and then sends the push.
+//
+// To debug this incase it isn't working. There should be a row in the
+// Installation object and the deviceToken should have a value (some long string).
+// The 'user' field for that Installation record should be the 'objectId' in
+// the User object for that user.
+//
+//----------------------------------------------------------------------------------
+
+-(void) sendPushForFriendRequest:(NSString *)friendToBeAdded
+{
+    
+    NSString *pushMessage = [NSString stringWithFormat:@"%@ sent you a 'Leave A Trace' Friend Request!", [PFUser currentUser].username];
+    
+    PFQuery *userQuery = [PFUser query];
+    [userQuery whereKey:@"username" equalTo:friendToBeAdded];
+    PFUser *user = (PFUser *)[userQuery getFirstObject];
+    
+    NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
+    NSLog(@"friendLoggedIn %@",friendLoggedIn);
+    
+    if ([friendLoggedIn isEqualToString:@"Y"])
+    {
+        
+        NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert",
+                              @"Request",@"msgType",
+                              friendToBeAdded, @"friend",nil];
+        
+        NSLog(@"dictionary %@",data);
+        
+        PFQuery *pushQuery = [PFInstallation query];
+        [pushQuery whereKey:@"user" equalTo:user];
+        
+        PFPush *push = [[PFPush alloc] init];
+        [push setQuery:pushQuery];
+        [push setData:data];
+        [push sendPushInBackground];
+    }
+    
+}
+
 
 //----------------------------------------------------------------------------------
 //
