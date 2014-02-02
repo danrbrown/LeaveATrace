@@ -409,20 +409,6 @@
     
 }
 
--(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    //Dan (aka jackass)
-    
-    [(APP).contactsArray removeObjectAtIndex:indexPath.row];
-    
-    NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
-    
-    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-    
-    
-}
-
 //
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 //{

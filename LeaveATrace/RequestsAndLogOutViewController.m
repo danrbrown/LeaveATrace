@@ -249,7 +249,8 @@
             
         }
 
-        [self sendPushAccptedFriendRequest:name];
+        [self performSelectorInBackground:@selector(sendPushAccptedFriendRequest:)
+                               withObject:name];
 
         [newContact objectId];
         NSLog(@"after contacts arraay %@",(APP).contactsArray);
@@ -289,6 +290,14 @@
     [requestsTable reloadData];
     [self displayBadgeCounts];
     
+    if ((APP).requestsArray.count == 0)
+    {
+        
+        [loadinfRequests stopAnimating];
+        noRequests.text = @"No requests right now";
+        
+    }
+    
     NSString *acceptedMessage = [NSString stringWithFormat:@"You are now friends with %@!", name];
     
     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:acceptedMessage message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
@@ -314,7 +323,7 @@
 -(void) sendPushAccptedFriendRequest:(NSString *)friendAdded
 {
     
-    NSString *pushMessage = [NSString stringWithFormat:@"%@ accpted your 'Leave A Trace' Friend Request!", [PFUser currentUser].username];
+    NSString *pushMessage = [NSString stringWithFormat:@"%@ accpted your Friend Request!", [PFUser currentUser].username];
     
     PFQuery *userQuery = [PFUser query];
     [userQuery whereKey:@"username" equalTo:friendAdded];

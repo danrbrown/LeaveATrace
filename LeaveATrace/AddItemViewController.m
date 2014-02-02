@@ -394,7 +394,6 @@
                             
                             [loadingContact stopAnimating];
                             
-                           // [self sendPushForFriendRequest:item.text];
                             [self performSelectorInBackground:@selector(sendPushForFriendRequest:)
                                                    withObject:item.text];
 
@@ -450,7 +449,7 @@
 -(void) sendPushForFriendRequest:(NSString *)friendToBeAdded
 {
     
-    NSString *pushMessage = [NSString stringWithFormat:@"%@ sent you a 'Leave A Trace' Friend Request!", [PFUser currentUser].username];
+    NSString *pushMessage = [NSString stringWithFormat:@"%@ sent you a Friend Request!", [PFUser currentUser].username];
     
     PFQuery *userQuery = [PFUser query];
     [userQuery whereKey:@"username" equalTo:friendToBeAdded];
