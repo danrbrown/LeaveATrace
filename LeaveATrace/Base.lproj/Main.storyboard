@@ -214,9 +214,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="X7s-Uc-4iM">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="O1Q-lZ-m3k">
-                                <rect key="frame" x="112" y="467" width="39" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="O1Q-lZ-m3k">
+                                <rect key="frame" x="112" y="470" width="39" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="TrashButton.png">
@@ -227,8 +228,8 @@
                                     <action selector="clear:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="KN4-kF-JBg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="Rns-hs-jRr">
-                                <rect key="frame" x="62" y="471" width="45" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rns-hs-jRr">
+                                <rect key="frame" x="62" y="474" width="45" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <state key="normal" image="eraserB.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -237,8 +238,8 @@
                                     <action selector="eraser:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="gjV-ib-ynM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="yIF-o3-zbA">
-                                <rect key="frame" x="8" y="469" width="49" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yIF-o3-zbA">
+                                <rect key="frame" x="8" y="472" width="49" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="SaveButton.png">
@@ -249,8 +250,8 @@
                                     <action selector="save:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="mB4-LD-7PC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="nhl-67-LS2">
-                                <rect key="frame" x="246" y="470" width="64" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nhl-67-LS2">
+                                <rect key="frame" x="246" y="473" width="64" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" image="SentTrace.png">
@@ -260,8 +261,8 @@
                                     <action selector="send:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="fcX-Fy-9HV"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.40000000000000002" minValue="0.0" maxValue="0.80000000000000004" id="yHo-Fg-5qT">
-                                <rect key="frame" x="156" y="22" width="118" height="34"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="-0.10000000000000001" maxValue="0.90000000000000002" id="yHo-Fg-5qT">
+                                <rect key="frame" x="156" y="9" width="118" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -270,7 +271,7 @@
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="5" maxValue="50" id="7n7-wn-SDY" customClass="BrushSizeSlider">
-                                <rect key="frame" x="239" y="101" width="118" height="34"/>
+                                <rect key="frame" x="239" y="88" width="118" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -280,13 +281,14 @@
                                 </connections>
                             </slider>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ihn-yS-Xo2">
-                                <rect key="frame" x="281" y="25" width="31" height="28"/>
+                                <rect key="frame" x="281" y="12" width="31" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="New Trace" image="NewTraceIcon.png" id="pDS-ST-dHk"/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="brushSize" destination="7n7-wn-SDY" id="vL7-Ll-j3D"/>
                         <outlet property="colorValue" destination="yHo-Fg-5qT" id="8aQ-Rv-XhC"/>
@@ -308,7 +310,7 @@
             <objects>
                 <tableViewController id="fzy-OR-OVR" customClass="SelectAContactViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="GYn-6u-0sl">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.47966343839999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="RUL-w9-gai">
@@ -463,7 +465,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Friend Requests" id="9SH-85-zqG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="C9f-Vy-16b">
+                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon.png" id="C9f-Vy-16b">
                             <color key="tintColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="logOut:" destination="dkT-yk-hJO" id="I4R-kC-pAN"/>
@@ -485,37 +487,37 @@
         <scene sceneID="x2Q-Ox-7Yh">
             <objects>
                 <tableViewController id="UdK-a1-MbE" customClass="SettingsViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="53" sectionHeaderHeight="10" sectionFooterHeight="10" id="22C-py-6wV">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="46" sectionHeaderHeight="10" sectionFooterHeight="10" id="22C-py-6wV">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.47966343839999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.96002072699999996" green="0.96002072699999996" blue="0.96002072699999996" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settingsItem" textLabel="MvO-h2-Lj3" detailTextLabel="ljC-lt-maR" rowHeight="54" style="IBUITableViewCellStyleSubtitle" id="fL4-Pk-DuP">
-                                <rect key="frame" x="0.0" y="55" width="320" height="54"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settingsItem" textLabel="MvO-h2-Lj3" detailTextLabel="ljC-lt-maR" rowHeight="46" style="IBUITableViewCellStyleSubtitle" id="fL4-Pk-DuP">
+                                <rect key="frame" x="0.0" y="55" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fL4-Pk-DuP" id="C7m-hT-waP">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MvO-h2-Lj3">
-                                            <rect key="frame" x="15" y="6" width="41" height="24"/>
+                                            <rect key="frame" x="15" y="4" width="37" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="19"/>
+                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ljC-lt-maR">
-                                            <rect key="frame" x="15" y="30" width="41" height="18"/>
+                                            <rect key="frame" x="15" y="25" width="38" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
                                             <color key="textColor" red="0.65531589670000001" green="0.65531589670000001" blue="0.65531589670000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="RuF-KD-iC2" kind="modal" identifier="LogOutSuccesful" modalTransitionStyle="flipHorizontal" id="MPc-CD-CeS"/>
+                                    <segue destination="n9V-4H-0GY" kind="push" identifier="showDetail" id="vSA-dm-yb2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -533,10 +535,28 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="RuF-KD-iC2" kind="modal" identifier="LogOutSuccesful" modalTransitionStyle="flipHorizontal" id="6Nj-0v-UHu"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5s7-hb-ykl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3066" y="1157"/>
+        </scene>
+        <!--Detial View Controller-->
+        <scene sceneID="rXB-E8-Bns">
+            <objects>
+                <viewController storyboardIdentifier="testing" useStoryboardIdentifierAsRestorationIdentifier="YES" id="n9V-4H-0GY" customClass="DetialViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dRV-Pt-p4c">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="0.47966343839999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0mY-Wz-RqW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DI1-Nf-s64" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3467" y="1157"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wTw-dt-yce">
@@ -1003,7 +1023,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EtZ-Hq-yQb">
-                                <rect key="frame" x="246" y="519" width="64" height="40"/>
+                                <rect key="frame" x="246" y="522" width="64" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" image="SentTrace.png">
@@ -1015,7 +1035,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2Li-M4-Xbc">
-                                <rect key="frame" x="7" y="517" width="49" height="43"/>
+                                <rect key="frame" x="7" y="520" width="49" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="SaveButton.png">
@@ -1028,7 +1048,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bXD-Nr-LjE">
-                                <rect key="frame" x="112" y="516" width="39" height="45"/>
+                                <rect key="frame" x="112" y="519" width="39" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="TrashButton.png">
@@ -1041,7 +1061,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BL5-p0-jgB">
-                                <rect key="frame" x="61" y="519" width="45" height="40"/>
+                                <rect key="frame" x="61" y="522" width="45" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="eraserB.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1051,8 +1071,8 @@
                                     <action selector="eraser:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="x5l-97-CBY"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="0.80000000000000004" id="KdT-TH-d3c">
-                                <rect key="frame" x="156" y="22" width="119" height="34"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-0.10000000000000001" maxValue="0.90000000000000002" id="KdT-TH-d3c">
+                                <rect key="frame" x="156" y="14" width="119" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" red="1" green="0.1172990127" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1061,7 +1081,7 @@
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="5" maxValue="50" id="uXR-2n-oOM" customClass="BrushSizeSlider">
-                                <rect key="frame" x="239" y="101" width="118" height="34"/>
+                                <rect key="frame" x="239" y="93" width="118" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="maximumTrackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1071,7 +1091,7 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="w9O-1z-IrR">
-                                <rect key="frame" x="7" y="20" width="32" height="43"/>
+                                <rect key="frame" x="7" y="11" width="32" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <state key="normal" image="CloseButton.png">
@@ -1082,7 +1102,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="0rP-Se-IgH">
-                                <rect key="frame" x="281" y="25" width="31" height="28"/>
+                                <rect key="frame" x="281" y="17" width="31" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -1092,6 +1112,7 @@
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" " id="wnp-zM-cAV"/>
                     </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="brushSize" destination="uXR-2n-oOM" id="eWs-bv-kEt"/>
                         <outlet property="colorValue" destination="KdT-TH-d3c" id="350-gE-6Lj"/>
@@ -1185,9 +1206,10 @@
         <image name="FriendsIcon.png" width="45" height="45"/>
         <image name="LoginButton.png" width="258" height="145"/>
         <image name="NewTraceIcon.png" width="45" height="45"/>
-        <image name="RequestsIcon.png" width="55" height="55"/>
+        <image name="RequestsIcon.png" width="48" height="48"/>
         <image name="SaveButton.png" width="102" height="101"/>
         <image name="SentTrace.png" width="157" height="109"/>
+        <image name="SettingsIcon.png" width="35" height="37"/>
         <image name="SignUpButton.png" width="259" height="146"/>
         <image name="TracesIcon.png" width="55" height="55"/>
         <image name="TrashButton.png" width="105" height="172"/>
@@ -1201,6 +1223,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="GBW-T9-TL5"/>
-        <segue reference="kY8-SR-qb2"/>
+        <segue reference="6Nj-0v-UHu"/>
     </inferredMetricsTieBreakers>
 </document>

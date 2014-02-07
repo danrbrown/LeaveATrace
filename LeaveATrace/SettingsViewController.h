@@ -8,14 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString *titleText;
+
 @interface SettingsViewController : UITableViewController <UIAlertViewDelegate> {
     
     NSMutableArray *deleteTraces;
+    
+    BOOL option;
     
 }
 
 @property (copy) NSMutableArray *acountInfo;
 @property (copy) NSMutableArray *acountInfoDetail;
 @property (copy) NSMutableArray *actions;
+@property (copy) NSMutableArray *info;
 
 @end

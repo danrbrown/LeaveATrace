@@ -8,8 +8,11 @@
 
 #import "SettingsViewController.h"
 #import "FirstPageViewController.h"
+#import "DetialViewController.h"
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+
+NSString *titleText;
 
 @interface SettingsViewController ()
 
@@ -37,9 +40,12 @@
     NSString *createdAtString = [NSString stringWithFormat:@"%@", [displayDayAndTimeFormat stringFromDate:createdAt]];
     
     self.acountInfo = [@[@"Username", @"Email", @"Leave A Trace user since"] mutableCopy];
+    
     self.acountInfoDetail = [@[usernameString, emailString, createdAtString] mutableCopy];
     
     self.actions = [@[@"Log out", @"Clear my traces"] mutableCopy];
+    
+    self.info = [@[@"Support", @"Privacy policy", @"Terms of use"] mutableCopy];
     
 }
 
@@ -60,11 +66,17 @@
         return self.acountInfo.count;
     
     }
-    else
+    else if (section == 1)
     {
     
         return self.actions.count;
     
+    }
+    else
+    {
+        
+        return self.info.count;
+        
     }
     
 }
@@ -80,7 +92,7 @@
 -(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
     
-    return 2;
+    return 3;
 
 }
 
@@ -101,13 +113,18 @@
         return @"Acount";
     
     }
-    else
+    else if (section == 1)
     {
     
         return @"Actions";
     
     }
-    
+    else
+    {
+        
+        return @"Information";
+        
+    }
 }
 
 //----------------------------------------------------------------------------------
@@ -175,7 +192,7 @@
 
     if (indexPath.section == 1 && indexPath.row == 1)
     {
-     
+        
         PFObject *userTraces = [PFObject objectWithClassName:@"TracesObject"];
         [userTraces setObject:[PFUser currentUser].username forKey:@"fromUser"];
         
@@ -204,6 +221,39 @@
             
         }];
 
+    }
+    
+    if (indexPath.section == 2 && indexPath.row == 0)
+    {
+        
+        [self performSegueWithIdentifier:@"showDetail" sender:self];
+        
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        
+        titleText = cell.textLabel.text;
+        
+    }
+    
+    if (indexPath.section == 2 && indexPath.row == 1)
+    {
+        
+        [self performSegueWithIdentifier:@"showDetail" sender:self];
+        
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        
+        titleText = cell.textLabel.text;
+        
+    }
+    
+    if (indexPath.section == 2 && indexPath.row == 2)
+    {
+        
+        [self performSegueWithIdentifier:@"showDetail" sender:self];
+        
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        
+        titleText = cell.textLabel.text;
+        
     }
     
     return nil;
@@ -282,12 +332,19 @@
         detail = self.acountInfoDetail[indexPath.row];
     
     }
-    else
+    else if (indexPath.section == 1)
     {
     
         text = self.actions[indexPath.row];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
+    }
+    else
+    {
+        
+        text = self.info[indexPath.row];
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+        
     }
     
     cell.textLabel.text = text;

@@ -21,6 +21,8 @@
     //Outlets
     IBOutlet UILabel *noContacts;
     IBOutlet UIActivityIndicatorView *loadingFreinds;
+    
+    //
 
 }
 

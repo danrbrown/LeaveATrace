@@ -48,14 +48,18 @@ long iconBadge;
 -(void) viewDidLoad
 {
     
-    red = 255;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
+    red = 0;
     green = 0;
-    blue = 0;
+    blue = 255;
     brush = 11.0;
     opacity = 1.0;
     
-    colorValue.value = 0.001;
+    colorValue.value = 0.640678;
     brushSize.value = brush;
+    
+    hue = 0.640678;
     
     theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
     
@@ -82,6 +86,13 @@ long iconBadge;
 
 }
 
+-(BOOL) prefersStatusBarHidden
+{
+
+    return YES;
+
+}
+
 //----------------------------------------------------------------------------------
 //
 // Name: viewWillAppear
@@ -101,7 +112,7 @@ long iconBadge;
         [self.tabBarController setSelectedIndex:0];
         
     }
-    
+
     clearImage = NO;
     
     [self displayBadgeCounts];
@@ -531,7 +542,30 @@ long iconBadge;
         blue   = _components[2];
         
         currentColorImage.backgroundColor = theColor;
+        
+        if (changedSlider.value <= -0.1)
+        {
             
+            red = 255;
+            blue = 255;
+            green = 255;
+            
+            currentColorImage.backgroundColor = [UIColor whiteColor];
+            
+        }
+        
+        if (changedSlider.value > 0.85)
+        {
+            
+            
+            red = 0;
+            blue = 0;
+            green = 0;
+            
+            currentColorImage.backgroundColor = [UIColor blackColor];
+            
+        }
+        
     }
     
 }
@@ -719,6 +753,7 @@ long iconBadge;
     [UIView commitAnimations];
     [_hudView removeFromSuperview];
     
+
 }
 
 @end

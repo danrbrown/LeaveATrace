@@ -37,17 +37,16 @@
 -(void) viewDidLoad
 {
     
-    red = 255.0;
-    green = 0.0;
-    blue = 0.0;
+    red = 0;
+    green = 0;
+    blue = 255;
     brush = 11.0;
     opacity = 1.0;
     
-    CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 1.5);
-    self.brushSize.transform = trans;
-    
-    self.colorValue.value = 0.001;
+    self.colorValue.value = 0.640678;
     self.brushSize.value = brush;
+    
+    hue = 0.640678;
     
     theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
     
@@ -56,6 +55,16 @@
     currentColorImage.layer.borderColor = [UIColor blackColor].CGColor;
     currentColorImage.layer.borderWidth = 3.0;
 
+    CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 1.5);
+    self.brushSize.transform = trans;
+    
+}
+
+-(BOOL) prefersStatusBarHidden
+{
+
+    return YES;
+    
 }
 
 //----------------------------------------------------------------------------------
@@ -340,6 +349,29 @@
         blue   = _components[2];
         
         currentColorImage.backgroundColor = theColor;
+        
+        if (changedSlider.value <= -0.1)
+        {
+            
+            red = 255;
+            blue = 255;
+            green = 255;
+            
+            currentColorImage.backgroundColor = [UIColor whiteColor];
+            
+        }
+        
+        if (changedSlider.value > 0.85)
+        {
+            
+            
+            red = 0;
+            blue = 0;
+            green = 0;
+            
+            currentColorImage.backgroundColor = [UIColor blackColor];
+            
+        }
         
     }
     

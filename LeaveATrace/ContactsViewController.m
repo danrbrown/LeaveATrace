@@ -409,37 +409,35 @@
     
 }
 
-//
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    
-//    return [alphabetsArray count];
-//    
-//}
-//
-//- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-//{
-//    
-//    return alphabetsArray;
-//    
-//}
-//
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    
-//    return [alphabetsArray objectAtIndex:section];
-//    
-//}
-//
-//- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
-//{
-//
-////    return <yourSectionIndexForTheSectionForSectionIndexTitle >;
-//    NSLog(@"title %@, indexpath %ld", title, (long)index);
-//
-//    return index;
-//
-//}
+/*
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    
+    
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    
+    
+    
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    
+    
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+
+
+
+}
+*/
 
 @end
 
