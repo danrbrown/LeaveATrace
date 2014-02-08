@@ -260,8 +260,13 @@ BOOL clearImage;
 //
 //----------------------------------------------------------------------------------
 
--(void) sendPushToContact:(NSString *)pushRecipient pushObjectId:(NSString *)newObjectId
+-(void) sendPushToContact:(NSDictionary *)dataParms
 {
+    
+    NSString *pushRecipient = [dataParms objectForKey:@"friend"];
+    NSString *newObjectId = [dataParms objectForKey:@"objectId"];
+    
+    NSLog(@"friend %@  object id %@",pushRecipient,newObjectId);
     
      NSString *pushMessage = [NSString stringWithFormat:@"%@ sent you a Trace!", [PFUser currentUser].username];
 
@@ -336,8 +341,13 @@ BOOL clearImage;
                     
                     NSString *newObjectId = [imageObject objectId];
                     [imageObject setObject:@"S"forKey:@"status"];
-                                        
-                    [self sendPushToContact:tempContact pushObjectId:newObjectId];
+                    
+                    NSDictionary *dataParms = [NSDictionary dictionaryWithObjectsAndKeys:tempContact, @"friend",newObjectId, @"objectId",nil];
+                    
+                    [self performSelectorInBackground:@selector(sendPushToContact:)
+                                           withObject:dataParms];
+                    
+ //                   [self sendPushToContact:tempContact pushObjectId:newObjectId];
                     [self.navigationController popViewControllerAnimated:YES];
                     
                     [[NSNotificationCenter defaultCenter]

@@ -388,8 +388,11 @@
 //
 //----------------------------------------------------------------------------------
 
--(void) sendPushToContact:(NSString *)pushRecipient pushObjectId:(NSString *)oldObjectId
+-(void) sendPushToContact:(NSDictionary *)dataParms
 {
+    
+    NSString *pushRecipient = [dataParms objectForKey:@"friend"];
+    NSString *oldObjectId = [dataParms objectForKey:@"objectId"];
     
     NSString *pushMessage = [NSString stringWithFormat:@"%@ has responded to your Trace!", [PFUser currentUser].username];
     
@@ -469,7 +472,11 @@
                 {
                     
                     NSString *oldObjectId = [traceObject objectId];
-                    [self sendPushToContact:tmpFriend pushObjectId:oldObjectId];
+                    
+                    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:tmpFriend, @"friend",oldObjectId, @"objectId",nil];
+                    
+                    [self performSelectorInBackground:@selector(sendPushToContact:)
+                                           withObject:data];
 
                     [[NSNotificationCenter defaultCenter]
                      postNotificationName:@"SendTraceNotification"
