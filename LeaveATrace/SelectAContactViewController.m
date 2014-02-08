@@ -347,7 +347,6 @@ BOOL clearImage;
                     [self performSelectorInBackground:@selector(sendPushToContact:)
                                            withObject:dataParms];
                     
- //                   [self sendPushToContact:tempContact pushObjectId:newObjectId];
                     [self.navigationController popViewControllerAnimated:YES];
                     
                     [[NSNotificationCenter defaultCenter]

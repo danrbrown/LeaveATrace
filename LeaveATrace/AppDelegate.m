@@ -86,7 +86,17 @@
     {
         [self processTracePush:userInfo];
     }
-    else
+    else if ([msgType isEqualToString:@"Thread"])
+    {
+        // Could be a smarter/more efficient way to do this since
+        // we already have the object in the array
+        // Dan DRB
+        
+        LoadTraces *loadTraces = [[LoadTraces alloc] init];
+        
+        [loadTraces loadTracesArray];
+    }
+    else  // "Request" or "Confirmed"
     {
         LoadTraces *loadTraces = [[LoadTraces alloc] init];
 
@@ -117,6 +127,8 @@
     NSString *objId = [userInfo objectForKey:@"objId"];
     NSString *friend = [userInfo objectForKey:@"friend"];
     
+    NSLog(@"Trace push");
+
     // Only deal with the push if the user is logged in, and the logged in user
     // is the one receiving the push
     
@@ -163,7 +175,6 @@
 }
 
 //----------------------------------------------------------------------------------
-
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

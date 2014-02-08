@@ -400,15 +400,23 @@
     [userQuery whereKey:@"username" equalTo:pushRecipient];
     PFUser *user = (PFUser *)[userQuery getFirstObject];
     
-    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert", oldObjectId, @"p", nil];
+    NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
     
-    PFQuery *pushQuery = [PFInstallation query];
-    [pushQuery whereKey:@"user" equalTo:user];
-    
-    PFPush *push = [[PFPush alloc] init];
-    [push setQuery:pushQuery];
-    [push setData:data];
-    [push sendPushInBackground];
+    if ([friendLoggedIn isEqualToString:@"Y"])
+    {
+        NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert",
+                              @"Thread",@"msgType",
+                              oldObjectId, @"objId",
+                              pushRecipient, @"friend",nil];
+        
+        PFQuery *pushQuery = [PFInstallation query];
+        [pushQuery whereKey:@"user" equalTo:user];
+        
+        PFPush *push = [[PFPush alloc] init];
+        [push setQuery:pushQuery];
+        [push setData:data];
+        [push sendPushInBackground];
+    }
     
 }
 
@@ -458,7 +466,6 @@
     [traceObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];
     [traceObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
     [traceObject setObject:@"P"forKey:@"status"];
-
 
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
