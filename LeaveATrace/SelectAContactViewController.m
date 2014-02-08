@@ -97,8 +97,6 @@ BOOL clearImage;
     if ([[notification name] isEqualToString:@"ContactsLoadedNotification"])
     {
         
-        NSLog (@"Successfully received the LoadContactsNotification notification!");
-        
         noSendTo.text = @"";
         
         [self displayValidContacts];
@@ -149,8 +147,6 @@ BOOL clearImage;
         idx++;
         
     }
-    
-    NSLog(@"after valid %@",validContacts);
     
     [validContactsTable reloadData];
     
@@ -274,7 +270,6 @@ BOOL clearImage;
      PFUser *user = (PFUser *)[userQuery getFirstObject];
     
      NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
-     NSLog(@"friendLoggedIn %@",friendLoggedIn);
     
     if ([friendLoggedIn isEqualToString:@"Y"])
     {

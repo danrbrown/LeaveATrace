@@ -470,9 +470,7 @@ long iconBadge;
 -(IBAction) undo:(id)sender
 {
     
-    NSLog(@"undo");
     if([imagesArray count]>0){
-        NSLog(@"undoing");
         UIBezierPath *_path=[imagesArray lastObject];
         [bufferArray addObject:_path];
         [imagesArray removeLastObject];

@@ -72,7 +72,6 @@
 -(void) viewDidAppear:(BOOL)animated
 {
     
-    NSLog(@"traceObjectIdx in thread %lu",(long)traceObjectIdx);
     traceObject = [(APP).tracesArray objectAtIndex:traceObjectIdx];
     
     traceObjectId = [traceObject objectId];
@@ -99,8 +98,6 @@
 
 -(void) getThreadTrace:(NSString *)userWhoSentTrace traceObjectStatus:(NSString *)traceStatus
 {
-    
-    NSLog(@"trace status %@",traceStatus);
     
     viewText = 1;
     
@@ -451,8 +448,6 @@
         tmpFriend = tmpFromUser;
         
     }
-
-    NSLog(@"last sent by %@",tmpFriend);
  
     [traceObject setObject:imageFile forKey:@"image"];
     [traceObject setObject:@"YES"forKey:@"fromUserDisplay"];

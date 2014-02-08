@@ -45,8 +45,6 @@ NSInteger traceObjectIdx;
 -(void) viewDidLoad
 {
     
-    NSLog(@"my favo number %lu",(long)(APP).unopenedTraceCount);
-    
     [self performSelector:@selector(displayTraces)];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
@@ -160,8 +158,6 @@ NSInteger traceObjectIdx;
     
     if ([[notification name] isEqualToString:@"SendTraceNotification"])
     {
-
-        NSLog (@"Successfully received the SendTraceNotification notification!");
 
         noTraces.text = @"";
 
@@ -446,12 +442,7 @@ NSInteger traceObjectIdx;
 -(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-//    traceObject = [(APP).tracesArray objectAtIndex:indexPath.row];
-// 
-//    traceObjectId = [traceObject objectId];
-    
     traceObjectIdx = indexPath.row;
-    NSLog(@"traceObjectIdx in traces %lu",(long)traceObjectIdx);
     
     [self performSegueWithIdentifier:@"TraceThread" sender:self];
     
@@ -494,12 +485,10 @@ NSInteger traceObjectIdx;
     if ([tmpFromUserDisplay isEqualToString:@"NO"] && [tmpToUserDisplay isEqualToString:@"NO"])
     {
         [tempObject deleteInBackground];
-        NSLog(@"Delete row in parse");
     }
     else
     {
         [tempObject saveInBackground];
-        NSLog(@"Delete one trace by updating");
     }
  
     [(APP).tracesArray removeObjectAtIndex:indexPath.row];

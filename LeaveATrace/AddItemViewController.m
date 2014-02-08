@@ -161,8 +161,6 @@
         
     }
     
-    NSLog(@"info: %@" , info);
-    
     if ([info[1]  isEqual: @"No phone number set"] && [info[2]  isEqual: @"No e-mail was set"]) //No number and no email
     {
         
@@ -456,8 +454,6 @@
     PFUser *user = (PFUser *)[userQuery getFirstObject];
     
     NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
-    NSLog(@"friendLoggedIn %@",friendLoggedIn);
-    NSLog(@"friendToBeAdded %@",friendToBeAdded);
    
     if ([friendLoggedIn isEqualToString:@"Y"])
     {
@@ -465,9 +461,7 @@
         NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert",
                               @"Request",@"msgType",
                               friendToBeAdded, @"friend",nil];
-        
-        NSLog(@"dictionary %@",data);
-        
+                
         PFQuery *pushQuery = [PFInstallation query];
         [pushQuery whereKey:@"user" equalTo:user];
         

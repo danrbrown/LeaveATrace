@@ -40,8 +40,6 @@
         
         NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
         NSString *traceUsername = [traceDefaults objectForKey:@"username"];
-        NSLog(@"username in defaults %@",traceUsername);
-        NSLog(@"notificationPayload = %@",notificationPayload);
         NSString *pushReceiver = [notificationPayload objectForKey:@"r"];
         
         if ([traceUsername isEqualToString:pushReceiver])
@@ -86,12 +84,10 @@
     
     if ([msgType isEqualToString:@"Trace"])
     {
-        NSLog(@"handling a trace push");
         [self processTracePush:userInfo];
     }
     else
     {
-        NSLog(@"handling a contact push");
         LoadTraces *loadTraces = [[LoadTraces alloc] init];
 
         [loadTraces loadContactsArray];
@@ -121,17 +117,11 @@
     NSString *objId = [userInfo objectForKey:@"objId"];
     NSString *friend = [userInfo objectForKey:@"friend"];
     
-    NSLog(@"objId = %@",objId);
-    NSLog(@"friend = %@",friend);
-    NSLog(@"userinfo = %@",userInfo);
-    
     // Only deal with the push if the user is logged in, and the logged in user
     // is the one receiving the push
     
     if (([traceUsername length] > 0) && [friend isEqualToString:traceUsername])
     {
-        
-        NSLog(@"We're good to go.");
         
         PFQuery *pushQuery = [PFQuery queryWithClassName:@"TracesObject"];
         [pushQuery whereKey:@"objectId" equalTo:objId];

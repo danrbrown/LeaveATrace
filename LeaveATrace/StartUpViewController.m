@@ -51,8 +51,6 @@
     NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
     NSString *tmpUsername = [traceDefaults objectForKey:@"username"];
     
-    NSLog(@"username in defaults %@",tmpUsername);
-    
     if ([tmpUsername length] != 0)
     {
         
@@ -66,8 +64,6 @@
     else
     {
         
-        NSLog(@"user needs to log in");
-        
         [self performSegueWithIdentifier:@"userNeedsToLogIn" sender:self];
         
     }
@@ -80,7 +76,6 @@
     if ([[notification name] isEqualToString:@"LoadTracesNotification"])
     {
         
-        NSLog (@"Successfully received the traces load notification!");
         (APP).TRACES_DATA_LOADED = YES;
         
         [[NSNotificationCenter defaultCenter]
@@ -92,7 +87,6 @@
     if ([[notification name] isEqualToString:@"LoadContactsNotification"])
     {
         
-        NSLog (@"Successfully received the contacts load notification!");
         (APP).CONTACTS_DATA_LOADED = YES;
         
         [[NSNotificationCenter defaultCenter]
@@ -104,7 +98,6 @@
     if ([[notification name] isEqualToString:@"LoadRequestsNotification"])
     {
         
-        NSLog (@"Successfully received the requests load notification!");
         (APP).REQUESTS_DATA_LOADED = YES;
         
         [[NSNotificationCenter defaultCenter]
@@ -112,6 +105,9 @@
          object:self];
         
     }
+    
+    if ((APP).TRACES_DATA_LOADED && (APP).CONTACTS_DATA_LOADED && (APP).REQUESTS_DATA_LOADED)
+        NSLog (@"Successfully loaded all the data!");
     
 }
 
