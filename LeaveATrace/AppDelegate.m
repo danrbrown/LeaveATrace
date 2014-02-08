@@ -84,20 +84,19 @@
     
     if ([msgType isEqualToString:@"Trace"])
     {
+        
         [self processTracePush:userInfo];
+
     }
     else if ([msgType isEqualToString:@"Thread"])
     {
-        // Could be a smarter/more efficient way to do this since
-        // we already have the object in the array
-        // Dan DRB
-        
-        LoadTraces *loadTraces = [[LoadTraces alloc] init];
-        
-        [loadTraces loadTracesArray];
+
+        [self processThreadPush:userInfo];
+
     }
     else  // "Request" or "Confirmed"
     {
+        
         LoadTraces *loadTraces = [[LoadTraces alloc] init];
 
         [loadTraces loadContactsArray];
@@ -157,7 +156,7 @@
                 [_tracesArray sortUsingDescriptors:[NSArray arrayWithObject:sort]];
                 
                 [[NSNotificationCenter defaultCenter]
-                 postNotificationName:@"PushTraceNotification"
+                 postNotificationName:@"SendTraceNotification"
                  object:self];
                 
             }
@@ -170,6 +169,78 @@
             
         }];
         
+    }
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+- (void)processThreadPush : (NSDictionary *)userInfo {
+    
+    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *traceUsername = [traceDefaults objectForKey:@"username"];
+    
+    NSString *arrayObjId;
+    NSString *objId = [userInfo objectForKey:@"objId"];
+    NSString *friend = [userInfo objectForKey:@"friend"];
+    NSString *sender = [userInfo objectForKey:@"sender"];
+    NSDate *currentDateTime = [NSDate date];
+    
+    NSLog(@"Thread push");
+
+    // Only deal with the push if the user is logged in, and the logged in user
+    // is the one receiving the push
+    
+    if (([traceUsername length] > 0) && [friend isEqualToString:traceUsername])
+    {
+        
+        BOOL objectIdFound = NO;
+        for (PFObject *obj in _tracesArray)
+        {
+            arrayObjId = [obj objectId];
+            
+            if([arrayObjId isEqualToString:objId])
+            {
+                objectIdFound = YES;
+
+                [obj setObject:@"YES"forKey:@"fromUserDisplay"];
+                [obj setObject:@"YES"forKey:@"toUserDisplay"];
+                [obj setObject:sender forKey:@"lastSentBy"];
+                [obj setObject:currentDateTime forKey:@"lastSentByDateTime"];
+                [obj setObject:@"D"forKey:@"status"];
+                
+                _unopenedTraceCount++;
+                
+                break;
+            }
+            
+            
+        }
+        
+        if (!objectIdFound)  // Should only happen if user deleted the trace
+        {
+            LoadTraces *loadTraces = [[LoadTraces alloc] init];
+            [loadTraces loadTracesArray];
+            
+        }
+        else
+        {
+            
+             NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"lastSentByDateTime" ascending:NO];
+            [_tracesArray sortUsingDescriptors:[NSArray arrayWithObject:sort]];
+            
+            [[NSNotificationCenter defaultCenter]
+             postNotificationName:@"SendTraceNotification"
+             object:self];
+            
+        }
+      
     }
     
 }

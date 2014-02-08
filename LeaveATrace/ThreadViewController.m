@@ -393,7 +393,7 @@
     
     NSString *pushRecipient = [dataParms objectForKey:@"friend"];
     NSString *oldObjectId = [dataParms objectForKey:@"objectId"];
-    
+
     NSString *pushMessage = [NSString stringWithFormat:@"%@ has responded to your Trace!", [PFUser currentUser].username];
     
     PFQuery *userQuery = [PFUser query];
@@ -407,6 +407,7 @@
         NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert",
                               @"Thread",@"msgType",
                               oldObjectId, @"objId",
+                              [PFUser currentUser].username,@"sender",
                               pushRecipient, @"friend",nil];
         
         PFQuery *pushQuery = [PFInstallation query];
@@ -480,7 +481,8 @@
                     
                     NSString *oldObjectId = [traceObject objectId];
                     
-                    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:tmpFriend, @"friend",oldObjectId, @"objectId",nil];
+                    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:tmpFriend, @"friend",
+                                          oldObjectId, @"objectId", nil];
                     
                     [self performSelectorInBackground:@selector(sendPushToContact:)
                                            withObject:data];
