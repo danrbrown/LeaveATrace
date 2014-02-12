@@ -58,6 +58,31 @@
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 1.5);
     self.brushSize.transform = trans;
     
+    int smallScreen = 480;
+    
+    CGSize result = [[UIScreen mainScreen] bounds].size;
+    if(result.height == smallScreen)
+    {
+        
+        sendB.frame = CGRectMake(246, 434, 64, 40);
+        trashB.frame = CGRectMake(112, 431, 39, 45);
+        eraseB.frame = CGRectMake(61, 434, 45, 40);
+        saveB.frame = CGRectMake(7, 432, 49, 43);
+        
+    }
+    
+    int bigScreen = 568;
+    
+    if(result.height == bigScreen)
+    {
+        
+        sendB.frame = CGRectMake(sendB.frame.origin.x, sendB.frame.origin.y, 64, 40);
+        trashB.frame = CGRectMake(trashB.frame.origin.x, trashB.frame.origin.y, 39, 45);
+        eraseB.frame = CGRectMake(eraseB.frame.origin.x, eraseB.frame.origin.y, 45, 40);
+        saveB.frame = CGRectMake(saveB.frame.origin.x, saveB.frame.origin.y, 49, 43);
+        
+    }
+    
 }
 
 -(BOOL) prefersStatusBarHidden

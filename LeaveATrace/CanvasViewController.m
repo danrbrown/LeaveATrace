@@ -83,6 +83,32 @@ long iconBadge;
                                                  name:@"SendTraceNotification"
                                                object:nil];
 
+    int smallScreen = 480;
+    
+    CGSize result = [[UIScreen mainScreen] bounds].size;
+    if(result.height == smallScreen)
+    {
+        
+        sendB.frame = CGRectMake(250, 386, 64, 40);
+        trashB.frame = CGRectMake(110, 383, 39, 45);
+        eraseB.frame = CGRectMake(60, 387, 45, 40);
+        saveB.frame = CGRectMake(6, 385, 49, 43);
+        mainImage.frame = CGRectMake(0, 0, 320, 431);
+        
+    }
+    
+    int bigScreen = 568;
+    
+    if(result.height == bigScreen)
+    {
+        
+        sendB.frame = CGRectMake(sendB.frame.origin.x, sendB.frame.origin.y, 64, 40);
+        trashB.frame = CGRectMake(trashB.frame.origin.x, trashB.frame.origin.y, 39, 45);
+        eraseB.frame = CGRectMake(eraseB.frame.origin.x, eraseB.frame.origin.y, 45, 40);
+        saveB.frame = CGRectMake(saveB.frame.origin.x, saveB.frame.origin.y, 49, 43);
+        mainImage.frame = CGRectMake(0, 0, 320, 519);
+        
+    }
 
 }
 
