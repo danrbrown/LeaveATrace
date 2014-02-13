@@ -112,6 +112,37 @@ BOOL LoggedIn;
     blue = (CGFloat)random()/(CGFloat)RAND_MAX;
     brush = 13;
     opacity = 1.0;
+    
+    int smallScreen = 480;
+    
+    CGSize result = [[UIScreen mainScreen] bounds].size;
+    if(result.height == smallScreen)
+    {
+        
+        signUpButton.frame = CGRectMake(77, 245, signUpButton.frame.size.width, signUpButton.frame.size.height);
+        
+        logInButton.frame = CGRectMake(86, 142, logInButton.frame.size.width, logInButton.frame.size.height);
+        
+        fifteenAndFifty.frame = CGRectMake(20, 447, fifteenAndFifty.frame.size.width, fifteenAndFifty.frame.size.height);
+        
+        mainImage.frame = CGRectMake(mainImage.frame.origin.x, mainImage.frame.origin.y, mainImage.frame.size.width, smallScreen);
+        
+    }
+    
+    int bigScreen = 568;
+    
+    if(result.height == bigScreen)
+    {
+        
+        signUpButton.frame = CGRectMake(signUpButton.frame.origin.x, signUpButton.frame.origin.y, signUpButton.frame.size.width, signUpButton.frame.size.height);
+        
+        logInButton.frame = CGRectMake(logInButton.frame.origin.x, logInButton.frame.origin.y, logInButton.frame.size.width, logInButton.frame.size.height);
+        
+        fifteenAndFifty.frame = CGRectMake(fifteenAndFifty.frame.origin.x, fifteenAndFifty.frame.origin.y, fifteenAndFifty.frame.size.width, fifteenAndFifty.frame.size.height);
+        
+        mainImage.frame = CGRectMake(mainImage.frame.origin.x, mainImage.frame.origin.y, mainImage.frame.size.width, bigScreen);
+        
+    }
 
 }
 

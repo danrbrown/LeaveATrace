@@ -15,6 +15,7 @@ extern BOOL LoggedIn;
     //Outlets
     IBOutlet UIButton *logInButton;
     IBOutlet UIButton *signUpButton;
+    IBOutlet UIButton *fifteenAndFifty;
     
     //Variables for drawing
     CGPoint lastPoint;
