@@ -20,7 +20,7 @@
 
 @implementation SignUpViewController
 
-@synthesize emailTextField ,userSignUpTextField, passwordSignUpTextField, varifyPasswordSignUpTextField;
+@synthesize emailTextField ,userSignUpTextField, passwordSignUpTextField, varifyPasswordSignUpTextField, signUpButton;
 
 //-----------------------------------------------------------
 //
@@ -55,6 +55,41 @@
     varifyPasswordSignUpTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
 
     [self performSelector:@selector(showKeyBoard) withObject:nil afterDelay:0.4];
+    
+    int smallScreen = 480;
+    
+    CGSize result = [[UIScreen mainScreen] bounds].size;
+    if(result.height == smallScreen)
+    {
+        
+        signUpButton.frame = CGRectMake(113, 229, signUpButton.frame.size.width, signUpButton.frame.size.height);
+        
+        emailTextField.frame = CGRectMake(11, 24, emailTextField.frame.size.width, emailTextField.frame.size.height);
+        
+        userSignUpTextField.frame = CGRectMake(11, 76, userSignUpTextField.frame.size.width, userSignUpTextField.frame.size.height);
+        
+        passwordSignUpTextField.frame = CGRectMake(11, 128, passwordSignUpTextField.frame.size.width, passwordSignUpTextField.frame.size.height);
+        
+        varifyPasswordSignUpTextField.frame = CGRectMake(11, 180, varifyPasswordSignUpTextField.frame.size.width, varifyPasswordSignUpTextField.frame.size.height);
+        
+    }
+    
+    int bigScreen = 568;
+    
+    if(result.height == bigScreen)
+    {
+        
+        signUpButton.frame = CGRectMake(signUpButton.frame.origin.x, signUpButton.frame.origin.y, signUpButton.frame.size.width, signUpButton.frame.size.height);
+        
+        emailTextField.frame = CGRectMake(emailTextField.frame.origin.x, emailTextField.frame.origin.y, emailTextField.frame.size.width, emailTextField.frame.size.height);
+        
+        userSignUpTextField.frame = CGRectMake(userSignUpTextField.frame.origin.x, userSignUpTextField.frame.origin.y, userSignUpTextField.frame.size.width, userSignUpTextField.frame.size.height);
+        
+        passwordSignUpTextField.frame = CGRectMake(passwordSignUpTextField.frame.origin.x, passwordSignUpTextField.frame.origin.y, passwordSignUpTextField.frame.size.width, passwordSignUpTextField.frame.size.height);
+        
+        varifyPasswordSignUpTextField.frame = CGRectMake(varifyPasswordSignUpTextField.frame.origin.x, varifyPasswordSignUpTextField.frame.origin.y, varifyPasswordSignUpTextField.frame.size.width, varifyPasswordSignUpTextField.frame.size.height);
+        
+    }
     
 }
 
