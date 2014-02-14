@@ -108,9 +108,7 @@
     
     if ([[notification name] isEqualToString:@"ContactsLoadedNotification"])
     {
-        
-        NSLog (@"Successfully received the LoadContactsNotification notification!");
-        
+                
         noContacts.text = @"";
         
         [contactsView reloadData];

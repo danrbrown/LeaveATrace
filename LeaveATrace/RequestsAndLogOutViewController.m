@@ -101,8 +101,6 @@
     if ([[notification name] isEqualToString:@"RequestsLoadedNotification"])
     {
         
-        NSLog (@"Successfully received the LoadContactsNotification notification!");
-        
         noRequests.text = @"";
         
         [requestsTable reloadData];
@@ -235,8 +233,6 @@
     NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"contact" ascending:YES selector:@selector(caseInsensitiveCompare:)];
     [(APP).contactsArray sortUsingDescriptors:[NSArray arrayWithObject:sort1]];
     
-    NSLog(@"before contacts arraay %@",(APP).contactsArray);
-
     [newContact saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         if (!succeeded)
@@ -253,7 +249,6 @@
                                withObject:name];
 
         [newContact objectId];
-        NSLog(@"after contacts arraay %@",(APP).contactsArray);
        
     }];
 
@@ -330,15 +325,12 @@
     PFUser *user = (PFUser *)[userQuery getFirstObject];
     
     NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
-    NSLog(@"friendLoggedIn %@",friendLoggedIn);
     
     if ([friendLoggedIn isEqualToString:@"Y"])
     {
         NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert",
                               @"Confirmed",@"msgType",
                               friendAdded, @"friend",nil];
-        
-        NSLog(@"dictionary %@",data);
         
         PFQuery *pushQuery = [PFInstallation query];
         [pushQuery whereKey:@"user" equalTo:user];
@@ -373,7 +365,6 @@
         
         if (succeeded)
         {
-            NSLog(@"deleting the friend request");
             [(APP).requestsArray removeObjectAtIndex:indexPath.row];
             
             [requestsTable reloadData];

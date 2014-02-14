@@ -97,7 +97,6 @@
 -(void) viewDidAppear:(BOOL)animated
 {
     
-    NSLog(@"traceObjectIdx in thread %lu",(long)traceObjectIdx);
     traceObject = [(APP).tracesArray objectAtIndex:traceObjectIdx];
     
     traceObjectId = [traceObject objectId];
@@ -124,8 +123,6 @@
 
 -(void) getThreadTrace:(NSString *)userWhoSentTrace traceObjectStatus:(NSString *)traceStatus
 {
-    
-    NSLog(@"trace status %@",traceStatus);
     
     viewText = 1;
     
@@ -416,24 +413,36 @@
 //
 //----------------------------------------------------------------------------------
 
--(void) sendPushToContact:(NSString *)pushRecipient pushObjectId:(NSString *)oldObjectId
+-(void) sendPushToContact:(NSDictionary *)dataParms
 {
     
+    NSString *pushRecipient = [dataParms objectForKey:@"friend"];
+    NSString *oldObjectId = [dataParms objectForKey:@"objectId"];
+
     NSString *pushMessage = [NSString stringWithFormat:@"%@ has responded to your Trace!", [PFUser currentUser].username];
     
     PFQuery *userQuery = [PFUser query];
     [userQuery whereKey:@"username" equalTo:pushRecipient];
     PFUser *user = (PFUser *)[userQuery getFirstObject];
     
-    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert", oldObjectId, @"p", nil];
+    NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
     
-    PFQuery *pushQuery = [PFInstallation query];
-    [pushQuery whereKey:@"user" equalTo:user];
-    
-    PFPush *push = [[PFPush alloc] init];
-    [push setQuery:pushQuery];
-    [push setData:data];
-    [push sendPushInBackground];
+    if ([friendLoggedIn isEqualToString:@"Y"])
+    {
+        NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert",
+                              @"Thread",@"msgType",
+                              oldObjectId, @"objId",
+                              [PFUser currentUser].username,@"sender",
+                              pushRecipient, @"friend",nil];
+        
+        PFQuery *pushQuery = [PFInstallation query];
+        [pushQuery whereKey:@"user" equalTo:user];
+        
+        PFPush *push = [[PFPush alloc] init];
+        [push setQuery:pushQuery];
+        [push setData:data];
+        [push sendPushInBackground];
+    }
     
 }
 
@@ -476,8 +485,6 @@
         tmpFriend = tmpFromUser;
         
     }
-
-    NSLog(@"last sent by %@",tmpFriend);
  
     [traceObject setObject:imageFile forKey:@"image"];
     [traceObject setObject:@"YES"forKey:@"fromUserDisplay"];
@@ -485,7 +492,6 @@
     [traceObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];
     [traceObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
     [traceObject setObject:@"P"forKey:@"status"];
-
 
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
@@ -499,7 +505,12 @@
                 {
                     
                     NSString *oldObjectId = [traceObject objectId];
-                    [self sendPushToContact:tmpFriend pushObjectId:oldObjectId];
+                    
+                    NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:tmpFriend, @"friend",
+                                          oldObjectId, @"objectId", nil];
+                    
+                    [self performSelectorInBackground:@selector(sendPushToContact:)
+                                           withObject:data];
 
                     [[NSNotificationCenter defaultCenter]
                      postNotificationName:@"SendTraceNotification"

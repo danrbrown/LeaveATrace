@@ -202,7 +202,6 @@ NSString *titleText;
             {
                 
                 [self deleteMyTraces];
-                NSLog(@"'delete all traces'");  //Dan
                 
                 UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:nil message:@"You cleared your traces." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                 
@@ -406,16 +405,12 @@ NSString *titleText;
             
             [obj deleteInBackground];
             
-            NSLog(@"Delete row in parse");
-            
         }
         else
         {
             
             [obj saveInBackground];
-            
-            NSLog(@"Delete one trace by updating");
-            
+                        
         }
         
         idx++;

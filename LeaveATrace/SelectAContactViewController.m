@@ -97,8 +97,6 @@ BOOL clearImage;
     if ([[notification name] isEqualToString:@"ContactsLoadedNotification"])
     {
         
-        NSLog (@"Successfully received the LoadContactsNotification notification!");
-        
         noSendTo.text = @"";
         
         [self displayValidContacts];
@@ -149,8 +147,6 @@ BOOL clearImage;
         idx++;
         
     }
-    
-    NSLog(@"after valid %@",validContacts);
     
     [validContactsTable reloadData];
     
@@ -264,8 +260,13 @@ BOOL clearImage;
 //
 //----------------------------------------------------------------------------------
 
--(void) sendPushToContact:(NSString *)pushRecipient pushObjectId:(NSString *)newObjectId
+-(void) sendPushToContact:(NSDictionary *)dataParms
 {
+    
+    NSString *pushRecipient = [dataParms objectForKey:@"friend"];
+    NSString *newObjectId = [dataParms objectForKey:@"objectId"];
+    
+    NSLog(@"friend %@  object id %@",pushRecipient,newObjectId);
     
      NSString *pushMessage = [NSString stringWithFormat:@"%@ sent you a Trace!", [PFUser currentUser].username];
 
@@ -274,7 +275,6 @@ BOOL clearImage;
      PFUser *user = (PFUser *)[userQuery getFirstObject];
     
      NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
-     NSLog(@"friendLoggedIn %@",friendLoggedIn);
     
     if ([friendLoggedIn isEqualToString:@"Y"])
     {
@@ -341,8 +341,12 @@ BOOL clearImage;
                     
                     NSString *newObjectId = [imageObject objectId];
                     [imageObject setObject:@"S"forKey:@"status"];
-                                        
-                    [self sendPushToContact:tempContact pushObjectId:newObjectId];
+                    
+                    NSDictionary *dataParms = [NSDictionary dictionaryWithObjectsAndKeys:tempContact, @"friend",newObjectId, @"objectId",nil];
+                    
+                    [self performSelectorInBackground:@selector(sendPushToContact:)
+                                           withObject:dataParms];
+                    
                     [self.navigationController popViewControllerAnimated:YES];
                     
                     [[NSNotificationCenter defaultCenter]
