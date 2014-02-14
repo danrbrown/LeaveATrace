@@ -53,6 +53,16 @@
     
     [self performSelector:@selector(showKeyBoard) withObject:nil afterDelay:0.4];
     
+    CGSize size = [[UIScreen mainScreen] bounds].size;
+    
+    if (size.height == 480)
+    {
+        
+        loadingLogin.frame = CGRectMake(280, 132, loadingLogin.frame.size.width, loadingLogin.frame.size.height);
+        
+    }
+    
+    
 }
 
 //---------------------------------------------------------

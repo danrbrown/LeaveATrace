@@ -142,6 +142,8 @@ BOOL LoggedIn;
         
         mainImage.frame = CGRectMake(mainImage.frame.origin.x, mainImage.frame.origin.y, mainImage.frame.size.width, bigScreen);
         
+        
+        
     }
 
 }
