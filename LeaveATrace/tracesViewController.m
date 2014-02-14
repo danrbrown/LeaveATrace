@@ -16,6 +16,7 @@
 #import "traceCell.h"
 #import "FirstPageViewController.h"
 #import "CanvasViewController.h"
+#import "SelectAContactViewController.h"
 #import "AppDelegate.h"
 #import "LoadTraces.h"
 #import <Parse/Parse.h>
@@ -99,6 +100,7 @@ NSInteger traceObjectIdx;
         }
         
         [self displayBadgeCounts];
+        
     }
     
 }

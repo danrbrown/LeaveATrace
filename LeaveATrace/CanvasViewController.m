@@ -135,7 +135,7 @@ long iconBadge;
         
         mainImage.image = nil;
         
-        [self.tabBarController setSelectedIndex:0];
+        //[self.tabBarController setSelectedIndex:0];
         
     }
 
@@ -369,6 +369,7 @@ long iconBadge;
 
 -(void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
+    
     if (motion == UIEventSubtypeMotionShake)
     {
         
@@ -664,7 +665,18 @@ long iconBadge;
 -(IBAction) send:(id)sender
 {
     
+    clearImage = YES;
+    
     [self performSegueWithIdentifier:@"selectAContact" sender:self];
+    
+    [self performSelector:@selector(changeTab) withObject:nil afterDelay:0.5];
+    
+}
+
+-(void) changeTab
+{
+    
+    [self.tabBarController setSelectedIndex:0];
     
 }
 

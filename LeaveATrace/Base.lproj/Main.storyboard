@@ -288,7 +288,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="New Trace" image="NewTraceIcon.png" id="pDS-ST-dHk"/>
-                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="brushSize" destination="7n7-wn-SDY" id="vL7-Ll-j3D"/>
                         <outlet property="colorValue" destination="yHo-Fg-5qT" id="8aQ-Rv-XhC"/>
@@ -1024,7 +1023,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EtZ-Hq-yQb">
-                                <rect key="frame" x="246" y="434" width="64" height="40"/>
+                                <rect key="frame" x="247" y="521" width="64" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" image="SentTrace.png">
@@ -1036,7 +1035,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2Li-M4-Xbc">
-                                <rect key="frame" x="7" y="432" width="49" height="43"/>
+                                <rect key="frame" x="8" y="519" width="49" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="SaveButton.png">
@@ -1049,7 +1048,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bXD-Nr-LjE">
-                                <rect key="frame" x="112" y="431" width="39" height="45"/>
+                                <rect key="frame" x="113" y="518" width="39" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="TrashButton.png">
@@ -1062,7 +1061,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BL5-p0-jgB">
-                                <rect key="frame" x="61" y="434" width="45" height="40"/>
+                                <rect key="frame" x="62" y="521" width="45" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="eraserB.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1092,7 +1091,7 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="w9O-1z-IrR">
-                                <rect key="frame" x="7" y="11" width="32" height="43"/>
+                                <rect key="frame" x="4" y="9" width="32" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <state key="normal" image="CloseButton.png">
@@ -1207,7 +1206,7 @@
         <image name="FriendsIcon.png" width="45" height="45"/>
         <image name="LoginButton.png" width="258" height="145"/>
         <image name="NewTraceIcon.png" width="45" height="45"/>
-        <image name="RequestsIcon.png" width="48" height="48"/>
+        <image name="RequestsIcon.png" width="47" height="47"/>
         <image name="SaveButton.png" width="102" height="101"/>
         <image name="SentTrace.png" width="157" height="109"/>
         <image name="SettingsIcon.png" width="35" height="37"/>
@@ -1223,7 +1222,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="vm4-Ru-Iag"/>
-        <segue reference="vZm-Ey-PdG"/>
+        <segue reference="spu-jz-L3F"/>
+        <segue reference="M9D-NX-IN9"/>
     </inferredMetricsTieBreakers>
 </document>

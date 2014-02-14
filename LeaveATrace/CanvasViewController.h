@@ -83,6 +83,7 @@ extern long iconBadge;
 -(IBAction) sliderChanged:(id)sender;
 
 //Methods for view
+-(void) changeTab;
 -(void) hide;
 -(void) show;
 -(void) fade;
