@@ -102,7 +102,7 @@
 //
 //----------------------------------------------------------
 
-- (IBAction) closeKeyBoard:(UITapGestureRecognizer *)sender
+-(IBAction) closeKeyBoard:(UITapGestureRecognizer *)sender
 {
     
     [self.emailTextField resignFirstResponder];

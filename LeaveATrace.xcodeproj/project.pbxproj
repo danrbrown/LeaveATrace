@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3789414718B14BB600BA0063 /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3789414618B14BB600BA0063 /* ForgotPasswordViewController.m */; };
 		9C0818391869524E006E9DFD /* TrashButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0818381869524E006E9DFD /* TrashButton.png */; };
 		9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16751C181DA1B50024EE93 /* tracesViewController.m */; };
 		9C27680B181C75B10073453E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680A181C75B10073453E /* Foundation.framework */; };
@@ -94,6 +95,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3789414518B14BB600BA0063 /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgotPasswordViewController.h; path = LeaveATrace/ForgotPasswordViewController.h; sourceTree = "<group>"; };
+		3789414618B14BB600BA0063 /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgotPasswordViewController.m; path = LeaveATrace/ForgotPasswordViewController.m; sourceTree = "<group>"; };
 		9C0818381869524E006E9DFD /* TrashButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrashButton.png; sourceTree = "<group>"; };
 		9C16751B181DA1B50024EE93 /* tracesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tracesViewController.h; path = LeaveATrace/tracesViewController.h; sourceTree = "<group>"; };
 		9C16751C181DA1B50024EE93 /* tracesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = tracesViewController.m; path = LeaveATrace/tracesViewController.m; sourceTree = "<group>"; };
@@ -417,6 +420,8 @@
 				9C276849181C76B00073453E /* SignUpViewController.m */,
 				A5C48478188B586300B98F9E /* StartUpViewController.h */,
 				A5C48479188B586300B98F9E /* StartUpViewController.m */,
+				3789414518B14BB600BA0063 /* ForgotPasswordViewController.h */,
+				3789414618B14BB600BA0063 /* ForgotPasswordViewController.m */,
 			);
 			name = "Login and Sign Up Views";
 			sourceTree = "<group>";
@@ -603,6 +608,7 @@
 				9C27684C181C76B10073453E /* CanvasViewController.m in Sources */,
 				9CB59BB418454A16006AB105 /* sendToCell.m in Sources */,
 				9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */,
+				3789414718B14BB600BA0063 /* ForgotPasswordViewController.m in Sources */,
 				9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */,
 				9C276877181C774F0073453E /* LeaveATraceItem.m in Sources */,
 				A5C4847A188B586300B98F9E /* StartUpViewController.m in Sources */,
