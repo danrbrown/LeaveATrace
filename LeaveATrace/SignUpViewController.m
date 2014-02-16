@@ -143,41 +143,60 @@
 -(IBAction) signUpUserPressed:(id)sender
 {
     
-    PFUser *user = [PFUser user];
+    NSLog(@"pass = %@ var %@", passwordSignUpTextField.text, varifyPasswordSignUpTextField.text);
     
-    user.email = self.emailTextField.text;
-    user.username = self.userSignUpTextField.text;
-    user.password = self.passwordSignUpTextField.text;
+    if ([passwordSignUpTextField.text isEqual:varifyPasswordSignUpTextField.text])
+    {
     
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+        PFUser *user = [PFUser user];
+    
+        user.email = self.emailTextField.text;
+        user.username = self.userSignUpTextField.text;
+        user.password = self.passwordSignUpTextField.text;
+    
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+         {
+        
+             if (!error)
+             {
+            
+                 [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
+            
+                 [self textFieldShouldReturn:varifyPasswordSignUpTextField];
+            
+                 [[PFInstallation currentInstallation] setObject:[PFUser currentUser] forKey:@"user"];
+            
+                 [[PFInstallation currentInstallation] saveEventually];
+            
+             }
+             else if (error)
+             {
+         
+                 UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Username already taken or not valid email" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            
+                 [errorAlertView show];
+            
+                 userSignUpTextField.text = nil;
+            
+                 emailTextField.text = nil;
+            
+             }
+        
+         }];
+        
+    }
+    else
     {
         
-        if (!error)
-        {
-            
-            [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
-            
-            [self textFieldShouldReturn:varifyPasswordSignUpTextField];
-            
-            [[PFInstallation currentInstallation] setObject:[PFUser currentUser] forKey:@"user"];
-            
-            [[PFInstallation currentInstallation] saveEventually];
-            
-        }
-        else if (error)
-        {
-         
-            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Username already taken or not valid email" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            
-            [errorAlertView show];
-            
-            userSignUpTextField.text = nil;
-            
-            emailTextField.text = nil;
-            
-        }
+        UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Password does not match verify passowrd!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         
-    }];
+        [errorAlertView show];
+        
+        passwordSignUpTextField.text = nil;
+        
+        varifyPasswordSignUpTextField.text = nil;
+        
+    }
     
 }
 
