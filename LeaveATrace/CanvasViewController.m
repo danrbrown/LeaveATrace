@@ -48,6 +48,8 @@ long iconBadge;
 -(void) viewDidLoad
 {
     
+    undoImageArray = [[NSMutableArray alloc] init];
+
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     
     red = 0;
@@ -91,7 +93,7 @@ long iconBadge;
         
         sendB.frame = CGRectMake(250, 386, 64, 40);
         trashB.frame = CGRectMake(110, 383, 39, 45);
-        eraseB.frame = CGRectMake(60, 387, 45, 40);
+        undoB.frame = CGRectMake(60, 387, 45, 40);
         saveB.frame = CGRectMake(6, 385, 49, 43);
         mainImage.frame = CGRectMake(0, 0, 320, 431);
         
@@ -104,7 +106,7 @@ long iconBadge;
         
         sendB.frame = CGRectMake(sendB.frame.origin.x, sendB.frame.origin.y, 64, 40);
         trashB.frame = CGRectMake(trashB.frame.origin.x, trashB.frame.origin.y, 39, 45);
-        eraseB.frame = CGRectMake(eraseB.frame.origin.x, eraseB.frame.origin.y, 45, 40);
+        undoB.frame = CGRectMake(undoB.frame.origin.x, undoB.frame.origin.y, undoB.frame.size.width, undoB.frame.size.height);
         saveB.frame = CGRectMake(saveB.frame.origin.x, saveB.frame.origin.y, 49, 43);
         mainImage.frame = CGRectMake(0, 0, 320, 519);
         
@@ -408,6 +410,11 @@ long iconBadge;
     
     lastPoint = [touch locationInView:self.view];
     
+    UIGraphicsBeginImageContextWithOptions(mainImage.bounds.size, NO, 0.0);
+    [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
+    undoImage = UIGraphicsGetImageFromCurrentImageContext();
+    [undoImageArray addObject:undoImage];
+    
 }
 
 //----------------------------------------------------------------------------------
@@ -497,10 +504,15 @@ long iconBadge;
 -(IBAction) undo:(id)sender
 {
     
-    if([imagesArray count]>0){
-        UIBezierPath *_path=[imagesArray lastObject];
-        [bufferArray addObject:_path];
-        [imagesArray removeLastObject];
+    if (undoImageArray.count > 0)
+    {
+        
+        undoImage = [undoImageArray lastObject];
+        
+        [undoImageArray removeLastObject];
+        
+        mainImage.image = undoImage;
+        
     }
     
 }
@@ -581,7 +593,6 @@ long iconBadge;
         
         if (changedSlider.value > 0.85)
         {
-            
             
             red = 0;
             blue = 0;
@@ -678,26 +689,6 @@ long iconBadge;
     
 }
 
-//----------------------------------------------------------------------------------
-//
-// Name: eraser
-//
-// Purpose:
-//
-//----------------------------------------------------------------------------------
-
--(IBAction) eraser:(id)sender
-{
-    
-    red = 255.0/255.0;
-    green = 255.0/255.0;
-    blue = 255.0/255.0;
-    opacity = 1.0;
-    
-    currentColorImage.backgroundColor = [UIColor whiteColor];
-    
-}
-
 -(void) show
 {
     
@@ -710,7 +701,7 @@ long iconBadge;
     [brushSize setAlpha:1];
     [undoB setAlpha:1];
     [sendB setAlpha:1];
-    [eraseB setAlpha:1];
+    [undoB setAlpha:1];
     [currentColorImage setAlpha:1];
     [UIView commitAnimations];
     
@@ -728,7 +719,7 @@ long iconBadge;
     [brushSize setAlpha:0];
     [undoB setAlpha:0];
     [sendB setAlpha:0];
-    [eraseB setAlpha:0];
+    [undoB setAlpha:0];
     [currentColorImage setAlpha:0];
     [UIView commitAnimations];
     

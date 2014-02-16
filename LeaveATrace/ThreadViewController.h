@@ -22,10 +22,13 @@
     UIColor *theColor;
     double hue;
     
+    //Undo
+    UIImage *undoThreadImage;
+    NSMutableArray *undoThreadImageArray;
+    
     //Variables
     IBOutlet UIButton *undoB;
     IBOutlet UIButton *trashB;
-    IBOutlet UIButton *eraseB;
     IBOutlet UIButton *colorsB;
     IBOutlet UIButton *saveB;
     IBOutlet UIButton *sendB;
@@ -55,8 +58,7 @@
 
 //Actions for the View
 -(IBAction) close:(id)sender;
--(IBAction) eraser:(id)sender;
--(IBAction) undo:(id)sender;
+-(IBAction) undoThread:(id)sender;
 -(IBAction) clear:(id)sender;
 -(IBAction) save:(id)sender;
 -(IBAction) send:(id)sender;

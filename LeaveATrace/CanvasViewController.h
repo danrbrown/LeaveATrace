@@ -36,10 +36,9 @@ extern long iconBadge;
     UIColor *theColor;
     double hue;
     
-    NSMutableArray *lineArray;
-    NSMutableArray *bufferArray;
-    
-    UIBezierPath *myPath;
+    //Undo
+    UIImage *undoImage;
+    NSMutableArray *undoImageArray;
     
     //Variables
     BOOL dontTrash;
@@ -51,7 +50,6 @@ extern long iconBadge;
     //Outlets for view
     IBOutlet UIButton *undoB;
     IBOutlet UIButton *trashB;
-    IBOutlet UIButton *eraseB;
     IBOutlet UIButton *colorsB;
     IBOutlet UIButton *menuB;
     IBOutlet UIButton *saveB;
@@ -75,7 +73,6 @@ extern long iconBadge;
 @property IBOutlet UISlider *colorValue;
 
 //Actions for view
--(IBAction) eraser:(id)sender;
 -(IBAction) undo:(id)sender;
 -(IBAction) send:(id)sender;
 -(IBAction) save:(id)sender;

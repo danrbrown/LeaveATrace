@@ -12,7 +12,6 @@
 //----------------------------------------------------------------------------------
 
 #import "ThreadViewController.h"
-#import "CanvasViewController.h"
 #import "tracesViewController.h"
 #import "AppDelegate.h"
 
@@ -36,6 +35,8 @@
 
 -(void) viewDidLoad
 {
+    
+    undoThreadImageArray = [[NSMutableArray alloc] init];
     
     red = 0;
     green = 0;
@@ -66,7 +67,7 @@
         
         sendB.frame = CGRectMake(246, 434, 64, 40);
         trashB.frame = CGRectMake(112, 431, 39, 45);
-        eraseB.frame = CGRectMake(61, 434, 45, 40);
+        undoB.frame = CGRectMake(61, 434, 45, 40);
         saveB.frame = CGRectMake(7, 432, 49, 43);
         
     }
@@ -78,7 +79,7 @@
         
         sendB.frame = CGRectMake(sendB.frame.origin.x, sendB.frame.origin.y, 64, 40);
         trashB.frame = CGRectMake(trashB.frame.origin.x, trashB.frame.origin.y, 39, 45);
-        eraseB.frame = CGRectMake(eraseB.frame.origin.x, eraseB.frame.origin.y, 45, 40);
+        undoB.frame = CGRectMake(undoB.frame.origin.x, undoB.frame.origin.y, undoB.frame.size.width, undoB.frame.size.height);
         saveB.frame = CGRectMake(saveB.frame.origin.x, saveB.frame.origin.y, 49, 43);
         
     }
@@ -201,6 +202,11 @@
     UITouch *touch = [touches anyObject];
     
     lastPoint = [touch locationInView:self.view];
+    
+    UIGraphicsBeginImageContextWithOptions(mainThreadImage.bounds.size, NO, 0.0);
+    [mainThreadImage.image drawInRect:CGRectMake(0, 0, mainThreadImage.frame.size.width, mainThreadImage.frame.size.height)];
+    undoThreadImage = UIGraphicsGetImageFromCurrentImageContext();
+    [undoThreadImageArray addObject:undoThreadImage];
     
 }
 
@@ -554,24 +560,11 @@
 
 //----------------------------------------------------------------------------------
 //
-// Name: eraser
+// Name: close
 //
-// Purpose: sets the color of what the user is drawing to white.
-//
-// NOTE: I might get rid of this and replace it with a undo button, either way I
-// will implement a undo button.
+// Purpose: closes the tread view.
 //
 //----------------------------------------------------------------------------------
-
--(IBAction) eraser:(id)sender
-{
-    
-    red = 255.0/255.0;
-    green = 255.0/255.0;
-    blue = 255.0/255.0;
-    opacity = 1.0;
-    
-}
 
 -(IBAction) close:(id)sender
 {
@@ -588,9 +581,21 @@
 //
 //----------------------------------------------------------------------------------
 
--(IBAction) undo:(id)sender {
+-(IBAction) undoThread:(id)sender
+{
     
-    //DTRB
+    if (undoThreadImageArray.count > 0)
+    {
+        
+        undoThreadImage = [undoThreadImageArray lastObject];
+        
+        [undoThreadImageArray removeLastObject];
+        
+        mainThreadImage.image = undoThreadImage;
+        
+        NSLog(@"undo?");
+        
+    }
     
 }
 

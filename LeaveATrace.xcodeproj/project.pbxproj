@@ -752,7 +752,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace;
+				FRAMEWORK_SEARCH_PATHS = /Users/Dan/Documents/MyStuff/MyProgs/LeaveATrace;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";
 				INFOPLIST_FILE = "LeaveATrace/LeaveATrace-Info.plist";
@@ -770,7 +770,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace;
+				FRAMEWORK_SEARCH_PATHS = /Users/Dan/Documents/MyStuff/MyProgs/LeaveATrace;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";
 				INFOPLIST_FILE = "LeaveATrace/LeaveATrace-Info.plist";
