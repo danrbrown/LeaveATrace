@@ -593,8 +593,6 @@
         
         mainThreadImage.image = undoThreadImage;
         
-        NSLog(@"undo?");
-        
     }
     
 }

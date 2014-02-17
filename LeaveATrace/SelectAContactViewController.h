@@ -18,6 +18,7 @@ extern BOOL clearImage;
     NSString *userAccepted;
     NSString *userContact;
     PFQuery *query;
+    int amount;
     
     //Outlets
     IBOutlet UILabel *noSendTo;
