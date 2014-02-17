@@ -13,6 +13,7 @@
 #import <Parse/Parse.h>
 
 NSString *titleText;
+int screens;
 
 @interface SettingsViewController ()
 
@@ -231,6 +232,8 @@ NSString *titleText;
         
         titleText = cell.textLabel.text;
         
+        screens = 0;
+        
     }
     
     if (indexPath.section == 2 && indexPath.row == 1)
@@ -242,6 +245,8 @@ NSString *titleText;
         
         titleText = cell.textLabel.text;
         
+        screens = 1;
+        
     }
     
     if (indexPath.section == 2 && indexPath.row == 2)
@@ -252,6 +257,8 @@ NSString *titleText;
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         
         titleText = cell.textLabel.text;
+        
+        screens = 2;
         
     }
     
@@ -336,7 +343,7 @@ NSString *titleText;
     
         text = self.actions[indexPath.row];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-    
+        
     }
     else
     {
@@ -421,7 +428,6 @@ NSString *titleText;
     (APP).unopenedTraceCount = 0;
     [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:nil];
 
-    
 }
 
 @end

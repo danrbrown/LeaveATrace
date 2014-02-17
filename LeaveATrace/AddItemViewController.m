@@ -469,6 +469,7 @@
         [push setQuery:pushQuery];
         [push setData:data];
         [push sendPushInBackground];
+    
     }
     
 }

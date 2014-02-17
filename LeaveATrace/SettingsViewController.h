@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 extern NSString *titleText;
+extern int screens;
 
 @interface SettingsViewController : UITableViewController <UIAlertViewDelegate> {
     
