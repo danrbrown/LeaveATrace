@@ -228,16 +228,6 @@
                                     <action selector="clear:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="KN4-kF-JBg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rns-hs-jRr">
-                                <rect key="frame" x="60" y="474" width="45" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
-                                <state key="normal" image="eraserB.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="eraser:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="gjV-ib-ynM"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yIF-o3-zbA">
                                 <rect key="frame" x="6" y="472" width="49" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
@@ -284,6 +274,18 @@
                                 <rect key="frame" x="281" y="12" width="31" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UYS-v5-hh0">
+                                <rect key="frame" x="62" y="484" width="45" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
+                                <state key="normal" title="Undo">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="undo:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="iRu-2V-T5c"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -292,11 +294,11 @@
                         <outlet property="brushSize" destination="7n7-wn-SDY" id="vL7-Ll-j3D"/>
                         <outlet property="colorValue" destination="yHo-Fg-5qT" id="8aQ-Rv-XhC"/>
                         <outlet property="currentColorImage" destination="ihn-yS-Xo2" id="FZf-Vx-PIn"/>
-                        <outlet property="eraseB" destination="Rns-hs-jRr" id="6Og-Pf-Tva"/>
                         <outlet property="mainImage" destination="X7s-Uc-4iM" id="Vyw-xD-5aB"/>
                         <outlet property="saveB" destination="yIF-o3-zbA" id="B6g-Er-EpM"/>
                         <outlet property="sendB" destination="nhl-67-LS2" id="FdI-aU-ltA"/>
                         <outlet property="trashB" destination="O1Q-lZ-m3k" id="OqW-F7-9Vn"/>
+                        <outlet property="undoB" destination="UYS-v5-hh0" id="LV5-Zb-Okx"/>
                         <segue destination="afe-A0-nhl" kind="modal" identifier="selectAContact" id="RX7-Ij-e6B"/>
                     </connections>
                 </viewController>
@@ -667,12 +669,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9sk-4P-i9y">
-                                <rect key="frame" x="20" y="528" width="78" height="20"/>
+                                <rect key="frame" x="13" y="533" width="213" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
-                                <state key="normal" title="15and50">
+                                <state key="normal" title="15and50 | Leave A Trace">
                                     <color key="titleColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.49614321649999998" green="0.78658974589999997" blue="0.88323102679999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="fifteenAndFifty:" destination="RuF-KD-iC2" eventType="touchUpInside" id="4j3-tf-Sfk"/>
@@ -764,6 +766,9 @@
                                     <color key="titleColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="ERh-dq-yWG" kind="modal" modalTransitionStyle="flipHorizontal" id="Ly6-Y6-CPc"/>
+                                </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="lfo-cH-2gf">
                                 <rect key="frame" x="280" y="220" width="20" height="20"/>
@@ -792,6 +797,65 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="206" y="138"/>
+        </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="UZs-S3-ElA">
+            <objects>
+                <viewController id="ERh-dq-yWG" customClass="ForgotPasswordViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wPp-vR-A9O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username..." minimumFontSize="17" id="ReD-kz-qMt">
+                                <rect key="frame" x="11" y="142" width="298" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yzF-hq-Ypv">
+                                <rect key="frame" x="126" y="205" width="68" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="24"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetPassword:" destination="ERh-dq-yWG" eventType="touchUpInside" id="sMa-A3-Pv1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="27g-Tl-gax">
+                                <rect key="frame" x="11" y="527" width="65" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="23"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="q66-0j-MX0" kind="modal" animates="NO" id="udE-yY-0dt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13809828760000001" green="0.4538568046" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="KOh-Gf-Qra" appends="YES" id="lrq-2V-J7U"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="FusernameTextFeild" destination="ReD-kz-qMt" id="Kfc-9B-b5n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PWP-T8-IaE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="KOh-Gf-Qra">
+                    <connections>
+                        <action selector="ReturnTextFeild:" destination="ERh-dq-yWG" id="V6X-fs-sRm"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="639" y="-256"/>
         </scene>
         <!--Sign Up View Controller - Sign up-->
         <scene sceneID="YAF-on-4Py">
@@ -831,7 +895,7 @@
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Varify password" minimumFontSize="17" id="2Yw-P0-dC1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Verify password" minimumFontSize="17" id="2Yw-P0-dC1">
                                 <rect key="frame" x="11" y="240" width="298" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -847,7 +911,7 @@
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IIX-q8-gkd">
                                 <rect key="frame" x="11" y="526" width="67" height="27"/>
@@ -1051,6 +1115,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bTf-ul-LZI">
+                                <rect key="frame" x="65" y="530" width="45" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
+                                <state key="normal" title="Undo">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="undoThread:" destination="tKm-6e-p5w" eventType="touchUpInside" id="WuR-EN-jNU"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EtZ-Hq-yQb">
                                 <rect key="frame" x="247" y="521" width="64" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1087,17 +1163,6 @@
                                 <connections>
                                     <action selector="clear:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="Vis-PD-u5Q"/>
                                     <action selector="clear:" destination="tKm-6e-p5w" eventType="touchUpInside" id="ZCq-YD-346"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BL5-p0-jgB">
-                                <rect key="frame" x="62" y="521" width="45" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="eraserB.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="eraser:" destination="tKm-6e-p5w" eventType="touchUpInside" id="emM-5f-fkw"/>
-                                    <action selector="eraser:" destination="GrZ-6C-8aQ" eventType="touchUpInside" id="x5l-97-CBY"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-0.10000000000000001" maxValue="0.90000000000000002" id="KdT-TH-d3c">
@@ -1146,11 +1211,11 @@
                         <outlet property="brushSize" destination="uXR-2n-oOM" id="eWs-bv-kEt"/>
                         <outlet property="colorValue" destination="KdT-TH-d3c" id="350-gE-6Lj"/>
                         <outlet property="currentColorImage" destination="0rP-Se-IgH" id="lIg-ZU-jSp"/>
-                        <outlet property="eraseB" destination="BL5-p0-jgB" id="KeA-fR-Ija"/>
                         <outlet property="mainThreadImage" destination="Fms-ao-vy8" id="AxB-4v-XBG"/>
                         <outlet property="saveB" destination="2Li-M4-Xbc" id="NEm-pl-edv"/>
                         <outlet property="sendB" destination="EtZ-Hq-yQb" id="QmU-JO-ZGE"/>
                         <outlet property="trashB" destination="bXD-Nr-LjE" id="uyH-UZ-WZR"/>
+                        <outlet property="undoB" destination="bTf-ul-LZI" id="YaT-7d-eEa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HM1-ml-qKK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1242,7 +1307,6 @@
         <image name="SignUpButton.png" width="259" height="146"/>
         <image name="TracesIcon.png" width="55" height="55"/>
         <image name="TrashButton.png" width="105" height="172"/>
-        <image name="eraserB.png" width="168" height="110"/>
         <image name="iconsberlin.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
