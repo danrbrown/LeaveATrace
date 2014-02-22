@@ -17,15 +17,10 @@
 #import "LeaveATraceItem.h"
 #import "sendToCell.h"
 #import "AppDelegate.h"
-#import "RageIAPHelper.h"
 #import <StoreKit/StoreKit.h>
 #import <Parse/Parse.h>
 
-@interface SelectAContactViewController () {
-    
-    NSArray *_products;
-
-}
+@interface SelectAContactViewController ()
 
 @end
 
@@ -45,47 +40,12 @@
 -(void) viewDidLoad
 {
     
-    //_products = [[NSArray alloc] init];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveContactsLoadedNotification:)
                                                  name:@"ContactsLoadedNotification"
                                                object:nil];
     
     [self performSelector:@selector(displayValidContacts)];
-    
-    amount = 1000;
-    
-    [self loadPurchaseData];
-    
-}
-
--(void) loadPurchaseData
-{
-
-    _products = nil;
-    
-    [[RageIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
-        
-        if (success)
-        {
-        
-            _products = products;
-            
-            NSLog(@"success:) poducts...%@", _products);
-            NSLog(@"success:) products...%@", products);
-           
-            
-        
-        }
-        else
-        {
-            
-            NSLog(@"fail:(");
-            
-        }
-    
-    }];
     
 }
 
@@ -343,97 +303,84 @@
 
 -(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+        
+    [self dismissViewControllerAnimated:YES completion:nil];
     
-    if ((APP).tracesArray.count < amount)
-    {
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-        PFObject *tempObject = [validContacts objectAtIndex:indexPath.row];
-        NSString *tempContact = [tempObject objectForKey:@"contact"];
-        NSDate *currentDateTime = [NSDate date];
+    PFObject *tempObject = [validContacts objectAtIndex:indexPath.row];
+    NSString *tempContact = [tempObject objectForKey:@"contact"];
+    NSDate *currentDateTime = [NSDate date];
 
-        PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
+    PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
+    
+    [imageObject setObject:file forKey:@"image"];
+    [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
+    [imageObject setObject:@"YES" forKey:@"fromUserDisplay"];
+    [imageObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];
+    [imageObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
+    [imageObject setObject:tempContact forKey:@"toUser"];
+    [imageObject setObject:@"YES" forKey:@"toUserDisplay"];
+    [imageObject setObject:@"P"forKey:@"status"];
+    
+    [(APP).tracesArray insertObject:imageObject atIndex:0];
+    
+    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
-        [imageObject setObject:file forKey:@"image"];
-        [imageObject setObject:[PFUser currentUser].username forKey:@"fromUser"];
-        [imageObject setObject:@"YES" forKey:@"fromUserDisplay"];
-        [imageObject setObject:[PFUser currentUser].username forKey:@"lastSentBy"];
-        [imageObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
-        [imageObject setObject:tempContact forKey:@"toUser"];
-        [imageObject setObject:@"YES" forKey:@"toUserDisplay"];
-        [imageObject setObject:@"P"forKey:@"status"];
-        
-        [(APP).tracesArray insertObject:imageObject atIndex:0];
-        
-        [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            
-            if (succeeded)
-            {
-                
-                [self performSegueWithIdentifier:@"SelectedUser" sender:self];
-                
-                [imageObject setObject:@"S"forKey:@"status"];
-                [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    
-                    if (succeeded)
-                    {
-                        
-                        NSString *newObjectId = [imageObject objectId];
-                        [imageObject setObject:@"S"forKey:@"status"];
-                        
-                        NSDictionary *dataParms = [NSDictionary dictionaryWithObjectsAndKeys:tempContact, @"friend",newObjectId, @"objectId",nil];
-                        
-                        [self performSelectorInBackground:@selector(sendPushToContact:)
-                                               withObject:dataParms];
-                        
-                        [self.navigationController popViewControllerAnimated:YES];
-                        
-                        [[NSNotificationCenter defaultCenter]
-                         postNotificationName:@"SendTraceNotification"
-                         object:self];
-                        
-                    }
-                    else
-                    {
-                        
-                        NSString *errorString = [[error userInfo] objectForKey:@"error"];
-                        UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                        
-                        [errorAlertView show];
-                        
-                    }
-                    
-                }];
-                
-            }
-            else
-            {
-                
-                NSString *errorString = [[error userInfo] objectForKey:@"error"];
-                
-                UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-                [errorAlertView show];
-                
-            }
-            
-        }
-        progressBlock:^(int percentDone)
+        if (succeeded)
         {
             
-            NSLog(@"%d %% done", percentDone);
+            [self performSegueWithIdentifier:@"SelectedUser" sender:self];
             
-        }];
+            [imageObject setObject:@"S"forKey:@"status"];
+            [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                
+                if (succeeded)
+                {
+                    
+                    NSString *newObjectId = [imageObject objectId];
+                    [imageObject setObject:@"S"forKey:@"status"];
+                    
+                    NSDictionary *dataParms = [NSDictionary dictionaryWithObjectsAndKeys:tempContact, @"friend",newObjectId, @"objectId",nil];
+                    
+                    [self performSelectorInBackground:@selector(sendPushToContact:)
+                                           withObject:dataParms];
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:@"SendTraceNotification"
+                     object:self];
+                    
+                }
+                else
+                {
+                    
+                    NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    
+                    [errorAlertView show];
+                    
+                }
+                
+            }];
+            
+        }
+        else
+        {
+            
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [errorAlertView show];
+            
+        }
         
     }
-    else
+    progressBlock:^(int percentDone)
     {
         
-        UIAlertView *tooLargePayMe = [[UIAlertView alloc] initWithTitle:@"Too many traces" message:@"You are over you limit of traces, you can pay for more..." delegate:self cancelButtonTitle:@"Close" otherButtonTitles:@"product 1", nil];
+        NSLog(@"%d %% done", percentDone);
         
-        [tooLargePayMe show];
-        
-    }
+    }];
 
     return nil;
     

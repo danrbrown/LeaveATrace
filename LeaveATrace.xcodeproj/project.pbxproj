@@ -78,8 +78,6 @@
 		9CF34DD1189C55560082329B /* BrushSizeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF34DD0189C55560082329B /* BrushSizeSlider.m */; };
 		9CF34DD8189C57FE0082329B /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF34DD7189C57FE0082329B /* PopoverView.m */; };
 		A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A555C8D91846D53B00C012ED /* ThreadViewController.m */; };
-		A55F041D18B6B272001FC4A5 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A55F041A18B6B272001FC4A5 /* IAPHelper.m */; };
-		A55F041E18B6B272001FC4A5 /* RageIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A55F041C18B6B272001FC4A5 /* RageIAPHelper.m */; };
 		A568F76D186E209B003E074E /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A568F76C186E209B003E074E /* AddressBookUI.framework */; };
 		A568F76F186E20A6003E074E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A568F76E186E20A6003E074E /* AddressBook.framework */; };
 		A5C4847A188B586300B98F9E /* StartUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5C48479188B586300B98F9E /* StartUpViewController.m */; };
@@ -194,10 +192,6 @@
 		9CF34DD7189C57FE0082329B /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopoverView.m; path = LeaveATrace/PopoverView.m; sourceTree = "<group>"; };
 		A555C8D81846D53B00C012ED /* ThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreadViewController.h; path = LeaveATrace/ThreadViewController.h; sourceTree = "<group>"; };
 		A555C8D91846D53B00C012ED /* ThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreadViewController.m; path = LeaveATrace/ThreadViewController.m; sourceTree = "<group>"; };
-		A55F041918B6B272001FC4A5 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
-		A55F041A18B6B272001FC4A5 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
-		A55F041B18B6B272001FC4A5 /* RageIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RageIAPHelper.h; sourceTree = "<group>"; };
-		A55F041C18B6B272001FC4A5 /* RageIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RageIAPHelper.m; sourceTree = "<group>"; };
 		A568F76C186E209B003E074E /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		A568F76E186E20A6003E074E /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		A5C48478188B586300B98F9E /* StartUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartUpViewController.h; path = LeaveATrace/StartUpViewController.h; sourceTree = "<group>"; };
@@ -311,10 +305,6 @@
 		9C276810181C75B10073453E /* LeaveATrace */ = {
 			isa = PBXGroup;
 			children = (
-				A55F041918B6B272001FC4A5 /* IAPHelper.h */,
-				A55F041A18B6B272001FC4A5 /* IAPHelper.m */,
-				A55F041B18B6B272001FC4A5 /* RageIAPHelper.h */,
-				A55F041C18B6B272001FC4A5 /* RageIAPHelper.m */,
 				9C276819181C75B10073453E /* AppDelegate.h */,
 				9C27681A181C75B10073453E /* AppDelegate.m */,
 				9C27681C181C75B10073453E /* Main.storyboard */,
@@ -624,12 +614,10 @@
 				9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */,
 				3789414718B14BB600BA0063 /* ForgotPasswordViewController.m in Sources */,
 				9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */,
-				A55F041E18B6B272001FC4A5 /* RageIAPHelper.m in Sources */,
 				9C276877181C774F0073453E /* LeaveATraceItem.m in Sources */,
 				A5C4847A188B586300B98F9E /* StartUpViewController.m in Sources */,
 				9CAA06D618A034BD00178030 /* DetialViewController.m in Sources */,
 				9CF34DD1189C55560082329B /* BrushSizeSlider.m in Sources */,
-				A55F041D18B6B272001FC4A5 /* IAPHelper.m in Sources */,
 				9C27684E181C76B10073453E /* LoginViewController.m in Sources */,
 				9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */,
 				A555C8DA1846D53B00C012ED /* ThreadViewController.m in Sources */,
