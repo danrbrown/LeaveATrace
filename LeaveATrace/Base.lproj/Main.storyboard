@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NsB-hd-S74">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NsB-hd-S74">
     <dependencies>
         <deployment version="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Contacts View Controller - Friends-->
@@ -495,7 +495,7 @@
                         <color key="separatorColor" red="0.96002072699999996" green="0.96002072699999996" blue="0.96002072699999996" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settingsItem" textLabel="MvO-h2-Lj3" detailTextLabel="ljC-lt-maR" rowHeight="46" style="IBUITableViewCellStyleSubtitle" id="fL4-Pk-DuP">
-                                <rect key="frame" x="0.0" y="119" width="320" height="46"/>
+                                <rect key="frame" x="0.0" y="55" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fL4-Pk-DuP" id="C7m-hT-waP">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
@@ -536,7 +536,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <segue destination="RuF-KD-iC2" kind="modal" identifier="LogOutSuccesful" modalTransitionStyle="flipHorizontal" id="6Nj-0v-UHu"/>
                     </connections>
@@ -586,7 +585,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DI1-Nf-s64" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3467" y="1157"/>
+            <point key="canvasLocation" x="3478" y="1157"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wTw-dt-yce">
@@ -1315,8 +1314,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="vZm-Ey-PdG"/>
-        <segue reference="aqm-j9-75I"/>
         <segue reference="vm4-Ru-Iag"/>
+        <segue reference="6Nj-0v-UHu"/>
+        <segue reference="aqm-j9-75I"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -47,7 +47,7 @@ BOOL clearImage;
 -(void) viewDidLoad
 {
     
-    _products = [[NSArray alloc] init];
+    //_products = [[NSArray alloc] init];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveContactsLoadedNotification:)
@@ -75,7 +75,8 @@ BOOL clearImage;
             _products = products;
             
             NSLog(@"success:) poducts...%@", _products);
-            
+            NSLog(@"success:) products...%@", products);
+           
             
         
         }
@@ -432,7 +433,7 @@ BOOL clearImage;
     else
     {
         
-        UIAlertView *tooLargePayMe = [[UIAlertView alloc] initWithTitle:@"Too many traces" message:@"You are over you limit of traces, you can pay for more..." delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        UIAlertView *tooLargePayMe = [[UIAlertView alloc] initWithTitle:@"Too many traces" message:@"You are over you limit of traces, you can pay for more..." delegate:self cancelButtonTitle:@"Close" otherButtonTitles:@"product 1", nil];
         
         [tooLargePayMe show];
         
@@ -445,6 +446,12 @@ BOOL clearImage;
 -(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     
+    if (buttonIndex == 1)
+    {
+        
+        
+        
+    }
     
 }
 

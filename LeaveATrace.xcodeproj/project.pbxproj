@@ -58,7 +58,6 @@
 		9CAA06CF189EC8C600178030 /* NewTraceIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAA06CE189EC8C600178030 /* NewTraceIcon@2x.png */; };
 		9CAA06D1189EEB5900178030 /* FriendsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAA06D0189EEB5900178030 /* FriendsIcon@2x.png */; };
 		9CAA06D618A034BD00178030 /* DetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAA06D518A034BD00178030 /* DetialViewController.m */; };
-		9CAA06D818A1A91200178030 /* LeaveATraceIcon(2).png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAA06D718A1A91200178030 /* LeaveATraceIcon(2).png */; };
 		9CAA06DA18A45DCA00178030 /* SettingsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAA06D918A45DCA00178030 /* SettingsIcon@2x.png */; };
 		9CAC90E518413D45007CC2CD /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E418413D45007CC2CD /* RequestCell.m */; };
 		9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */; };
@@ -66,7 +65,6 @@
 		9CB59BB418454A16006AB105 /* sendToCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB59BB318454A16006AB105 /* sendToCell.m */; };
 		9CBC5AFA1856899B00725BD5 /* LoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5AF91856899B00725BD5 /* LoginButton.png */; };
 		9CBC5AFC1856900A00725BD5 /* SignUpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5AFB1856900A00725BD5 /* SignUpButton.png */; };
-		9CBC5B041857FCA000725BD5 /* LeaveATraceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5B031857FCA000725BD5 /* LeaveATraceIcon.png */; };
 		9CBC5B49185931B600725BD5 /* SaveButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5B48185931B600725BD5 /* SaveButton.png */; };
 		9CBF68EC187A070500718E8D /* CloseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF68EB187A070500718E8D /* CloseButton.png */; };
 		9CD69C0F185A951200177EA0 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9CD69C0E185A951100177EA0 /* FBUserSettingsViewResources.bundle */; };
@@ -165,7 +163,6 @@
 		9CAA06D0189EEB5900178030 /* FriendsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FriendsIcon@2x.png"; sourceTree = "<group>"; };
 		9CAA06D418A034BD00178030 /* DetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetialViewController.h; sourceTree = "<group>"; };
 		9CAA06D518A034BD00178030 /* DetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetialViewController.m; sourceTree = "<group>"; };
-		9CAA06D718A1A91200178030 /* LeaveATraceIcon(2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LeaveATraceIcon(2).png"; sourceTree = "<group>"; };
 		9CAA06D918A45DCA00178030 /* SettingsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SettingsIcon@2x.png"; sourceTree = "<group>"; };
 		9CAC90E318413D45007CC2CD /* RequestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestCell.h; path = LeaveATrace/RequestCell.h; sourceTree = "<group>"; };
 		9CAC90E418413D45007CC2CD /* RequestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestCell.m; path = LeaveATrace/RequestCell.m; sourceTree = "<group>"; };
@@ -177,7 +174,6 @@
 		9CB59BB318454A16006AB105 /* sendToCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sendToCell.m; path = LeaveATrace/sendToCell.m; sourceTree = "<group>"; };
 		9CBC5AF91856899B00725BD5 /* LoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginButton.png; sourceTree = "<group>"; };
 		9CBC5AFB1856900A00725BD5 /* SignUpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignUpButton.png; sourceTree = "<group>"; };
-		9CBC5B031857FCA000725BD5 /* LeaveATraceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeaveATraceIcon.png; sourceTree = "<group>"; };
 		9CBC5B48185931B600725BD5 /* SaveButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SaveButton.png; sourceTree = "<group>"; };
 		9CBF68EB187A070500718E8D /* CloseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseButton.png; sourceTree = "<group>"; };
 		9CD69C0E185A951100177EA0 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
@@ -394,8 +390,6 @@
 				9C595CB31867B65B00D1B7E8 /* OpenedTrace.png */,
 				9C595CBB1867E04700D1B7E8 /* SentNotOpened.png */,
 				9C595CB91867DE3600D1B7E8 /* SentTrace.png */,
-				9CBC5B031857FCA000725BD5 /* LeaveATraceIcon.png */,
-				9CAA06D718A1A91200178030 /* LeaveATraceIcon(2).png */,
 				9C27685F181C771D0073453E /* Default-568h@2x.png */,
 				9C276861181C771D0073453E /* iconsberlin@2x.png */,
 			);
@@ -576,14 +570,12 @@
 				9C595CBA1867DE3600D1B7E8 /* SentTrace.png in Resources */,
 				9C595CBC1867E04700D1B7E8 /* SentNotOpened.png in Resources */,
 				9CBC5B49185931B600725BD5 /* SaveButton.png in Resources */,
-				9CAA06D818A1A91200178030 /* LeaveATraceIcon(2).png in Resources */,
 				9CAA06CF189EC8C600178030 /* NewTraceIcon@2x.png in Resources */,
 				9C0818391869524E006E9DFD /* TrashButton.png in Resources */,
 				9C27686F181C771D0073453E /* Default-568h@2x.png in Resources */,
 				9C276871181C771D0073453E /* iconsberlin@2x.png in Resources */,
 				9CA7041F18AD764B00887EB1 /* RequestsIcon@2x.png in Resources */,
 				9C276815181C75B10073453E /* InfoPlist.strings in Resources */,
-				9CBC5B041857FCA000725BD5 /* LeaveATraceIcon.png in Resources */,
 				9C595CB41867B65B00D1B7E8 /* OpenedTrace.png in Resources */,
 				9CBC5AFA1856899B00725BD5 /* LoginButton.png in Resources */,
 				9CAA06DA18A45DCA00178030 /* SettingsIcon@2x.png in Resources */,
@@ -770,7 +762,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace;
+				FRAMEWORK_SEARCH_PATHS = /Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";
 				INFOPLIST_FILE = "LeaveATrace/LeaveATrace-Info.plist";
@@ -788,7 +780,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace;
+				FRAMEWORK_SEARCH_PATHS = /Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";
 				INFOPLIST_FILE = "LeaveATrace/LeaveATrace-Info.plist";

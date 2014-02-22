@@ -11,11 +11,14 @@
 #import "AppDelegate.h"
 #import "ThreadViewController.h"
 #import "LoadTraces.h"
+#import "RageIAPHelper.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [RageIAPHelper sharedInstance];
     
     _tracesArray = [[NSMutableArray alloc] init];
     _contactsArray = [[NSMutableArray alloc] init];

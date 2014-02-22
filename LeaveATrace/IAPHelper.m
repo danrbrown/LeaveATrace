@@ -19,10 +19,10 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 // 3
 @implementation IAPHelper {
     
-    SKProductsRequest * _productsRequest;
+    SKProductsRequest *_productsRequest;
     RequestProductsCompletionHandler _completionHandler;
     
-    NSSet * _productIdentifiers;
+    NSSet *_productIdentifiers;
     NSMutableSet * _purchasedProductIdentifiers;
     
 }
@@ -39,7 +39,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         // Check for previously purchased products
         _purchasedProductIdentifiers = [NSMutableSet set];
         
-        for (NSString * productIdentifier in _productIdentifiers)
+        for (NSString *productIdentifier in _productIdentifiers)
         {
             
             BOOL productPurchased = [[NSUserDefaults standardUserDefaults] boolForKey:productIdentifier];
