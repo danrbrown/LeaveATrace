@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CanvasViewController.h"
 
-extern BOOL clearImage;
-
 @interface SelectAContactViewController : UITableViewController <UISearchBarDelegate, UISearchDisplayDelegate> {
     
     //Variables

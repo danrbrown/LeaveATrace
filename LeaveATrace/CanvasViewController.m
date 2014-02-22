@@ -132,17 +132,6 @@ long iconBadge;
 -(void) viewDidAppear:(BOOL)animated
 {
     
-    if (clearImage)
-    {
-        
-        mainImage.image = nil;
-        
-        //[self.tabBarController setSelectedIndex:0];
-        
-    }
-
-    clearImage = NO;
-    
     [self displayBadgeCounts];
     
     [self becomeFirstResponder];
@@ -367,6 +356,10 @@ long iconBadge;
     
     self.mainImage.image = nil;
     
+    UIImage *nothing = [UIImage imageNamed:@"Nothing.png"];
+    
+    [trashB setImage:nothing forState:UIControlStateHighlighted];
+    
 }
 
 -(void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
@@ -513,6 +506,10 @@ long iconBadge;
         
         mainImage.image = undoImage;
         
+        UIImage *nothing = [UIImage imageNamed:@"Nothing.png"];
+        
+        [undoB setImage:nothing forState:UIControlStateHighlighted];
+        
     }
     
 }
@@ -626,6 +623,10 @@ long iconBadge;
     UIGraphicsEndImageContext();
     UIImageWriteToSavedPhotosAlbum(SaveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
     
+    UIImage *nothing = [UIImage imageNamed:@"Nothing.png"];
+    
+    [saveB setImage:nothing forState:UIControlStateHighlighted];
+    
 }
 
 //----------------------------------------------------------------------------------
@@ -674,18 +675,11 @@ long iconBadge;
 -(IBAction) send:(id)sender
 {
     
-    clearImage = YES;
-    
     [self performSegueWithIdentifier:@"selectAContact" sender:self];
     
-    [self performSelector:@selector(changeTab) withObject:nil afterDelay:0.5];
+    UIImage *nothing = [UIImage imageNamed:@"Nothing.png"];
     
-}
-
--(void) changeTab
-{
-    
-    [self.tabBarController setSelectedIndex:0];
+    [sendB setImage:nothing forState:UIControlStateHighlighted];
     
 }
 

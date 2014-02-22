@@ -170,7 +170,7 @@ NSInteger traceObjectIdx;
         if ((APP).tracesArray.count == 0)
         {
         
-            noTraces.text = @"You have no traces";
+            noTraces.text = @"You have no Traces";
             
         }
 

@@ -21,8 +21,6 @@
 #import <StoreKit/StoreKit.h>
 #import <Parse/Parse.h>
 
-BOOL clearImage;
-
 @interface SelectAContactViewController () {
     
     NSArray *_products;
@@ -205,8 +203,6 @@ BOOL clearImage;
 -(IBAction) cancel
 {
     
-    clearImage = NO;
-    
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -350,8 +346,6 @@ BOOL clearImage;
     
     if ((APP).tracesArray.count < amount)
     {
-    
-        clearImage = YES;
         
         [self dismissViewControllerAnimated:YES completion:nil];
         
@@ -376,6 +370,8 @@ BOOL clearImage;
             
             if (succeeded)
             {
+                
+                [self performSegueWithIdentifier:@"SelectedUser" sender:self];
                 
                 [imageObject setObject:@"S"forKey:@"status"];
                 [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
