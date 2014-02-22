@@ -17,11 +17,17 @@
 #import "LeaveATraceItem.h"
 #import "sendToCell.h"
 #import "AppDelegate.h"
+#import "RageIAPHelper.h"
+#import <StoreKit/StoreKit.h>
 #import <Parse/Parse.h>
 
 BOOL clearImage;
 
-@interface SelectAContactViewController ()
+@interface SelectAContactViewController () {
+    
+    NSArray *_products;
+
+}
 
 @end
 
@@ -41,6 +47,8 @@ BOOL clearImage;
 -(void) viewDidLoad
 {
     
+    _products = [[NSArray alloc] init];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveContactsLoadedNotification:)
                                                  name:@"ContactsLoadedNotification"
@@ -48,7 +56,37 @@ BOOL clearImage;
     
     [self performSelector:@selector(displayValidContacts)];
     
-    amount = 24;
+    amount = 1000;
+    
+    [self loadPurchaseData];
+    
+}
+
+-(void) loadPurchaseData
+{
+
+    _products = nil;
+    
+    [[RageIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+        
+        if (success)
+        {
+        
+            _products = products;
+            
+            NSLog(@"success:) poducts...%@", _products);
+            
+            
+        
+        }
+        else
+        {
+            
+            NSLog(@"fail:(");
+            
+        }
+    
+    }];
     
 }
 
@@ -394,7 +432,7 @@ BOOL clearImage;
     else
     {
         
-        UIAlertView *tooLargePayMe = [[UIAlertView alloc] initWithTitle:@"Too many traces" message:@"You are over you limit of traces, you can pay for more..." delegate:self cancelButtonTitle:@"Close" otherButtonTitles:@"$0.99 for 100 more",@"$1.99 for 500 more", @"$2.99 for 1000 more", nil];
+        UIAlertView *tooLargePayMe = [[UIAlertView alloc] initWithTitle:@"Too many traces" message:@"You are over you limit of traces, you can pay for more..." delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
         
         [tooLargePayMe show];
         

@@ -52,9 +52,12 @@
         
     }
     
+    [[UITabBar appearance] setTintColor:[UIColor yellowColor]];
+    
     application.applicationSupportsShakeToEdit = YES;
     
     return YES;
+    
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
