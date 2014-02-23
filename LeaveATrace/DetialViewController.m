@@ -27,25 +27,47 @@
     
     supportText.editable = NO;
     
-    if (screens == 0)
+    if (screens == 0) //Support
     {
         
         [supportText setHidden:NO];
         [supportButton setHidden:NO];
         
+        [pdf setHidden:YES];
+        
     }
-    else if (screens == 1)
+    else if (screens == 1) //Privacy
     {
         
         [supportText setHidden:YES];
         [supportButton setHidden:YES];
         
+        [pdf setHidden:NO];
+        
+        NSString *PrivacyPath = [[NSBundle mainBundle] pathForResource:@"Leave A Trace - Privacy Policy" ofType:@"pdf"];
+        
+        NSURL *url = [NSURL fileURLWithPath:PrivacyPath];
+        
+        NSURLRequest *requesest = [NSURLRequest requestWithURL:url];
+        
+        [pdf loadRequest:requesest];
+        
     }
-    else if (screens == 2)
+    else if (screens == 2) //Terms
     {
         
         [supportText setHidden:YES];
         [supportButton setHidden:YES];
+        
+        [pdf setHidden:NO];
+        
+        NSString *TermsPath = [[NSBundle mainBundle] pathForResource:@"Leave A Trace - Terms of Use" ofType:@"pdf"];
+        
+        NSURL *TermsURL = [NSURL fileURLWithPath:TermsPath];
+        
+        NSURLRequest *TermsRequesest = [NSURLRequest requestWithURL:TermsURL];
+        
+        [pdf loadRequest:TermsRequesest];
         
     }
     

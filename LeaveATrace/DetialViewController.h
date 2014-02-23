@@ -15,10 +15,7 @@
     IBOutlet UITextView *supportText;
     IBOutlet UIButton *supportButton;
     
-    //Terms of use
-    
-    //Privacy policy
-    
+    IBOutlet UIWebView *pdf;
     
 }
 
