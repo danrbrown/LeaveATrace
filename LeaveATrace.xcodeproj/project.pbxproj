@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3789414718B14BB600BA0063 /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3789414618B14BB600BA0063 /* ForgotPasswordViewController.m */; };
+		9C03C68E18BA557800095CFA /* Buttons Draw Screen Intro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C03C68A18BA557800095CFA /* Buttons Draw Screen Intro.png */; };
+		9C03C68F18BA557800095CFA /* Draw back Intro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C03C68B18BA557800095CFA /* Draw back Intro.png */; };
+		9C03C69018BA557800095CFA /* New Trace Intro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C03C68C18BA557800095CFA /* New Trace Intro.png */; };
+		9C03C69118BA557800095CFA /* Send Intro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C03C68D18BA557800095CFA /* Send Intro.png */; };
 		9C0818391869524E006E9DFD /* TrashButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0818381869524E006E9DFD /* TrashButton.png */; };
 		9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16751C181DA1B50024EE93 /* tracesViewController.m */; };
 		9C27680B181C75B10073453E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680A181C75B10073453E /* Foundation.framework */; };
@@ -57,10 +61,6 @@
 		9C782E05182885ED00077FC8 /* eraserB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C782E04182885ED00077FC8 /* eraserB.png */; };
 		9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */; };
 		9CA7041F18AD764B00887EB1 /* RequestsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CA7041E18AD764B00887EB1 /* RequestsIcon@2x.png */; };
-		9CA9C76818B92D3400F2E5C4 /* Buttons Draw Screen Intro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C76418B92D3400F2E5C4 /* Buttons Draw Screen Intro.png */; };
-		9CA9C76918B92D3400F2E5C4 /* Draw back Intro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C76518B92D3400F2E5C4 /* Draw back Intro.png */; };
-		9CA9C76A18B92D3400F2E5C4 /* New Trace Intro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C76618B92D3400F2E5C4 /* New Trace Intro.png */; };
-		9CA9C76B18B92D3400F2E5C4 /* Send Intro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C76718B92D3400F2E5C4 /* Send Intro.png */; };
 		9CA9C77218B9495000F2E5C4 /* Leave A Trace - Privacy Policy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C76E18B9495000F2E5C4 /* Leave A Trace - Privacy Policy.pdf */; };
 		9CA9C77418B9495000F2E5C4 /* Leave A Trace - Terms of Use.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C77018B9495000F2E5C4 /* Leave A Trace - Terms of Use.pdf */; };
 		9CAA06CD189EC6FF00178030 /* TracesIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAA06CC189EC6FF00178030 /* TracesIcon@2x.png */; };
@@ -104,6 +104,10 @@
 /* Begin PBXFileReference section */
 		3789414518B14BB600BA0063 /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgotPasswordViewController.h; path = LeaveATrace/ForgotPasswordViewController.h; sourceTree = "<group>"; };
 		3789414618B14BB600BA0063 /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgotPasswordViewController.m; path = LeaveATrace/ForgotPasswordViewController.m; sourceTree = "<group>"; };
+		9C03C68A18BA557800095CFA /* Buttons Draw Screen Intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Buttons Draw Screen Intro.png"; sourceTree = "<group>"; };
+		9C03C68B18BA557800095CFA /* Draw back Intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Draw back Intro.png"; sourceTree = "<group>"; };
+		9C03C68C18BA557800095CFA /* New Trace Intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New Trace Intro.png"; sourceTree = "<group>"; };
+		9C03C68D18BA557800095CFA /* Send Intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Send Intro.png"; sourceTree = "<group>"; };
 		9C0818381869524E006E9DFD /* TrashButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrashButton.png; sourceTree = "<group>"; };
 		9C16751B181DA1B50024EE93 /* tracesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tracesViewController.h; path = LeaveATrace/tracesViewController.h; sourceTree = "<group>"; };
 		9C16751C181DA1B50024EE93 /* tracesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = tracesViewController.m; path = LeaveATrace/tracesViewController.m; sourceTree = "<group>"; };
@@ -168,10 +172,6 @@
 		9CA1B48C1832CDC700CAFA8E /* FirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstPageViewController.h; path = LeaveATrace/FirstPageViewController.h; sourceTree = "<group>"; };
 		9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstPageViewController.m; path = LeaveATrace/FirstPageViewController.m; sourceTree = "<group>"; };
 		9CA7041E18AD764B00887EB1 /* RequestsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RequestsIcon@2x.png"; sourceTree = "<group>"; };
-		9CA9C76418B92D3400F2E5C4 /* Buttons Draw Screen Intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Buttons Draw Screen Intro.png"; sourceTree = "<group>"; };
-		9CA9C76518B92D3400F2E5C4 /* Draw back Intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Draw back Intro.png"; sourceTree = "<group>"; };
-		9CA9C76618B92D3400F2E5C4 /* New Trace Intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New Trace Intro.png"; sourceTree = "<group>"; };
-		9CA9C76718B92D3400F2E5C4 /* Send Intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Send Intro.png"; sourceTree = "<group>"; };
 		9CA9C76E18B9495000F2E5C4 /* Leave A Trace - Privacy Policy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Leave A Trace - Privacy Policy.pdf"; sourceTree = "<group>"; };
 		9CA9C77018B9495000F2E5C4 /* Leave A Trace - Terms of Use.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Leave A Trace - Terms of Use.pdf"; sourceTree = "<group>"; };
 		9CAA06CC189EC6FF00178030 /* TracesIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TracesIcon@2x.png"; sourceTree = "<group>"; };
@@ -256,6 +256,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C03C68918BA557800095CFA /* Intro Images */ = {
+			isa = PBXGroup;
+			children = (
+				9C03C68A18BA557800095CFA /* Buttons Draw Screen Intro.png */,
+				9C03C68D18BA557800095CFA /* Send Intro.png */,
+				9C03C68C18BA557800095CFA /* New Trace Intro.png */,
+				9C03C68B18BA557800095CFA /* Draw back Intro.png */,
+			);
+			name = "Intro Images";
+			path = "images/Intro Images";
+			sourceTree = "<group>";
+		};
 		9C2767FE181C75B10073453E = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +281,7 @@
 				9C276810181C75B10073453E /* LeaveATrace */,
 				9C276851181C771D0073453E /* images */,
 				9CA9C76C18B9495000F2E5C4 /* Key Documents */,
+				9C03C68918BA557800095CFA /* Intro Images */,
 				9C27682F181C75B10073453E /* LeaveATraceTests */,
 				9C276809181C75B10073453E /* Frameworks */,
 				9C276808181C75B10073453E /* Products */,
@@ -368,7 +381,6 @@
 		9C276851181C771D0073453E /* images */ = {
 			isa = PBXGroup;
 			children = (
-				9CA9C76318B92D3400F2E5C4 /* Intro Images */,
 				9C276852181C771D0073453E /* buttons */,
 				9C27685E181C771D0073453E /* other */,
 			);
@@ -463,18 +475,6 @@
 				9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */,
 			);
 			name = "Requests Views";
-			sourceTree = "<group>";
-		};
-		9CA9C76318B92D3400F2E5C4 /* Intro Images */ = {
-			isa = PBXGroup;
-			children = (
-				9CA9C76418B92D3400F2E5C4 /* Buttons Draw Screen Intro.png */,
-				9CA9C76518B92D3400F2E5C4 /* Draw back Intro.png */,
-				9CA9C76618B92D3400F2E5C4 /* New Trace Intro.png */,
-				9CA9C76718B92D3400F2E5C4 /* Send Intro.png */,
-			);
-			name = "Intro Images";
-			path = "other/Intro Images";
 			sourceTree = "<group>";
 		};
 		9CA9C76C18B9495000F2E5C4 /* Key Documents */ = {
@@ -599,20 +599,19 @@
 				9CBC5AFC1856900A00725BD5 /* SignUpButton.png in Resources */,
 				9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */,
 				9CD69C181860E36C00177EA0 /* Images.xcassets in Resources */,
-				9CA9C76918B92D3400F2E5C4 /* Draw back Intro.png in Resources */,
 				9CBF68EC187A070500718E8D /* CloseButton.png in Resources */,
 				9CD69C0F185A951200177EA0 /* FBUserSettingsViewResources.bundle in Resources */,
-				9CA9C76818B92D3400F2E5C4 /* Buttons Draw Screen Intro.png in Resources */,
 				9C595CBA1867DE3600D1B7E8 /* SentTrace.png in Resources */,
+				9C03C68F18BA557800095CFA /* Draw back Intro.png in Resources */,
 				9CA9C77218B9495000F2E5C4 /* Leave A Trace - Privacy Policy.pdf in Resources */,
 				9C595CBC1867E04700D1B7E8 /* SentNotOpened.png in Resources */,
 				9CBC5B49185931B600725BD5 /* SaveButton.png in Resources */,
 				9CAA06CF189EC8C600178030 /* NewTraceIcon@2x.png in Resources */,
 				9C0818391869524E006E9DFD /* TrashButton.png in Resources */,
 				9C27686F181C771D0073453E /* Default-568h@2x.png in Resources */,
+				9C03C69018BA557800095CFA /* New Trace Intro.png in Resources */,
 				9C276871181C771D0073453E /* iconsberlin@2x.png in Resources */,
 				9CA7041F18AD764B00887EB1 /* RequestsIcon@2x.png in Resources */,
-				9CA9C76A18B92D3400F2E5C4 /* New Trace Intro.png in Resources */,
 				9C276815181C75B10073453E /* InfoPlist.strings in Resources */,
 				9C593E8B18B858B900E8124A /* Nothing.png in Resources */,
 				9C595CB41867B65B00D1B7E8 /* OpenedTrace.png in Resources */,
@@ -622,9 +621,10 @@
 				9CAA06DA18A45DCA00178030 /* SettingsIcon@2x.png in Resources */,
 				9CAA06CD189EC6FF00178030 /* TracesIcon@2x.png in Resources */,
 				9CA9C77418B9495000F2E5C4 /* Leave A Trace - Terms of Use.pdf in Resources */,
-				9CA9C76B18B92D3400F2E5C4 /* Send Intro.png in Resources */,
+				9C03C69118BA557800095CFA /* Send Intro.png in Resources */,
 				9C782E05182885ED00077FC8 /* eraserB.png in Resources */,
 				9C595CB61867B66500D1B7E8 /* NewTrace.png in Resources */,
+				9C03C68E18BA557800095CFA /* Buttons Draw Screen Intro.png in Resources */,
 				9CAA06D1189EEB5900178030 /* FriendsIcon@2x.png in Resources */,
 				9C27681E181C75B10073453E /* Main.storyboard in Resources */,
 			);

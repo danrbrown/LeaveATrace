@@ -463,15 +463,7 @@
                             <outlet property="delegate" destination="dkT-yk-hJO" id="bvq-0G-ICr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Friend Requests" id="9SH-85-zqG">
-                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon.png" id="C9f-Vy-16b">
-                            <color key="tintColor" red="1" green="0.99915343889999997" blue="0.97335688080000005" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="logOut:" destination="dkT-yk-hJO" id="I4R-kC-pAN"/>
-                                <segue destination="aca-Qi-oQk" kind="modal" id="vEu-qW-bdr"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Friend Requests" id="9SH-85-zqG"/>
                     <connections>
                         <outlet property="loadinfRequests" destination="NXm-SD-sEI" id="9HS-ly-Cwt"/>
                         <outlet property="noRequests" destination="d2f-GP-I6V" id="1Sw-9N-uHe"/>
@@ -540,7 +532,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5s7-hb-ykl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3066" y="1157"/>
+            <point key="canvasLocation" x="2647" y="-1558"/>
         </scene>
         <!--Detial View Controller-->
         <scene sceneID="rXB-E8-Bns">
@@ -589,7 +581,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DI1-Nf-s64" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3478" y="1157"/>
+            <point key="canvasLocation" x="3094" y="-1558"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wTw-dt-yce">
@@ -1091,6 +1083,12 @@
                                 <action selector="draw:" destination="8JU-eN-LMV" id="vqd-Pj-8j3"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="SettingsIcon.png" id="UZw-Ov-VaC">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="aca-Qi-oQk" kind="modal" id="Azv-QN-egO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="SAx-jP-BYO">
                         <autoresizingMask key="autoresizingMask"/>
@@ -1295,7 +1293,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tze-1P-I5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2647" y="1157"/>
+            <point key="canvasLocation" x="2252" y="-1558"/>
         </scene>
     </scenes>
     <resources>
@@ -1306,9 +1304,9 @@
         <image name="RequestsIcon.png" width="47" height="47"/>
         <image name="SaveButton.png" width="102" height="101"/>
         <image name="SentTrace.png" width="157" height="109"/>
-        <image name="SettingsIcon.png" width="35" height="37"/>
+        <image name="SettingsIcon.png" width="37" height="34"/>
         <image name="SignUpButton.png" width="259" height="146"/>
-        <image name="TracesIcon.png" width="55" height="55"/>
+        <image name="TracesIcon.png" width="65" height="65"/>
         <image name="TrashButton.png" width="105" height="172"/>
         <image name="iconsberlin.png" width="30" height="30"/>
         <image name="undoButton.png" width="100" height="94"/>

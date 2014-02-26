@@ -328,8 +328,6 @@
         if (succeeded)
         {
             
-            [self performSegueWithIdentifier:@"SelectedUser" sender:self];
-            
             [imageObject setObject:@"S"forKey:@"status"];
             [imageObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 
@@ -354,8 +352,7 @@
                 else
                 {
                     
-                    NSString *errorString = [[error userInfo] objectForKey:@"error"];
-                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Opps" message:@"There was an error sending your Trace, please try again" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
                     
                     [errorAlertView show];
                     

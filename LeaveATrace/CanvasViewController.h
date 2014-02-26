@@ -20,7 +20,6 @@ extern NSInteger tracesBadgeInt;
 extern NSData *pictureData;
 extern UIImage *SaveImage;
 extern PFFile *file;
-extern UIImageView *mainImage;
 extern long iconBadge;
 
 @interface CanvasViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate> {

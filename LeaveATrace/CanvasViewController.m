@@ -26,7 +26,6 @@ NSData *pictureData;
 PFFile *file;
 NSString *badgeString;
 NSString *tracesBadgeString;
-UIImageView *mainImage;
 long iconBadge;
 
 @interface CanvasViewController ()
