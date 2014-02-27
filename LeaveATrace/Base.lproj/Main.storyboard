@@ -125,7 +125,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username..." adjustsFontSizeToFit="NO" minimumFontSize="17" id="mCP-3F-x14">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Friends Username..." adjustsFontSizeToFit="NO" minimumFontSize="17" id="mCP-3F-x14">
                                                     <rect key="frame" x="20" y="14" width="280" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -373,7 +373,6 @@
                         <outlet property="loadingValid" destination="d2n-LU-v3e" id="11h-ub-HoX"/>
                         <outlet property="noSendTo" destination="ukl-P1-zl2" id="eL9-7V-hJr"/>
                         <outlet property="validContactsTable" destination="GYn-6u-0sl" id="cud-pf-DDX"/>
-                        <segue destination="MYI-Rr-srH" kind="modal" identifier="SelectedUser" animates="NO" id="xZv-Eu-Nwb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tqJ-tB-QUf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1003,7 +1002,7 @@
             <objects>
                 <tableViewController id="8JU-eN-LMV" customClass="tracesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" id="6qg-OO-yOW">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1129,7 +1128,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EtZ-Hq-yQb">
-                                <rect key="frame" x="247" y="521" width="64" height="40"/>
+                                <rect key="frame" x="248" y="521" width="64" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" image="SentTrace.png">
@@ -1304,9 +1303,9 @@
         <image name="RequestsIcon.png" width="47" height="47"/>
         <image name="SaveButton.png" width="102" height="101"/>
         <image name="SentTrace.png" width="157" height="109"/>
-        <image name="SettingsIcon.png" width="37" height="34"/>
+        <image name="SettingsIcon.png" width="32" height="30"/>
         <image name="SignUpButton.png" width="259" height="146"/>
-        <image name="TracesIcon.png" width="65" height="65"/>
+        <image name="TracesIcon.png" width="57" height="57"/>
         <image name="TrashButton.png" width="105" height="172"/>
         <image name="iconsberlin.png" width="30" height="30"/>
         <image name="undoButton.png" width="100" height="94"/>
@@ -1318,7 +1317,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="GBW-T9-TL5"/>
-        <segue reference="xZv-Eu-Nwb"/>
         <segue reference="6Nj-0v-UHu"/>
         <segue reference="aqm-j9-75I"/>
     </inferredMetricsTieBreakers>

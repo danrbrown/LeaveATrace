@@ -308,7 +308,7 @@
     
         [loadingContact stopAnimating];
         
-        NSString *errorString = @"Can't add yourself as a friend... but I like the idea!";
+        NSString *errorString = @"You can't add yourself as a friend... but I like the idea!";
         
         UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:errorString message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         

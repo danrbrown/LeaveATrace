@@ -27,6 +27,7 @@ PFFile *file;
 NSString *badgeString;
 NSString *tracesBadgeString;
 long iconBadge;
+BOOL sentImage;
 
 @interface CanvasViewController ()
 
@@ -134,6 +135,20 @@ long iconBadge;
     [self displayBadgeCounts];
     
     [self becomeFirstResponder];
+    
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    
+    if (sentImage)
+    {
+        
+        mainImage.image = nil;
+        
+        [self.tabBarController setSelectedIndex:0];
+        
+    }
     
 }
 
@@ -340,24 +355,47 @@ long iconBadge;
 
 -(IBAction) clear:(id)sender
 {
-    
-    if (self.mainImage.image != nil)
-    {
         
-        [UIView beginAnimations:@"suck" context:NULL];
-        [UIView setAnimationTransition:108 forView:mainImage cache:NO];
-        [UIView setAnimationDuration:0.9f];
-        [UIView commitAnimations];
-    
-        self.mainImage.image = nil;
-        
-    }
+    [UIView beginAnimations:@"suck" context:NULL];
+    [UIView setAnimationTransition:108 forView:mainImage cache:NO];
+    [UIView setAnimationDuration:0.9f];
+    [UIView commitAnimations];
     
     self.mainImage.image = nil;
+    
+    [undoImageArray removeAllObjects];
     
     UIImage *nothing = [UIImage imageNamed:@"Nothing.png"];
     
     [trashB setImage:nothing forState:UIControlStateHighlighted];
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name: undo
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(IBAction) undo:(id)sender
+{
+    
+    if (undoImageArray.count > 0)
+    {
+        
+        undoImage = [undoImageArray lastObject];
+        
+        [undoImageArray removeLastObject];
+        
+        mainImage.image = undoImage;
+        
+        UIImage *nothing = [UIImage imageNamed:@"Nothing.png"];
+        
+        [undoB setImage:nothing forState:UIControlStateHighlighted];
+        
+    }
     
 }
 
@@ -483,34 +521,6 @@ long iconBadge;
     
     [self show];
 
-}
-
-//----------------------------------------------------------------------------------
-//
-// Name: undo
-//
-// Purpose:
-//
-//----------------------------------------------------------------------------------
-
--(IBAction) undo:(id)sender
-{
-    
-    if (undoImageArray.count > 0)
-    {
-        
-        undoImage = [undoImageArray lastObject];
-        
-        [undoImageArray removeLastObject];
-        
-        mainImage.image = undoImage;
-        
-        UIImage *nothing = [UIImage imageNamed:@"Nothing.png"];
-        
-        [undoB setImage:nothing forState:UIControlStateHighlighted];
-        
-    }
-    
 }
 
 //----------------------------------------------------------------------------------

@@ -303,7 +303,9 @@
 
 -(NSIndexPath *) tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        
+    
+    sentImage = YES;
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
     PFObject *tempObject = [validContacts objectAtIndex:indexPath.row];

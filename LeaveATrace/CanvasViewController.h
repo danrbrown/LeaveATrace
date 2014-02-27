@@ -21,6 +21,7 @@ extern NSData *pictureData;
 extern UIImage *SaveImage;
 extern PFFile *file;
 extern long iconBadge;
+extern BOOL sentImage;
 
 @interface CanvasViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate> {
     
