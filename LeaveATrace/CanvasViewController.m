@@ -148,6 +148,8 @@ BOOL sentImage;
         
         [self.tabBarController setSelectedIndex:0];
         
+        sentImage = NO;
+        
     }
     
 }
