@@ -54,6 +54,7 @@
                     {
                         
                         (APP).unopenedTraceCount++;
+                        [UIApplication sharedApplication].applicationIconBadgeNumber++;
                         
                     }
                     
@@ -157,6 +158,8 @@
             
             (APP).requestsArray = [[NSMutableArray alloc] initWithArray:objects];
             (APP).friendRequestsCount = objects.count;
+            
+            [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + objects.count;
             
             [[NSNotificationCenter defaultCenter]
              postNotificationName:@"LoadRequestsNotification"

@@ -263,15 +263,13 @@
     NSString *pushRecipient = [dataParms objectForKey:@"friend"];
     NSString *newObjectId = [dataParms objectForKey:@"objectId"];
     
-    NSLog(@"friend %@  object id %@",pushRecipient,newObjectId);
-    
-     NSString *pushMessage = [NSString stringWithFormat:@"%@ sent you a Trace!", [PFUser currentUser].username];
+    NSString *pushMessage = [NSString stringWithFormat:@"%@ sent you a Trace!", [PFUser currentUser].username];
 
-     PFQuery *userQuery = [PFUser query];
-     [userQuery whereKey:@"username" equalTo:pushRecipient];
-     PFUser *user = (PFUser *)[userQuery getFirstObject];
+    PFQuery *userQuery = [PFUser query];
+    [userQuery whereKey:@"username" equalTo:pushRecipient];
+    PFUser *user = (PFUser *)[userQuery getFirstObject];
     
-     NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
+    NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
     
     if ([friendLoggedIn isEqualToString:@"Y"])
     {
@@ -377,7 +375,7 @@
     progressBlock:^(int percentDone)
     {
         
-        NSLog(@"%d %% done", percentDone);
+        NSLog(@"New Trace %d %% done", percentDone);
         
     }];
 

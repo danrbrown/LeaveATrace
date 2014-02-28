@@ -162,7 +162,14 @@
                         {
                             
                             if (((APP).unopenedTraceCount > 0) && ([traceStatus isEqualToString:@"D"]))
+                            {
+                                
                                 (APP).unopenedTraceCount--;
+                                
+                                [UIApplication sharedApplication].applicationIconBadgeNumber--;
+                                
+                            }
+                            
                             
                             [myImages setObject:@"O"forKey:@"status"];
                             [traceObject setObject:@"O"forKey:@"status"];

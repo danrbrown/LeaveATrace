@@ -71,6 +71,8 @@ NSInteger traceObjectIdx;
 -(void) viewDidAppear:(BOOL)animated
 {
     
+    NSLog(@"view did appear traces view controller");
+    
     if (!(APP).TRACES_DATA_LOADED)
     {
         
@@ -100,6 +102,15 @@ NSInteger traceObjectIdx;
         [self displayBadgeCounts];
         
     }
+    
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+    
+    NSLog(@"view will appear traces view controller");
+    [tracesTable reloadData];
+    [self displayBadgeCounts];
     
 }
 
@@ -151,7 +162,7 @@ NSInteger traceObjectIdx;
 
 //----------------------------------------------------------------------------------
 
-- (void) receiveTraceNotification:(NSNotification *) notification
+-(void) receiveTraceNotification:(NSNotification *) notification
 {
     
     // [notification name] should always be @"SendTraceNotification"
@@ -226,7 +237,8 @@ NSInteger traceObjectIdx;
 
 -(void) displayTraces
 {
-        
+    NSLog(@"displayTraces traces view controller");
+    
     [tracesTable reloadData];
     
 }
@@ -500,6 +512,9 @@ NSInteger traceObjectIdx;
         {
             
             (APP).unopenedTraceCount--;
+            
+            [UIApplication sharedApplication].applicationIconBadgeNumber--;
+            
             [self displayBadgeCounts];
             
         }

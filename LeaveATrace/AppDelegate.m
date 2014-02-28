@@ -220,6 +220,8 @@
                 
                 _unopenedTraceCount++;
                 
+                [UIApplication sharedApplication].applicationIconBadgeNumber++;
+                
                 break;
             }
             
