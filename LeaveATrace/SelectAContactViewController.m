@@ -163,7 +163,7 @@
 -(IBAction) cancel
 {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
     
 }
 
@@ -304,7 +304,7 @@
     
     sentImage = YES;
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
     
     PFObject *tempObject = [validContacts objectAtIndex:indexPath.row];
     NSString *tempContact = [tempObject objectForKey:@"contact"];

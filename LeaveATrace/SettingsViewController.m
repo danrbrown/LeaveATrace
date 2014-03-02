@@ -40,13 +40,15 @@ int screens;
     [displayDayAndTimeFormat setDateFormat:@"MMM dd, YYYY h:mm a"];
     NSString *createdAtString = [NSString stringWithFormat:@"%@", [displayDayAndTimeFormat stringFromDate:createdAt]];
     
-    self.acountInfo = [@[@"Username", @"Email", @"Leave A Trace user since"] mutableCopy];
+    self.acountInfo = [@[@"Username", @"Email", @"Leave A Trace user since", @"Traces sent", @"Traces received"] mutableCopy];
     
-    self.acountInfoDetail = [@[usernameString, emailString, createdAtString] mutableCopy];
+    self.acountInfoDetail = [@[usernameString, emailString, createdAtString, @"not working", @"not working"] mutableCopy];
     
     self.actions = [@[@"Log out", @"Clear my traces"] mutableCopy];
     
     self.info = [@[@"Support", @"Privacy policy", @"Terms of use"] mutableCopy];
+    
+
     
 }
 
