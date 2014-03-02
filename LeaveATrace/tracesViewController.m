@@ -12,11 +12,11 @@
 //----------------------------------------------------------------------------------
 
 #import "tracesViewController.h"
-#import "ThreadViewController.h"
+//#import "ThreadViewController.h"
 #import "traceCell.h"
-#import "FirstPageViewController.h"
-#import "CanvasViewController.h"
-#import "SelectAContactViewController.h"
+//#import "FirstPageViewController.h"
+//#import "CanvasViewController.h"
+//#import "SelectAContactViewController.h"
 #import "AppDelegate.h"
 #import "LoadTraces.h"
 #import <Parse/Parse.h>

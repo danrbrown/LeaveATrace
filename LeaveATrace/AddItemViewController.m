@@ -15,8 +15,8 @@
 
 #import "AddItemViewController.h"
 #import "LeaveATraceItem.h"
-#import "ContactsViewController.h"
-#import "CanvasViewController.h"
+//#import "ContactsViewController.h"
+//#import "CanvasViewController.h"
 #import "AppDelegate.h"
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>

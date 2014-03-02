@@ -7,8 +7,8 @@
 //
 
 #import "SettingsViewController.h"
-#import "FirstPageViewController.h"
-#import "DetialViewController.h"
+//#import "FirstPageViewController.h"
+//#import "DetialViewController.h"
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 

@@ -264,8 +264,7 @@
 				9C03C68C18BA557800095CFA /* New Trace Intro.png */,
 				9C03C68B18BA557800095CFA /* Draw back Intro.png */,
 			);
-			name = "Intro Images";
-			path = "images/Intro Images";
+			path = "Intro Images";
 			sourceTree = "<group>";
 		};
 		9C2767FE181C75B10073453E = {
@@ -281,7 +280,6 @@
 				9C276810181C75B10073453E /* LeaveATrace */,
 				9C276851181C771D0073453E /* images */,
 				9CA9C76C18B9495000F2E5C4 /* Key Documents */,
-				9C03C68918BA557800095CFA /* Intro Images */,
 				9C27682F181C75B10073453E /* LeaveATraceTests */,
 				9C276809181C75B10073453E /* Frameworks */,
 				9C276808181C75B10073453E /* Products */,
@@ -383,6 +381,7 @@
 			children = (
 				9C276852181C771D0073453E /* buttons */,
 				9C27685E181C771D0073453E /* other */,
+				9C03C68918BA557800095CFA /* Intro Images */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -803,7 +802,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace;
+				FRAMEWORK_SEARCH_PATHS = /Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";
 				INFOPLIST_FILE = "LeaveATrace/LeaveATrace-Info.plist";
@@ -821,7 +820,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = /Users/DTRB/Documents/MyStuff/LeaveATrace/LeaveATrace;
+				FRAMEWORK_SEARCH_PATHS = /Users/Ricky/Documents/MyStuff/AppProject/LeaveATrace;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LeaveATrace/LeaveATrace-Prefix.pch";
 				INFOPLIST_FILE = "LeaveATrace/LeaveATrace-Info.plist";

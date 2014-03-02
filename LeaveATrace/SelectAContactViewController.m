@@ -12,9 +12,9 @@
 //----------------------------------------------------------------------------------
 
 #import "SelectAContactViewController.h"
-#import "tracesViewController.h"
-#import "CanvasViewController.h"
-#import "LeaveATraceItem.h"
+//#import "tracesViewController.h"
+//#import "CanvasViewController.h"
+//#import "LeaveATraceItem.h"
 #import "sendToCell.h"
 #import "AppDelegate.h"
 #import <StoreKit/StoreKit.h>

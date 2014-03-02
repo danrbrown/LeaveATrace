@@ -11,8 +11,8 @@
 //----------------------------------------------------------------------------------
 
 #import "RequestsAndLogOutViewController.h"
-#import "LeaveATraceRequest.h"
-#import "CanvasViewController.h"
+//#import "LeaveATraceRequest.h"
+//#import "CanvasViewController.h"
 #import "LoadTraces.h"
 #import "AppDelegate.h"
 #import "RequestCell.h"

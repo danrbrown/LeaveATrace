@@ -12,8 +12,8 @@
 //----------------------------------------------------------------------------------
 
 #import "ContactsViewController.h"
-#import "CanvasViewController.h"
-#import "AddItemViewController.h"
+//#import "CanvasViewController.h"
+//#import "AddItemViewController.h"
 #import "AppDelegate.h"
 #import "LeaveATraceItem.h"
 #import "LoadTraces.h"

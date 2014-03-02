@@ -7,9 +7,9 @@
 //
 
 #import <Parse/Parse.h>
-#import "LoginViewController.h"
+//#import "LoginViewController.h"
 #import "AppDelegate.h"
-#import "ThreadViewController.h"
+//#import "ThreadViewController.h"
 #import "LoadTraces.h"
 
 @implementation AppDelegate

@@ -12,8 +12,8 @@
 //------------------------------------------------------------------
 
 #import "LoginViewController.h"
-#import "CanvasViewController.h"
-#import "FirstPageViewController.h"
+//#import "CanvasViewController.h"
+//#import "FirstPageViewController.h"
 #import "LoadTraces.h"
 #import <Parse/Parse.h>
 

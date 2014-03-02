@@ -11,9 +11,9 @@
 //----------------------------------------------------------------------------------
 
 #import "CanvasViewController.h"
-#import "SelectAContactViewController.h"
-#import "FirstPageViewController.h"
-#import "tracesViewController.h"
+//#import "SelectAContactViewController.h"
+//#import "FirstPageViewController.h"
+//#import "tracesViewController.h"
 #import "AppDelegate.h"
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
