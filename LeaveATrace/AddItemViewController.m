@@ -308,9 +308,7 @@
     
         [loadingContact stopAnimating];
         
-        NSString *errorString = @"You can't add yourself as a friend... but I like the idea!";
-        
-        UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:errorString message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"You can't add yourself as a friend... but I like the idea!" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         
         [errorAlertView show];
         
@@ -346,7 +344,7 @@
             
             [loadingContact stopAnimating];
             
-            NSString *errorString = @"Contact is already in the list";
+            NSString *errorString = [NSString stringWithFormat:@"%@ is already your friend!", self.textField.text];
             
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:errorString message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             
@@ -403,8 +401,7 @@
             
                             [loadingContact stopAnimating];
                             
-                            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-                            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:  errorString delegate:nil cancelButtonTitle:@"Ok"    otherButtonTitles:nil, nil];
+                            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"There there was an error sending your request, please try again!" message:nil delegate:nil cancelButtonTitle:@"Ok"    otherButtonTitles:nil, nil];
                     
                             [errorAlertView show];
                         
@@ -417,10 +414,8 @@
                 {
             
                     [loadingContact stopAnimating];
-                    
-                    NSString *errorString = @"User not found";
             
-                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:errorString message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"User not found!" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             
                     [errorAlertView show];
             

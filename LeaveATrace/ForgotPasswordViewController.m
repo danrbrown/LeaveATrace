@@ -40,7 +40,7 @@
         NSString *usersEmail = [user objectForKey:@"email"];
         [PFUser requestPasswordResetForEmailInBackground:usersEmail];
         
-        UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Check your email!" message:[NSString stringWithFormat:@"A email to rest password has been sent to %@", usersEmail] delegate:self cancelButtonTitle:@"close" otherButtonTitles:nil];
+        UIAlertView *success = [[UIAlertView alloc] initWithTitle:@"Check your email!" message:@"A email to reset your password has been sent" delegate:self cancelButtonTitle:@"close" otherButtonTitles:nil];
         
         [success show];
         
@@ -48,7 +48,7 @@
     else
     {
         
-        UIAlertView *userNotFound = [[UIAlertView alloc] initWithTitle:@"User not found" message:nil delegate:self cancelButtonTitle:@"close" otherButtonTitles:nil];
+        UIAlertView *userNotFound = [[UIAlertView alloc] initWithTitle:@"User not found!" message:nil delegate:self cancelButtonTitle:@"close" otherButtonTitles:nil];
         
         [userNotFound show];
         

@@ -67,7 +67,7 @@ BOOL LoggedIn;
         else
         {
             
-            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Try again" message:@"There was a error loging in" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Try again" message:@"There was a error loging in, please try again!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             
             [errorAlertView show];
             

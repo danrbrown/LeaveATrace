@@ -309,7 +309,7 @@
     PFObject *tempObject = [validContacts objectAtIndex:indexPath.row];
     NSString *tempContact = [tempObject objectForKey:@"contact"];
     NSDate *currentDateTime = [NSDate date];
-
+    
     PFObject *imageObject = [PFObject objectWithClassName:@"TracesObject"];
     
     [imageObject setObject:file forKey:@"image"];

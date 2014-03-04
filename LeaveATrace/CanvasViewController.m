@@ -657,7 +657,7 @@ BOOL sentImage;
         [loading stopAnimating];
         [_hudView removeFromSuperview];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh-oh" message:@"Image could not be saved. Please try again"  delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Drawing could not be saved, please try again!" message:nil delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
         
         [alert show];
         
