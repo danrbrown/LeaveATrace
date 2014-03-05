@@ -638,6 +638,8 @@ BOOL sentImage;
     
     [saveB setImage:nothing forState:UIControlStateHighlighted];
     
+    [colorValue setThumbImage:[UIImage alloc] forState:UIControlStateNormal];
+    
 }
 
 //----------------------------------------------------------------------------------

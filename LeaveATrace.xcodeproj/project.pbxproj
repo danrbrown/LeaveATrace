@@ -51,7 +51,6 @@
 		9C27689B181C7C660073453E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27689A181C7C660073453E /* SystemConfiguration.framework */; };
 		9C27689D181C7CDE0073453E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27689C181C7CDE0073453E /* AudioToolbox.framework */; };
 		9C593E8B18B858B900E8124A /* Nothing.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C593E8A18B858B900E8124A /* Nothing.png */; };
-		9C593E8F18B86D4A00E8124A /* Slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C593E8E18B86D4A00E8124A /* Slider.png */; };
 		9C593E9118B8729000E8124A /* undoButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C593E9018B8729000E8124A /* undoButton.png */; };
 		9C595CB41867B65B00D1B7E8 /* OpenedTrace.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C595CB31867B65B00D1B7E8 /* OpenedTrace.png */; };
 		9C595CB61867B66500D1B7E8 /* NewTrace.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C595CB51867B66500D1B7E8 /* NewTrace.png */; };
@@ -70,6 +69,8 @@
 		9CAA06DA18A45DCA00178030 /* SettingsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAA06D918A45DCA00178030 /* SettingsIcon@2x.png */; };
 		9CAC90E518413D45007CC2CD /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E418413D45007CC2CD /* RequestCell.m */; };
 		9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */; };
+		9CACF51518C6D08D0037F9E7 /* ColorValueSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CACF51418C6D08D0037F9E7 /* ColorValueSlider.m */; };
+		9CACF51718C6D4A00037F9E7 /* ColorValueSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CACF51618C6D4A00037F9E7 /* ColorValueSlider.png */; };
 		9CB59BB11844F94C006AB105 /* SelectAContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB59BB01844F94C006AB105 /* SelectAContactViewController.m */; };
 		9CB59BB418454A16006AB105 /* sendToCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB59BB318454A16006AB105 /* sendToCell.m */; };
 		9CBC5AFA1856899B00725BD5 /* LoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBC5AF91856899B00725BD5 /* LoginButton.png */; };
@@ -160,7 +161,6 @@
 		9C27689A181C7C660073453E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9C27689C181C7CDE0073453E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		9C593E8A18B858B900E8124A /* Nothing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Nothing.png; sourceTree = "<group>"; };
-		9C593E8E18B86D4A00E8124A /* Slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slider.png; sourceTree = "<group>"; };
 		9C593E9018B8729000E8124A /* undoButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = undoButton.png; sourceTree = "<group>"; };
 		9C595CB31867B65B00D1B7E8 /* OpenedTrace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OpenedTrace.png; sourceTree = "<group>"; };
 		9C595CB51867B66500D1B7E8 /* NewTrace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewTrace.png; sourceTree = "<group>"; };
@@ -184,6 +184,9 @@
 		9CAC90E418413D45007CC2CD /* RequestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestCell.m; path = LeaveATrace/RequestCell.m; sourceTree = "<group>"; };
 		9CAC90E618413DF5007CC2CD /* LeaveATraceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaveATraceRequest.h; path = LeaveATrace/LeaveATraceRequest.h; sourceTree = "<group>"; };
 		9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaveATraceRequest.m; path = LeaveATrace/LeaveATraceRequest.m; sourceTree = "<group>"; };
+		9CACF51318C6D08D0037F9E7 /* ColorValueSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorValueSlider.h; sourceTree = "<group>"; };
+		9CACF51418C6D08D0037F9E7 /* ColorValueSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorValueSlider.m; sourceTree = "<group>"; };
+		9CACF51618C6D4A00037F9E7 /* ColorValueSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ColorValueSlider.png; sourceTree = "<group>"; };
 		9CB59BAF1844F94C006AB105 /* SelectAContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectAContactViewController.h; path = LeaveATrace/SelectAContactViewController.h; sourceTree = "<group>"; };
 		9CB59BB01844F94C006AB105 /* SelectAContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectAContactViewController.m; path = LeaveATrace/SelectAContactViewController.m; sourceTree = "<group>"; };
 		9CB59BB218454A16006AB105 /* sendToCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sendToCell.h; path = LeaveATrace/sendToCell.h; sourceTree = "<group>"; };
@@ -402,8 +405,8 @@
 		9C27685E181C771D0073453E /* other */ = {
 			isa = PBXGroup;
 			children = (
+				9CACF51618C6D4A00037F9E7 /* ColorValueSlider.png */,
 				9C593E9018B8729000E8124A /* undoButton.png */,
-				9C593E8E18B86D4A00E8124A /* Slider.png */,
 				9C593E8A18B858B900E8124A /* Nothing.png */,
 				9CA7041E18AD764B00887EB1 /* RequestsIcon@2x.png */,
 				9CAA06D918A45DCA00178030 /* SettingsIcon@2x.png */,
@@ -499,6 +502,8 @@
 		9CF34DD2189C56040082329B /* Sliders */ = {
 			isa = PBXGroup;
 			children = (
+				9CACF51318C6D08D0037F9E7 /* ColorValueSlider.h */,
+				9CACF51418C6D08D0037F9E7 /* ColorValueSlider.m */,
 				9CF34DCF189C55560082329B /* BrushSizeSlider.h */,
 				9CF34DD0189C55560082329B /* BrushSizeSlider.m */,
 				9CF34DD6189C57FE0082329B /* PopoverView.h */,
@@ -610,11 +615,11 @@
 				9C27686F181C771D0073453E /* Default-568h@2x.png in Resources */,
 				9C03C69018BA557800095CFA /* New Trace Intro.png in Resources */,
 				9C276871181C771D0073453E /* iconsberlin@2x.png in Resources */,
+				9CACF51718C6D4A00037F9E7 /* ColorValueSlider.png in Resources */,
 				9CA7041F18AD764B00887EB1 /* RequestsIcon@2x.png in Resources */,
 				9C276815181C75B10073453E /* InfoPlist.strings in Resources */,
 				9C593E8B18B858B900E8124A /* Nothing.png in Resources */,
 				9C595CB41867B65B00D1B7E8 /* OpenedTrace.png in Resources */,
-				9C593E8F18B86D4A00E8124A /* Slider.png in Resources */,
 				9C593E9118B8729000E8124A /* undoButton.png in Resources */,
 				9CBC5AFA1856899B00725BD5 /* LoginButton.png in Resources */,
 				9CAA06DA18A45DCA00178030 /* SettingsIcon@2x.png in Resources */,
@@ -652,6 +657,7 @@
 				9C27684C181C76B10073453E /* CanvasViewController.m in Sources */,
 				9CB59BB418454A16006AB105 /* sendToCell.m in Sources */,
 				9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */,
+				9CACF51518C6D08D0037F9E7 /* ColorValueSlider.m in Sources */,
 				3789414718B14BB600BA0063 /* ForgotPasswordViewController.m in Sources */,
 				9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */,
 				9C276877181C774F0073453E /* LeaveATraceItem.m in Sources */,
