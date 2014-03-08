@@ -55,6 +55,8 @@ extern BOOL sentImage;
     IBOutlet UIButton *saveB;
     IBOutlet UIButton *sendB;
     IBOutlet UIActivityIndicatorView *loading;
+    IBOutlet UIImageView *sliderImage;
+    IBOutlet UIImageView *tutorialImage;
     UIView *_hudView;
     UILabel *_captionLabel;
     

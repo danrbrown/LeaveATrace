@@ -111,7 +111,14 @@ BOOL sentImage;
         mainImage.frame = CGRectMake(0, 0, 320, 519);
         
     }
-
+    
+    if (!(APP).firstTime)
+    {
+    
+        [tutorialImage setHidden:YES];
+        
+    }
+    
 }
 
 -(BOOL) prefersStatusBarHidden
@@ -436,6 +443,14 @@ BOOL sentImage;
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
+    if ((APP).firstTime)
+    {
+        
+        [tutorialImage setHidden:YES];
+        (APP).firstTime = NO;
+        
+    }
+    
     mouseSwiped = NO;
     
     UITouch *touch = [touches anyObject];
@@ -446,6 +461,8 @@ BOOL sentImage;
     [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
     undoImage = UIGraphicsGetImageFromCurrentImageContext();
     [undoImageArray addObject:undoImage];
+    
+    
     
 }
 
@@ -700,6 +717,11 @@ BOOL sentImage;
 {
     
     [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:5];
+    [colorValue setAlpha:1];
+    [UIView commitAnimations];
+    
+    [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
     [trashB setAlpha:1];
     [undoB setAlpha:1];
@@ -709,6 +731,7 @@ BOOL sentImage;
     [undoB setAlpha:1];
     [sendB setAlpha:1];
     [undoB setAlpha:1];
+    [sliderImage setAlpha:1];
     [currentColorImage setAlpha:1];
     [UIView commitAnimations];
     
@@ -716,6 +739,11 @@ BOOL sentImage;
 
 -(void) hide
 {
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.1];
+    [colorValue setAlpha:0];
+    [UIView commitAnimations];
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
@@ -728,6 +756,7 @@ BOOL sentImage;
     [sendB setAlpha:0];
     [undoB setAlpha:0];
     [currentColorImage setAlpha:0];
+    [sliderImage setAlpha:0];
     [UIView commitAnimations];
     
 }
@@ -788,6 +817,13 @@ BOOL sentImage;
     [_hudView removeFromSuperview];
     
 
+}
+- (IBAction)HideTut:(UITapGestureRecognizer *)sender
+{
+
+    [tutorialImage setHidden:YES];
+    NSLog(@"hide");
+    
 }
 
 @end

@@ -250,6 +250,8 @@
     
     lastPoint = currentPoint;
     
+    [self hide];
+    
 }
 
 //----------------------------------------------------------------------------------
@@ -264,7 +266,9 @@
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
-    if (!mouseSwiped) {
+    if (!mouseSwiped)
+    {
+        
         UIGraphicsBeginImageContext(self.view.frame.size);
         [self.mainThreadImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
         CGContextSetLineCap(UIGraphicsGetCurrentContext(), kCGLineCapRound);
@@ -276,6 +280,7 @@
         CGContextFlush(UIGraphicsGetCurrentContext());
         self.mainThreadImage.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
+    
     }
     
     UIGraphicsBeginImageContext(self.mainThreadImage.frame.size);
@@ -283,6 +288,8 @@
     [self.mainThreadImage.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) blendMode:kCGBlendModeNormal alpha:opacity];
     self.mainThreadImage.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    [self show];
     
 }
 
@@ -678,6 +685,54 @@
         
     }
     
+}
+
+-(void) show
+{
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:5];
+    [_colorValue setAlpha:1];
+    [UIView commitAnimations];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [trashB setAlpha:1];
+    [undoB setAlpha:1];
+    [saveB setAlpha:1];
+    [_colorValue setAlpha:1];
+    [_brushSize setAlpha:1];
+    [undoB setAlpha:1];
+    [sendB setAlpha:1];
+    [undoB setAlpha:1];
+    [sliderImage setAlpha:1];
+    [currentColorImage setAlpha:1];
+    [UIView commitAnimations];
+    
+}
+
+-(void) hide
+{
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.1];
+    [_colorValue setAlpha:0];
+    [UIView commitAnimations];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [trashB setAlpha:0];
+    [undoB setAlpha:0];
+    [saveB setAlpha:0];
+    [_colorValue setAlpha:0];
+    [_brushSize setAlpha:0];
+    [undoB setAlpha:0];
+    [sendB setAlpha:0];
+    [undoB setAlpha:0];
+    [currentColorImage setAlpha:0];
+    [sliderImage setAlpha:0];
+    [UIView commitAnimations];
+
 }
 
 -(void) loadingTrace

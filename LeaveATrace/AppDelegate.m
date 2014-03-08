@@ -28,6 +28,8 @@
     _CONTACTS_DATA_LOADED = NO;
     _REQUESTS_DATA_LOADED = NO;
     
+    _firstTime = NO;
+    
     [Parse setApplicationId:@"cK6TMBbNDsdNFsE1vSckhEQDrCQjztAxURMKPHXL"
                   clientKey:@"8n0WuaSXapCrRAH1HRNL7bbSxIOBQxbjZHWLIrHr"];
     
@@ -55,6 +57,10 @@
     [[UITabBar appearance] setTintColor:[UIColor yellowColor]];
     
     application.applicationSupportsShakeToEdit = YES;
+    
+    UIImage *thumbImage = [UIImage imageNamed:@"Nothing.png"];
+
+    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateNormal];
     
     return YES;
     

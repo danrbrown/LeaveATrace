@@ -8,12 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3789414718B14BB600BA0063 /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3789414618B14BB600BA0063 /* ForgotPasswordViewController.m */; };
-		9C03C68E18BA557800095CFA /* Buttons Draw Screen Intro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C03C68A18BA557800095CFA /* Buttons Draw Screen Intro.png */; };
-		9C03C68F18BA557800095CFA /* Draw back Intro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C03C68B18BA557800095CFA /* Draw back Intro.png */; };
-		9C03C69018BA557800095CFA /* New Trace Intro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C03C68C18BA557800095CFA /* New Trace Intro.png */; };
-		9C03C69118BA557800095CFA /* Send Intro.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C03C68D18BA557800095CFA /* Send Intro.png */; };
 		9C0818391869524E006E9DFD /* TrashButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0818381869524E006E9DFD /* TrashButton.png */; };
 		9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16751C181DA1B50024EE93 /* tracesViewController.m */; };
+		9C243FD318C931EF00F497AB /* ColorValueSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C243FD218C931EF00F497AB /* ColorValueSlider.m */; };
+		9C243FDA18CB9F8200F497AB /* Tutorial(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 9C243FD918CB9F8200F497AB /* Tutorial(1).png */; };
 		9C27680B181C75B10073453E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680A181C75B10073453E /* Foundation.framework */; };
 		9C27680D181C75B10073453E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680C181C75B10073453E /* CoreGraphics.framework */; };
 		9C27680F181C75B10073453E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680E181C75B10073453E /* UIKit.framework */; };
@@ -69,7 +67,6 @@
 		9CAA06DA18A45DCA00178030 /* SettingsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CAA06D918A45DCA00178030 /* SettingsIcon@2x.png */; };
 		9CAC90E518413D45007CC2CD /* RequestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E418413D45007CC2CD /* RequestCell.m */; };
 		9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */; };
-		9CACF51518C6D08D0037F9E7 /* ColorValueSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CACF51418C6D08D0037F9E7 /* ColorValueSlider.m */; };
 		9CACF51718C6D4A00037F9E7 /* ColorValueSlider.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CACF51618C6D4A00037F9E7 /* ColorValueSlider.png */; };
 		9CB59BB11844F94C006AB105 /* SelectAContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB59BB01844F94C006AB105 /* SelectAContactViewController.m */; };
 		9CB59BB418454A16006AB105 /* sendToCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB59BB318454A16006AB105 /* sendToCell.m */; };
@@ -105,13 +102,12 @@
 /* Begin PBXFileReference section */
 		3789414518B14BB600BA0063 /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgotPasswordViewController.h; path = LeaveATrace/ForgotPasswordViewController.h; sourceTree = "<group>"; };
 		3789414618B14BB600BA0063 /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgotPasswordViewController.m; path = LeaveATrace/ForgotPasswordViewController.m; sourceTree = "<group>"; };
-		9C03C68A18BA557800095CFA /* Buttons Draw Screen Intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Buttons Draw Screen Intro.png"; sourceTree = "<group>"; };
-		9C03C68B18BA557800095CFA /* Draw back Intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Draw back Intro.png"; sourceTree = "<group>"; };
-		9C03C68C18BA557800095CFA /* New Trace Intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New Trace Intro.png"; sourceTree = "<group>"; };
-		9C03C68D18BA557800095CFA /* Send Intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Send Intro.png"; sourceTree = "<group>"; };
 		9C0818381869524E006E9DFD /* TrashButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrashButton.png; sourceTree = "<group>"; };
 		9C16751B181DA1B50024EE93 /* tracesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tracesViewController.h; path = LeaveATrace/tracesViewController.h; sourceTree = "<group>"; };
 		9C16751C181DA1B50024EE93 /* tracesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = tracesViewController.m; path = LeaveATrace/tracesViewController.m; sourceTree = "<group>"; };
+		9C243FD118C931EF00F497AB /* ColorValueSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorValueSlider.h; path = LeaveATrace/ColorValueSlider.h; sourceTree = "<group>"; };
+		9C243FD218C931EF00F497AB /* ColorValueSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorValueSlider.m; path = LeaveATrace/ColorValueSlider.m; sourceTree = "<group>"; };
+		9C243FD918CB9F8200F497AB /* Tutorial(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tutorial(1).png"; sourceTree = "<group>"; };
 		9C276807181C75B10073453E /* LeaveATrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeaveATrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C27680A181C75B10073453E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9C27680C181C75B10073453E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -184,8 +180,6 @@
 		9CAC90E418413D45007CC2CD /* RequestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestCell.m; path = LeaveATrace/RequestCell.m; sourceTree = "<group>"; };
 		9CAC90E618413DF5007CC2CD /* LeaveATraceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaveATraceRequest.h; path = LeaveATrace/LeaveATraceRequest.h; sourceTree = "<group>"; };
 		9CAC90E718413DF5007CC2CD /* LeaveATraceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaveATraceRequest.m; path = LeaveATrace/LeaveATraceRequest.m; sourceTree = "<group>"; };
-		9CACF51318C6D08D0037F9E7 /* ColorValueSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorValueSlider.h; sourceTree = "<group>"; };
-		9CACF51418C6D08D0037F9E7 /* ColorValueSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorValueSlider.m; sourceTree = "<group>"; };
 		9CACF51618C6D4A00037F9E7 /* ColorValueSlider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ColorValueSlider.png; sourceTree = "<group>"; };
 		9CB59BAF1844F94C006AB105 /* SelectAContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectAContactViewController.h; path = LeaveATrace/SelectAContactViewController.h; sourceTree = "<group>"; };
 		9CB59BB01844F94C006AB105 /* SelectAContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectAContactViewController.m; path = LeaveATrace/SelectAContactViewController.m; sourceTree = "<group>"; };
@@ -259,15 +253,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9C03C68918BA557800095CFA /* Intro Images */ = {
+		9C243FD818CB9F8200F497AB /* Intro */ = {
 			isa = PBXGroup;
 			children = (
-				9C03C68A18BA557800095CFA /* Buttons Draw Screen Intro.png */,
-				9C03C68D18BA557800095CFA /* Send Intro.png */,
-				9C03C68C18BA557800095CFA /* New Trace Intro.png */,
-				9C03C68B18BA557800095CFA /* Draw back Intro.png */,
+				9C243FD918CB9F8200F497AB /* Tutorial(1).png */,
 			);
-			path = "Intro Images";
+			path = Intro;
 			sourceTree = "<group>";
 		};
 		9C2767FE181C75B10073453E = {
@@ -382,9 +373,9 @@
 		9C276851181C771D0073453E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9C243FD818CB9F8200F497AB /* Intro */,
 				9C276852181C771D0073453E /* buttons */,
 				9C27685E181C771D0073453E /* other */,
-				9C03C68918BA557800095CFA /* Intro Images */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -502,8 +493,8 @@
 		9CF34DD2189C56040082329B /* Sliders */ = {
 			isa = PBXGroup;
 			children = (
-				9CACF51318C6D08D0037F9E7 /* ColorValueSlider.h */,
-				9CACF51418C6D08D0037F9E7 /* ColorValueSlider.m */,
+				9C243FD118C931EF00F497AB /* ColorValueSlider.h */,
+				9C243FD218C931EF00F497AB /* ColorValueSlider.m */,
 				9CF34DCF189C55560082329B /* BrushSizeSlider.h */,
 				9CF34DD0189C55560082329B /* BrushSizeSlider.m */,
 				9CF34DD6189C57FE0082329B /* PopoverView.h */,
@@ -606,14 +597,12 @@
 				9CBF68EC187A070500718E8D /* CloseButton.png in Resources */,
 				9CD69C0F185A951200177EA0 /* FBUserSettingsViewResources.bundle in Resources */,
 				9C595CBA1867DE3600D1B7E8 /* SentTrace.png in Resources */,
-				9C03C68F18BA557800095CFA /* Draw back Intro.png in Resources */,
 				9CA9C77218B9495000F2E5C4 /* Leave A Trace - Privacy Policy.pdf in Resources */,
 				9C595CBC1867E04700D1B7E8 /* SentNotOpened.png in Resources */,
 				9CBC5B49185931B600725BD5 /* SaveButton.png in Resources */,
 				9CAA06CF189EC8C600178030 /* NewTraceIcon@2x.png in Resources */,
 				9C0818391869524E006E9DFD /* TrashButton.png in Resources */,
 				9C27686F181C771D0073453E /* Default-568h@2x.png in Resources */,
-				9C03C69018BA557800095CFA /* New Trace Intro.png in Resources */,
 				9C276871181C771D0073453E /* iconsberlin@2x.png in Resources */,
 				9CACF51718C6D4A00037F9E7 /* ColorValueSlider.png in Resources */,
 				9CA7041F18AD764B00887EB1 /* RequestsIcon@2x.png in Resources */,
@@ -625,10 +614,9 @@
 				9CAA06DA18A45DCA00178030 /* SettingsIcon@2x.png in Resources */,
 				9CAA06CD189EC6FF00178030 /* TracesIcon@2x.png in Resources */,
 				9CA9C77418B9495000F2E5C4 /* Leave A Trace - Terms of Use.pdf in Resources */,
-				9C03C69118BA557800095CFA /* Send Intro.png in Resources */,
 				9C782E05182885ED00077FC8 /* eraserB.png in Resources */,
+				9C243FDA18CB9F8200F497AB /* Tutorial(1).png in Resources */,
 				9C595CB61867B66500D1B7E8 /* NewTrace.png in Resources */,
-				9C03C68E18BA557800095CFA /* Buttons Draw Screen Intro.png in Resources */,
 				9CAA06D1189EEB5900178030 /* FriendsIcon@2x.png in Resources */,
 				9C27681E181C75B10073453E /* Main.storyboard in Resources */,
 			);
@@ -657,7 +645,6 @@
 				9C27684C181C76B10073453E /* CanvasViewController.m in Sources */,
 				9CB59BB418454A16006AB105 /* sendToCell.m in Sources */,
 				9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */,
-				9CACF51518C6D08D0037F9E7 /* ColorValueSlider.m in Sources */,
 				3789414718B14BB600BA0063 /* ForgotPasswordViewController.m in Sources */,
 				9CAC90E818413DF5007CC2CD /* LeaveATraceRequest.m in Sources */,
 				9C276877181C774F0073453E /* LeaveATraceItem.m in Sources */,
@@ -671,6 +658,7 @@
 				9CAC90E518413D45007CC2CD /* RequestCell.m in Sources */,
 				9C27681B181C75B10073453E /* AppDelegate.m in Sources */,
 				9CB59BB11844F94C006AB105 /* SelectAContactViewController.m in Sources */,
+				9C243FD318C931EF00F497AB /* ColorValueSlider.m in Sources */,
 				9C27684F181C76B10073453E /* SignUpViewController.m in Sources */,
 				9CF1F932184BE89F00AE3EAC /* traceCell.m in Sources */,
 				9C276850181C76B10073453E /* RequestsAndLogOutViewController.m in Sources */,

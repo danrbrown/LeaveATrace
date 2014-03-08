@@ -217,7 +217,7 @@
                                 <gestureRecognizers/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="O1Q-lZ-m3k">
-                                <rect key="frame" x="108" y="469" width="39" height="45"/>
+                                <rect key="frame" x="59" y="472" width="39" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="TrashButton.png"/>
@@ -226,7 +226,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yIF-o3-zbA">
-                                <rect key="frame" x="7" y="470" width="46" height="43"/>
+                                <rect key="frame" x="7" y="473" width="46" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="SaveButton.png">
@@ -272,7 +272,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UYS-v5-hh0">
-                                <rect key="frame" x="55" y="470" width="50" height="44"/>
+                                <rect key="frame" x="99" y="472" width="50" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
                                 <state key="normal" image="undoButton.png">
@@ -287,6 +287,14 @@
                                 <rect key="frame" x="152" y="12" width="126" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tutorial(1).png" id="3B1-Tp-gCu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="L1C-DA-3eR" appends="YES" id="p4I-Ej-0Ry"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -298,12 +306,19 @@
                         <outlet property="mainImage" destination="X7s-Uc-4iM" id="Vyw-xD-5aB"/>
                         <outlet property="saveB" destination="yIF-o3-zbA" id="B6g-Er-EpM"/>
                         <outlet property="sendB" destination="nhl-67-LS2" id="FdI-aU-ltA"/>
+                        <outlet property="sliderImage" destination="MMz-qv-Io8" id="kwM-dt-HuW"/>
                         <outlet property="trashB" destination="O1Q-lZ-m3k" id="OqW-F7-9Vn"/>
+                        <outlet property="tutorialImage" destination="3B1-Tp-gCu" id="jPl-ha-s0v"/>
                         <outlet property="undoB" destination="UYS-v5-hh0" id="LV5-Zb-Okx"/>
                         <segue destination="afe-A0-nhl" kind="modal" identifier="selectAContact" animates="NO" id="RX7-Ij-e6B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ut3-sB-QOw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="L1C-DA-3eR">
+                    <connections>
+                        <action selector="HideTut:" destination="GrZ-6C-8aQ" id="0Qv-yi-ZIi"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2252" y="463"/>
         </scene>
@@ -320,7 +335,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ukl-P1-zl2">
-                                    <rect key="frame" x="104" y="5" width="113" height="33"/>
+                                    <rect key="frame" x="20" y="5" width="280" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1222,6 +1237,7 @@
                         <outlet property="mainThreadImage" destination="Fms-ao-vy8" id="AxB-4v-XBG"/>
                         <outlet property="saveB" destination="2Li-M4-Xbc" id="NEm-pl-edv"/>
                         <outlet property="sendB" destination="EtZ-Hq-yQb" id="QmU-JO-ZGE"/>
+                        <outlet property="sliderImage" destination="Pfr-a6-zK8" id="7xV-m2-eag"/>
                         <outlet property="trashB" destination="bXD-Nr-LjE" id="uyH-UZ-WZR"/>
                         <outlet property="undoB" destination="bTf-ul-LZI" id="YaT-7d-eEa"/>
                     </connections>
@@ -1305,7 +1321,7 @@
     </scenes>
     <resources>
         <image name="CloseButton.png" width="90" height="155"/>
-        <image name="ColorValueSlider.png" width="263" height="48"/>
+        <image name="ColorValueSlider.png" width="263" height="66"/>
         <image name="FriendsIcon.png" width="45" height="45"/>
         <image name="LoginButton.png" width="258" height="145"/>
         <image name="NewTraceIcon.png" width="45" height="45"/>
@@ -1316,6 +1332,7 @@
         <image name="SignUpButton.png" width="259" height="146"/>
         <image name="TracesIcon.png" width="57" height="57"/>
         <image name="TrashButton.png" width="105" height="172"/>
+        <image name="Tutorial(1).png" width="320" height="519"/>
         <image name="iconsberlin.png" width="30" height="30"/>
         <image name="undoButton.png" width="100" height="94"/>
     </resources>

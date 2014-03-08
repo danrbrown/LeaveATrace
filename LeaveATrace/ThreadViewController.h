@@ -35,6 +35,7 @@
     IBOutlet UILabel *otherUser;
     IBOutlet UIActivityIndicatorView *loadingSent;
     IBOutlet UIActivityIndicatorView *loadingTrace;
+    IBOutlet UIImageView *sliderImage;
     UIView *_hudView;
     UILabel *_captionLabel;
     int viewText;

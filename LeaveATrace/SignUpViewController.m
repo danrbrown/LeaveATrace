@@ -12,6 +12,7 @@
 //-------------------------------------------------------
 
 #import "SignUpViewController.h"
+#import "AppDelegate.h"
 #import <Parse/Parse.h>
 
 @interface SignUpViewController ()
@@ -142,6 +143,8 @@
         
              if (!error)
              {
+                 
+                 (APP).firstTime = YES;
             
                  [self performSegueWithIdentifier:@"SignupSuccesful" sender:self];
             
