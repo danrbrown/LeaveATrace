@@ -56,7 +56,7 @@ NSInteger traceObjectIdx;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(receiveTraceNotification:)
                                                  name:@"SendTraceNotification"
-                                               object:nil];    
+                                               object:nil];
     
 }
 
@@ -70,8 +70,6 @@ NSInteger traceObjectIdx;
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    
-    NSLog(@"view did appear traces view controller");
     
     if (!(APP).TRACES_DATA_LOADED)
     {
@@ -108,7 +106,6 @@ NSInteger traceObjectIdx;
 -(void) viewWillAppear:(BOOL)animated
 {
     
-    NSLog(@"view will appear traces view controller");
     [tracesTable reloadData];
     [self displayBadgeCounts];
     
@@ -339,6 +336,8 @@ NSInteger traceObjectIdx;
                 tmpOpenedString = @"- Sending...";
                 [cell.didNotOpenImage setHidden:YES];
                 [cell.sending startAnimating];
+                cell.userInteractionEnabled = NO;
+                
                 
             }
             else if ([tmpStatus isEqualToString:@"S"])
@@ -347,6 +346,7 @@ NSInteger traceObjectIdx;
                 tmpOpenedString = @"- Sent";
                 [cell.didNotOpenImage setHidden:NO];
                 [cell.sending stopAnimating];
+                cell.userInteractionEnabled = YES;
                 
             }
             else if ([tmpStatus isEqualToString:@"D"])

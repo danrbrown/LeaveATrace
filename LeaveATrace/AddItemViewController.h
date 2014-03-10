@@ -25,6 +25,7 @@
 @interface AddItemViewController : UITableViewController <UITextFieldDelegate, ABPeoplePickerNavigationControllerDelegate, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate> {
     
     IBOutlet UIActivityIndicatorView *loadingContact;
+    IBOutlet UIButton *askButton;
     
     NSMutableArray *info;
     

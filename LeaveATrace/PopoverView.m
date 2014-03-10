@@ -32,7 +32,7 @@
         textLabel.textColor = [UIColor colorWithWhite:1.0f alpha:0.7];
         textLabel.text = self.text;
         textLabel.textAlignment = NSTextAlignmentCenter;
-        popoverView.frame = CGRectMake(-10, -20.0f, 100, 100);
+        popoverView.frame = CGRectMake(-20, -30.0f, 100, 100);
         [self addSubview:textLabel];
         
     }

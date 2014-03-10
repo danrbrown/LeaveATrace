@@ -22,6 +22,7 @@ extern UIImage *SaveImage;
 extern PFFile *file;
 extern long iconBadge;
 extern BOOL sentImage;
+extern NSMutableArray *undoImageArray;
 
 @interface CanvasViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate> {
     
@@ -32,13 +33,14 @@ extern BOOL sentImage;
     CGFloat blue;
     CGFloat brush;
     CGFloat opacity;
+    CGPoint prevoiusPoint1;
+    CGPoint prevoiusPoint2;
     BOOL mouseSwiped;
     UIColor *theColor;
     double hue;
     
     //Undo
     UIImage *undoImage;
-    NSMutableArray *undoImageArray;
     
     //Variables
     BOOL dontTrash;

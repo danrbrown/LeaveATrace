@@ -29,7 +29,7 @@
     return self;
 }
 
--(BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
+-(BOOL) beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
     
     // Fade in and update the popup view
@@ -42,13 +42,14 @@
         [self positionAndUpdatePopupView];
         [self fadePopupViewInAndOut:YES];
         
+        
     }
     
     return [super beginTrackingWithTouch:touch withEvent:event];
     
 }
 
--(BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
+-(BOOL) continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
     
     // Update the popup view as slider knob is being moved
@@ -57,14 +58,14 @@
     
 }
 
--(void)cancelTrackingWithEvent:(UIEvent *)event
+-(void) cancelTrackingWithEvent:(UIEvent *)event
 {
     
     [super cancelTrackingWithEvent:event];
     
 }
 
--(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
+-(void) endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event
 {
     
     // Fade out the popup view
@@ -73,7 +74,7 @@
     
 }
 
--(void)constructSlider
+-(void) constructSlider
 {
     
     _popup = [[PopoverView alloc] initWithFrame:CGRectZero];
@@ -83,7 +84,7 @@
     
 }
 
--(void)fadePopupViewInAndOut:(BOOL)aFadeIn
+-(void) fadePopupViewInAndOut:(BOOL)aFadeIn
 {
     
     [UIView beginAnimations:nil context:NULL];

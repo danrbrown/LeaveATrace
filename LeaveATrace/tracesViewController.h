@@ -17,12 +17,11 @@ extern NSInteger traceObjectIdx;
     PFQuery *query;
         
     IBOutlet UIBarButtonItem *editButton;
-    
     IBOutlet UIImageView *previewImage;
-    
     IBOutlet UILabel *noTraces;
-    
     IBOutlet UIActivityIndicatorView *loadingTraces;
+    IBOutlet UIImageView *tutorialImage2;
+    IBOutlet UINavigationController *TracesTitle;
     
 }
 

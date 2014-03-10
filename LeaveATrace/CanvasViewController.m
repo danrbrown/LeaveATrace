@@ -28,6 +28,7 @@ NSString *badgeString;
 NSString *tracesBadgeString;
 long iconBadge;
 BOOL sentImage;
+NSMutableArray *undoImageArray;
 
 @interface CanvasViewController ()
 
@@ -66,7 +67,7 @@ BOOL sentImage;
     theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
     
     currentColorImage.backgroundColor = theColor;
-    currentColorImage.layer.cornerRadius = 2.0;
+    currentColorImage.layer.cornerRadius = 4.0;
     currentColorImage.layer.borderColor = [UIColor blackColor].CGColor;
     currentColorImage.layer.borderWidth = 3.0;
     
@@ -74,6 +75,8 @@ BOOL sentImage;
     
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 1.5);
     self.brushSize.transform = trans;
+    self.colorValue.transform = trans;
+    sliderImage.transform = trans;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateBadges:)
@@ -374,10 +377,6 @@ BOOL sentImage;
     
     [undoImageArray removeAllObjects];
     
-    UIImage *nothing = [UIImage imageNamed:@"Nothing.png"];
-    
-    [trashB setImage:nothing forState:UIControlStateHighlighted];
-    
 }
 
 //----------------------------------------------------------------------------------
@@ -399,10 +398,6 @@ BOOL sentImage;
         [undoImageArray removeLastObject];
         
         mainImage.image = undoImage;
-        
-        UIImage *nothing = [UIImage imageNamed:@"Nothing.png"];
-        
-        [undoB setImage:nothing forState:UIControlStateHighlighted];
         
     }
     
@@ -461,8 +456,6 @@ BOOL sentImage;
     [mainImage.image drawInRect:CGRectMake(0, 0, mainImage.frame.size.width, mainImage.frame.size.height)];
     undoImage = UIGraphicsGetImageFromCurrentImageContext();
     [undoImageArray addObject:undoImage];
-    
-    
     
 }
 
@@ -651,10 +644,6 @@ BOOL sentImage;
     UIGraphicsEndImageContext();
     UIImageWriteToSavedPhotosAlbum(SaveImage, self,@selector(image:didFinishSavingWithError:contextInfo:), nil);
     
-    UIImage *nothing = [UIImage imageNamed:@"Nothing.png"];
-    
-    [saveB setImage:nothing forState:UIControlStateHighlighted];
-    
     [colorValue setThumbImage:[UIImage alloc] forState:UIControlStateNormal];
     
 }
@@ -706,10 +695,6 @@ BOOL sentImage;
 {
     
     [self performSegueWithIdentifier:@"selectAContact" sender:self];
-    
-    UIImage *nothing = [UIImage imageNamed:@"Nothing.png"];
-    
-    [sendB setImage:nothing forState:UIControlStateHighlighted];
     
 }
 

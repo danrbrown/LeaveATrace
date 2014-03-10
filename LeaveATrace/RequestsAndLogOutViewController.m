@@ -240,8 +240,7 @@
         if (!succeeded)
         {
 
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error accepting, please try again!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             
             [errorAlertView show];
             

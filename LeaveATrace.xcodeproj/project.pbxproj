@@ -11,7 +11,7 @@
 		9C0818391869524E006E9DFD /* TrashButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0818381869524E006E9DFD /* TrashButton.png */; };
 		9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16751C181DA1B50024EE93 /* tracesViewController.m */; };
 		9C243FD318C931EF00F497AB /* ColorValueSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C243FD218C931EF00F497AB /* ColorValueSlider.m */; };
-		9C243FDA18CB9F8200F497AB /* Tutorial(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 9C243FD918CB9F8200F497AB /* Tutorial(1).png */; };
+		9C243FDE18CBB3DA00F497AB /* Tutorial(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 9C243FDD18CBB3DA00F497AB /* Tutorial(1).png */; };
 		9C27680B181C75B10073453E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680A181C75B10073453E /* Foundation.framework */; };
 		9C27680D181C75B10073453E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680C181C75B10073453E /* CoreGraphics.framework */; };
 		9C27680F181C75B10073453E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680E181C75B10073453E /* UIKit.framework */; };
@@ -76,6 +76,8 @@
 		9CBF68EC187A070500718E8D /* CloseButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CBF68EB187A070500718E8D /* CloseButton.png */; };
 		9CD69C0F185A951200177EA0 /* FBUserSettingsViewResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9CD69C0E185A951100177EA0 /* FBUserSettingsViewResources.bundle */; };
 		9CD69C181860E36C00177EA0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CD69C171860E36C00177EA0 /* Images.xcassets */; };
+		9CF0EC5C18CCDE7E0083FFEF /* Tutorial(2).png in Resources */ = {isa = PBXBuildFile; fileRef = 9CF0EC5B18CCDE7E0083FFEF /* Tutorial(2).png */; };
+		9CF0EC6218CD183A0083FFEF /* PWSimpleHandwriting.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CF0EC6118CD18230083FFEF /* PWSimpleHandwriting.ttf */; };
 		9CF1F932184BE89F00AE3EAC /* traceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1F931184BE89F00AE3EAC /* traceCell.m */; };
 		9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CF1F93D18515D4600AE3EAC /* Alph.plist */; };
 		9CF34DCC18907D6C0082329B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CF34DCB18907D6C0082329B /* MessageUI.framework */; };
@@ -107,7 +109,7 @@
 		9C16751C181DA1B50024EE93 /* tracesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = tracesViewController.m; path = LeaveATrace/tracesViewController.m; sourceTree = "<group>"; };
 		9C243FD118C931EF00F497AB /* ColorValueSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorValueSlider.h; path = LeaveATrace/ColorValueSlider.h; sourceTree = "<group>"; };
 		9C243FD218C931EF00F497AB /* ColorValueSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorValueSlider.m; path = LeaveATrace/ColorValueSlider.m; sourceTree = "<group>"; };
-		9C243FD918CB9F8200F497AB /* Tutorial(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tutorial(1).png"; sourceTree = "<group>"; };
+		9C243FDD18CBB3DA00F497AB /* Tutorial(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tutorial(1).png"; sourceTree = "<group>"; };
 		9C276807181C75B10073453E /* LeaveATrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeaveATrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C27680A181C75B10073453E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9C27680C181C75B10073453E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -191,6 +193,8 @@
 		9CBF68EB187A070500718E8D /* CloseButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseButton.png; sourceTree = "<group>"; };
 		9CD69C0E185A951100177EA0 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
 		9CD69C171860E36C00177EA0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9CF0EC5B18CCDE7E0083FFEF /* Tutorial(2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tutorial(2).png"; sourceTree = "<group>"; };
+		9CF0EC6118CD18230083FFEF /* PWSimpleHandwriting.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PWSimpleHandwriting.ttf; sourceTree = "<group>"; };
 		9CF1F930184BE89F00AE3EAC /* traceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = traceCell.h; path = LeaveATrace/traceCell.h; sourceTree = "<group>"; };
 		9CF1F931184BE89F00AE3EAC /* traceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = traceCell.m; path = LeaveATrace/traceCell.m; sourceTree = "<group>"; };
 		9CF1F93D18515D4600AE3EAC /* Alph.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Alph.plist; sourceTree = "<group>"; };
@@ -256,7 +260,8 @@
 		9C243FD818CB9F8200F497AB /* Intro */ = {
 			isa = PBXGroup;
 			children = (
-				9C243FD918CB9F8200F497AB /* Tutorial(1).png */,
+				9CF0EC5B18CCDE7E0083FFEF /* Tutorial(2).png */,
+				9C243FDD18CBB3DA00F497AB /* Tutorial(1).png */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
@@ -475,6 +480,7 @@
 			children = (
 				9CA9C76E18B9495000F2E5C4 /* Leave A Trace - Privacy Policy.pdf */,
 				9CA9C77018B9495000F2E5C4 /* Leave A Trace - Terms of Use.pdf */,
+				9CF0EC6118CD18230083FFEF /* PWSimpleHandwriting.ttf */,
 			);
 			path = "Key Documents";
 			sourceTree = "<group>";
@@ -591,11 +597,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF0EC6218CD183A0083FFEF /* PWSimpleHandwriting.ttf in Resources */,
 				9CBC5AFC1856900A00725BD5 /* SignUpButton.png in Resources */,
 				9CF1F93E18515D4600AE3EAC /* Alph.plist in Resources */,
 				9CD69C181860E36C00177EA0 /* Images.xcassets in Resources */,
 				9CBF68EC187A070500718E8D /* CloseButton.png in Resources */,
 				9CD69C0F185A951200177EA0 /* FBUserSettingsViewResources.bundle in Resources */,
+				9CF0EC5C18CCDE7E0083FFEF /* Tutorial(2).png in Resources */,
 				9C595CBA1867DE3600D1B7E8 /* SentTrace.png in Resources */,
 				9CA9C77218B9495000F2E5C4 /* Leave A Trace - Privacy Policy.pdf in Resources */,
 				9C595CBC1867E04700D1B7E8 /* SentNotOpened.png in Resources */,
@@ -615,7 +623,7 @@
 				9CAA06CD189EC6FF00178030 /* TracesIcon@2x.png in Resources */,
 				9CA9C77418B9495000F2E5C4 /* Leave A Trace - Terms of Use.pdf in Resources */,
 				9C782E05182885ED00077FC8 /* eraserB.png in Resources */,
-				9C243FDA18CB9F8200F497AB /* Tutorial(1).png in Resources */,
+				9C243FDE18CBB3DA00F497AB /* Tutorial(1).png in Resources */,
 				9C595CB61867B66500D1B7E8 /* NewTrace.png in Resources */,
 				9CAA06D1189EEB5900178030 /* FriendsIcon@2x.png in Resources */,
 				9C27681E181C75B10073453E /* Main.storyboard in Resources */,

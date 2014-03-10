@@ -52,12 +52,14 @@
     theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
     
     currentColorImage.backgroundColor = theColor;
-    currentColorImage.layer.cornerRadius = 2.0;
+    currentColorImage.layer.cornerRadius = 4.0;
     currentColorImage.layer.borderColor = [UIColor blackColor].CGColor;
     currentColorImage.layer.borderWidth = 3.0;
 
     CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * 1.5);
     self.brushSize.transform = trans;
+    self.colorValue.transform = trans;
+    sliderImage.transform = trans;
     
     int smallScreen = 480;
     

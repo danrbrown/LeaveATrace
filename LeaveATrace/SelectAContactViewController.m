@@ -13,7 +13,7 @@
 
 #import "SelectAContactViewController.h"
 //#import "tracesViewController.h"
-//#import "CanvasViewController.h"
+#import "CanvasViewController.h"
 //#import "LeaveATraceItem.h"
 #import "sendToCell.h"
 #import "AppDelegate.h"
@@ -305,6 +305,8 @@
     sentImage = YES;
     
     [self dismissViewControllerAnimated:NO completion:nil];
+    
+    [undoImageArray removeAllObjects];
     
     PFObject *tempObject = [validContacts objectAtIndex:indexPath.row];
     NSString *tempContact = [tempObject objectForKey:@"contact"];
