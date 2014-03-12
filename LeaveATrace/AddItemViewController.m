@@ -47,6 +47,9 @@
     
     textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     
+    UIFont *textfieldFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:23];
+    textField.font = textfieldFont;
+    
 }
 
 //----------------------------------------------------------------------------------

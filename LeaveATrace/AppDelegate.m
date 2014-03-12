@@ -62,7 +62,7 @@
 
     [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateNormal];
     
-    UIFont *titleFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:27];
+    UIFont *titleFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:26];
     
     NSShadow* shadow = [NSShadow new];
     shadow.shadowOffset = CGSizeMake(0.0f, 0.0f);

@@ -434,7 +434,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LmY-bC-Q9Q">
-                                            <rect key="frame" x="15" y="7" width="196" height="40"/>
+                                            <rect key="frame" x="15" y="7" width="285" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="22"/>
                                             <color key="textColor" red="0.2844786352" green="0.2844786352" blue="0.2844786352" alpha="1" colorSpace="calibratedRGB"/>
@@ -1052,21 +1052,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b4l-zZ-67E">
-                                            <rect key="frame" x="69" y="4" width="222" height="29"/>
+                                            <rect key="frame" x="61" y="5" width="235" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="19"/>
                                             <color key="textColor" red="0.28447863520408168" green="0.28447863520408168" blue="0.28447863520408168" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date, Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lAv-qM-d2N">
-                                            <rect key="frame" x="69" y="30" width="222" height="18"/>
+                                            <rect key="frame" x="61" y="31" width="235" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
                                             <color key="textColor" red="0.65531589673913038" green="0.65531589673913038" blue="0.65531589673913038" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SentTrace.png" id="VVY-Hw-2EH">
-                                            <rect key="frame" x="15" y="11" width="46" height="33"/>
+                                            <rect key="frame" x="8" y="11" width="46" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" id="5R9-Ai-itF">
@@ -1075,7 +1075,7 @@
                                             <color key="backgroundColor" red="0.96002072699999996" green="0.96002072699999996" blue="0.96002072699999996" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="1bC-xB-1BT">
-                                            <rect key="frame" x="27" y="18" width="20" height="20"/>
+                                            <rect key="frame" x="21" y="18" width="20" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </activityIndicatorView>
                                     </subviews>

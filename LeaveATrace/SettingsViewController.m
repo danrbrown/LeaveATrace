@@ -162,9 +162,12 @@ int screens;
         
     }
     
+    UIFont *sectionFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:19];
+    
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor whiteColor];
     label.text = sectionTitle;
+    label.font = sectionFont;
     
     UIView *view = [[UIView alloc] init];
     [view addSubview:label];
@@ -357,7 +360,13 @@ int screens;
     
     cell.textLabel.text = text;
     cell.detailTextLabel.text = detail;
+    
+    UIFont *titleFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:18];
+    UIFont *detailFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:14];
 
+    cell.textLabel.font = titleFont;
+    cell.detailTextLabel.font = detailFont;
+    
     return cell;
 
 }

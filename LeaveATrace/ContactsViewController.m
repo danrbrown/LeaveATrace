@@ -241,6 +241,7 @@
 {
     
     cell.textLabel.enabled = YES;
+    UIFont *friendsFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:24];
     
     if ([isAFriend isEqualToString:@"NO"])
     {
@@ -249,6 +250,7 @@
         cell.detailTextLabel.enabled = NO;
         cell.textLabel.enabled = NO;
         cell.userInteractionEnabled = NO;
+        cell.textLabel.font = friendsFont;
         
     }
     else
@@ -258,6 +260,7 @@
         cell.detailTextLabel.enabled = YES;
         cell.textLabel.enabled = YES;
         cell.userInteractionEnabled = YES;
+        cell.textLabel.font = friendsFont;
         
     }
     

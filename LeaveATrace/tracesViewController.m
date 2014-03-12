@@ -317,7 +317,7 @@ NSInteger traceObjectIdx;
         {
             
             cell.didNotOpenImage.image = [UIImage imageNamed:@"SentTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(17, 11, 45, 30);
+            cell.didNotOpenImage.frame = CGRectMake(8, 11, 45, 30);
             
             tmpOpenedString = @"- Opened";
             [cell.didNotOpenImage setHidden:NO];
@@ -328,7 +328,7 @@ NSInteger traceObjectIdx;
         {
 
             cell.didNotOpenImage.image = [UIImage imageNamed:@"SentNotOpened.png"];
-            cell.didNotOpenImage.frame = CGRectMake(16, 12, 45, 28);
+            cell.didNotOpenImage.frame = CGRectMake(7, 12, 45, 28);
             
             if ([tmpStatus isEqualToString:@"P"])
             {
@@ -369,14 +369,14 @@ NSInteger traceObjectIdx;
         {
             
             cell.didNotOpenImage.image = [UIImage imageNamed:@"OpenedTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(15, 8, 45, 38);
+            cell.didNotOpenImage.frame = CGRectMake(7, 8, 45, 38);
             
         }
         else
         {
 
             cell.didNotOpenImage.image = [UIImage imageNamed:@"NewTrace.png"];
-            cell.didNotOpenImage.frame = CGRectMake(16, 12, 45, 30);
+            cell.didNotOpenImage.frame = CGRectMake(7, 12, 45, 30);
             
         }
         
@@ -439,6 +439,12 @@ NSInteger traceObjectIdx;
     }
     
     cell.dateAndTimeLabel.text = combined;
+    
+    UIFont *titleFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:20];
+    UIFont *detailFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:13];
+    
+    cell.usernameTitle.font = titleFont;
+    cell.dateAndTimeLabel.font = detailFont;
 
     return cell;
     

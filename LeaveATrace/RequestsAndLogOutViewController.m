@@ -439,7 +439,11 @@
     PFObject *tempObject = [(APP).requestsArray objectAtIndex:indexPath.row];
     
     cell.cellTitle.text = [tempObject objectForKey:@"username"];
-        
+    
+    UIFont *requestsFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:24];
+    
+    cell.cellTitle.font = requestsFont;
+    
     return cell;
     
 }
