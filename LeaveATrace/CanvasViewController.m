@@ -572,7 +572,7 @@ NSMutableArray *undoImageArray;
 -(IBAction) sliderChanged:(id)sender
 {
     
-    UISlider * changedSlider = (UISlider*)sender;
+    UISlider *changedSlider = (UISlider*)sender;
     
     if(changedSlider == self.brushSize)
     {
