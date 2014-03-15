@@ -306,8 +306,6 @@
     
     sentImage = YES;
     
-    [self dismissViewControllerAnimated:NO completion:nil];
-    
     [undoImageArray removeAllObjects];
     
     PFObject *tempObject = [validContacts objectAtIndex:indexPath.row];
@@ -326,6 +324,8 @@
     [imageObject setObject:@"P"forKey:@"status"];
     
     [(APP).tracesArray insertObject:imageObject atIndex:0];
+    
+    [self dismissViewControllerAnimated:NO completion:nil];
     
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         

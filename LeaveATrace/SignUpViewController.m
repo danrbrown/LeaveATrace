@@ -163,9 +163,10 @@
                  [traceDefaults setObject:user.username forKey:@"username"];
                  [traceDefaults setObject:user.password forKey:@"password"];
                  [traceDefaults synchronize];
+                 
+                 [self establishLeaveATraceFriendship:user.username];
                                   
                  [loadTraces loadTracesArray];
-                 [loadTraces loadContactsArray];
                  [loadTraces loadRequestsArray];
             
              }
@@ -197,6 +198,50 @@
         varifyPasswordSignUpTextField.text = nil;
         
     }
+    
+}
+
+//---------------------------------------------------------
+//
+// Name: establishLeaveATraceFriendship
+//
+// Purpose:  Whewn a new user signs up, then we automatically
+// setup a friendship with the Leave A Trace user. They don't
+// have to confirm the friendship and they can't delete it.
+//
+//---------------------------------------------------------
+
+-(void) establishLeaveATraceFriendship:(NSString *)newUser
+{
+
+    LoadTraces *loadTraces = [[LoadTraces alloc] init];
+
+    PFObject *userContact = [PFObject objectWithClassName:@"UserContact"];
+    
+    [userContact setObject:newUser forKey:@"username"];
+    [userContact setObject:@"Leave A Trace" forKey:@"contact"];
+    [userContact setObject:@"YES" forKey:@"userAccepted"];
+    [userContact setObject:@"" forKey:@"nickname"];
+    
+    [userContact saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if (succeeded)
+        {
+            
+            [loadTraces loadContactsArray];
+            
+        }
+        else
+        {
+            
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"There there was an error, please try loggin in again!" message:nil delegate:nil cancelButtonTitle:@"Ok"    otherButtonTitles:nil, nil];
+            
+            [errorAlertView show];
+            
+        }
+        
+    }];
+
     
 }
 
