@@ -287,6 +287,10 @@
                                 <rect key="frame" x="237" y="98" width="126" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tutorial(1).png" id="VOu-Ib-1Q2">
+                                <rect key="frame" x="0.0" y="-1" width="320" height="520"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -300,6 +304,7 @@
                         <outlet property="sendB" destination="nhl-67-LS2" id="FdI-aU-ltA"/>
                         <outlet property="sliderImage" destination="MMz-qv-Io8" id="kwM-dt-HuW"/>
                         <outlet property="trashB" destination="O1Q-lZ-m3k" id="OqW-F7-9Vn"/>
+                        <outlet property="tutorialImage" destination="VOu-Ib-1Q2" id="aKF-Jf-qJe"/>
                         <outlet property="undoB" destination="UYS-v5-hh0" id="LV5-Zb-Okx"/>
                         <segue destination="afe-A0-nhl" kind="modal" identifier="selectAContact" animates="NO" id="RX7-Ij-e6B"/>
                     </connections>
@@ -1313,16 +1318,17 @@
     <resources>
         <image name="CloseButton.png" width="90" height="155"/>
         <image name="ColorValueSlider.png" width="263" height="66"/>
-        <image name="FriendsIcon.png" width="52" height="52"/>
+        <image name="FriendsIcon.png" width="47" height="47"/>
         <image name="LoginButton.png" width="258" height="145"/>
-        <image name="NewTraceIcon.png" width="55" height="55"/>
-        <image name="RequestsIcon.png" width="55" height="55"/>
+        <image name="NewTraceIcon.png" width="50" height="50"/>
+        <image name="RequestsIcon.png" width="50" height="50"/>
         <image name="SaveButton.png" width="102" height="101"/>
         <image name="SentTrace.png" width="157" height="109"/>
         <image name="SettingsIcon.png" width="32" height="30"/>
         <image name="SignUpButton.png" width="259" height="146"/>
-        <image name="TracesIcon.png" width="55" height="55"/>
+        <image name="TracesIcon.png" width="50" height="50"/>
         <image name="TrashButton.png" width="105" height="172"/>
+        <image name="Tutorial(1).png" width="320" height="519"/>
         <image name="iconsberlin.png" width="30" height="30"/>
         <image name="undoButton.png" width="100" height="94"/>
     </resources>

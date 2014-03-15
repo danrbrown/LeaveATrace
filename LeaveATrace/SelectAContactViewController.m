@@ -260,6 +260,8 @@
 -(void) sendPushToContact:(NSDictionary *)dataParms
 {
     
+    NSLog(@"in sendPushToContact");
+    
     NSString *pushRecipient = [dataParms objectForKey:@"friend"];
     NSString *newObjectId = [dataParms objectForKey:@"objectId"];
     

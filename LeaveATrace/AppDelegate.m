@@ -101,6 +101,7 @@
    // [PFPush handlePush:userInfo];
     
     NSString *msgType = [userInfo objectForKey:@"msgType"];
+    NSLog(@"userInfo = %@",userInfo);
     
     if ([msgType isEqualToString:@"Trace"])
     {

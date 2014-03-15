@@ -12,6 +12,7 @@
 //-------------------------------------------------------
 
 #import "SignUpViewController.h"
+#import "LoadTraces.h"
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
 
@@ -127,7 +128,9 @@
 -(IBAction) signUpUserPressed:(id)sender
 {
     
-    NSLog(@"pass = %@ var %@", passwordSignUpTextField.text, varifyPasswordSignUpTextField.text);
+    LoadTraces *loadTraces = [[LoadTraces alloc] init];
+    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
+
     
     if ([passwordSignUpTextField.text isEqual:varifyPasswordSignUpTextField.text])
     {
@@ -153,6 +156,17 @@
                  [[PFInstallation currentInstallation] setObject:[PFUser currentUser] forKey:@"user"];
             
                  [[PFInstallation currentInstallation] saveEventually];
+                 
+                 [[PFUser currentUser] setObject:@"Y" forKey:@"LoggedIn"];
+                 [[PFUser currentUser] saveInBackground];
+                 
+                 [traceDefaults setObject:user.username forKey:@"username"];
+                 [traceDefaults setObject:user.password forKey:@"password"];
+                 [traceDefaults synchronize];
+                                  
+                 [loadTraces loadTracesArray];
+                 [loadTraces loadContactsArray];
+                 [loadTraces loadRequestsArray];
             
              }
              else if (error)
