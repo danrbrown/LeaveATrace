@@ -49,6 +49,10 @@
                                                  name:@"RequestsLoadedNotification"
                                                object:nil];
     
+    UIFont *noFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:20];
+    
+    noRequests.font = noFont;
+    
 }
 
 //----------------------------------------------------------------------------------

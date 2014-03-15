@@ -47,6 +47,10 @@
     
     [self performSelector:@selector(displayValidContacts)];
     
+    UIFont *noFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:20];
+    
+    noSendTo.font = noFont;
+    
 }
 
 //----------------------------------------------------------------------------------
@@ -215,6 +219,10 @@
     PFObject *tempObject = [validContacts objectAtIndex:indexPath.row];
     
     cell.sendToTitle.text = [tempObject objectForKey:@"contact"];
+    
+    UIFont *sendFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:23];
+    
+    cell.sendToTitle.font = sendFont;
     
     return cell;
     

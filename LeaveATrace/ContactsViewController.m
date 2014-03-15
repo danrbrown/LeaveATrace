@@ -53,6 +53,10 @@
                                                  name:@"ContactsLoadedNotification"
                                                object:nil];
     
+    UIFont *noFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:20];
+    
+    noContacts.font = noFont;
+    
 }
 
 //----------------------------------------------------------------------------------

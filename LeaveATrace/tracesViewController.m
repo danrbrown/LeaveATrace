@@ -58,6 +58,9 @@ NSInteger traceObjectIdx;
                                                  name:@"SendTraceNotification"
                                                object:nil];
     
+    UIFont *noFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:20];
+    
+    noTraces.font = noFont;
     
 }
 
