@@ -62,6 +62,10 @@
         
     }
     
+    UIFont *textFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:20];
+    
+    userNameTextField.font = textFont;
+    passWordTextField.font = textFont;
     
 }
 

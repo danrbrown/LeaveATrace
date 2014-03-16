@@ -76,6 +76,13 @@
         
     }
     
+    UIFont *textFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:20];
+    
+    userSignUpTextField.font = textFont;
+    emailTextField.font = textFont;
+    passwordSignUpTextField.font = textFont;
+    varifyPasswordSignUpTextField.font = textFont;
+    
 }
 
 //----------------------------------------------------------
