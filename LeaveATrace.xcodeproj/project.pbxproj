@@ -10,6 +10,7 @@
 		3789414718B14BB600BA0063 /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3789414618B14BB600BA0063 /* ForgotPasswordViewController.m */; };
 		9C0818391869524E006E9DFD /* TrashButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C0818381869524E006E9DFD /* TrashButton.png */; };
 		9C16751D181DA1B50024EE93 /* tracesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C16751C181DA1B50024EE93 /* tracesViewController.m */; };
+		9C1FBD7018DA4A6F009A3CCC /* Tutorial(3).png in Resources */ = {isa = PBXBuildFile; fileRef = 9C1FBD6F18DA4A6F009A3CCC /* Tutorial(3).png */; };
 		9C243FD318C931EF00F497AB /* ColorValueSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C243FD218C931EF00F497AB /* ColorValueSlider.m */; };
 		9C243FDE18CBB3DA00F497AB /* Tutorial(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 9C243FDD18CBB3DA00F497AB /* Tutorial(1).png */; };
 		9C27680B181C75B10073453E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C27680A181C75B10073453E /* Foundation.framework */; };
@@ -107,6 +108,7 @@
 		9C0818381869524E006E9DFD /* TrashButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrashButton.png; sourceTree = "<group>"; };
 		9C16751B181DA1B50024EE93 /* tracesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tracesViewController.h; path = LeaveATrace/tracesViewController.h; sourceTree = "<group>"; };
 		9C16751C181DA1B50024EE93 /* tracesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = tracesViewController.m; path = LeaveATrace/tracesViewController.m; sourceTree = "<group>"; };
+		9C1FBD6F18DA4A6F009A3CCC /* Tutorial(3).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tutorial(3).png"; sourceTree = "<group>"; };
 		9C243FD118C931EF00F497AB /* ColorValueSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorValueSlider.h; path = LeaveATrace/ColorValueSlider.h; sourceTree = "<group>"; };
 		9C243FD218C931EF00F497AB /* ColorValueSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorValueSlider.m; path = LeaveATrace/ColorValueSlider.m; sourceTree = "<group>"; };
 		9C243FDD18CBB3DA00F497AB /* Tutorial(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tutorial(1).png"; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 		9C243FD818CB9F8200F497AB /* Intro */ = {
 			isa = PBXGroup;
 			children = (
+				9C1FBD6F18DA4A6F009A3CCC /* Tutorial(3).png */,
 				9CF0EC5B18CCDE7E0083FFEF /* Tutorial(2).png */,
 				9C243FDD18CBB3DA00F497AB /* Tutorial(1).png */,
 			);
@@ -610,6 +613,7 @@
 				9CBC5B49185931B600725BD5 /* SaveButton.png in Resources */,
 				9CAA06CF189EC8C600178030 /* NewTraceIcon@2x.png in Resources */,
 				9C0818391869524E006E9DFD /* TrashButton.png in Resources */,
+				9C1FBD7018DA4A6F009A3CCC /* Tutorial(3).png in Resources */,
 				9C27686F181C771D0073453E /* Default-568h@2x.png in Resources */,
 				9C276871181C771D0073453E /* iconsberlin@2x.png in Resources */,
 				9CACF51718C6D4A00037F9E7 /* ColorValueSlider.png in Resources */,

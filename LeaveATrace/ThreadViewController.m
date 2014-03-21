@@ -86,6 +86,13 @@
         
     }
     
+    if (!(APP).firstTime)
+    {
+        
+        [tutorialImageTrace setHidden:YES];
+        
+    }
+    
 }
 
 -(BOOL) prefersStatusBarHidden
@@ -205,6 +212,14 @@
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    
+    if ((APP).firstTimeTrace)
+    {
+        
+        [tutorialImageTrace setHidden:YES];
+        (APP).firstTimeTrace = NO;
+        
+    }
     
     mouseSwiped = NO;
     

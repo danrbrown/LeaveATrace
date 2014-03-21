@@ -20,6 +20,7 @@
 @property (nonatomic, assign) NSInteger unopenedTraceCount;
 @property (nonatomic, assign) NSInteger friendRequestsCount;
 @property (nonatomic, assign) BOOL firstTime;
+@property (nonatomic, assign) BOOL firstTimeTrace;
 @property (nonatomic, assign) BOOL TRACES_DATA_LOADED;
 @property (nonatomic, assign) BOOL CONTACTS_DATA_LOADED;
 @property (nonatomic, assign) BOOL REQUESTS_DATA_LOADED;
