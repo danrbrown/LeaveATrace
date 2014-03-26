@@ -29,7 +29,7 @@
     _REQUESTS_DATA_LOADED = NO;
     
     _firstTime = NO;
-    _firstTimeTrace = NO;
+    _firstTimeTrace = YES;
     
     [Parse setApplicationId:@"cK6TMBbNDsdNFsE1vSckhEQDrCQjztAxURMKPHXL"
                   clientKey:@"8n0WuaSXapCrRAH1HRNL7bbSxIOBQxbjZHWLIrHr"];
@@ -282,21 +282,9 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
-    //[UIApplication sharedApplication].applicationIconBadgeNumber = _unopenedTraceCount + _friendRequestsCount;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = _unopenedTraceCount + _friendRequestsCount;
     
-    UIApplication *app = [UIApplication sharedApplication];
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
-    
-    if (notification)
-    {
-        
-        notification.alertBody = @"testing";
-        [UIApplication sharedApplication].applicationIconBadgeNumber = 1;
-        [app scheduleLocalNotification:notification];
-        
-    
-    }
-    
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

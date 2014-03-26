@@ -86,7 +86,7 @@
         
     }
     
-    if (!(APP).firstTime)
+    if ((APP).firstTimeTrace)
     {
         
         [tutorialImageTrace setHidden:YES];

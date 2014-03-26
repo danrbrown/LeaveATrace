@@ -280,11 +280,14 @@
     PFUser *user = (PFUser *)[userQuery getFirstObject];
     
     NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
+
+    NSString *countTracesString = [NSString stringWithFormat:@""];
     
     if ([friendLoggedIn isEqualToString:@"Y"])
     {
         
         NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert",
+                              countTracesString,@"badge",
                               @"Trace",@"msgType",
                               newObjectId, @"objId",
                               pushRecipient, @"friend",nil];
