@@ -15,9 +15,8 @@
 
 #import "AddItemViewController.h"
 #import "LeaveATraceItem.h"
-//#import "ContactsViewController.h"
-//#import "CanvasViewController.h"
 #import "AppDelegate.h"
+#import "LoadTraces.h"
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 #import <MessageUI/MessageUI.h>
@@ -445,6 +444,8 @@
 -(void) sendPushForFriendRequest:(NSString *)friendToBeAdded
 {
     
+    LoadTraces *friendRequests = [[LoadTraces alloc] init];
+    
     NSString *pushMessage = [NSString stringWithFormat:@"%@ sent you a Friend Request!", [PFUser currentUser].username];
     
     PFQuery *userQuery = [PFUser query];
@@ -452,11 +453,18 @@
     PFUser *user = (PFUser *)[userQuery getFirstObject];
     
     NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
-   
+    
+    NSInteger friendTracesCount = [friendRequests countTracesForFriend:friendToBeAdded];
+    NSInteger friendRequestsCount = [friendRequests countFriendRequestsForFriend:friendToBeAdded];
+    NSInteger friendBadgeCount = friendTracesCount + friendRequestsCount;
+    
+    NSString *countTracesString = [NSString stringWithFormat:@"%li", (long)friendBadgeCount];
+
     if ([friendLoggedIn isEqualToString:@"Y"])
     {
         
         NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert",
+                              countTracesString,@"badge",
                               @"Request",@"msgType",
                               friendToBeAdded, @"friend",nil];
                 

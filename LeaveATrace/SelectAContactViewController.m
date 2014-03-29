@@ -284,7 +284,7 @@
 
     NSInteger friendTracesCount = [friendTraces countTracesForFriend:pushRecipient];
     NSInteger friendRequestsCount = [friendTraces countFriendRequestsForFriend:pushRecipient];
-    NSInteger friendBadgeCount =friendTracesCount + friendRequestsCount;
+    NSInteger friendBadgeCount = friendTracesCount + friendRequestsCount;
     
     NSString *countTracesString = [NSString stringWithFormat:@"%li", (long)friendBadgeCount];
     

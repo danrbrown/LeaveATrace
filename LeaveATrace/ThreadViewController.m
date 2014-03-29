@@ -13,6 +13,7 @@
 
 #import "ThreadViewController.h"
 #import "tracesViewController.h"
+#import "LoadTraces.h"
 #import "AppDelegate.h"
 
 @interface ThreadViewController ()
@@ -453,6 +454,8 @@
 -(void) sendPushToContact:(NSDictionary *)dataParms
 {
     
+    LoadTraces *friendTraces = [[LoadTraces alloc] init];
+    
     NSString *pushRecipient = [dataParms objectForKey:@"friend"];
     NSString *oldObjectId = [dataParms objectForKey:@"objectId"];
 
@@ -464,9 +467,16 @@
     
     NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
     
+    NSInteger friendTracesCount = [friendTraces countTracesForFriend:pushRecipient];
+    NSInteger friendRequestsCount = [friendTraces countFriendRequestsForFriend:pushRecipient];
+    NSInteger friendBadgeCount = friendTracesCount + friendRequestsCount;
+    
+    NSString *countTracesString = [NSString stringWithFormat:@"%li", (long)friendBadgeCount];
+    
     if ([friendLoggedIn isEqualToString:@"Y"])
     {
         NSDictionary *data = [NSDictionary dictionaryWithObjectsAndKeys:pushMessage, @"alert",
+                              countTracesString,@"badge",
                               @"Thread",@"msgType",
                               oldObjectId, @"objId",
                               [PFUser currentUser].username,@"sender",
