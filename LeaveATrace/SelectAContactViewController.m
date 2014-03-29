@@ -12,11 +12,10 @@
 //----------------------------------------------------------------------------------
 
 #import "SelectAContactViewController.h"
-//#import "tracesViewController.h"
 #import "CanvasViewController.h"
-//#import "LeaveATraceItem.h"
 #import "sendToCell.h"
 #import "AppDelegate.h"
+#import "LoadTraces.h"
 #import <StoreKit/StoreKit.h>
 #import <Parse/Parse.h>
 
@@ -268,6 +267,8 @@
 -(void) sendPushToContact:(NSDictionary *)dataParms
 {
     
+    LoadTraces *friendTraces = [[LoadTraces alloc] init];
+    
     NSLog(@"in sendPushToContact");
     
     NSString *pushRecipient = [dataParms objectForKey:@"friend"];
@@ -281,7 +282,13 @@
     
     NSString *friendLoggedIn = [user objectForKey:@"LoggedIn"];
 
-    NSString *countTracesString = [NSString stringWithFormat:@""];
+    NSInteger friendTracesCount = [friendTraces countTracesForFriend:pushRecipient];
+    NSInteger friendRequestsCount = [friendTraces countFriendRequestsForFriend:pushRecipient];
+    NSInteger friendBadgeCount =friendTracesCount + friendRequestsCount;
+    
+    NSString *countTracesString = [NSString stringWithFormat:@"%li", (long)friendBadgeCount];
+    
+    NSLog(@"friend %@ count %ld",pushRecipient,(long)friendTracesCount);
     
     if ([friendLoggedIn isEqualToString:@"Y"])
     {

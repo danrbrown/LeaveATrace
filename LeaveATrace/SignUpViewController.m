@@ -168,7 +168,7 @@
                  [[PFUser currentUser] saveInBackground];
                  
                  [traceDefaults setObject:user.username forKey:@"username"];
-                 [traceDefaults setObject:user.password forKey:@"password"];
+                 //[traceDefaults setObject:user.password forKey:@"password"];
                  [traceDefaults synchronize];
                  
                  [self establishLeaveATraceFriendship:user.username];

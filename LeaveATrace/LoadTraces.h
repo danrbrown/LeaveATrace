@@ -16,4 +16,7 @@
 
 -(void) loadRequestsArray;
 
+-(NSInteger) countTracesForFriend:(NSString *)friend;
+-(NSInteger) countFriendRequestsForFriend:(NSString *)friend;
+
 @end

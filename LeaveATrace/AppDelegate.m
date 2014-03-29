@@ -60,8 +60,13 @@
     application.applicationSupportsShakeToEdit = YES;
     
     UIImage *thumbImage = [UIImage imageNamed:@"Nothing.png"];
-
+    //UIImage *MaxImage = [UIImage imageNamed:@"sizeMax.png"];
+    //UIImage *MinImage = [UIImage imageNamed:@"sizeMin.png"];
+    
     [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateNormal];
+    //[[UISlider appearance] setMaximumTrackImage:MaxImage forState:UIControlStateNormal];
+    //[[UISlider appearance] setMinimumTrackImage:MinImage forState:UIControlStateNormal];
+    
     
     UIFont *titleFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:26];
     
@@ -284,7 +289,6 @@
     
     [UIApplication sharedApplication].applicationIconBadgeNumber = _unopenedTraceCount + _friendRequestsCount;
     
-
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

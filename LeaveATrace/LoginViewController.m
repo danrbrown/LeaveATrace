@@ -169,7 +169,7 @@
             [[PFUser currentUser] saveInBackground];
             
             [traceDefaults setObject:self.userNameTextField.text forKey:@"username"];
-            [traceDefaults setObject:self.passWordTextField.text forKey:@"password"];
+//            [traceDefaults setObject:self.passWordTextField.text forKey:@"password"];
             [traceDefaults synchronize];
             
             [loadingLogin stopAnimating];

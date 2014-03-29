@@ -177,6 +177,78 @@
     
 }
 
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(NSInteger) countTracesForFriend:(NSString *)friend
+{
+    
+    NSInteger unopenedTraceCountForFriend = 0;
+    
+    PFQuery *toUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
+    [toUserQuery whereKey:@"toUser" equalTo:friend];
+    [toUserQuery whereKey:@"toUserDisplay" equalTo:@"YES"];
+    
+    PFQuery *fromUserQuery = [PFQuery queryWithClassName:@"TracesObject"];
+    [fromUserQuery whereKey:@"fromUser" equalTo:friend];
+    [fromUserQuery whereKey:@"fromUserDisplay" equalTo:@"YES"];
+    
+    PFQuery *tracesQuery = [PFQuery orQueryWithSubqueries:@[toUserQuery,fromUserQuery]];
+    
+    NSArray *friendsTracesArray = [tracesQuery findObjects];
+    
+    for (PFObject *objStatus in friendsTracesArray) {
+        
+        NSString *tmpCurrentUser = friend;
+        NSString *tmpStatus = [objStatus objectForKey:@"status"];
+        NSString *tmpLastSentBy = [objStatus objectForKey:@"lastSentBy"];
+        
+        if (![tmpCurrentUser isEqualToString:tmpLastSentBy])  // Not the current user sent it
+        {
+            if ([tmpStatus isEqualToString:@"S"] || [tmpStatus isEqualToString:@"D"])
+            {
+                
+                unopenedTraceCountForFriend++;
+                
+            }
+            
+        }
+    }
+    
+    return unopenedTraceCountForFriend;
+    
+}
+
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
+-(NSInteger) countFriendRequestsForFriend:(NSString *)friend
+{
+    
+    PFQuery *requestsQuery = [PFQuery queryWithClassName:@"UserContact"];
+    
+    [requestsQuery whereKey:@"contact" equalTo:friend];
+    [requestsQuery whereKey:@"userAccepted" equalTo:@"NO"];
+    [requestsQuery orderByAscending:@"contact"];
+    
+    NSArray *friendsRequestsArray = [requestsQuery findObjects];
+    
+    return friendsRequestsArray.count;
+    
+}
+
+
+//----------------------------------------------------------------------------------
 
 
 @end
