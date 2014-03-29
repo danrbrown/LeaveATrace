@@ -434,9 +434,7 @@ int screens;
         idx++;
         
     }
-    
-    [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber - (APP).tracesArray.count;
-    
+        
     (APP).tracesArray = nil;
     (APP).unopenedTraceCount = 0;
     

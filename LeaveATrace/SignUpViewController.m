@@ -168,12 +168,11 @@
                  [[PFUser currentUser] saveInBackground];
                  
                  [traceDefaults setObject:user.username forKey:@"username"];
-                 //[traceDefaults setObject:user.password forKey:@"password"];
                  [traceDefaults synchronize];
                  
                  [self establishLeaveATraceFriendship:user.username];
-                                  
-                 [loadTraces loadTracesArray];
+                 [self establishFirstTrace:user.username];
+                 
                  [loadTraces loadRequestsArray];
             
              }
@@ -249,6 +248,80 @@
         
     }];
 
+    
+}
+//---------------------------------------------------------
+//
+// Name: establishLeaveATraceFriendship
+//
+// Purpose:  Whewn a new user signs up, then we automatically
+// setup a friendship with the Leave A Trace user. They don't
+// have to confirm the friendship and they can't delete it.
+//
+//---------------------------------------------------------
+
+-(void) establishFirstTrace:(NSString *)newUser
+{
+    
+    LoadTraces *loadTraces = [[LoadTraces alloc] init];
+    
+    NSDate *currentDateTime = [NSDate date];
+    
+    PFObject *firstTraceObject = [PFObject objectWithClassName:@"TracesObject"];
+    
+    UIImage *welcomeImage = [UIImage imageNamed:@"Tutorial(3).png"];
+    NSData *pictureData = UIImageJPEGRepresentation(welcomeImage, 1.0);
+    
+    PFFile *firstTraceFile = [PFFile fileWithName:@"Wimg" data:pictureData];
+    
+    [firstTraceObject setObject:firstTraceFile forKey:@"image"];
+    [firstTraceObject setObject:@"Leave A Trace" forKey:@"fromUser"];
+    [firstTraceObject setObject:@"YES" forKey:@"fromUserDisplay"];
+    [firstTraceObject setObject:@"Leave A Trace" forKey:@"lastSentBy"];
+    [firstTraceObject setObject:currentDateTime forKey:@"lastSentByDateTime"];
+    [firstTraceObject setObject:newUser forKey:@"toUser"];
+    [firstTraceObject setObject:@"YES" forKey:@"toUserDisplay"];
+    [firstTraceObject setObject:@"D"forKey:@"status"];
+    
+    [(APP).tracesArray insertObject:firstTraceObject atIndex:0];
+    
+    [firstTraceFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        if (succeeded)
+        {
+            
+            [firstTraceObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                
+                if (succeeded)
+                {
+                    
+                    [loadTraces loadTracesArray];
+                    
+                }
+                else
+                {
+                    
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Opps" message:@"There was an error!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                    
+                    [errorAlertView show];
+                    
+                }
+                
+            }];
+            
+        }
+        else
+        {
+            
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [errorAlertView show];
+            
+        }
+        
+    }
+ ];
     
 }
 

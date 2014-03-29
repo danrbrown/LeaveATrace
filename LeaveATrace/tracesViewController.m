@@ -522,9 +522,7 @@ NSInteger traceObjectIdx;
         {
             
             (APP).unopenedTraceCount--;
-            
-            [UIApplication sharedApplication].applicationIconBadgeNumber--;
-            
+                        
             [self displayBadgeCounts];
             
         }

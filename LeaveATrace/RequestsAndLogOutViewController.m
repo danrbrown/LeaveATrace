@@ -232,7 +232,6 @@
     [newContact setObject:@"YES" forKey:@"userAccepted"];
     
     (APP).friendRequestsCount--;
-    [UIApplication sharedApplication].applicationIconBadgeNumber--;
     
     [(APP).contactsArray insertObject:newContact atIndex:0];
     NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"contact" ascending:YES selector:@selector(caseInsensitiveCompare:)];
@@ -365,7 +364,6 @@
     PFObject *tempObject = [(APP).requestsArray objectAtIndex:indexPath.row];
     
     (APP).friendRequestsCount--;
-    [UIApplication sharedApplication].applicationIconBadgeNumber--;
     
     [tempObject deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         

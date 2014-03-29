@@ -244,8 +244,6 @@
                 
                 _unopenedTraceCount++;
                 
-                [UIApplication sharedApplication].applicationIconBadgeNumber++;
-                
                 break;
             }
             
@@ -299,6 +297,13 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    LoadTraces *loadTraces = [[LoadTraces alloc] init];
+
+    [loadTraces loadTracesArray];
+    [loadTraces loadContactsArray];
+    [loadTraces loadRequestsArray];
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

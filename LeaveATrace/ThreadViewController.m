@@ -175,9 +175,7 @@
                             {
                                 
                                 (APP).unopenedTraceCount--;
-                                
-                                [UIApplication sharedApplication].applicationIconBadgeNumber--;
-                                
+                                                                
                             }
                             
                             
