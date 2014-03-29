@@ -400,7 +400,17 @@ int screens;
     NSString *tmpCurrentUser = [[PFUser currentUser] username];
     NSInteger idx = 0;
     
-    for (PFObject *obj in (APP).tracesArray)
+    // First step is to make a copy of the array, zero out the counter, set the badge icon to blank
+    
+    NSMutableArray *deleteArray = [[NSMutableArray alloc] initWithArray:(APP).tracesArray];
+    [(APP).tracesArray removeAllObjects];
+    (APP).unopenedTraceCount = 0;
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:nil];
+    
+    // Then loop through the temporary array and delete one at a time. This may take some
+    // time depending on the size of the array and the type of network connection.
+    
+    for (PFObject *obj in deleteArray)
     {
         
         NSString *tmpFromUser = [obj objectForKey:@"fromUser"];
@@ -434,12 +444,7 @@ int screens;
         idx++;
         
     }
-        
-    (APP).tracesArray = nil;
-    (APP).unopenedTraceCount = 0;
     
-    [[[[[self tabBarController] tabBar] items] objectAtIndex:0] setBadgeValue:nil];
-
 }
 
 @end

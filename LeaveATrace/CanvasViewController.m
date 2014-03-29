@@ -807,7 +807,6 @@ NSMutableArray *undoImageArray;
 {
 
     [tutorialImage setHidden:YES];
-    NSLog(@"hide");
     
 }
 

@@ -269,8 +269,6 @@
     
     LoadTraces *friendTraces = [[LoadTraces alloc] init];
     
-    NSLog(@"in sendPushToContact");
-    
     NSString *pushRecipient = [dataParms objectForKey:@"friend"];
     NSString *newObjectId = [dataParms objectForKey:@"objectId"];
     
@@ -287,8 +285,6 @@
     NSInteger friendBadgeCount = friendTracesCount + friendRequestsCount;
     
     NSString *countTracesString = [NSString stringWithFormat:@"%li", (long)friendBadgeCount];
-    
-    NSLog(@"friend %@ count %ld",pushRecipient,(long)friendTracesCount);
     
     if ([friendLoggedIn isEqualToString:@"Y"])
     {

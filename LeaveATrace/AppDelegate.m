@@ -7,9 +7,7 @@
 //
 
 #import <Parse/Parse.h>
-//#import "LoginViewController.h"
 #import "AppDelegate.h"
-//#import "ThreadViewController.h"
 #import "LoadTraces.h"
 
 @implementation AppDelegate
@@ -49,10 +47,7 @@
         {
         
         }
-        
-        UIAlertView *pushR = [[UIAlertView alloc] initWithTitle:@"Value of pushReceiver is..." message:pushReceiver delegate:nil cancelButtonTitle:@"close" otherButtonTitles:nil];
-        [pushR show];
-        
+    
     }
     
     [[UITabBar appearance] setTintColor:[UIColor yellowColor]];
@@ -83,6 +78,14 @@
     
 }
 
+//----------------------------------------------------------------------------------
+//
+// Name:
+//
+// Purpose:
+//
+//----------------------------------------------------------------------------------
+
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
     
     NSLog(@"Registering the installation...");
@@ -107,7 +110,6 @@
    // [PFPush handlePush:userInfo];
     
     NSString *msgType = [userInfo objectForKey:@"msgType"];
-    NSLog(@"userInfo = %@",userInfo);
     
     if ([msgType isEqualToString:@"Trace"])
     {
@@ -153,8 +155,6 @@
     NSString *objId = [userInfo objectForKey:@"objId"];
     NSString *friend = [userInfo objectForKey:@"friend"];
     
-    NSLog(@"Trace push");
-
     // Only deal with the push if the user is logged in, and the logged in user
     // is the one receiving the push
     
@@ -219,8 +219,6 @@
     NSString *sender = [userInfo objectForKey:@"sender"];
     NSDate *currentDateTime = [NSDate date];
     
-    NSLog(@"Thread push");
-
     // Only deal with the push if the user is logged in, and the logged in user
     // is the one receiving the push
     
@@ -298,11 +296,23 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    LoadTraces *loadTraces = [[LoadTraces alloc] init];
+    (APP).TRACES_DATA_LOADED = NO;
+    (APP).CONTACTS_DATA_LOADED = NO;
+    (APP).REQUESTS_DATA_LOADED = NO;
+    
+    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *tmpUsername = [traceDefaults objectForKey:@"username"];
+    
+    if ([tmpUsername length] != 0)
+    {
 
-    [loadTraces loadTracesArray];
-    [loadTraces loadContactsArray];
-    [loadTraces loadRequestsArray];
+        LoadTraces *loadTraces = [[LoadTraces alloc] init];
+
+        [loadTraces loadTracesArray];
+        [loadTraces loadContactsArray];
+        [loadTraces loadRequestsArray];
+        
+    }
 
 }
 

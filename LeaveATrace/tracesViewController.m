@@ -74,7 +74,7 @@ NSInteger traceObjectIdx;
 
 -(void) viewDidAppear:(BOOL)animated
 {
-    
+
     if (!(APP).TRACES_DATA_LOADED)
     {
         
@@ -109,7 +109,7 @@ NSInteger traceObjectIdx;
 
 -(void) viewWillAppear:(BOOL)animated
 {
-    
+
     [tracesTable reloadData];
     [self displayBadgeCounts];
     
@@ -238,7 +238,6 @@ NSInteger traceObjectIdx;
 
 -(void) displayTraces
 {
-    NSLog(@"displayTraces traces view controller");
     
     [tracesTable reloadData];
     
