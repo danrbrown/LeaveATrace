@@ -28,6 +28,7 @@
     
     _firstTime = NO;
     _firstTimeTrace = YES;
+    _firstTimeThread = YES;
     
     [Parse setApplicationId:@"cK6TMBbNDsdNFsE1vSckhEQDrCQjztAxURMKPHXL"
                   clientKey:@"8n0WuaSXapCrRAH1HRNL7bbSxIOBQxbjZHWLIrHr"];
@@ -53,15 +54,6 @@
     [[UITabBar appearance] setTintColor:[UIColor yellowColor]];
     
     application.applicationSupportsShakeToEdit = YES;
-    
-    UIImage *thumbImage = [UIImage imageNamed:@"Nothing.png"];
-    //UIImage *MaxImage = [UIImage imageNamed:@"sizeMax.png"];
-    //UIImage *MinImage = [UIImage imageNamed:@"sizeMin.png"];
-    
-    [[UISlider appearance] setThumbImage:thumbImage forState:UIControlStateNormal];
-    //[[UISlider appearance] setMaximumTrackImage:MaxImage forState:UIControlStateNormal];
-    //[[UISlider appearance] setMinimumTrackImage:MinImage forState:UIControlStateNormal];
-    
     
     UIFont *titleFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:26];
     

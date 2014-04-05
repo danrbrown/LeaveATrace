@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NsB-hd-S74">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="NsB-hd-S74">
     <dependencies>
         <deployment version="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Contacts View Controller - Friends-->
@@ -284,11 +284,11 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ColorValueSlider.png" id="MMz-qv-Io8">
-                                <rect key="frame" x="237" y="98" width="126" height="27"/>
+                                <rect key="frame" x="237" y="103" width="126" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tutorial(1).png" id="VOu-Ib-1Q2">
-                                <rect key="frame" x="0.0" y="-1" width="320" height="520"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.74999999999999978" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tutorial(1).png" id="VOu-Ib-1Q2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -678,10 +678,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9sk-4P-i9y">
-                                <rect key="frame" x="60" y="537" width="213" height="15"/>
+                                <rect key="frame" x="20" y="449" width="213" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
-                                <state key="normal" title="15and50 | Leave A Trace">
+                                <state key="normal" title="Leave A Trace | 15and50">
                                     <color key="titleColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.00053359762919999996" green="0.70037105580000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -697,17 +697,30 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dan Brown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NHC-NK-MGv">
-                                <rect key="frame" x="172" y="426" width="121" height="23"/>
+                                <rect key="frame" x="164" y="395" width="121" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="17"/>
                                 <color key="textColor" red="0.13809828760000001" green="0.4538568046" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="SQs-Ce-wby">
+                                <rect key="frame" x="278" y="447" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="aXr-SG-Hsd" kind="modal" modalTransitionStyle="flipHorizontal" id="NtI-E1-krh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.13809828760000001" green="0.4538568046" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="fifteenAndFifty" destination="9sk-4P-i9y" id="BJH-jz-cqF"/>
+                        <outlet property="infoButton" destination="SQs-Ce-wby" id="Z9Q-mC-N2B"/>
                         <outlet property="logInButton" destination="Vn2-Gn-JMH" id="XAI-A7-SYp"/>
                         <outlet property="mainImage" destination="T99-hH-w9z" id="hJ6-U8-yT0"/>
                         <outlet property="signUpButton" destination="cca-D8-5Zu" id="77T-cB-LEs"/>
@@ -716,6 +729,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zP-E3-cCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-265" y="472"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="a01-3X-G70">
+            <objects>
+                <viewController id="aXr-SG-Hsd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yxn-oy-ype">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WelcomeImage.png" id="vxG-pR-zH0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="b3d-jj-vRW">
+                                <rect key="frame" x="11" y="526" width="67" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="24"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="RuF-KD-iC2" kind="modal" modalTransitionStyle="flipHorizontal" id="tCP-QI-Jon"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.13809828760000001" green="0.4538568046" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXF-4N-gi4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-265" y="1151"/>
         </scene>
         <!--Login View Controller - Log in-->
         <scene sceneID="ape-u5-Yeo">
@@ -1036,6 +1081,10 @@
                                     <rect key="frame" x="56" y="13" width="20" height="20"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </activityIndicatorView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tutorial(2).png" id="Ubx-yh-gyq">
+                                    <rect key="frame" x="12" y="5" width="280" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
@@ -1112,6 +1161,7 @@
                         <outlet property="loadingTraces" destination="Xlh-aN-iV5" id="5F3-i4-kBu"/>
                         <outlet property="noTraces" destination="xs7-7U-4he" id="6g1-8C-dNc"/>
                         <outlet property="tracesTable" destination="6qg-OO-yOW" id="Gsf-wl-sOD"/>
+                        <outlet property="tutorialImage2" destination="Ubx-yh-gyq" id="cru-Cp-ypZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUF-Wc-MHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1131,7 +1181,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bTf-ul-LZI">
-                                <rect key="frame" x="59" y="518" width="52" height="47"/>
+                                <rect key="frame" x="103" y="516" width="52" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
                                 <state key="normal" image="undoButton.png">
@@ -1168,7 +1218,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bXD-Nr-LjE">
-                                <rect key="frame" x="113" y="518" width="39" height="45"/>
+                                <rect key="frame" x="62" y="518" width="39" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" image="TrashButton.png">
@@ -1215,11 +1265,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ColorValueSlider.png" id="Pfr-a6-zK8">
-                                <rect key="frame" x="237" y="98" width="126" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tutorial(3).png" id="JJY-Ct-biV">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="237" y="102" width="126" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -1239,7 +1285,6 @@
                         <outlet property="sendB" destination="EtZ-Hq-yQb" id="QmU-JO-ZGE"/>
                         <outlet property="sliderImage" destination="Pfr-a6-zK8" id="7xV-m2-eag"/>
                         <outlet property="trashB" destination="bXD-Nr-LjE" id="uyH-UZ-WZR"/>
-                        <outlet property="tutorialImageTrace" destination="JJY-Ct-biV" id="cRg-gp-gVm"/>
                         <outlet property="undoB" destination="bTf-ul-LZI" id="YaT-7d-eEa"/>
                     </connections>
                 </viewController>
@@ -1322,7 +1367,7 @@
     </scenes>
     <resources>
         <image name="CloseButton.png" width="90" height="155"/>
-        <image name="ColorValueSlider.png" width="263" height="66"/>
+        <image name="ColorValueSlider.png" width="200" height="20"/>
         <image name="FriendsIcon.png" width="47" height="47"/>
         <image name="LoginButton.png" width="258" height="145"/>
         <image name="NewTraceIcon.png" width="50" height="50"/>
@@ -1334,7 +1379,8 @@
         <image name="TracesIcon.png" width="50" height="50"/>
         <image name="TrashButton.png" width="105" height="172"/>
         <image name="Tutorial(1).png" width="320" height="519"/>
-        <image name="Tutorial(3).png" width="320" height="568"/>
+        <image name="Tutorial(2).png" width="320" height="152"/>
+        <image name="WelcomeImage.png" width="320" height="568"/>
         <image name="iconsberlin.png" width="30" height="30"/>
         <image name="undoButton.png" width="100" height="94"/>
     </resources>
@@ -1344,8 +1390,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="vm4-Ru-Iag"/>
+        <segue reference="tCP-QI-Jon"/>
         <segue reference="aqm-j9-75I"/>
-        <segue reference="M9D-NX-IN9"/>
-        <segue reference="spu-jz-L3F"/>
     </inferredMetricsTieBreakers>
 </document>

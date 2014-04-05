@@ -67,7 +67,7 @@ NSMutableArray *undoImageArray;
     theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
     
     currentColorImage.backgroundColor = theColor;
-    currentColorImage.layer.cornerRadius = 4.0;
+    currentColorImage.layer.cornerRadius = 0.0;
     currentColorImage.layer.borderColor = [UIColor blackColor].CGColor;
     currentColorImage.layer.borderWidth = 3.0;
     
@@ -94,24 +94,11 @@ NSMutableArray *undoImageArray;
     if(result.height == smallScreen)
     {
         
-        sendB.frame = CGRectMake(250, 386, 64, 40);
-        trashB.frame = CGRectMake(110, 383, 39, 45);
-        undoB.frame = CGRectMake(60, 387, 45, 40);
+        sendB.frame = CGRectMake(250, 383, 64, 40);
+        undoB.frame = CGRectMake(103, 383, 53, 47);
+        trashB.frame = CGRectMake(61, 383, 39, 45);
         saveB.frame = CGRectMake(6, 385, 49, 43);
         mainImage.frame = CGRectMake(0, 0, 320, 431);
-        
-    }
-    
-    int bigScreen = 568;
-    
-    if(result.height == bigScreen)
-    {
-        
-        sendB.frame = CGRectMake(sendB.frame.origin.x, sendB.frame.origin.y, 64, 40);
-        trashB.frame = CGRectMake(trashB.frame.origin.x, trashB.frame.origin.y, 39, 45);
-        undoB.frame = CGRectMake(undoB.frame.origin.x, undoB.frame.origin.y, undoB.frame.size.width, undoB.frame.size.height);
-        saveB.frame = CGRectMake(saveB.frame.origin.x, saveB.frame.origin.y, 49, 43);
-        mainImage.frame = CGRectMake(0, 0, 320, 519);
         
     }
     
@@ -121,6 +108,17 @@ NSMutableArray *undoImageArray;
         [tutorialImage setHidden:YES];
         
     }
+    
+    UIImage *MaxImage = [UIImage imageNamed:@"BrushSizeSliderMax.png"];
+    UIImage *MinImage = [UIImage imageNamed:@"BrushSizeSliderMin.png"];
+    UIImage *ThumbImage = [UIImage imageNamed:@"BrushSizeSliderThumb.png"];
+    
+    [brushSize setMaximumTrackImage:MaxImage forState:UIControlStateNormal];
+    [brushSize setMinimumTrackImage:MinImage forState:UIControlStateNormal];
+    [brushSize setThumbImage:ThumbImage forState:UIControlStateNormal];
+
+    UIImage *colorThumbImage = [UIImage imageNamed:@"Nothing.png"];
+    [colorValue setThumbImage:colorThumbImage forState:UIControlStateNormal];
     
 }
 
@@ -665,7 +663,7 @@ NSMutableArray *undoImageArray;
         [loading stopAnimating];
         [_hudView removeFromSuperview];
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Drawing could not be saved, please try again!" message:nil delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Opps" message:@"If you wish to save go into Settings > Privacy > Photos and turn Leave A Trace on" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
         
         [alert show];
         

@@ -41,7 +41,6 @@
     int viewText;
     PFObject *traceObject;
     NSString *traceObjectId;
-    IBOutlet UIImageView *tutorialImageTrace;
 
 }
 

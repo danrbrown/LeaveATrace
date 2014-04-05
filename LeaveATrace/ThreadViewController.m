@@ -53,7 +53,7 @@
     theColor = [UIColor colorWithHue:hue saturation:1.0 brightness:1.0 alpha:1.0];
     
     currentColorImage.backgroundColor = theColor;
-    currentColorImage.layer.cornerRadius = 4.0;
+    currentColorImage.layer.cornerRadius = 0.0;
     currentColorImage.layer.borderColor = [UIColor blackColor].CGColor;
     currentColorImage.layer.borderWidth = 3.0;
 
@@ -68,10 +68,10 @@
     if(result.height == smallScreen)
     {
         
-        sendB.frame = CGRectMake(246, 434, 64, 40);
-        trashB.frame = CGRectMake(112, 431, 39, 45);
-        undoB.frame = CGRectMake(61, 434, 45, 40);
-        saveB.frame = CGRectMake(7, 432, 49, 43);
+        sendB.frame = CGRectMake(250, 434, 64, 40);
+        undoB.frame = CGRectMake(102, 430, 53, 47);
+        trashB.frame = CGRectMake(61, 432, 39, 45);
+        saveB.frame = CGRectMake(7, 433, 49, 43);
         
     }
     
@@ -87,12 +87,16 @@
         
     }
     
-    if ((APP).firstTimeTrace)
-    {
-        
-        [tutorialImageTrace setHidden:YES];
-        
-    }
+    UIImage *MaxImage = [UIImage imageNamed:@"BrushSizeSliderMax.png"];
+    UIImage *MinImage = [UIImage imageNamed:@"BrushSizeSliderMin.png"];
+    UIImage *ThumbImage = [UIImage imageNamed:@"BrushSizeSliderThumb.png"];
+    
+    [_brushSize setMaximumTrackImage:MaxImage forState:UIControlStateNormal];
+    [_brushSize setMinimumTrackImage:MinImage forState:UIControlStateNormal];
+    [_brushSize setThumbImage:ThumbImage forState:UIControlStateNormal];
+    
+    UIImage *colorThumbImage = [UIImage imageNamed:@"Nothing.png"];
+    [_colorValue setThumbImage:colorThumbImage forState:UIControlStateNormal];
     
 }
 
@@ -137,6 +141,10 @@
     
     viewText = 1;
     
+    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
+    [traceDefaults setObject:@"YES" forKey:@"sawTut"];
+    [traceDefaults synchronize];
+    
     [self loadingTrace];
     
     PFQuery *traceQuery = [PFQuery queryWithClassName:@"TracesObject"];
@@ -175,6 +183,7 @@
                             {
                                 
                                 (APP).unopenedTraceCount--;
+                                
                                                                 
                             }
                             
@@ -211,14 +220,6 @@
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
-    if ((APP).firstTimeTrace)
-    {
-        
-        [tutorialImageTrace setHidden:YES];
-        (APP).firstTimeTrace = NO;
-        
-    }
     
     mouseSwiped = NO;
     
@@ -694,7 +695,7 @@
     if (error != NULL)
     {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Uh-oh" message:@"Image could not be saved. Please try again"  delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Opps" message:@"If you wish to save go into Settings > Privacy > Photos and turn Leave A Trace on" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
         
         [alert show];
         

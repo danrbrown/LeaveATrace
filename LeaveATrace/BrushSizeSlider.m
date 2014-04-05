@@ -36,12 +36,11 @@
     CGPoint touchPoint = [touch locationInView:self];
     
     // Check if the knob is touched. If so, show the popup view
-    if(CGRectContainsPoint(CGRectInset(self.thumbRect, -12.0, -12.0), touchPoint))
+    if(CGRectContainsPoint(CGRectInset(self.thumbRect, -10.0, -30.0), touchPoint))
     {
         
         [self positionAndUpdatePopupView];
         [self fadePopupViewInAndOut:YES];
-        
         
     }
     
@@ -111,8 +110,8 @@
 {
     
     CGRect zeThumbRect = self.thumbRect;
-    CGRect popupRect = CGRectOffset(zeThumbRect, 0, -floor(zeThumbRect.size.height * 1.5));
-    _popup.frame = CGRectInset(popupRect, -20, -10);
+    CGRect popupRect = CGRectOffset(zeThumbRect, 0, -floor(zeThumbRect.size.width));
+    _popup.frame = CGRectInset(popupRect, -10, -30);
     _popup.value = self.value;
     
 }

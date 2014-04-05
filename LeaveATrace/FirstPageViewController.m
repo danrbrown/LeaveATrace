@@ -123,7 +123,9 @@ BOOL LoggedIn;
         
         logInButton.frame = CGRectMake(86, 142, logInButton.frame.size.width, logInButton.frame.size.height);
         
-        fifteenAndFifty.frame = CGRectMake(54, 452, fifteenAndFifty.frame.size.width, fifteenAndFifty.frame.size.height);
+        fifteenAndFifty.frame = CGRectMake(20, 449, fifteenAndFifty.frame.size.width, fifteenAndFifty.frame.size.height);
+        
+        infoButton.frame = CGRectMake(278, 444, infoButton.frame.size.width, infoButton.frame.size.height);
         
         mainImage.frame = CGRectMake(mainImage.frame.origin.x, mainImage.frame.origin.y, mainImage.frame.size.width, smallScreen);
         
