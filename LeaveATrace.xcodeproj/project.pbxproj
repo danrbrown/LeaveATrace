@@ -59,8 +59,11 @@
 		9C659BE418F069090046831B /* BrushSizeSliderMin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C659BE118F069090046831B /* BrushSizeSliderMin.png */; };
 		9C659BE518F069090046831B /* BrushSizeSliderThumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C659BE218F069090046831B /* BrushSizeSliderThumb.png */; };
 		9C659BE718F071690046831B /* WelcomeImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C659BE618F071690046831B /* WelcomeImage.png */; };
+		9C659BEB18F1AC060046831B /* RequestsIconBig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C659BE818F1AC060046831B /* RequestsIconBig@2x.png */; };
+		9C659BED18F1AC060046831B /* FriendsIconBig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C659BEA18F1AC060046831B /* FriendsIconBig@2x.png */; };
+		9C659BEF18F1AC750046831B /* TracesIconBig@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C659BEE18F1AC750046831B /* TracesIconBig@2x.png */; };
+		9C659BF318F1B0A80046831B /* NewTraceIconSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C659BF218F1B0A80046831B /* NewTraceIconSmall@2x.png */; };
 		9C7547201868DC1500AED9EB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C75471F1868DC1500AED9EB /* SettingsViewController.m */; };
-		9C782E05182885ED00077FC8 /* eraserB.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C782E04182885ED00077FC8 /* eraserB.png */; };
 		9CA1B48E1832CDC700CAFA8E /* FirstPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */; };
 		9CA7041F18AD764B00887EB1 /* RequestsIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CA7041E18AD764B00887EB1 /* RequestsIcon@2x.png */; };
 		9CA9C77218B9495000F2E5C4 /* Leave A Trace - Privacy Policy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 9CA9C76E18B9495000F2E5C4 /* Leave A Trace - Privacy Policy.pdf */; };
@@ -173,9 +176,12 @@
 		9C659BE118F069090046831B /* BrushSizeSliderMin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrushSizeSliderMin.png; sourceTree = "<group>"; };
 		9C659BE218F069090046831B /* BrushSizeSliderThumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrushSizeSliderThumb.png; sourceTree = "<group>"; };
 		9C659BE618F071690046831B /* WelcomeImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WelcomeImage.png; sourceTree = "<group>"; };
+		9C659BE818F1AC060046831B /* RequestsIconBig@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RequestsIconBig@2x.png"; sourceTree = "<group>"; };
+		9C659BEA18F1AC060046831B /* FriendsIconBig@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FriendsIconBig@2x.png"; sourceTree = "<group>"; };
+		9C659BEE18F1AC750046831B /* TracesIconBig@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TracesIconBig@2x.png"; sourceTree = "<group>"; };
+		9C659BF218F1B0A80046831B /* NewTraceIconSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NewTraceIconSmall@2x.png"; sourceTree = "<group>"; };
 		9C75471E1868DC1500AED9EB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		9C75471F1868DC1500AED9EB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		9C782E04182885ED00077FC8 /* eraserB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraserB.png; sourceTree = "<group>"; };
 		9CA1B48C1832CDC700CAFA8E /* FirstPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstPageViewController.h; path = LeaveATrace/FirstPageViewController.h; sourceTree = "<group>"; };
 		9CA1B48D1832CDC700CAFA8E /* FirstPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstPageViewController.m; path = LeaveATrace/FirstPageViewController.m; sourceTree = "<group>"; };
 		9CA7041E18AD764B00887EB1 /* RequestsIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RequestsIcon@2x.png"; sourceTree = "<group>"; };
@@ -401,7 +407,6 @@
 				9CBC5AF91856899B00725BD5 /* LoginButton.png */,
 				9CBF68EB187A070500718E8D /* CloseButton.png */,
 				9CBC5AFB1856900A00725BD5 /* SignUpButton.png */,
-				9C782E04182885ED00077FC8 /* eraserB.png */,
 				9C0818381869524E006E9DFD /* TrashButton.png */,
 			);
 			path = buttons;
@@ -416,11 +421,15 @@
 				9CACF51618C6D4A00037F9E7 /* ColorValueSlider.png */,
 				9C593E9018B8729000E8124A /* undoButton.png */,
 				9C593E8A18B858B900E8124A /* Nothing.png */,
-				9CA7041E18AD764B00887EB1 /* RequestsIcon@2x.png */,
 				9CAA06D918A45DCA00178030 /* SettingsIcon@2x.png */,
+				9CA7041E18AD764B00887EB1 /* RequestsIcon@2x.png */,
 				9CAA06CC189EC6FF00178030 /* TracesIcon@2x.png */,
-				9CAA06CE189EC8C600178030 /* NewTraceIcon@2x.png */,
 				9CAA06D0189EEB5900178030 /* FriendsIcon@2x.png */,
+				9CAA06CE189EC8C600178030 /* NewTraceIcon@2x.png */,
+				9C659BF218F1B0A80046831B /* NewTraceIconSmall@2x.png */,
+				9C659BE818F1AC060046831B /* RequestsIconBig@2x.png */,
+				9C659BEE18F1AC750046831B /* TracesIconBig@2x.png */,
+				9C659BEA18F1AC060046831B /* FriendsIconBig@2x.png */,
 				9C595CB51867B66500D1B7E8 /* NewTrace.png */,
 				9C595CB31867B65B00D1B7E8 /* OpenedTrace.png */,
 				9C595CBB1867E04700D1B7E8 /* SentNotOpened.png */,
@@ -618,6 +627,8 @@
 				9C595CBA1867DE3600D1B7E8 /* SentTrace.png in Resources */,
 				9C659BE318F069090046831B /* BrushSizeSliderMax.png in Resources */,
 				9CA9C77218B9495000F2E5C4 /* Leave A Trace - Privacy Policy.pdf in Resources */,
+				9C659BEF18F1AC750046831B /* TracesIconBig@2x.png in Resources */,
+				9C659BF318F1B0A80046831B /* NewTraceIconSmall@2x.png in Resources */,
 				9C595CBC1867E04700D1B7E8 /* SentNotOpened.png in Resources */,
 				9CBC5B49185931B600725BD5 /* SaveButton.png in Resources */,
 				9CAA06CF189EC8C600178030 /* NewTraceIcon@2x.png in Resources */,
@@ -626,6 +637,7 @@
 				9C659BE518F069090046831B /* BrushSizeSliderThumb.png in Resources */,
 				9C27686F181C771D0073453E /* Default-568h@2x.png in Resources */,
 				9C659BE418F069090046831B /* BrushSizeSliderMin.png in Resources */,
+				9C659BEB18F1AC060046831B /* RequestsIconBig@2x.png in Resources */,
 				9C276871181C771D0073453E /* iconsberlin@2x.png in Resources */,
 				9C659BE718F071690046831B /* WelcomeImage.png in Resources */,
 				9CACF51718C6D4A00037F9E7 /* ColorValueSlider.png in Resources */,
@@ -638,7 +650,7 @@
 				9CAA06DA18A45DCA00178030 /* SettingsIcon@2x.png in Resources */,
 				9CAA06CD189EC6FF00178030 /* TracesIcon@2x.png in Resources */,
 				9CA9C77418B9495000F2E5C4 /* Leave A Trace - Terms of Use.pdf in Resources */,
-				9C782E05182885ED00077FC8 /* eraserB.png in Resources */,
+				9C659BED18F1AC060046831B /* FriendsIconBig@2x.png in Resources */,
 				9C243FDE18CBB3DA00F497AB /* Tutorial(1).png in Resources */,
 				9C595CB61867B66500D1B7E8 /* NewTrace.png in Resources */,
 				9CAA06D1189EEB5900178030 /* FriendsIcon@2x.png in Resources */,
