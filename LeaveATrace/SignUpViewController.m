@@ -270,7 +270,9 @@
     
     PFObject *firstTraceObject = [PFObject objectWithClassName:@"TracesObject"];
     
-    UIImage *welcomeImage = [UIImage imageNamed:@"Tutorial(3).png"];
+    UIImage *welcomeImage = [UIImage imageNamed:@"FirstTrace.png"];
+
+    
     NSData *pictureData = UIImageJPEGRepresentation(welcomeImage, 1.0);
     
     PFFile *firstTraceFile = [PFFile fileWithName:@"Wimg" data:pictureData];

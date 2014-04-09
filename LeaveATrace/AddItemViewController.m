@@ -71,6 +71,17 @@
 -(IBAction) askFriend
 {
     
+    UIFont *titleFont = [UIFont fontWithName:@"Helvetica Neue" size:20];
+    
+    NSShadow* shadow = [NSShadow new];
+    shadow.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    shadow.shadowColor = [UIColor clearColor];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                            NSForegroundColorAttributeName: [UIColor blackColor],
+                                                            NSFontAttributeName:titleFont,
+                                                            NSShadowAttributeName:shadow
+                                                            }];
+    
     contacts = [[ABPeoplePickerNavigationController alloc] init];
 
     [contacts setPeoplePickerDelegate:self];
@@ -82,13 +93,24 @@
 -(void) peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
 {
     
+    UIFont *titleFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:26];
+    
+    NSShadow* shadow = [NSShadow new];
+    shadow.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    shadow.shadowColor = [UIColor clearColor];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                            NSForegroundColorAttributeName: [UIColor yellowColor],
+                                                            NSFontAttributeName:titleFont,
+                                                            NSShadowAttributeName:shadow
+                                                            }];
+    
     [contacts dismissViewControllerAnimated:YES completion:nil];
     
 }
 
 -(BOOL) peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person
 {
-    
+
     // Get the first and the last name. Actually, copy their values using the person object and the appropriate
     // properties into two string variables equivalently.
     // Watch out the ABRecordCopyValue method below. Also, notice that we cast to NSString *.

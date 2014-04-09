@@ -56,6 +56,11 @@
         tabBarItem3.image = tabImage3big;
         tabBarItem4.image = tabImage4big;
         
+        tabBarItem1.selectedImage = tabImage1big;
+        tabBarItem2.selectedImage = tabImage2big;
+        tabBarItem3.selectedImage = tabImage3big;
+        tabBarItem4.selectedImage = tabImage4big;
+        
         NSLog(@"Big");
         
     }

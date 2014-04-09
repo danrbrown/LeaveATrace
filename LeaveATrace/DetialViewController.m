@@ -33,6 +33,8 @@
         [supportText setHidden:NO];
         [supportButton setHidden:NO];
         
+        supportText.font = [UIFont fontWithName:@"PWSimpleHandwriting" size:18];
+        
         [pdf setHidden:YES];
         
     }
@@ -76,6 +78,17 @@
 -(IBAction)sendEmail:(id)sender
 {
     
+    UIFont *titleFont = [UIFont fontWithName:@"Helvetica Neue" size:20];
+    
+    NSShadow* shadow = [NSShadow new];
+    shadow.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    shadow.shadowColor = [UIColor clearColor];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                            NSForegroundColorAttributeName: [UIColor blackColor],
+                                                            NSFontAttributeName:titleFont,
+                                                            NSShadowAttributeName:shadow
+                                                            }];
+    
     MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
     
     [mailComposer setMailComposeDelegate:self];
@@ -83,11 +96,11 @@
     if ([MFMailComposeViewController canSendMail])
     {
         
-        [mailComposer setToRecipients:[NSArray arrayWithObjects:@"draw@leaveatrace.com", nil]];
+        [mailComposer setToRecipients:[NSArray arrayWithObjects:@"draw@15and50.com", nil]];
         
         [mailComposer setSubject:@"Leave A Trace"];
         
-        [mailComposer setMessageBody:@"Dear Dan and Ricky Brown,\n" isHTML:NO];
+        [mailComposer setMessageBody:@"Dear Dan and Ricky,\n" isHTML:NO];
         
         [self presentViewController:mailComposer animated:YES completion:nil];
         
@@ -97,6 +110,17 @@
 
 -(void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
+    
+    UIFont *titleFont = [UIFont fontWithName:@"PWSimpleHandwriting" size:26];
+    
+    NSShadow* shadow = [NSShadow new];
+    shadow.shadowOffset = CGSizeMake(0.0f, 0.0f);
+    shadow.shadowColor = [UIColor clearColor];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                            NSForegroundColorAttributeName: [UIColor yellowColor],
+                                                            NSFontAttributeName:titleFont,
+                                                            NSShadowAttributeName:shadow
+                                                            }];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     

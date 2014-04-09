@@ -10,7 +10,6 @@
 #import <Parse/Parse.h>
 #import <AddressBook/AddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
-#import "canvasImage.h"
 
 //Global variables
 extern NSString *badgeString;

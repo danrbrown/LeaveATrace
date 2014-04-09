@@ -107,7 +107,7 @@
                             <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
-                            <state key="normal" title="Ask a friend to join?">
+                            <state key="normal" title="Tap to ask a friend to join">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -288,7 +288,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" alpha="0.74999999999999978" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tutorial(1).png" id="VOu-Ib-1Q2">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -568,11 +568,10 @@
                                     <action selector="sendEmail:" destination="n9V-4H-0GY" eventType="touchUpInside" id="TGG-uV-duL"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" id="Nga-X7-QDO">
-                                <rect key="frame" x="30" y="79" width="260" height="108"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="If you need support or have any suggestions related to Leave A Trace send an email to draw@15and50com by tapping &quot;send email&quot;" textAlignment="center" id="Nga-X7-QDO">
+                                <rect key="frame" x="19" y="79" width="283" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">If you need support or have any suggestions with anything related to Leave A Trace send an email to draw@leaveatrace.com by clicking "send email"</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -678,7 +677,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9sk-4P-i9y">
-                                <rect key="frame" x="20" y="449" width="213" height="17"/>
+                                <rect key="frame" x="20" y="534" width="213" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                 <state key="normal" title="Leave A Trace | 15and50">
@@ -704,7 +703,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" id="SQs-Ce-wby">
-                                <rect key="frame" x="278" y="447" width="22" height="22"/>
+                                <rect key="frame" x="278" y="532" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal">
@@ -1390,8 +1389,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="vZm-Ey-PdG"/>
         <segue reference="vm4-Ru-Iag"/>
-        <segue reference="tCP-QI-Jon"/>
-        <segue reference="aqm-j9-75I"/>
+        <segue reference="udE-yY-0dt"/>
     </inferredMetricsTieBreakers>
 </document>

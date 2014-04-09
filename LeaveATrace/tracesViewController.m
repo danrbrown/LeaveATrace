@@ -62,6 +62,22 @@ NSInteger traceObjectIdx;
     
     noTraces.font = noFont;
     
+    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *tmpsawTut = [traceDefaults objectForKey:@"sawTut"];
+    
+    if ([tmpsawTut isEqual:@"NO"])
+    {
+        
+        [tutorialImage2 setHidden:NO];
+        
+    }
+    else
+    {
+        
+        [tutorialImage2 setHidden:YES];
+        
+    }
+    
 }
 
 //----------------------------------------------------------------------------------
@@ -102,22 +118,6 @@ NSInteger traceObjectIdx;
         }
         
         [self displayBadgeCounts];
-        
-    }
-    
-    NSUserDefaults *traceDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *tmpsawTut = [traceDefaults objectForKey:@"sawTut"];
-    
-    if ([tmpsawTut isEqual:@"NO"])
-    {
-        
-        [tutorialImage2 setHidden:NO];
-        
-    }
-    else
-    {
-        
-        [tutorialImage2 setHidden:YES];
         
     }
     
